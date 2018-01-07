@@ -1,37 +1,25 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
 	<?php 
-	include("../../Library/connect.php");
 	include_once("CategoryController.php");
-	$id = 0;
-	if(isset($_GET['id']))
-		$id=$_GET['id'];
+	$CategoryId = 0;
+	if(isset($_GET['CategoryId']))
+		$CategoryId=$_GET['CategoryId'];
 	$name="";
 	$description="";
-	$result = searchCategory($id);
+	$result = searchCategory($CategoryId);
 	//Lấy dữ liệu đưa vào mảng
 	if(isset($result))
 	{
-		list($id,$name,$description)=mysql_fetch_array($result);
+		list($CategoryId,$name,$description)=mysql_fetch_array($result);
 	}
 	//Cập nhật lại dữ liệu
 	if(isset($_POST['btnUpdate']))
 	{
+		$CategoryId=$_GET['CategoryId'];
 		$name=$_POST['txtName'];
 		$description=$_POST['txtDetails'];
-		updateCategory($id,$name,$description);
-		echo '<script> alert("Update successful!");</script>';
-		echo "<script>window.location.href='Category.php'</script>";
+		updateCategory($CategoryId,$name,$description);
+		echo '<script> alert("Cập nhật thành công!");</script>';
+		echo "<script>window.location.href='?page=category'</script>";
 	}
 
 	?>
@@ -49,7 +37,7 @@
 				<label class="control-label col-md-2" for="txtName">Mã Số:</label>
 				<div class="col-sm-10">
 					<input type="number" class="form-control" id="txtNum"  name="txtNum"
-					required  readonly="true" value="<?php echo $id;?>" >
+					required  readonly="true" value="<?php echo $CategoryId;?>" >
 				</div>
 			</div>
 			<div class="form-group">
@@ -62,9 +50,7 @@
 			<div class="form-group">
 				<label class="control-label col-md-2" for="txtDetails">Mô tả chi tiết:</label>
 				<div class="col-md-10">          
-
-					<textarea name="txtDetails" id="txtDetails"
-					placeholder="Nhập vào mô tả ch tiết loại rượu" class="form-control" required value="<?php echo $description;?>"></textarea>
+					<textarea name="txtDetails" id="txtDetails" class="form-control"><?php echo $description;?></textarea>
 				</div>
 			</div>
 
@@ -76,5 +62,3 @@
 			</div>
 		</form>
 	</div>
-</body>
-</html>
