@@ -47,13 +47,13 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<ul id="gn-menu" class="gn-menu-main">
 				<!-- /nav_agile_w3l -->
 				<li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><i class="fa fa-bars" aria-hidden="true"></i><span>Menu</span></a>
+					<a class="gn-icon gn-icon-menu"><i class="fa fa-bars" aria-hidden="true"></i><span>Danh mục</span></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller scrollbar1">
 							<ul class="gn-menu agile_menu_drop">
-								<li><a href="main-page.html"> <i class="fa fa-tachometer"></i> Dashboard</a></li>
+								<li><a href="#"> <i class="fa fa-tachometer"></i> Bảng điều khiển</a></li>
 								<li>
-									<a href="?page=category"><i class="fa fa-cogs" aria-hidden="true"></i> UI Components <i class="fa fa-angle-down" aria-hidden="true"></i></a> 
+									<a href="?page=category"><i class="fa fa-cogs" aria-hidden="true"></i> Danh mục </a> 
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"><a href="buttons.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Buttons</a></li>
 										<li class="mini_list_w3"><a href="grids.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Grids</a></li>
@@ -100,7 +100,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					</nav>
 				</li>
 				<!-- //nav_agile_w3l -->
-				<li class="second logo"><h1><a href="dashboard.php"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Esteem </a></h1></li>
+				<li class="second logo"><h1><a href="dashboard.php"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Windsor </a></h1></li>
 				<li class="second admin-pic">
 					<ul class="top_dp_agile">
 						<li class="dropdown profile_details_drop">
@@ -280,7 +280,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				<li class="second w3l_search">
 
 					<form action="#" method="post">
-						<input type="search" name="search" placeholder="Search here..." required="">
+						<input type="search" name="search" placeholder="Tìm kiếm..." required="">
 						<button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 					</form>
 					
@@ -307,46 +307,46 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 						<li>
 							<a href="#">
 
-								<i class="fa fa-building-o" aria-hidden="true"></i>
+								<i class="fa fa-hourglass-half" aria-hidden="true"></i>
 								<div class="ca-content">
-									<h4 class="ca-main">16,808</h4>
-									<h3 class="ca-sub">New Companies</h3>
+									<h4 class="ca-main">500</h4>
+									<h3 class="ca-sub">Đơn hàng đang chờ xử lý</h3>
 								</div>
 							</a>
 						</li>
 						<li>
 							<a href="#">
-								<i class="fa fa-user" aria-hidden="true"></i>
+								<i class="fa fa-gift" aria-hidden="true"></i>
 								<div class="ca-content">
 									<h4 class="ca-main one">26,808</h4>
-									<h3 class="ca-sub one">New Clients</h3>
+									<h3 class="ca-sub one">Khuyến mãi chờ kích hoạt</h3>
 								</div>
 							</a>
 						</li>
 						<li>
 							<a href="#">
-								<i class="fa fa-database" aria-hidden="true"></i>
+								<i class="fa fa-money" aria-hidden="true"></i>
 								<div class="ca-content">
 									<h4 class="ca-main two">29,008</h4>
-									<h3 class="ca-sub two">New Projects</h3>
+									<h3 class="ca-sub two">Doanh thu trong tháng</h3>
 								</div>
 							</a>
 						</li>
 						<li>
 							<a href="#">
-								<i class="fa fa-tasks" aria-hidden="true"></i>
+								<i class="fa fa-bar-chart-o" aria-hidden="true"></i>
 								<div class="ca-content">
 									<h4 class="ca-main three">49,436</h4>
-									<h3 class="ca-sub three">Old Projects</h3>
+									<h3 class="ca-sub three">Thống kê hàng tháng</h3>
 								</div>
 							</a>
 						</li>
 						<li>
 							<a href="#">
-								<i class="fa fa-clone" aria-hidden="true"></i>
+								<i class="fa fa-line-chart" aria-hidden="true"></i>
 								<div class="ca-content">
 									<h4 class="ca-main four">30,808</h4>
-									<h3 class="ca-sub four">New Orders</h3>
+									<h3 class="ca-sub four">Báo cáo</h3>
 								</div>
 							</a>
 						</li>
@@ -382,107 +382,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				</div>
 
 
-				<!-- /social_media-->
-				<div class="social_media_w3ls">
-
-					<div class="col-md-3 socail_grid_agile facebook">
-						<ul class="icon_w3_info">
-							<li><a href="#" class="wthree_facebook"> <i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-							<li>Facebook</li>
-						</ul>
-						<ul class="icon_w3_social">
-							<li><i class="fa fa-comment-o" aria-hidden="true"></i></li>
-							<li><i class="fa fa-envelope-o" aria-hidden="true"></i></li>
-							<li><i class="fa fa-user" aria-hidden="true"></i></li>
-						</ul>
-						<div class="clearfix"></div>
-						<div class="bottom_info_social">
-							<div class="col-md-4 agile_w3l_social_media_text_img">
-								<img src="images/admin.jpg" alt="">
-							</div>
-							<div class="col-md-8 agile_w3l_social_media_text">
-								<h4>Hurisa Joe</h4>
-								<p>Lorem ipsum dolor sit amet</p>
-							</div>
-
-							<div class="clearfix"></div>
-						</div>
-					</div>
-					<div class="col-md-3 socail_grid_agile twitter">
-						<ul class="icon_w3_info">
-							<li><a href="#" class="wthree_facebook"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							<li>Twitter</li>
-						</ul>
-						<ul class="icon_w3_social">
-							<li><i class="fa fa-comment-o" aria-hidden="true"></i></li>
-							<li><i class="fa fa-envelope-o" aria-hidden="true"></i></li>
-							<li><i class="fa fa-user" aria-hidden="true"></i></li>
-						</ul>
-						<div class="clearfix"></div>
-						<div class="bottom_info_social">
-							<div class="col-md-4 agile_w3l_social_media_text_img">
-								<img src="images/a1.jpg" alt="">
-							</div>
-							<div class="col-md-8 agile_w3l_social_media_text">
-								<h4>Jasmin Joe</h4>
-								<p>Lorem ipsum dolor sit amet</p>
-							</div>
-
-							<div class="clearfix"></div>
-						</div>
-					</div>
-					<div class="col-md-3 socail_grid_agile gmail">
-						<ul class="icon_w3_info">
-							<li><a href="#" class="wthree_facebook"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-							<li>Google+</li>
-						</ul>
-						<ul class="icon_w3_social">
-							<li><i class="fa fa-comment-o" aria-hidden="true"></i></li>
-							<li><i class="fa fa-envelope-o" aria-hidden="true"></i></li>
-							<li><i class="fa fa-user" aria-hidden="true"></i></li>
-						</ul>
-						<div class="clearfix"></div>
-						<div class="bottom_info_social">
-							<div class="col-md-4 agile_w3l_social_media_text_img">
-								<img src="images/a2.jpg" alt="">
-							</div>
-							<div class="col-md-8 agile_w3l_social_media_text">
-								<h4>John Pal</h4>
-								<p>Lorem ipsum dolor sit amet</p>
-							</div>
-
-							<div class="clearfix"></div>
-						</div>
-					</div>
-					<div class="col-md-3 socail_grid_agile dribble">
-
-						<ul class="icon_w3_info">
-							<li><a href="#" class="wthree_facebook"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-							<li>Dribbble</li>
-						</ul>
-						<ul class="icon_w3_social">
-							<li><i class="fa fa-comment-o" aria-hidden="true"></i></li>
-							<li><i class="fa fa-envelope-o" aria-hidden="true"></i></li>
-							<li><i class="fa fa-user" aria-hidden="true"></i></li>
-						</ul>
-						<div class="clearfix"></div>
-						<div class="bottom_info_social">
-							<div class="col-md-4 agile_w3l_social_media_text_img">
-								<img src="images/a4.jpg" alt="">
-							</div>
-							<div class="col-md-8 agile_w3l_social_media_text">
-								<h4>Honey Pal</h4>
-								<p>Lorem ipsum dolor sit amet</p>
-							</div>
-
-							<div class="clearfix"></div>
-						</div>
-
-					</div>
-					<div class="clearfix"></div>
-
-				</div>
-				<!-- //social_media-->
+				
 			</div>
 			<!-- //inner_content_w3_agile_info-->
 		</div>
