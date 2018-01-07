@@ -3,6 +3,6 @@
 $conn = 
 mysql_connect("localhost","root","mysql") or die(mysql_error());
 mysql_set_charset('utf8');
-mysql_select_db("CT250Windsor") or die("mysql can not find");
+mysql_select_db("windsor") or die("mysql can not find");
 
 ?>
