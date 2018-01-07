@@ -363,18 +363,18 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							
 							if(isset($_GET['page']) && $_GET['page'] == "category")
 							{
-									include("../Src/Category/Category.php");
+								include("../Src/Category/Category.php");
 								
 							}
 							if($_GET['page'] == "UpadateCategory"){
-									include("../Src/Category/UpdateCategory.php");
-								}elseif ($_GET['page'] == "AddCategory") {
-									include("../Src/Category/AddCategory.php");
-									
-								}elseif(isset($_GET['CategoryId'])){
-									deleteCategory($_GET['CategoryId']);
-									echo "<script>window.location.href='?page=category'</script>";
-								}
+								include("../Src/Category/UpdateCategory.php");
+							}elseif ($_GET['page'] == "AddCategory") {
+								include("../Src/Category/AddCategory.php");
+
+							}elseif(isset($_GET['CategoryId'])){
+								deleteCategory($_GET['CategoryId']);
+								echo "<script>window.location.href='?page=category'</script>";
+							}
 
 							?>
 						</div>
@@ -491,7 +491,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- banner -->
 	<!--copy rights start here-->
 	<div class="copyrights">
-		<p>© 2017 Esteem. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+		<p>© 2018 CT250 - Nhóm 02. All Rights Reserved</p>
 	</div>	
 	<!--copy rights end here-->
 	<!-- js -->
