@@ -17,7 +17,7 @@ function updatePublisher($PublisherId,$name,$description)
 	WHERE PublisherId='$PublisherId'";
 	mysql_query($update);
 }
-function searchPublisher($CategoryId)
+function searchPublisher($PublisherId)
 {
 	$select = 
 	"SELECT `PublisherId`, `PublisherName`, `PublisherDescription`

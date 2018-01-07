@@ -6,7 +6,7 @@ $PublisherId = 0;
 		$PublisherId=$_GET['PublisherId'];
 	$name="";
 	$description="";
-	$result = searchCategory($PublisherId);
+	$result = searchPublisher($PublisherId);
 	//Lấy dữ liệu đưa vào mảng
 	if(isset($result))
 	{
@@ -38,20 +38,21 @@ $PublisherId = 0;
 				<label class="control-label col-md-2" for="txtName">Mã Số:</label>
 				<div class="col-sm-10">
 					<input type="number" class="form-control" id="txtNum"  name="txtNum"
-					required  readonly="true" value="<?php echo $CategoryId;?>" >
+					required  readonly="true" value="<?php echo $PublisherId;?>" >
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-md-2" for="txtName">Tên nhà sản xuất:</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="txtName" placeholder="Nhập vào tên loại rượu" name="txtName"
+					<input type="text" class="form-control" id="txtName"  name="txtName"
 					required autofocus value="<?php echo $name;?>" >
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-md-2" for="txtDetails">Mô tả chi tiết:</label>
 				<div class="col-md-10">          
-					<textarea name="txtDetails" id="txtDetails" class="form-control"><?php echo $description;?></textarea>
+					<textarea name="txtDetails" id="txtDetails" class="form-control"><?php echo 
+					$description;?></textarea>
 				</div>
 			</div>
 

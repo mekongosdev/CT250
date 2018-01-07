@@ -33,6 +33,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<?php 
 	include_once("../Library/connect.php");
 	include_once("../Src/Category/CategoryController.php");
+	include_once("../Src/Publisher//PublisherController.php");
 	?>
 	<!-- banner -->
 	<div class="wthree_agile_admin_info">
@@ -55,7 +56,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									</ul>
 								</li>
 								<li>
-									<a href="#"> <i class="fa fa-file-text-o" aria-hidden="true"></i>Forms <i class="fa fa-angle-down" aria-hidden="true"></i></a> 
+									<a href="?page=publisher"> <i class="fa fa-file-text-o" aria-hidden="true"></i>Publisher <i class="fa fa-angle-down" aria-hidden="true"></i></a> 
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"><a href="input.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Inputs</a></li>
 										<li class="mini_list_w3"><a href="validation.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Validation</a></li>
@@ -363,14 +364,33 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							}
 							if($_GET['page'] == "UpadateCategory"){
 								include("../Src/Category/UpdateCategory.php");
-							}elseif ($_GET['page'] == "AddCategory") {
+							}
+							elseif ($_GET['page'] == "AddCategory") {
 								include("../Src/Category/AddCategory.php");
 
-							}elseif(isset($_GET['CategoryId'])){
+							}
+							elseif(isset($_GET['CategoryId'])){
 								deleteCategory($_GET['CategoryId']);
 								echo "<script>window.location.href='?page=category'</script>";
 							}
-
+							//Publisher
+							if(isset($_GET['page'])&& $_GET['page']=="publisher")
+							{
+								include_once("../Src/Publisher/Publisher.php");
+							}
+							if($_GET['page']=="UpdatePublisher")
+							{
+								include_once("../Src/Publisher/UpdatePublisher.php");
+							}
+							elseif ($_GET['page']=="AddPublisher") {
+								# code...
+								include('../Src/Publisher/AddPublisher.php');
+							}
+							elseif (isset($_GET['PublisherId'])) {
+								deletePublisher($_GET['PublisherId']);
+								# code...
+								echo "<script>window.location.href='?page=publisher'</script>";
+							}
 							?>
 						</div>
 					</div>
