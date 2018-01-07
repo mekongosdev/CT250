@@ -1,9 +1,4 @@
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -14,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<meta name="keywords" content="CT250" />
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- //custom-theme -->
+
 <link href="../public/admin/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" type="text/css" href="../public/admin/css/table-style.css" />
 <link rel="stylesheet" type="text/css" href="../public/admin/css/basictable.css" />
