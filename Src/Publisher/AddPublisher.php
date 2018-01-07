@@ -9,7 +9,7 @@ if(isset($_POST['btnAdd']))
 	addPublisher($name,$description);
 	echo '<script> alert("Thêm nhà sản xuất thành công!");</script>';
 	echo "<script>window.location.href='?page=publisher'</script>";
-	{
+	}
 
 		?>
 		<div class="row">
@@ -26,7 +26,7 @@ if(isset($_POST['btnAdd']))
 				<div class="form-group">
 					<label class="control-label col-md-2" for="txtName">Tên nhà sản xuất:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="txtName" placeholder="Nhập vào tên loại rượu" name="txtName"
+						<input type="text" class="form-control" id="txtName" placeholder="Nhập vào tên nhà sản xuất" name="txtName"
 						required autofocus >
 					</div>
 				</div>
@@ -35,7 +35,7 @@ if(isset($_POST['btnAdd']))
 					<div class="col-md-10">          
 
 						<textarea name="txtDetails" id="txtDetails"
-						placeholder="Nhập vào mô tả ch tiết loại rượu" class="form-control" required></textarea>
+						placeholder="Nhập vào mô tả chi tiết của nhà sản xuất rượu" class="form-control" required></textarea>
 					</div>
 				</div>
 

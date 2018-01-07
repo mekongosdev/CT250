@@ -43,7 +43,7 @@
 			<div class="form-group">
 				<label class="control-label col-md-2" for="txtName">Tên:</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="txtName" placeholder="Nhập vào tên loại rượu" name="txtName"
+					<input type="text" class="form-control" id="txtName"  name="txtName"
 					required autofocus value="<?php echo $name;?>" >
 				</div>
 			</div>
