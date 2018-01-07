@@ -58,7 +58,7 @@
 										<li class="mini_list_w3"><a href="validation.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Validation</a></li>
 									</ul>
 								</li>
-								<li><a href="table.html"> <i class="fa fa-table" aria-hidden="true"></i> Tables</a></li>
+								<li><a href="table.html"> <i class="fa fa-table top" aria-hidden="true"></i> Tables</a></li>
 								<li><a href="#"><i class="fa fa-list" aria-hidden="true"></i>Quản lý sản phẩm<i class="fa fa-angle-down" aria-hidden="true"> </i></a> 
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"><a href="typo.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lỷ rượu</a></li>
@@ -714,6 +714,14 @@
 
 				$('#table-max-height').basictable({
 					tableWrapper: true
+				});
+
+				$("ul.gn-submenu").slideUp('slow');
+
+				$("ul.gn-menu li").hover(function () { 
+					$(this).children("ul.gn-submenu").slideDown('fast');
+				}, function () {
+					$(this).children("ul.gn-submenu").slideUp('slow');
 				});
 			});
 		</script>
