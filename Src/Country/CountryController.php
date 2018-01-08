@@ -21,7 +21,7 @@ function updateCountry($CountryId,$name,$details)
 function searchCountry($CountryId)
 {
 	$select = 
-	"SELECT CountryId,CountryName,CountyDetails
+	"SELECT CountryId,CountryName,CountryDetails
 	FROM Country
 	WHERE CountryId='$CountryId'";
 	return mysql_query($select);

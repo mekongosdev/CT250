@@ -33,7 +33,8 @@
 	<?php 
 	include_once("../Library/connect.php");
 	include_once("../Src/Category/CategoryController.php");
-	include_once("../Src/Publisher//PublisherController.php");
+	include_once("../Src/Publisher/PublisherController.php");
+	include_once("../Src/Country/CountryController.php");
 	?>
 	<!-- banner -->
 	<div class="wthree_agile_admin_info">
@@ -54,7 +55,7 @@
 								<li>
 									<a href="?page=publisher"> <i class="fa fa-file-text-o" aria-hidden="true"></i>Publisher</a> 
 								</li>
-								<li><a href="table.html"> <i class="fa fa-table top" aria-hidden="true"></i> Tables</a></li>
+								<li><a href="?page=country"> <i class="fa fa-table top" aria-hidden="true"></i> Country</a></li>
 								<li><a href="#"><i class="fa fa-list" aria-hidden="true"></i>Quản lý sản phẩm<i class="fa fa-angle-down" aria-hidden="true"> </i></a> 
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"><a href="typo.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lỷ rượu</a></li>
@@ -378,6 +379,24 @@
 								deletePublisher($_GET['PublisherId']);
 								# code...
 								echo "<script>window.location.href='?page=publisher'</script>";
+							}
+							//Country
+							if(isset($_GET['page'])&& $_GET['page']=="country")
+							{
+								include_once("../Src/Country/Country.php");
+							}
+							if($_GET['page']=="UpdateCountry")
+							{
+								include_once("../Src/Country/UpdateCountry.php");
+							}
+							elseif ($_GET['page']=="AddCountry") {
+								# code...
+								include('../Src/Country/AddCountry.php');
+							}
+							elseif (isset($_GET['CountryId'])) {
+								deletePublisher($_GET['CountryId']);
+								# code...
+								echo "<script>window.location.href='?page=country'</script>";
 							}
 							?>
 						</div>
@@ -742,12 +761,12 @@
 				});
 			});
 		</script>
-		<script src="../public/admin/js/bars.js"></script>
-		<script src="../public/admin/js/jquery.nicescroll.js"></script>
-		<script src="../public/admin/js/scripts.js"></script>
+		<script src="../Public/admin/js/bars.js"></script>
+		<script src="../Public/admin/js/jquery.nicescroll.js"></script>
+		<script src="../Public/admin/js/scripts.js"></script>
 
-		<script type="text/javascript" src="../public/admin/js/bootstrap-3.1.1.min.js"></script>
+		<!-- <script type="text/javascript" src="../public/admin/js/bootstrap-3.1.1.min.js"></script> -->
 
-
+<script src="../Public/admin/js/bootstrap-3.1.1.min.js"></script>
 	</body>
 	</html>
