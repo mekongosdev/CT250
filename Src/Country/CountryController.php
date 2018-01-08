@@ -5,25 +5,25 @@ function addCountry($name,$details)
 	VALUES ('$name','$details')";
 	mysql_query($insert);
 }
-function deleteCountry($id)
+function deleteCountry($CountryId)
 {
-	$delete = "DELETE FROM Country WHERE CountryId=$id";
+	$delete = "DELETE FROM Country WHERE CountryId=$CountryId";
 	mysql_query($delete);
 }
-function updateCountry($id,$name,$details)
+function updateCountry($CountryId,$name,$details)
 {
 	$update = 
 	"UPDATE Country 
 	SET CountryName = '$name',CountryDetails='$details'
-	WHERE CountryId='$id'";
+	WHERE CountryId='$CountryId'";
 	mysql_query($update);
 }
-function searchCountry($id)
+function searchCountry($CountryId)
 {
 	$select = 
 	"SELECT CountryId,CountryName,CountyDetails
 	FROM Country
-	WHERE CountryId='$id'";
+	WHERE CountryId='$CountryId'";
 	return mysql_query($select);
 }
 ?>
