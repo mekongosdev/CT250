@@ -345,7 +345,7 @@
 					<div class="agile-tables">
 						<div class="w3l-table-info agile_info_shadow">
 							<?php 
-							
+							//Category
 							if(isset($_GET['page']) && $_GET['page'] == "category")
 							{
 								include("../Src/Category/Category.php");
@@ -381,21 +381,20 @@
 								echo "<script>window.location.href='?page=publisher'</script>";
 							}
 							//Country
-							if(isset($_GET['page'])&& $_GET['page']=="country")
+							if(isset($_GET['page']) && $_GET['page'] == "country")
 							{
-								include_once("../Src/Country/Country.php");
+								include("../Src/Country/Country.php");
+								
 							}
-							if($_GET['page']=="UpdateCountry")
-							{
-								include_once("../Src/Country/UpdateCountry.php");
+							if($_GET['page'] == "UpdateCountry"){
+								include("../Src/Country/UpdateCountry.php");
 							}
-							elseif ($_GET['page']=="AddCountry") {
-								# code...
-								include('../Src/Country/AddCountry.php');
+							elseif ($_GET['page'] == "AddCountry") {
+								include("../Src/Country/AddCountry.php");
+
 							}
-							elseif (isset($_GET['CountryId'])) {
-								deletePublisher($_GET['CountryId']);
-								# code...
+							elseif(isset($_GET['CountryId'])){
+								deleteCountry($_GET['CountryId']);
 								echo "<script>window.location.href='?page=country'</script>";
 							}
 							?>

@@ -10,6 +10,7 @@ function deleteCountry($CountryId)
 	$delete = "DELETE FROM Country WHERE CountryId=$CountryId";
 	mysql_query($delete);
 }
+
 function updateCountry($CountryId,$name,$details)
 {
 	$update = 

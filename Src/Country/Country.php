@@ -28,8 +28,8 @@ $list_country= mysql_query($sqlSelect);
 				<td class="col-md-3"><?= $name;?> </td>
 				<td class="col-md-6"><?= $details;?> </td>
 				<td class="text-center col-md-2">
-					<a class="btn btn-warning btn" href="?page=UpdateCountry&CountryId=<?php echo $Country; ?>"><i class="fa fa-edit"></i></a>
-					<a class='btn btn-danger' href="?page=DeleteCountry&CountryId=<?php echo $Coutry; ?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?')"><i class="fa fa-remove"></i></a>
+					<a class="btn btn-warning btn" href="?page=UpdateCountry&CountryId=<?php echo $CountryId; ?>"><i class="fa fa-edit"></i></a>
+					<a class='btn btn-danger' href="?page=DeleteCountry&CountryId=<?php echo $CountryId; ?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?')"><i class="fa fa-remove"></i></a>
 				</td>     
 			</tr>
 			<?php

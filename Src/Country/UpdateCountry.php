@@ -2,8 +2,8 @@
 include_once("CountryController.php");
 
 $CountryId = 0;
-	if(isset($_GET['$CountryId ']))
-		$CountryId =$_GET['$CountryId '];
+	if(isset($_GET['CountryId']))
+		$CountryId =$_GET['CountryId'];
 	$name="";
 	$details="";
 	$result = searchCountry($CountryId);
@@ -15,7 +15,7 @@ $CountryId = 0;
 	//Cập nhật lại dữ liệu
 	if(isset($_POST['btnUpdate']))
 	{
-		$CountryId=$_GET['$CountryId'];
+		$CountryId=$_GET['CountryId'];
 		$name=$_POST['txtName'];
 		$details=$_POST['txtDetails'];
 		updateCountry($CountryId,$name,$details);
