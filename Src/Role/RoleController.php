@@ -9,11 +9,11 @@ function deleteRole($RoleId)
 	$delete = "DELETE FROM Role WHERE RoleId=$RoleId";
 	mysql_query($delete);
 }
-function updateRole($name,$description)
+function updateRole($name,$description,$rolecctive)
 {
 	$update = 
 	"UPDATE Role 
-	SET RoleName = '$name',RoleDetails='$description'
+	SET RoleName = '$name',RoleDetails='$description',RoleActive='$rolecctive'
 	WHERE RoleId='$RoleId'";
 	mysql_query($update);
 }

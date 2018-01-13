@@ -5,11 +5,12 @@
 		$RoleId=$_GET['RoleId'];
 	$name="";
 	$description="";
+	$RoleActive="";
 	$result = searchRole($RoleId);
 	//Lấy dữ liệu đưa vào mảng
 	if(isset($result))
 	{
-		list($RoleId,$name,$description)=mysql_fetch_array($result);
+		list($RoleId,$name,$description,$RoleActive)=mysql_fetch_array($result);
 	}
 	//Cập nhật lại dữ liệu
 	if(isset($_POST['btnUpdate']))
@@ -17,7 +18,8 @@
 		$RoleId=$_GET['RoleId'];
 		$name=$_POST['txtName'];
 		$description=$_POST['txtDetails'];
-		updateRole($RoleId,$name,$description);
+		$RoleActive=$_POST['RoleActive']
+		updateRole($name,$description,$rolecctive);
 		echo '<script> alert("Cập nhật thành công!");</script>';
 		echo "<script>window.location.href='?page=Role'</script>";
 	}
@@ -27,7 +29,7 @@
 		<div class="col-md-12"/>
 		<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data" form-horizontal>
 			<div class="form_group">
-				<label class="control-label col-sm-12" for="email"><h2 align="center">Loại Rượu</h2></label>
+				<label class="control-label col-sm-12" for="email"><h2 align="center">Cập Nhật Quyền</h2></label>
 			</div>
 
 		</form>
@@ -41,7 +43,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-md-2" for="txtName">Tên:</label>
+				<label class="control-label col-md-2" for="txtName">Tên Quyền:</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" id="txtName" placeholder="Nhập vào tên loại rượu" name="txtName"
 					required autofocus value="<?php echo $name;?>" >
@@ -51,6 +53,12 @@
 				<label class="control-label col-md-2" for="txtDetails">Mô tả chi tiết:</label>
 				<div class="col-md-10">          
 					<textarea name="txtDetails" id="txtDetails" class="form-control"><?php echo $description;?></textarea>
+				</div>
+			</div>
+	<div class="form-group">
+				<label class="control-label col-md-2" for="RoleActive">Tình trạng:</label>
+				<div class="col-md-10">          
+					<textarea name="txtDetails" id="RoleActive" class="form-control"><?php echo $RoleActive?></textarea>
 				</div>
 			</div>
 

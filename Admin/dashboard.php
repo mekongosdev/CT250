@@ -35,6 +35,7 @@
 	include_once("../Src/Category/CategoryController.php");
 	include_once("../Src/Publisher/PublisherController.php");
 	include_once("../Src/Country/CountryController.php");
+	include_once("../Src/Role//RoleController.php");
 	?>
 	<!-- banner -->
 	<div class="wthree_agile_admin_info">
@@ -60,8 +61,8 @@
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"><a href="typo.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lỷ rượu</a></li>
 										<li class="mini_list_w3"><a href="icons.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý nhà sản xuất</a></li>
-										<li class="mini_list_agile"><a href="typo.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lỷ xuất xứ</a></li>
-										<li class="mini_list_w3"><a href="icons.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý khuyến mãi</a></li>
+										<li class="mini_list_agile"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lỷ xuất xứ</a></li>
+										<li class="mini_list_w3"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý khuyến mãi</a></li>
 										
 									</ul>
 								</li>
@@ -74,7 +75,7 @@
 											<li class="mini_list_w3"><a href="signup.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Tin tức</a></li>
 											<li class="mini_list_agile error"><a href="404.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Chi nhánh </a></li>
 
-											<li class="mini_list_w3_line"><a href="calendar.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Thanh toán</a></li>
+											<li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quyền hạn</a></li>
 										</ul>
 									</li>
 									
@@ -397,6 +398,25 @@
 								deleteCountry($_GET['CountryId']);
 								echo "<script>window.location.href='?page=country'</script>";
 							}
+							//Role
+							if(isset($_GET['page'])&& $_GET['page']=="role")
+							{
+								include_once("../Src/Role/Role.php");
+							}
+							if($_GET['page']=="UpdateRole")
+							{
+								include_once("../Src/Role/UpdateRole.php");
+							}
+							elseif ($_GET['page']=="AddRole") {
+								# code...
+								include('../Src/Role/AddRole.php');
+							}
+							elseif (isset($_GET['RoleId'])) {
+								deleteRole($_GET['RoleId']);
+								# code...
+								echo "<script>window.location.href='?page=role'</script>";
+							}
+							//Subject
 							?>
 						</div>
 					</div>
