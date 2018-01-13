@@ -1,580 +1,1422 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
-
-<html lang="vi">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CT250 - Windsor</title>
-    
-    <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-    
-    <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="Public/UserGui/css/bootstrap.min.css">
-    
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" type="text/css" href="Public/UserGui/css/font-awesome.min.css">
-
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="Public/UserGui/css/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="Public/UserGui/style.css">
-    <link rel="stylesheet" type="text/css" href="Public/UserGui/css/responsive.css">
-
-
-
+<title>Windsor Shop</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="CT250" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="public/client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="public/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="public/client/css/fasthover.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script src="public/client/js/jquery.min.js"></script>
+<!-- //js -->
+<!-- countdown -->
+<link rel="stylesheet" href="public/client/css/jquery.countdown.css" />
+<!-- //countdown -->
+<!-- cart -->
+<script src="public/client/js/simpleCart.min.js"></script>
+<!-- cart -->
+<!-- for bootstrap working -->
+<script type="text/javascript" src="public/client/js/bootstrap-3.1.1.min.js"></script>
+<!-- //for bootstrap working -->
+<link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!-- start-smooth-scrolling -->
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- //end-smooth-scrolling -->
 </head>
+	
 <body>
+<!-- header -->
+	<div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;</button>
+					<h4 class="modal-title" id="myModalLabel">
+						Đừng chờ đợi, đăng ký ngay!!</h4>
+				</div>
+				<div class="modal-body modal-body-sub">
+					<div class="row">
+						<div class="col-md-8 modal_body_left modal_body_left1" style="border-right: 1px dotted #C2C2C2;padding-right:3em;">
+							<div class="sap_tabs">	
+								<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+									<ul>
+										<li class="resp-tab-item" aria-controls="tab_item-0"><span>Đăng nhập</span></li>
+										<li class="resp-tab-item" aria-controls="tab_item-1"><span>Đăng ký</span></li>
+									</ul>		
+									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+										<div class="facts">
+											<div class="register">
+												<form action="#" method="post">			
+													<input name="Email" placeholder="Email Address" type="text" required="">						
+													<input name="Password" placeholder="Password" type="password" required="">										
+													<div class="sign-up">
+														<input type="submit" value="Sign in"/>
+													</div>
+												</form>
+											</div>
+										</div> 
+									</div>	
 
-    <div class="header-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="user-menu">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                            <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> My Cart</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Checkout</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="header-right">
-                        <ul class="list-unstyled list-inline">
-                            <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">USD</a></li>
-                                    <li><a href="#">INR</a></li>
-                                    <li><a href="#">GBP</a></li>
-                                </ul>
-                            </li>
+									<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
+										<div class="facts">
+											<div class="register">
+												<form action="#" method="post">			
+													<input placeholder="Name" name="Name" type="text" required="">
+													<input placeholder="Email Address" name="Email" type="email" required="">	
+													<input placeholder="Password" name="Password" type="password" required="">	
+													<input placeholder="Confirm Password" name="Password" type="password" required="">
+													<div class="sign-up">
+														<input type="submit" value="Create Account"/>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div> 			        					            	      
+								</div>	
+							</div>
+							<script src="public/client/js/easyResponsiveTabs.js" type="text/javascript"></script>
+							<script type="text/javascript">
+								$(document).ready(function () {
+									$('#horizontalTab').easyResponsiveTabs({
+										type: 'default', //Types: default, vertical, accordion           
+										width: 'auto', //auto or any width like 600px
+										fit: true   // 100% fit in a container
+									});
+								});
+							</script>
+							<div id="OR" class="hidden-xs">
+								hoặc</div>
+						</div>
+						<div class="col-md-4 modal_body_right modal_body_right1">
+							<div class="row text-center sign-with">
+								<div class="col-md-12">
+									<h3 class="other-nw">
+										Đăng ký với</h3>
+								</div>
+								<div class="col-md-12">
+									<ul class="social">
+										<li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
+										<li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
+										<li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
+										<li class="social_behance"><a href="#" class="entypo-behance"></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$('#myModal88').modal('show');
+	</script>
+	<div class="header">
+		<div class="container">
+			<div class="w3l_login">
+				<a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+			</div>
+			<div class="w3l_logo">
+				<h1><a href="index.html">Windsor's Wine<span>Siêu Thị Rượu Ngoại</span></a></h1>
+			</div>
+			<div class="search">
+				<input class="search_box" type="checkbox" id="search_box">
+				<label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
+				<div class="search_form">
+					<form action="#" method="post">
+						<input type="text" name="Search" placeholder="Search...">
+						<input type="submit" value="Send">
+					</form>
+				</div>
+			</div>
+			<div class="cart box_1">
+				<a href="checkout.html">
+					<div class="total">
+					<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+					<img src="public/client/images/bag.png" alt="" />
+				</a>
+				<p><a href="javascript:;" class="simpleCart_empty">Giỏ hàng trống</a></p>
+				<div class="clearfix"> </div>
+			</div>	
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	<div class="navigation">
+		<div class="container">
+			<nav class="navbar navbar-default">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header nav_2">
+					<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div> 
+				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="index.html" class="act">Trang chủ</a></li>	
+						<!-- Mega Menu -->
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sản phẩm <b class="caret"></b></a>
+							<ul class="dropdown-menu multi-column columns-3">
+								<div class="row">
+									<div class="col-sm-3">
+										<ul class="multi-column-dropdown">
+											<h6>Rượu truyền thống</h6>
+											<li><a href="dresses.html">Dresses<span>New</span></a></li>
+											<li><a href="sweaters.html">Sweaters</a></li>
+											<li><a href="skirts.html">Shorts & Skirts</a></li>
+											<li><a href="jeans.html">Jeans</a></li>
+											<li><a href="shirts.html">Shirts & Tops<span>New</span></a></li>
+										</ul>
+									</div>
+									<div class="col-sm-3">
+										<ul class="multi-column-dropdown">
+											<h6>Rượu ngoại nhập</h6>
+											<li><a href="salwars.html">Salwars</a></li>
+											<li><a href="sarees.html">Sarees<span>New</span></a></li>
+											<li><a href="products.html"><i>Summer Store</i></a></li>
+										</ul>
+									</div>
+									<div class="col-sm-2">
+										<ul class="multi-column-dropdown">
+											<h6>Rượu pha chế</h6>
+											<li><a href="sandals.html">Flats</a></li>
+											<li><a href="sandals.html">Sandals</a></li>
+											<li><a href="sandals.html">Boots</a></li>
+											<li><a href="sandals.html">Heels</a></li>
+										</ul>
+									</div>
+									<div class="col-sm-4">
+										<div class="w3ls_products_pos">
+											<h4>50%<i>Off/-</i></h4>
+											<img src="public/client/images/1.jpg" alt=" " class="img-responsive" />
+										</div>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</ul>
+						</li>
+						<li><a href="about.html">Tin tức</a></li>
+						<li><a href="short-codes.html">Liên Hệ</a></li>
+						<li><a href="mail.html">Về chúng tôi</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+<!-- //header -->
+<!-- banner -->
+	<div class="banner" id="home1">
+		<div class="container">
+			<h3>fashions fade, <span>style is eternal</span></h3>
+		</div>
+	</div>
+<!-- //banner -->
 
-                            <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">English </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">French</a></li>
-                                    <li><a href="#">German</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- End header area -->
-    
-    <div class="site-branding-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="logo">
-                        <h1><a href="./"><img src="Public/UserGui/img/logo.png"></a></h1>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6">
-                    <div class="shopping-item">
-                        <a href="#">Cart - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- End site branding area -->
-    
-    <div class="mainmenu-area">
-        <div class="container">
-            <div class="row">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div> 
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="#">Shop page</a></li>
-                        <li><a href="#">Single product</a></li>
-                        <li><a href="#">Cart</a></li>
-                        <li><a href="#">Checkout</a></li>
-                        <li><a href="#">Category</a></li>
-                        <li><a href="#">Others</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>  
-            </div>
-        </div>
-    </div> <!-- End mainmenu area -->
-    
-    <div class="slider-area">
-       <!-- Slider -->
-       <div class="block-slider block-slider4">
-        <ul class="" id="bxslider-home4">
-           <li>
-              <img src="Public/UserGui/img/h4-slide4.png" alt="Slide">
-              <div class="caption-group">
-                 <h2 class="caption title">
-                    iPhone <span class="primary">6 <strong>Plus</strong></span>
-                </h2>
-                <h4 class="caption subtitle">Dual SIM</h4>
-                <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
-            </div>
-        </li>
-        <li><img src="Public/UserGui/img/h4-slide2.png" alt="Slide">
-          <div class="caption-group">
-             <h2 class="caption title">
-                by one, get one <span class="primary">50% <strong>off</strong></span>
-            </h2>
-            <h4 class="caption subtitle">school supplies & backpacks.*</h4>
-            <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
-        </div>
-    </li>
-    <li><img src="Public/UserGui/img/h4-slide3.png" alt="Slide">
-      <div class="caption-group">
-         <h2 class="caption title">
-            Apple <span class="primary">Store <strong>Ipod</strong></span>
-        </h2>
-        <h4 class="caption subtitle">Select Item</h4>
-        <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
-    </div>
-</li>
-<li><img src="Public/UserGui/img/h4-slide4.png" alt="Slide">
-  <div class="caption-group">
-    <h2 class="caption title">
-        Apple <span class="primary">Store <strong>Ipod</strong></span>
-    </h2>
-    <h4 class="caption subtitle">& Phone</h4>
-    <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
-</div>
-</li>
-</ul>
-</div>
-<!-- ./Slider -->
-</div> <!-- End slider area -->
+<!-- banner-bottom -->
+	<div class="banner-bottom">
+		<div class="container">
+			<div class="col-md-5 wthree_banner_bottom_left">
+				<div class="video-img">
+					<a class="play-icon popup-with-zoom-anim" href="#small-dialog">
+						<span class="glyphicon glyphicon-expand" aria-hidden="true"></span>
+					</a>
+				</div>
+				<!-- pop-up-box -->    
+						<link href="public/client/css/popuo-box.css" rel="stylesheet" type="text/css" property="" media="all" />
+						<script src="public/client/js/jquery.magnific-popup.js" type="text/javascript"></script>
+					<!--//pop-up-box -->
+					<div id="small-dialog" class="mfp-hide">
+						<iframe src="https://player.vimeo.com/video/23259282?title=0&byline=0&portrait=0"></iframe>
+					</div>
+					<script>
+						$(document).ready(function() {
+						$('.popup-with-zoom-anim').magnificPopup({
+							type: 'inline',
+							fixedContentPos: false,
+							fixedBgPos: true,
+							overflowY: 'auto',
+							closeBtnInside: true,
+							preloader: false,
+							midClick: true,
+							removalDelay: 300,
+							mainClass: 'my-mfp-zoom-in'
+						});
+																						
+						});
+					</script>
+			</div>
+			<div class="col-md-7 wthree_banner_bottom_right">
+				<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+					<ul id="myTab" class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home">T-shirts</a></li>
+						<li role="presentation"><a href="#skirts" role="tab" id="skirts-tab" data-toggle="tab" aria-controls="skirts">Skirts</a></li>
+						<li role="presentation"><a href="#watches" role="tab" id="watches-tab" data-toggle="tab" aria-controls="watches">Watches</a></li>
+						<li role="presentation"><a href="#sandals" role="tab" id="sandals-tab" data-toggle="tab" aria-controls="sandals">Sandals</a></li>
+						<li role="presentation"><a href="#jewellery" role="tab" id="jewellery-tab" data-toggle="tab" aria-controls="jewellery">Jewellery</a></li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+						<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+							<div class="agile_ecommerce_tabs">
+								<div class="col-md-4 agile_ecommerce_tab_left">
+									<div class="hs-wrapper">
+										<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
+										<div class="w3_hs_bottom">
+											<ul>
+												<li>
+													<a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<h5><a href="single.html">T-Shirt</a></h5>
+									<div class="simpleCart_shelfItem">
+										<p><span>$320</span> <i class="item_price">$250</i></p>
+										<p><a class="item_add" href="#">Add to cart</a></p>
+									</div>
+								</div>
+								<div class="col-md-4 agile_ecommerce_tab_left">
+									<div class="hs-wrapper">
+										<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
+										<div class="w3_hs_bottom">
+											<ul>
+												<li>
+													<a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<h5><a href="single.html">T-Shirt</a></h5>
+									<div class="simpleCart_shelfItem">
+										<p><span>$320</span> <i class="item_price">$250</i></p>
+										<p><a class="item_add" href="#">Add to cart</a></p>
+									</div>
+								</div>
+								<div class="col-md-4 agile_ecommerce_tab_left">
+									<div class="hs-wrapper">
+										<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
+										<div class="w3_hs_bottom">
+											<ul>
+												<li>
+													<a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<h5><a href="single.html">T-Shirt</a></h5>
+									<div class="simpleCart_shelfItem">
+										<p><span>$320</span> <i class="item_price">$250</i></p>
+										<p><a class="item_add" href="#">Add to cart</a></p>
+									</div>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="skirts" aria-labelledby="skirts-tab">
+							<div class="agile_ecommerce_tabs">
+								<div class="col-md-4 agile_ecommerce_tab_left">
+									<div class="hs-wrapper">
+										<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/10.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/10.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
+										<div class="w3_hs_bottom">
+											<ul>
+												<li>
+													<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<h5><a href="single.html">Skirt</a></h5>
+									<div class="simpleCart_shelfItem">
+										<p><span>$320</span> <i class="item_price">$250</i></p>
+										<p><a class="item_add" href="#">Add to cart</a></p>
+									</div>
+								</div>
+								<div class="col-md-4 agile_ecommerce_tab_left">
+									<div class="hs-wrapper">
+										<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/10.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/10.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
+										<div class="w3_hs_bottom">
+											<ul>
+												<li>
+													<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<h5><a href="single.html">Skirt</a></h5>
+									<div class="simpleCart_shelfItem">
+										<p><span>$320</span> <i class="item_price">$250</i></p>
+										<p><a class="item_add" href="#">Add to cart</a></p>
+									</div>
+								</div>
+								<div class="col-md-4 agile_ecommerce_tab_left">
+									<div class="hs-wrapper">
+										<img src="public/client/images/10.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/10.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
+										<div class="w3_hs_bottom">
+											<ul>
+												<li>
+													<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<h5><a href="single.html">Skirt</a></h5>
+									<div class="simpleCart_shelfItem">
+										<p><span>$320</span> <i class="item_price">$250</i></p>
+										<p><a class="item_add" href="#">Add to cart</a></p>
+									</div>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="watches" aria-labelledby="watches-tab">
+							<div class="agile_ecommerce_tabs">
+								<div class="col-md-4 agile_ecommerce_tab_left">
+									<div class="hs-wrapper">
+										<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/13.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/13.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
+										<div class="w3_hs_bottom">
+											<ul>
+												<li>
+													<a href="#" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<h5><a href="single.html">Watch</a></h5>
+									<div class="simpleCart_shelfItem">
+										<p><span>$320</span> <i class="item_price">$250</i></p>
+										<p><a class="item_add" href="#">Add to cart</a></p>
+									</div>
+								</div>
+								<div class="col-md-4 agile_ecommerce_tab_left">
+									<div class="hs-wrapper">
+										<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/13.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/13.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
+										<div class="w3_hs_bottom">
+											<ul>
+												<li>
+													<a href="#" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<h5><a href="single.html">Watch</a></h5>
+									<div class="simpleCart_shelfItem">
+										<p><span>$320</span> <i class="item_price">$250</i></p>
+										<p><a class="item_add" href="#">Add to cart</a></p>
+									</div>
+								</div>
+								<div class="col-md-4 agile_ecommerce_tab_left">
+									<div class="hs-wrapper">
+										<img src="public/client/images/13.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/13.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
+										<div class="w3_hs_bottom">
+											<ul>
+												<li>
+													<a href="#" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<h5><a href="single.html">Watch</a></h5>
+									<div class="simpleCart_shelfItem">
+										<p><span>$320</span> <i class="item_price">$250</i></p>
+										<p><a class="item_add" href="#">Add to cart</a></p>
+									</div>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="sandals" aria-labelledby="sandals-tab">
+							<div class="agile_ecommerce_tabs">
+								<div class="col-md-4 agile_ecommerce_tab_left">
+									<div class="hs-wrapper">
+										<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/16.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/16.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
+										<div class="w3_hs_bottom">
+											<ul>
+												<li>
+													<a href="#" data-toggle="modal" data-target="#myModal3"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<h5><a href="single.html">Sandal</a></h5>
+									<div class="simpleCart_shelfItem">
+										<p><span>$320</span> <i class="item_price">$250</i></p>
+										<p><a class="item_add" href="#">Add to cart</a></p>
+									</div>
+								</div>
+								<div class="col-md-4 agile_ecommerce_tab_left">
+									<div class="hs-wrapper">
+										<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/16.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/16.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
+										<div class="w3_hs_bottom">
+											<ul>
+												<li>
+													<a href="#" data-toggle="modal" data-target="#myModal3"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<h5><a href="single.html">Sandal</a></h5>
+									<div class="simpleCart_shelfItem">
+										<p><span>$320</span> <i class="item_price">$250</i></p>
+										<p><a class="item_add" href="#">Add to cart</a></p>
+									</div>
+								</div>
+								<div class="col-md-4 agile_ecommerce_tab_left">
+									<div class="hs-wrapper">
+										<img src="public/client/images/16.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/16.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
+										<div class="w3_hs_bottom">
+											<ul>
+												<li>
+													<a href="#" data-toggle="modal" data-target="#myModal3"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<h5><a href="single.html">Sandal</a></h5>
+									<div class="simpleCart_shelfItem">
+										<p><span>$320</span> <i class="item_price">$250</i></p>
+										<p><a class="item_add" href="#">Add to cart</a></p>
+									</div>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="jewellery" aria-labelledby="jewellery-tab">
+							<div class="agile_ecommerce_tabs">
+								<div class="col-md-4 agile_ecommerce_tab_left">
+									<div class="hs-wrapper">
+										<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/19.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/19.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
+										<div class="w3_hs_bottom">
+											<ul>
+												<li>
+													<a href="#" data-toggle="modal" data-target="#myModal4"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<h5><a href="single.html">Jewellery</a></h5>
+									<div class="simpleCart_shelfItem">
+										<p><span>$320</span> <i class="item_price">$250</i></p>
+										<p><a class="item_add" href="#">Add to cart</a></p>
+									</div>
+								</div>
+								<div class="col-md-4 agile_ecommerce_tab_left">
+									<div class="hs-wrapper">
+										<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/19.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/19.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
+										<div class="w3_hs_bottom">
+											<ul>
+												<li>
+													<a href="#" data-toggle="modal" data-target="#myModal4"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<h5><a href="single.html">Jewellery</a></h5>
+									<div class="simpleCart_shelfItem">
+										<p><span>$320</span> <i class="item_price">$250</i></p>
+										<p><a class="item_add" href="#">Add to cart</a></p>
+									</div>
+								</div>
+								<div class="col-md-4 agile_ecommerce_tab_left">
+									<div class="hs-wrapper">
+										<img src="public/client/images/19.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/19.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
+										<div class="w3_hs_bottom">
+											<ul>
+												<li>
+													<a href="#" data-toggle="modal" data-target="#myModal4"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<h5><a href="single.html">Jewellery</a></h5>
+									<div class="simpleCart_shelfItem">
+										<p><span>$320</span> <i class="item_price">$250</i></p>
+										<p><a class="item_add" href="#">Add to cart</a></p>
+									</div>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+					<!--modal-video-->
+				<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+							</div>
+							<section>
+								<div class="modal-body">
+									<div class="col-md-5 modal_body_left">
+										<img src="public/client/images/20.jpg" alt=" " class="img-responsive" />
+									</div>
+									<div class="col-md-7 modal_body_right">
+										<h4>a good look women's shirt</h4>
+										<p>Ut enim ad minim veniam, quis nostrud 
+											exercitation ullamco laboris nisi ut aliquip ex ea 
+											commodo consequat.Duis aute irure dolor in 
+											reprehenderit in voluptate velit esse cillum dolore 
+											eu fugiat nulla pariatur. Excepteur sint occaecat 
+											cupidatat non proident, sunt in culpa qui officia 
+											deserunt mollit anim id est laborum.</p>
+										<div class="rating">
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="modal_body_right_cart simpleCart_shelfItem">
+											<p><span>$320</span> <i class="item_price">$250</i></p>
+											<p><a class="item_add" href="#">Add to cart</a></p>
+										</div>
+										<h5>Color</h5>
+										<div class="color-quality">
+											<ul>
+												<li><a href="#"><span></span>Red</a></li>
+												<li><a href="#" class="brown"><span></span>Yellow</a></li>
+												<li><a href="#" class="purple"><span></span>Purple</a></li>
+												<li><a href="#" class="gray"><span></span>Violet</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+				<div class="modal video-modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal1">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+							</div>
+							<section>
+								<div class="modal-body">
+									<div class="col-md-5 modal_body_left">
+										<img src="public/client/images/63.jpg" alt=" " class="img-responsive" />
+									</div>
+									<div class="col-md-7 modal_body_right">
+										<h4>a good look black women's jeans</h4>
+										<p>Ut enim ad minim veniam, quis nostrud 
+											exercitation ullamco laboris nisi ut aliquip ex ea 
+											commodo consequat.Duis aute irure dolor in 
+											reprehenderit in voluptate velit esse cillum dolore 
+											eu fugiat nulla pariatur. Excepteur sint occaecat 
+											cupidatat non proident, sunt in culpa qui officia 
+											deserunt mollit anim id est laborum.</p>
+										<div class="rating">
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="modal_body_right_cart simpleCart_shelfItem">
+											<p><span>$320</span> <i class="item_price">$250</i></p>
+											<p><a class="item_add" href="#">Add to cart</a></p>
+										</div>
+										<h5>Color</h5>
+										<div class="color-quality">
+											<ul>
+												<li><a href="#"><span></span>Red</a></li>
+												<li><a href="#" class="brown"><span></span>Yellow</a></li>
+												<li><a href="#" class="purple"><span></span>Purple</a></li>
+												<li><a href="#" class="gray"><span></span>Violet</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+				<div class="modal video-modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+							</div>
+							<section>
+								<div class="modal-body">
+									<div class="col-md-5 modal_body_left">
+										<img src="public/client/images/23.jpg" alt=" " class="img-responsive" />
+									</div>
+									<div class="col-md-7 modal_body_right">
+										<h4>a good look women's Watch</h4>
+										<p>Ut enim ad minim veniam, quis nostrud 
+											exercitation ullamco laboris nisi ut aliquip ex ea 
+											commodo consequat.Duis aute irure dolor in 
+											reprehenderit in voluptate velit esse cillum dolore 
+											eu fugiat nulla pariatur. Excepteur sint occaecat 
+											cupidatat non proident, sunt in culpa qui officia 
+											deserunt mollit anim id est laborum.</p>
+										<div class="rating">
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="modal_body_right_cart simpleCart_shelfItem">
+											<p><span>$320</span> <i class="item_price">$250</i></p>
+											<p><a class="item_add" href="#">Add to cart</a></p>
+										</div>
+										<h5>Color</h5>
+										<div class="color-quality">
+											<ul>
+												<li><a href="#"><span></span>Red</a></li>
+												<li><a href="#" class="brown"><span></span>Yellow</a></li>
+												<li><a href="#" class="purple"><span></span>Purple</a></li>
+												<li><a href="#" class="gray"><span></span>Violet</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+				<div class="modal video-modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModal3">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+							</div>
+							<section>
+								<div class="modal-body">
+									<div class="col-md-5 modal_body_left">
+										<img src="public/client/images/24.jpg" alt=" " class="img-responsive" />
+									</div>
+									<div class="col-md-7 modal_body_right">
+										<h4>a good look women's Sandal</h4>
+										<p>Ut enim ad minim veniam, quis nostrud 
+											exercitation ullamco laboris nisi ut aliquip ex ea 
+											commodo consequat.Duis aute irure dolor in 
+											reprehenderit in voluptate velit esse cillum dolore 
+											eu fugiat nulla pariatur. Excepteur sint occaecat 
+											cupidatat non proident, sunt in culpa qui officia 
+											deserunt mollit anim id est laborum.</p>
+										<div class="rating">
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="modal_body_right_cart simpleCart_shelfItem">
+											<p><span>$320</span> <i class="item_price">$250</i></p>
+											<p><a class="item_add" href="#">Add to cart</a></p>
+										</div>
+										<h5>Color</h5>
+										<div class="color-quality">
+											<ul>
+												<li><a href="#"><span></span>Red</a></li>
+												<li><a href="#" class="brown"><span></span>Yellow</a></li>
+												<li><a href="#" class="purple"><span></span>Purple</a></li>
+												<li><a href="#" class="gray"><span></span>Violet</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+				<div class="modal video-modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModal4">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+							</div>
+							<section>
+								<div class="modal-body">
+									<div class="col-md-5 modal_body_left">
+										<img src="public/client/images/22.jpg" alt=" " class="img-responsive" />
+									</div>
+									<div class="col-md-7 modal_body_right">
+										<h4>a good look women's Necklace</h4>
+										<p>Ut enim ad minim veniam, quis nostrud 
+											exercitation ullamco laboris nisi ut aliquip ex ea 
+											commodo consequat.Duis aute irure dolor in 
+											reprehenderit in voluptate velit esse cillum dolore 
+											eu fugiat nulla pariatur. Excepteur sint occaecat 
+											cupidatat non proident, sunt in culpa qui officia 
+											deserunt mollit anim id est laborum.</p>
+										<div class="rating">
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="modal_body_right_cart simpleCart_shelfItem">
+											<p><span>$320</span> <i class="item_price">$250</i></p>
+											<p><a class="item_add" href="#">Add to cart</a></p>
+										</div>
+										<h5>Color</h5>
+										<div class="color-quality">
+											<ul>
+												<li><a href="#"><span></span>Red</a></li>
+												<li><a href="#" class="brown"><span></span>Yellow</a></li>
+												<li><a href="#" class="purple"><span></span>Purple</a></li>
+												<li><a href="#" class="gray"><span></span>Violet</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+				<div class="modal video-modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModal5">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+							</div>
+							<section>
+								<div class="modal-body">
+									<div class="col-md-5 modal_body_left">
+										<img src="public/client/images/35.jpg" alt=" " class="img-responsive" />
+									</div>
+									<div class="col-md-7 modal_body_right">
+										<h4>a good look women's Jacket</h4>
+										<p>Ut enim ad minim veniam, quis nostrud 
+											exercitation ullamco laboris nisi ut aliquip ex ea 
+											commodo consequat.Duis aute irure dolor in 
+											reprehenderit in voluptate velit esse cillum dolore 
+											eu fugiat nulla pariatur. Excepteur sint occaecat 
+											cupidatat non proident, sunt in culpa qui officia 
+											deserunt mollit anim id est laborum.</p>
+										<div class="rating">
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="modal_body_right_cart simpleCart_shelfItem">
+											<p><span>$320</span> <i class="item_price">$250</i></p>
+											<p><a class="item_add" href="#">Add to cart</a></p>
+										</div>
+										<h5>Color</h5>
+										<div class="color-quality">
+											<ul>
+												<li><a href="#"><span></span>Red</a></li>
+												<li><a href="#" class="brown"><span></span>Yellow</a></li>
+												<li><a href="#" class="purple"><span></span>Purple</a></li>
+												<li><a href="#" class="gray"><span></span>Violet</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+				<div class="modal video-modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModal6">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+							</div>
+							<section>
+								<div class="modal-body">
+									<div class="col-md-5 modal_body_left">
+										<img src="public/client/images/39.jpg" alt=" " class="img-responsive" />
+									</div>
+									<div class="col-md-7 modal_body_right">
+										<h4>a good look women's Long Skirt</h4>
+										<p>Ut enim ad minim veniam, quis nostrud 
+											exercitation ullamco laboris nisi ut aliquip ex ea 
+											commodo consequat.Duis aute irure dolor in 
+											reprehenderit in voluptate velit esse cillum dolore 
+											eu fugiat nulla pariatur. Excepteur sint occaecat 
+											cupidatat non proident, sunt in culpa qui officia 
+											deserunt mollit anim id est laborum.</p>
+										<div class="rating">
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="rating-left">
+												<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="modal_body_right_cart simpleCart_shelfItem">
+											<p><span>$320</span> <i class="item_price">$250</i></p>
+											<p><a class="item_add" href="#">Add to cart</a></p>
+										</div>
+										<h5>Color</h5>
+										<div class="color-quality">
+											<ul>
+												<li><a href="#"><span></span>Red</a></li>
+												<li><a href="#" class="brown"><span></span>Yellow</a></li>
+												<li><a href="#" class="purple"><span></span>Purple</a></li>
+												<li><a href="#" class="gray"><span></span>Violet</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //banner-bottom -->
 
-<div class="promo-area">
-    <div class="zigzag-bottom"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <div class="single-promo promo1">
-                    <i class="fa fa-refresh"></i>
-                    <p>30 Days return</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-promo promo2">
-                    <i class="fa fa-truck"></i>
-                    <p>Free shipping</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-promo promo3">
-                    <i class="fa fa-lock"></i>
-                    <p>Secure payments</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-promo promo4">
-                    <i class="fa fa-gift"></i>
-                    <p>New products</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> <!-- End promo area -->
+<!-- banner-bottom1 -->
+	<div class="banner-bottom1">
+		<div class="agileinfo_banner_bottom1_grids">
+			<div class="col-md-7 agileinfo_banner_bottom1_grid_left">
+				<h3>Grand Opening Event With flat<span>20% <i>Discount</i></span></h3>
+				<a href="products.html">Shop Now</a>
+			</div>
+			<div class="col-md-5 agileinfo_banner_bottom1_grid_right">
+				<h4>hot deal</h4>
+				<div class="timer_wrap">
+					<div id="counter"> </div>
+				</div>
+				<script src="public/client/js/jquery.countdown.js"></script>
+				<script src="public/client/js/script.js"></script>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //banner-bottom1 -->
 
-<div class="maincontent-area">
-    <div class="zigzag-bottom"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="latest-product">
-                    <h2 class="section-title">Latest Products</h2>
-                    <div class="product-carousel">
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="Public/UserGui/img/product-1.jpg" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-
-                            <h2><a href="#">Samsung Galaxy s5- 2015</a></h2>
-
-                            <div class="product-carousel-price">
-                                <ins>$700.00</ins> <del>$100.00</del>
-                            </div> 
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="Public/UserGui/img/product-2.jpg" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-
-                            <h2>Nokia Lumia 1320</h2>
-                            <div class="product-carousel-price">
-                                <ins>$899.00</ins> <del>$999.00</del>
-                            </div> 
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="Public/UserGui/img/product-3.jpg" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-
-                            <h2>LG Leon 2015</h2>
-
-                            <div class="product-carousel-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>                                 
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="Public/UserGui/img/product-4.jpg" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-
-                            <h2><a href="#">Sony microsoft</a></h2>
-
-                            <div class="product-carousel-price">
-                                <ins>$200.00</ins> <del>$225.00</del>
-                            </div>                            
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="Public/UserGui/img/product-5.jpg" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-
-                            <h2>iPhone 6</h2>
-
-                            <div class="product-carousel-price">
-                                <ins>$1200.00</ins> <del>$1355.00</del>
-                            </div>                                 
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="Public/UserGui/img/product-6.jpg" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-
-                            <h2><a href="#">Samsung gallaxy note 4</a></h2>
-
-                            <div class="product-carousel-price">
-                                <ins>$400.00</ins>
-                            </div>                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> <!-- End main content area -->
-
-<div class="brands-area">
-    <div class="zigzag-bottom"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="brand-wrapper">
-                    <div class="brand-list">
-                        <img src="Public/UserGui/img/brand1.png" alt="">
-                        <img src="Public/UserGui/img/brand2.png" alt="">
-                        <img src="Public/UserGui/img/brand3.png" alt="">
-                        <img src="Public/UserGui/img/brand4.png" alt="">
-                        <img src="Public/UserGui/img/brand5.png" alt="">
-                        <img src="Public/UserGui/img/brand6.png" alt="">
-                        <img src="Public/UserGui/img/brand7.png" alt="">
-                        <img src="Public/UserGui/img/brand8.png" alt="">                            
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> <!-- End brands area -->
-
-<div class="product-widget-area">
-    <div class="zigzag-bottom"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="single-product-widget">
-                    <h2 class="product-wid-title">Top Sellers</h2>
-                    <a href="" class="wid-view-more">View All</a>
-                    <div class="single-wid-product">
-                        <a href="#"><img src="Public/UserGui/img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
-                        <h2><a href="#">Sony Smart TV - 2015</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>$400.00</ins> <del>$425.00</del>
-                        </div>                            
-                    </div>
-                    <div class="single-wid-product">
-                        <a href="#"><img src="Public/UserGui/img/product-thumb-2.jpg" alt="" class="product-thumb"></a>
-                        <h2><a href="#">Apple new mac book 2015</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>$400.00</ins> <del>$425.00</del>
-                        </div>                            
-                    </div>
-                    <div class="single-wid-product">
-                        <a href="#"><img src="Public/UserGui/img/product-thumb-3.jpg" alt="" class="product-thumb"></a>
-                        <h2><a href="#">Apple new i phone 6</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>$400.00</ins> <del>$425.00</del>
-                        </div>                            
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="single-product-widget">
-                    <h2 class="product-wid-title">Recently Viewed</h2>
-                    <a href="#" class="wid-view-more">View All</a>
-                    <div class="single-wid-product">
-                        <a href="#"><img src="Public/UserGui/img/product-thumb-4.jpg" alt="" class="product-thumb"></a>
-                        <h2><a href="#">Sony playstation microsoft</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>$400.00</ins> <del>$425.00</del>
-                        </div>                            
-                    </div>
-                    <div class="single-wid-product">
-                        <a href="#"><img src="Public/UserGui/img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
-                        <h2><a href="#">Sony Smart Air Condtion</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>$400.00</ins> <del>$425.00</del>
-                        </div>                            
-                    </div>
-                    <div class="single-wid-product">
-                        <a href="#"><img src="Public/UserGui/img/product-thumb-2.jpg" alt="" class="product-thumb"></a>
-                        <h2><a href="#">Samsung gallaxy note 4</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>$400.00</ins> <del>$425.00</del>
-                        </div>                            
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="single-product-widget">
-                    <h2 class="product-wid-title">Top New</h2>
-                    <a href="#" class="wid-view-more">View All</a>
-                    <div class="single-wid-product">
-                        <a href="#"><img src="Public/UserGui/img/product-thumb-3.jpg" alt="" class="product-thumb"></a>
-                        <h2><a href="#">Apple new i phone 6</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>$400.00</ins> <del>$425.00</del>
-                        </div>                            
-                    </div>
-                    <div class="single-wid-product">
-                        <a href="#"><img src="Public/UserGui/img/product-thumb-4.jpg" alt="" class="product-thumb"></a>
-                        <h2><a href="#">Samsung gallaxy note 4</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>$400.00</ins> <del>$425.00</del>
-                        </div>                            
-                    </div>
-                    <div class="single-wid-product">
-                        <a href="#"><img src="Public/UserGui/img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
-                        <h2><a href="#">Sony playstation microsoft</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>$400.00</ins> <del>$425.00</del>
-                        </div>                            
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> <!-- End product widget area -->
-
-<div class="footer-top-area">
-    <div class="zigzag-bottom"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <div class="footer-about-us">
-                    <h2>u<span>Stora</span></h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
-                    <div class="footer-social">
-                        <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-                        <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                        <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
-                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-                <div class="footer-menu">
-                    <h2 class="footer-wid-title">User Navigation </h2>
-                    <ul>
-                        <li><a href="#">My account</a></li>
-                        <li><a href="#">Order history</a></li>
-                        <li><a href="#">Wishlist</a></li>
-                        <li><a href="#">Vendor contact</a></li>
-                        <li><a href="#">Front page</a></li>
-                    </ul>                        
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-                <div class="footer-menu">
-                    <h2 class="footer-wid-title">Categories</h2>
-                    <ul>
-                        <li><a href="#">Mobile Phone</a></li>
-                        <li><a href="#">Home accesseries</a></li>
-                        <li><a href="#">LED TV</a></li>
-                        <li><a href="#">Computer</a></li>
-                        <li><a href="#">Gadets</a></li>
-                    </ul>                        
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-                <div class="footer-newsletter">
-                    <h2 class="footer-wid-title">Newsletter</h2>
-                    <p>Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</p>
-                    <div class="newsletter-form">
-                        <form action="#">
-                            <input type="email" placeholder="Type your email">
-                            <input type="submit" value="Subscribe">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> <!-- End footer top area -->
-
-<div class="footer-bottom-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="copyright">
-                    <p>&copy; 2015 uCommerce. All Rights Reserved. <a href="http://www.freshdesignweb.com" target="_blank">freshDesignweb.com</a></p>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="footer-card-icon">
-                    <i class="fa fa-cc-discover"></i>
-                    <i class="fa fa-cc-mastercard"></i>
-                    <i class="fa fa-cc-paypal"></i>
-                    <i class="fa fa-cc-visa"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> <!-- End footer bottom area -->
-
-<!-- Latest jQuery form server -->
-<script src="https://code.jquery.com/jquery.min.js"></script>
-
-<!-- Bootstrap JS form CDN -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-<!-- jQuery sticky menu -->
-<script type="text/javascript" src="Public/UserGui/js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="Public/UserGui/js/jquery.sticky.js"></script>
-
-
-<!-- jQuery easing -->
-
-<script type="text/javascript" src="Public/UserGui/js/jquery.easing.1.3.min.js"></script>
-<!-- Main Script -->
-<script type="text/javascript" src="Public/UserGui/js/main.js"></script>
-
-
-<!-- Slider -->
-<script type="text/javascript" src="Public/UserGui/js/bxslider.min.js"></script>
-
-
-<script type="text/javascript" src="Public/UserGui/js/script.slider.js"></script>
+<!-- special-deals -->
+	<div class="special-deals">
+		<div class="container">
+			<h2>Special Deals</h2>
+			<div class="w3agile_special_deals_grids">
+				<div class="col-md-7 w3agile_special_deals_grid_left">
+					<div class="w3agile_special_deals_grid_left_grid">
+						<img src="public/client/images/26.jpg" alt=" " class="img-responsive" />
+						<div class="w3agile_special_deals_grid_left_grid_pos1">
+							<h5>30%<span>Off/-</span></h5>
+						</div>
+						<div class="w3agile_special_deals_grid_left_grid_pos">
+							<h4>We Offer <span>Best Products</span></h4>
+						</div>
+					</div>
+					<div class="wmuSlider example1">
+						<div class="wmuSliderWrapper">
+							<article style="position: absolute; width: 100%; opacity: 0;"> 
+								<div class="banner-wrap">
+									<div class="w3agile_special_deals_grid_left_grid1">
+										<img src="public/client/images/1.png" alt=" " class="img-responsive" />
+										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
+											velit esse quam nihil molestiae consequatur, vel illum qui dolorem 
+											eum fugiat quo voluptas nulla pariatur</p>
+										<h4>Laura</h4>
+									</div>
+								</div>
+							</article>
+							<article style="position: absolute; width: 100%; opacity: 0;"> 
+								<div class="banner-wrap">
+									<div class="w3agile_special_deals_grid_left_grid1">
+										<img src="public/client/images/2.png" alt=" " class="img-responsive" />
+										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
+											velit esse quam nihil molestiae consequatur, vel illum qui dolorem 
+											eum fugiat quo voluptas nulla pariatur</p>
+										<h4>Michael</h4>
+									</div>
+								</div>
+							</article>
+							<article style="position: absolute; width: 100%; opacity: 0;"> 
+								<div class="banner-wrap">
+									<div class="w3agile_special_deals_grid_left_grid1">
+										<img src="public/client/images/3.png" alt=" " class="img-responsive" />
+										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
+											velit esse quam nihil molestiae consequatur, vel illum qui dolorem 
+											eum fugiat quo voluptas nulla pariatur</p>
+										<h4>Rosy</h4>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+						<script src="public/client/js/jquery.wmuSlider.js"></script> 
+						<script>
+							$('.example1').wmuSlider();         
+						</script> 
+				</div>
+				<div class="col-md-5 w3agile_special_deals_grid_right">
+					<img src="public/client/images/25.jpg" alt=" " class="img-responsive" />
+					<div class="w3agile_special_deals_grid_right_pos">
+						<h4>Women's <span>Special</span></h4>
+						<h5>save up <span>to</span> 30%</h5>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<!-- //special-deals -->
+<!-- new-products -->
+	<div class="new-products">
+		<div class="container">
+			<h3>New Products</h3>
+			<div class="agileinfo_new_products_grids">
+				<div class="col-md-3 agileinfo_new_products_grid">
+					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
+						<div class="hs-wrapper hs-wrapper1">
+							<img src="public/client/images/27.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/28.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/29.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/30.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/27.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/28.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/29.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/30.jpg" alt=" " class="img-responsive" />
+							<div class="w3_hs_bottom w3_hs_bottom_sub">
+								<ul>
+									<li>
+										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<h5><a href="single.html">Skirts</a></h5>
+						<div class="simpleCart_shelfItem">
+							<p><span>$320</span> <i class="item_price">$250</i></p>
+							<p><a class="item_add" href="#">Add to cart</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 agileinfo_new_products_grid">
+					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
+						<div class="hs-wrapper hs-wrapper1">
+							<img src="public/client/images/31.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/32.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/33.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/34.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/31.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/32.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/33.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/34.jpg" alt=" " class="img-responsive" />
+							<div class="w3_hs_bottom w3_hs_bottom_sub">
+								<ul>
+									<li>
+										<a href="#" data-toggle="modal" data-target="#myModal5"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<h5><a href="single.html">Jackets</a></h5>
+						<div class="simpleCart_shelfItem">
+							<p><span>$320</span> <i class="item_price">$250</i></p>
+							<p><a class="item_add" href="#">Add to cart</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 agileinfo_new_products_grid">
+					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
+						<div class="hs-wrapper hs-wrapper1">
+							<img src="public/client/images/37.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/30.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/36.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/38.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/37.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/30.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/36.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/38.jpg" alt=" " class="img-responsive" />
+							<div class="w3_hs_bottom w3_hs_bottom_sub">
+								<ul>
+									<li>
+										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<h5><a href="single.html">Dresses</a></h5>
+						<div class="simpleCart_shelfItem">
+							<p><span>$320</span> <i class="item_price">$250</i></p>
+							<p><a class="item_add" href="#">Add to cart</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 agileinfo_new_products_grid">
+					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
+						<div class="hs-wrapper hs-wrapper1">
+							<img src="public/client/images/40.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/41.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/42.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/43.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/40.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/41.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/42.jpg" alt=" " class="img-responsive" />
+							<img src="public/client/images/43.jpg" alt=" " class="img-responsive" />
+							<div class="w3_hs_bottom w3_hs_bottom_sub">
+								<ul>
+									<li>
+										<a href="#" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<h5><a href="single.html">Jeans</a></h5>
+						<div class="simpleCart_shelfItem">
+							<p><span>$320</span> <i class="item_price">$250</i></p>
+							<p><a class="item_add" href="#">Add to cart</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<!-- //new-products -->
+<!-- top-brands -->
+	<div class="top-brands">
+		<div class="container">
+			<h3>Top Brands</h3>
+			<div class="sliderfig">
+				<ul id="flexiselDemo1">			
+					<li>
+						<img src="public/client/images/4.png" alt=" " class="img-responsive" />
+					</li>
+					<li>
+						<img src="public/client/images/5.png" alt=" " class="img-responsive" />
+					</li>
+					<li>
+						<img src="public/client/images/6.png" alt=" " class="img-responsive" />
+					</li>
+					<li>
+						<img src="public/client/images/7.png" alt=" " class="img-responsive" />
+					</li>
+					<li>
+						<img src="public/client/images/46.jpg" alt=" " class="img-responsive" />
+					</li>
+				</ul>
+			</div>
+					<script type="text/javascript">
+							$(window).load(function() {
+								$("#flexiselDemo1").flexisel({
+									visibleItems: 4,
+									animationSpeed: 1000,
+									autoPlay: true,
+									autoPlaySpeed: 3000,    		
+									pauseOnHover: true,
+									enableResponsiveBreakpoints: true,
+									responsiveBreakpoints: { 
+										portrait: { 
+											changePoint:480,
+											visibleItems: 1
+										}, 
+										landscape: { 
+											changePoint:640,
+											visibleItems:2
+										},
+										tablet: { 
+											changePoint:768,
+											visibleItems: 3
+										}
+									}
+								});
+								
+							});
+					</script>
+					<script type="text/javascript" src="public/client/js/jquery.flexisel.js"></script>
+		</div>
+	</div>
+<!-- //top-brands -->
+<!-- newsletter -->
+	<div class="newsletter">
+		<div class="container">
+			<div class="col-md-6 w3agile_newsletter_left">
+				<h3>Newsletter</h3>
+				<p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
+			</div>
+			<div class="col-md-6 w3agile_newsletter_right">
+				<form action="#" method="post">
+					<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+					<input type="submit" value="" />
+				</form>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //newsletter -->
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="w3_footer_grids">
+				<div class="col-md-3 w3_footer_grid">
+					<h3>Contact</h3>
+					<p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+					<ul class="address">
+						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
+						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
+						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid">
+					<h3>Information</h3>
+					<ul class="info"> 
+						<li><a href="about.html">About Us</a></li>
+						<li><a href="mail.html">Contact Us</a></li>
+						<li><a href="short-codes.html">Short Codes</a></li>
+						<li><a href="faq.html">FAQ's</a></li>
+						<li><a href="products.html">Special Products</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid">
+					<h3>Category</h3>
+					<ul class="info"> 
+						<li><a href="dresses.html">Dresses</a></li>
+						<li><a href="sweaters.html">Sweaters</a></li>
+						<li><a href="shirts.html">Shirts</a></li>
+						<li><a href="sarees.html">Sarees</a></li>
+						<li><a href="skirts.html">Shorts & Skirts</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid">
+					<h3>Profile</h3>
+					<ul class="info"> 
+						<li><a href="products.html">Summer Store</a></li>
+						<li><a href="checkout.html">My Cart</a></li>
+					</ul>
+					<h4>Follow Us</h4>
+					<div class="agileits_social_button">
+						<ul>
+							<li><a href="#" class="facebook"> </a></li>
+							<li><a href="#" class="twitter"> </a></li>
+							<li><a href="#" class="google"> </a></li>
+							<li><a href="#" class="pinterest"> </a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<div class="footer-copy">
+			<div class="footer-copy1">
+				<div class="footer-copy-pos">
+					<a href="#home1" class="scroll"><img src="public/client/images/arrow.png" alt=" " class="img-responsive" /></a>
+				</div>
+			</div>
+			<div class="container">
+				<p>&copy; 2016 Women's Fashion. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+			</div>
+		</div>
+	</div>
+<!-- //footer -->
 </body>
 </html>
