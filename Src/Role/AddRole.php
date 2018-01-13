@@ -8,8 +8,7 @@ if(isset($_POST["btnAdd"]))
 {
 	$name = $_POST["txtName"];
 	$description = $_POST["txtDetails"];
-
-	addRole($name,$description,$rolecctive);
+	addRole($name,$description,0);
 	echo '<script> alert("Thêm quyền thành công!");</script>';
 	echo "<script>window.location.href='?page=role'</script>";
 
@@ -25,20 +24,17 @@ if(isset($_POST["btnAdd"]))
 		</div>
 
 	</form>
-	<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" >
-
-
+	<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" action="" >
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtName">Tên Quyền:</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="txtName" placeholder="Nhập vào tên quyền của ngườu sử dụng" name="txtName"
+		<input type="text" class="form-control" id="txtName" placeholder="Nhập vào tên quyền của ngườu sử dụng" name="txtName"
 				 required="true" autofocus >
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtDetails">Mô tả chi tiết:</label>
 			<div class="col-md-10">          
-
 				<textarea name="txtDetails" id="txtDetails"
 				placeholder="Mô tả chi tiết về quyền của người dùng" class="form-control" required></textarea>
 			</div>

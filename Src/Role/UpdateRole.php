@@ -1,8 +1,10 @@
 	<?php 
 	include_once("RoleController.php");
 	$RoleId = 0;
-	if(isset($_GET['RoleId']))
+	if(isset($_GET['RoleId'])){
 		$RoleId=$_GET['RoleId'];
+	}
+
 	$name="";
 	$description="";
 	$RoleActive="";
@@ -18,10 +20,10 @@
 		$RoleId=$_GET['RoleId'];
 		$name=$_POST['txtName'];
 		$description=$_POST['txtDetails'];
-		$RoleActive=$_POST['RoleActive']
-		updateRole($name,$description,$rolecctive);
+		$RoleActive=$_POST['RoleActive'];
+		updateRole($RoleId, $name,$description,$RoleActive);
 		echo '<script> alert("Cập nhật thành công!");</script>';
-		echo "<script>window.location.href='?page=Role'</script>";
+		echo "<script>window.location.href='?page=role'</script>";
 	}
 
 	?>
@@ -55,10 +57,10 @@
 					<textarea name="txtDetails" id="txtDetails" class="form-control"><?php echo $description;?></textarea>
 				</div>
 			</div>
-	<div class="form-group">
+			<div class="form-group">
 				<label class="control-label col-md-2" for="RoleActive">Tình trạng:</label>
 				<div class="col-md-10">          
-					<textarea name="txtDetails" id="RoleActive" class="form-control"><?php echo $RoleActive?></textarea>
+					<textarea name="RoleActive" id="RoleActive" class="form-control"><?php echo $RoleActive?></textarea>
 				</div>
 			</div>
 

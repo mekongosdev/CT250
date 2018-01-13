@@ -403,17 +403,17 @@
 							{
 								include_once("../Src/Role/Role.php");
 							}
-							if($_GET['page']=="UpdateRole")
+							if($_GET['page']=="UpadateRole")
 							{
+
 								include_once("../Src/Role/UpdateRole.php");
 							}
 							elseif ($_GET['page']=="AddRole") {
 								# code...
 								include('../Src/Role/AddRole.php');
 							}
-							elseif (isset($_GET['RoleId'])) {
+							elseif(isset($_GET['RoleId'])){
 								deleteRole($_GET['RoleId']);
-								# code...
 								echo "<script>window.location.href='?page=role'</script>";
 							}
 							//Subject
