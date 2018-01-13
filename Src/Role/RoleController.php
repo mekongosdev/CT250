@@ -1,26 +1,26 @@
+
 <?php 
-function addRole($name,$description)
+function addRole($name,$description,$rolecctive)
 {
-	$insert = "INSERT INTO `Role`(`RoleName`, `RoleDescription`) VALUES ('$name','$description')";
-	mysql_query($insert);
+	$insert="INSERT INTO `Role`(`RoleName`, `RoleDetails`, `RoleActive`) VALUES ('$name','$description','0')";
 }
 function deleteRole($RoleId)
 {
 	$delete = "DELETE FROM Role WHERE RoleId=$RoleId";
 	mysql_query($delete);
 }
-function updateRole($RoleId,$name,$description)
+function updateRole($name,$description,$rolecctive)
 {
 	$update = 
 	"UPDATE Role 
-	SET RoleName = '$name',RoleDescription='$description'
+	SET RoleName = '$name',RoleDetails='$description',RoleActive='$rolecctive'
 	WHERE RoleId='$RoleId'";
 	mysql_query($update);
 }
 function searchRole($RoleId)
 {
 	$select = 
-	"SELECT RoleId,RoleName,RoleDescription
+	"SELECT RoleId,RoleName,RoleDetails,RoleActive
 	FROM Role
 	WHERE RoleId='$RoleId'";
 	return mysql_query($select);
