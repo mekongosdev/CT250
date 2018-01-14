@@ -1,6 +1,6 @@
 
 <?php
-function addPromotion($name,$description,$Promotioncctive)
+function addPromotion($name,$discount,$content,$Promotionacctive,$Promotionclose,$Promotionopen)
 {
 	$insert="INSERT INTO `Promotion`(`PromotionName`, `PromotionDiscount`, `PromotionContent`, `PromotionActive`, `PromotionClose`, `PromotionOpen`) VALUES ('$name','$discount','$content','$Promotionacctive','$Promotionclose','$Promotionopen')";
 	mysql_query($insert);
@@ -10,7 +10,7 @@ function deletePromotion($PromotionId)
 	$delete = "DELETE FROM Promotion WHERE PromotionId=$PromotionId";
 	mysql_query($delete);
 }
-function updatePromotion($PromotionId, $name,$discount,$content,$Promotionacctive,$Promotionclose,$Promotionopen)
+function updatePromotion($PromotionId,$name,$discount,$content,$Promotionacctive,$Promotionclose,$Promotionopen)
 {
 	$update =
 	"UPDATE Promotion

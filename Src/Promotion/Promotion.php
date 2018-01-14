@@ -30,7 +30,7 @@ $list_Promotion= mysql_query($sqlSelect);
 			<tr>
 				<td class="col-md-1"><?= $num;?> </td>
 				<td class="col-md-3"><?= $name;?> </td>
-				<td class="col-md-6"><?= $details;?> </td>
+				<td class="col-md-6"><?= $discount;?> </td>
 				<td class="col-md-6"><?= $content;?> </td>
 				<td class="col-md-6"><?= $active;?> </td>
 				<td class="col-md-6"><?= $close;?> </td>

@@ -11,6 +11,8 @@
 	$PromotionActive="";
 	$PromotionClose="";
 	$PromotionOpen="";
+	$PromotionActive = date_default_timezone_set('Asia/Ho_Chi_Minh');
+	$PromotionClose = date_default_timezone_set('Asia/Ho_Chi_Minh');
 	$result = searchPromotion($PromotionId);
 	//Lấy dữ liệu đưa vào mảng
 	if(isset($result))
@@ -23,7 +25,7 @@
 		$PromotionId=$_GET['PromotionId'];
 		$name=$_POST['txtName'];
 		$discount=$_POST['txtDiscount'];
-		$content=$_POST['content'];
+		$content=$_POST['txtContent'];
 		$PromotionActive=$_POST['PromotionActive'];
 		$PromotionClose=$_POST['PromotionClose'];
 		$PromotionOpen=$_POST['PromotionOpen'];
@@ -54,13 +56,13 @@
 				<label class="control-label col-md-2" for="txtName">Tên Khuyến mãi:</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" id="txtName" placeholder="Nhập vào tên khuyến mãi" name="txtName"
-					required autofocus value="<?php echo $name;?>" >
+					required autofocus value="<?php echo $name;?>" />
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-md-2" for="txtDiscount">Giảm giá:</label>
 				<div class="col-md-10">
-					<input name="txtDiscount" id="txtDiscount" class="form-control"><?php echo $description;?>&#37;</input>
+					<input type="text" name="txtDiscount" id="txtDiscount" class="form-control" value="<?php echo $discount;?>" />
 				</div>
 			</div>
 			<div class="form-group">
@@ -72,13 +74,13 @@
 			<div class="form-group">
 				<label class="control-label col-md-2" for="PromotionActive">Ngày bắt đầu:</label>
 				<div class="col-md-10">
-					<input type="date" name="PromotionActive" id="PromotionActive" class="form-control"><?php echo $PromotionActive?></input>
+					<input type="date" name="PromotionActive" id="PromotionActive" class="form-control" value="<?php echo $PromotionActive;?>" />
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-md-2" for="PromotionClose">Ngày kết thúc:</label>
 				<div class="col-md-10">
-					<input type="date" name="PromotionClose" id="PromotionClose" class="form-control"><?php echo $PromotionClose?></input>
+					<input type="date" name="PromotionClose" id="PromotionClose" class="form-control" value="<?php echo $PromotionClose;?>" />
 				</div>
 			</div>
 			<div class="form-group">
