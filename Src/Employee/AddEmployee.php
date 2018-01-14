@@ -22,7 +22,6 @@ if(isset($_POST["btnAdd"]))
 		echo '<script> alert("Thêm nhân viên thành công");</script>';
 		 echo "<script>window.location.href='?page=employee'</script>";
 	}
-	?>
 ?>
 <div class="row">
 	<div class="col-md-12"/>

@@ -1,5 +1,4 @@
 <?php 
-include_once("EmployeeController.php");
 $sqlSelect="SELECT `EmployeeCode`, `EmployeePass`, `EmployeeName`, `EmployeeBirth`, `EmployeeAddress`, `EmployeeEmail`, `EmployeeIC`, `Role` FROM employee";
 $list_employee= mysql_query($sqlSelect);
 ?>
