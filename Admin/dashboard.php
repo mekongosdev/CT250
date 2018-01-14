@@ -82,7 +82,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quyền hạn</a></li>
 									</ul>
 								</li>
-
+								<li><a href="?page=promotion"> <i class="fa fa-table top" aria-hidden="true"></i> Khuyến mãi</a></li>
 							</ul>
 						</div><!-- /gn-scroller -->
 					</nav>
@@ -93,13 +93,13 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					<ul class="top_dp_agile">
 						<li class="dropdown profile_details_drop">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-								<div class="profile_img">	
-									<span class="prfil-img"><img src="images/admin.jpg" alt=""> </span> 
-								</div>	
+								<div class="profile_img">
+									<span class="prfil-img"><img src="images/admin.jpg" alt=""> </span>
+								</div>
 							</a>
 							<ul class="dropdown-menu drp-mnu">
-								<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
-								<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
+								<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>
+								<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li>
 								<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
 							</ul>
 						</li>
@@ -123,7 +123,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<p>Lorem ipsum dolor</p>
 										<p><span>1 hour ago</span></p>
 									</div>
-									<div class="clearfix"></div>	
+									<div class="clearfix"></div>
 								</a></li>
 								<li class="odd"><a href="#">
 									<div class="user_img"><img src="images/a1.jpg" alt=""></div>
@@ -132,7 +132,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<p>Lorem ipsum dolor</p>
 										<p><span>3 hour ago</span></p>
 									</div>
-									<div class="clearfix"></div>	
+									<div class="clearfix"></div>
 								</a></li>
 								<li><a href="#">
 									<div class="user_img"><img src="images/a2.jpg" alt=""></div>
@@ -141,7 +141,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<p>Lorem ipsum dolor</p>
 										<p><span>2 hour ago</span></p>
 									</div>
-									<div class="clearfix"></div>	
+									<div class="clearfix"></div>
 								</a></li>
 								<li><a href="#">
 									<div class="user_img"><img src="images/a4.jpg" alt=""></div>
@@ -150,12 +150,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<p>Lorem ipsum dolor</p>
 										<p><span>1 hour ago</span></p>
 									</div>
-									<div class="clearfix"></div>	
+									<div class="clearfix"></div>
 								</a></li>
 								<li>
 									<div class="notification_bottom">
 										<a href="#">See all Notifications</a>
-									</div> 
+									</div>
 								</li>
 							</ul>
 						</li>
@@ -179,7 +179,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<p>Lorem ipsum dolor</p>
 										<p><span>3 hour ago</span></p>
 									</div>
-									<div class="clearfix"></div>	
+									<div class="clearfix"></div>
 								</a></li>
 								<li class="odd"><a href="#">
 									<div class="user_img"><img src="images/a1.jpg" alt=""></div>
@@ -188,7 +188,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<p>Lorem ipsum dolor</p>
 										<p><span>2 hour ago</span></p>
 									</div>
-									<div class="clearfix"></div>	
+									<div class="clearfix"></div>
 								</a></li>
 								<li><a href="#">
 									<div class="user_img"><img src="images/a2.jpg" alt=""></div>
@@ -197,12 +197,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<p>Lorem ipsum dolor</p>
 										<p><span>1 hour ago</span></p>
 									</div>
-									<div class="clearfix"></div>	
+									<div class="clearfix"></div>
 								</a></li>
 								<li>
 									<div class="notification_bottom">
 										<a href="#">See all Messages</a>
-									</div> 
+									</div>
 								</li>
 							</ul>
 						</li>
@@ -222,7 +222,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<li><a href="#">
 									<div class="task-info">
 										<span class="task-desc">Database update</span><span class="percentage">40%</span>
-										<div class="clearfix"></div>	
+										<div class="clearfix"></div>
 									</div>
 									<div class="progress progress-striped active">
 										<div class="bar yellow" style="width:40%;"></div>
@@ -231,7 +231,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<li><a href="#">
 									<div class="task-info">
 										<span class="task-desc">Dashboard done</span><span class="percentage">90%</span>
-										<div class="clearfix"></div>	
+										<div class="clearfix"></div>
 									</div>
 									<div class="progress progress-striped active">
 										<div class="bar green" style="width:90%;"></div>
@@ -240,7 +240,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<li><a href="#">
 									<div class="task-info">
 										<span class="task-desc">Mobile App</span><span class="percentage">33%</span>
-										<div class="clearfix"></div>	
+										<div class="clearfix"></div>
 									</div>
 									<div class="progress progress-striped active">
 										<div class="bar red" style="width: 33%;"></div>
@@ -249,7 +249,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<li><a href="#">
 									<div class="task-info">
 										<span class="task-desc">Issues fixed</span><span class="percentage">80%</span>
-										<div class="clearfix"></div>	
+										<div class="clearfix"></div>
 									</div>
 									<div class="progress progress-striped active">
 										<div class="bar  blue" style="width: 80%;"></div>
@@ -258,10 +258,10 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<li>
 									<div class="notification_bottom">
 										<a href="#">See all pending tasks</a>
-									</div> 
+									</div>
 								</li>
 							</ul>
-						</li>	
+						</li>
 					</ul>
 				</li>
 
@@ -275,7 +275,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				</li>
 				<li class="second full-screen">
 					<section class="full-top">
-						<button id="toggle"><i class="fa fa-arrows-alt" aria-hidden="true"></i></button>	
+						<button id="toggle"><i class="fa fa-arrows-alt" aria-hidden="true"></i></button>
 					</section>
 				</li>
 
@@ -483,6 +483,24 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							elseif(isset($_GET['EmployeId'])){
 								deletePaymentMethod($_GET['EmployeId']);
 								echo "<script>window.location.href='?page=employee'</script>";
+							}
+							//Promotion
+							if(isset($_GET['page'])&& $_GET['page']=="promotion")
+							{
+								include_once("../Src/Promotion/Promotion.php");
+							}
+							if($_GET['page']=="UpadatePromotion")
+							{
+
+								include_once("../Src/Promotion/UpdatePromotion.php");
+							}
+							elseif ($_GET['page']=="AddPromotion") {
+								# code...
+								include('../Src/Promotion/AddPromotion.php');
+							}
+							elseif(isset($_GET['PromotionId'])){
+								deletePaymentMethod($_GET['PromotionId']);
+								echo "<script>window.location.href='?page=promotion'</script>";
 							}
 							?>
 						</div>
