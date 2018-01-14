@@ -69,7 +69,7 @@ function updateEmployee($empCode,$empPass,$empName,$empBrith,$empAddress,$empMai
 //Delete
 function deleteEmployee($empCode)
 {
-	$sqlDelete="DELETE FROM `employee` WHERE 'EmployeeCode'=$empCode";
-	mysql_query($sqlDelete);
+	$delete = "DELETE FROM employee WHERE EmployeeCode='$empCode'";
+	mysql_query($delete);
 }
 ?>
