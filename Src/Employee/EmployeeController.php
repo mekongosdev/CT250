@@ -30,8 +30,7 @@ function searchEmployee($empCode)
 	"SELECT 
 	`EmployeeCode`, `EmployeePass`, `EmployeeName`, `EmployeeBirth`, `EmployeeAddress`, `EmployeeEmail`, `EmployeeIC`, `Role` 
 	FROM `employee` 
-	WHERE'EmployeeCode'=$empCode;
-	"
+	WHERE'EmployeeCode'=$empCode";
 	return mysql_query($select);
 }
 function blindListRoleUpdate($selectValue)
@@ -64,7 +63,7 @@ function updateEmployee($empCode,$empPass,$empName,$empBrith,$empAddress,$empMai
 	`EmployeeEmail`='$empMail',`EmployeeIC`='$empIC',
 	`Role`='$empRole' 
 	WHERE 
-	'EmployeeCode'=$empCode;"
+	'EmployeeCode'=$empCode";
 	mysql_query($sqlUpdate);
 }
 //Delete
