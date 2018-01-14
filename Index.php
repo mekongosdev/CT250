@@ -59,7 +59,8 @@ include("Src/User/Register.php");
 	<div class="header">
 		<div class="container">
 			<div class="w3l_login">
-				<a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+		
+				<a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a><?=$_SESSION["username"]?>
 			</div>
 			<div class="w3l_logo">
 				<h1><a href="index.html">Windsor's Wine<span>Siêu Thị Rượu Ngoại</span></a></h1>
