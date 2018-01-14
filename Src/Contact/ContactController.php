@@ -30,7 +30,7 @@ function blindSubjectList()
 
 }
 //UpdateContact
-function serchContact($ContactId)
+function searchContact($ContactId)
 {
 	$sqlSelect = "
 	SELECT 
