@@ -9,7 +9,7 @@ function addEmployee($empCode,$empPass,$empName,$empBrith,$empAddress,$empMail,$
 	`EmployeeIC`, `Role`)
 	VALUES 
 	('$empCode','".md5($empPass)."','$empName','$empBrith','$empAddress','$empMail','$empIC','$empRole')";
-	ysql_query($sqlInsert);
+	mysql_query($sqlInsert);
 }
 function blindListRole()
 {

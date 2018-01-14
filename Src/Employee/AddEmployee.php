@@ -1,6 +1,28 @@
 <?php
 include_once("EmployeeController.php"); 
-
+$empCode="";
+$empPass="";
+$empName="";
+$empBrith="";
+$empAddress="";
+$empMail="";
+$empIC="";
+$empRole="";
+if(isset($_POST["btnAdd"]))
+	{
+		$empCode= $_POST["txtName"];
+		$empPass=$_POST["txtPassword"];
+		$empName=$_POST["txtHoten"];
+		$empBrith=date('Y-m-d',  strtotime($_POST['txtDate']));
+		$empAddress= $_POST["txtAddress"];
+		$empMail=$_POST["txtEmail"];
+		$empIC= $_POST["txtCMND"];
+		$empRole=$_POST["slRole"];
+		addEmployee($empCode,$empPass,$empName,$empBrith,$empAddress,$empMail,$empIC,$empRole);
+		echo '<script> alert("Thêm nhân viên thành công");</script>';
+		 echo "<script>window.location.href='?page=employee'</script>";
+	}
+	?>
 ?>
 <div class="row">
 	<div class="col-md-12"/>
@@ -31,7 +53,7 @@ include_once("EmployeeController.php");
 			<div class="col-md-10">          
 
 				<input type="text" class="form-control" id="txtHoten" placeholder="Nhập vào họ tên của nhân viên" name="txtHoten"
-				required >
+				required />
 			</div>
 		</div>
 		<div class="form-group">
@@ -69,7 +91,7 @@ include_once("EmployeeController.php");
 			<label class="control-label col-md-2" for="slRole">Quyền:</label>
 			<div class="col-md-10">          
 				<?php
-					blindListRole();
+				blindListRole();
 				?>
 			</div>
 		</div>
