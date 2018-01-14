@@ -83,7 +83,7 @@ if(isset($_POST["btnAdd"]))
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtCMND">CMND:</label>
 			<div class="col-md-10">          
-				<input type="email" class="form-control" id="txtCMND" placeholder="Nhập vào chứng minh nhânda6n" name="txtCMND"
+				<input type="text" class="form-control" id="txtCMND" placeholder="Nhập vào chứng minh nhânda6n" name="txtCMND"
 				required  >
 			</div>
 		</div>
