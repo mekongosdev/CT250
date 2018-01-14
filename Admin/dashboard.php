@@ -25,12 +25,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 
 <!-- font-awesome-icons -->
-<link href="../public/admin/css/font-awesome.css" rel="stylesheet"> 
+<link href="../public/admin/css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome-icons -->
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 </head>
 <body>
-	<?php 
+	<?php
 	include_once("../Library/connect.php");
 	include_once("../Src/Category/CategoryController.php");
 	include_once("../Src/Publisher/PublisherController.php");
@@ -55,23 +55,23 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							<ul class="gn-menu agile_menu_drop">
 								<li><a href="#"> <i class="fa fa-tachometer"></i> Bảng điều khiển</a></li>
 								<li>
-									<a href="?page=category"><i class="fa fa-cogs" aria-hidden="true"></i> Danh mục </a> 
+									<a href="?page=category"><i class="fa fa-cogs" aria-hidden="true"></i> Danh mục </a>
 								</li>
 								<li>
-									<a href="?page=publisher"> <i class="fa fa-file-text-o" aria-hidden="true"></i>Publisher</a> 
+									<a href="?page=publisher"> <i class="fa fa-file-text-o" aria-hidden="true"></i>Publisher</a>
 								</li>
 								<li><a href="?page=country"> <i class="fa fa-table top" aria-hidden="true"></i> Country</a></li>
-								<li><a href="#"><i class="fa fa-list" aria-hidden="true"></i>Quản lý sản phẩm<i class="fa fa-angle-down" aria-hidden="true"> </i></a> 
+								<li><a href="#"><i class="fa fa-list" aria-hidden="true"></i>Quản lý sản phẩm<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"><a href="typo.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lỷ rượu</a></li>
 										<li class="mini_list_w3"><a href="icons.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý nhà sản xuất</a></li>
 										<li class="mini_list_agile"><a href="?page=paymentmethod"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lỷ HTTT</a></li>
 										<li class="mini_list_w3"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý khuyến mãi</a></li>
 										<li class="mini_list_w3"><a href="?page=subject"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý chủ đề liên hệ</a></li>
-										
+
 									</ul>
 								</li>
-								
+
 								<li class="page">
 									<a href="#"><i class="fa fa-files-o" aria-hidden="true"></i> Quản lý nhân viên <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="gn-submenu">
@@ -83,7 +83,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quyền hạn</a></li>
 									</ul>
 								</li>
-
+								<li><a href="?page=promotion"> <i class="fa fa-table top" aria-hidden="true"></i> Khuyến mãi</a></li>
 							</ul>
 						</div><!-- /gn-scroller -->
 					</nav>
@@ -94,13 +94,13 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					<ul class="top_dp_agile">
 						<li class="dropdown profile_details_drop">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-								<div class="profile_img">	
-									<span class="prfil-img"><img src="images/admin.jpg" alt=""> </span> 
-								</div>	
+								<div class="profile_img">
+									<span class="prfil-img"><img src="images/admin.jpg" alt=""> </span>
+								</div>
 							</a>
 							<ul class="dropdown-menu drp-mnu">
-								<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
-								<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
+								<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>
+								<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li>
 								<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
 							</ul>
 						</li>
@@ -124,7 +124,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<p>Lorem ipsum dolor</p>
 										<p><span>1 hour ago</span></p>
 									</div>
-									<div class="clearfix"></div>	
+									<div class="clearfix"></div>
 								</a></li>
 								<li class="odd"><a href="#">
 									<div class="user_img"><img src="images/a1.jpg" alt=""></div>
@@ -133,7 +133,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<p>Lorem ipsum dolor</p>
 										<p><span>3 hour ago</span></p>
 									</div>
-									<div class="clearfix"></div>	
+									<div class="clearfix"></div>
 								</a></li>
 								<li><a href="#">
 									<div class="user_img"><img src="images/a2.jpg" alt=""></div>
@@ -142,7 +142,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<p>Lorem ipsum dolor</p>
 										<p><span>2 hour ago</span></p>
 									</div>
-									<div class="clearfix"></div>	
+									<div class="clearfix"></div>
 								</a></li>
 								<li><a href="#">
 									<div class="user_img"><img src="images/a4.jpg" alt=""></div>
@@ -151,12 +151,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<p>Lorem ipsum dolor</p>
 										<p><span>1 hour ago</span></p>
 									</div>
-									<div class="clearfix"></div>	
+									<div class="clearfix"></div>
 								</a></li>
 								<li>
 									<div class="notification_bottom">
 										<a href="#">See all Notifications</a>
-									</div> 
+									</div>
 								</li>
 							</ul>
 						</li>
@@ -180,7 +180,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<p>Lorem ipsum dolor</p>
 										<p><span>3 hour ago</span></p>
 									</div>
-									<div class="clearfix"></div>	
+									<div class="clearfix"></div>
 								</a></li>
 								<li class="odd"><a href="#">
 									<div class="user_img"><img src="images/a1.jpg" alt=""></div>
@@ -189,7 +189,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<p>Lorem ipsum dolor</p>
 										<p><span>2 hour ago</span></p>
 									</div>
-									<div class="clearfix"></div>	
+									<div class="clearfix"></div>
 								</a></li>
 								<li><a href="#">
 									<div class="user_img"><img src="images/a2.jpg" alt=""></div>
@@ -198,12 +198,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<p>Lorem ipsum dolor</p>
 										<p><span>1 hour ago</span></p>
 									</div>
-									<div class="clearfix"></div>	
+									<div class="clearfix"></div>
 								</a></li>
 								<li>
 									<div class="notification_bottom">
 										<a href="#">See all Messages</a>
-									</div> 
+									</div>
 								</li>
 							</ul>
 						</li>
@@ -223,7 +223,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<li><a href="#">
 									<div class="task-info">
 										<span class="task-desc">Database update</span><span class="percentage">40%</span>
-										<div class="clearfix"></div>	
+										<div class="clearfix"></div>
 									</div>
 									<div class="progress progress-striped active">
 										<div class="bar yellow" style="width:40%;"></div>
@@ -232,7 +232,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<li><a href="#">
 									<div class="task-info">
 										<span class="task-desc">Dashboard done</span><span class="percentage">90%</span>
-										<div class="clearfix"></div>	
+										<div class="clearfix"></div>
 									</div>
 									<div class="progress progress-striped active">
 										<div class="bar green" style="width:90%;"></div>
@@ -241,7 +241,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<li><a href="#">
 									<div class="task-info">
 										<span class="task-desc">Mobile App</span><span class="percentage">33%</span>
-										<div class="clearfix"></div>	
+										<div class="clearfix"></div>
 									</div>
 									<div class="progress progress-striped active">
 										<div class="bar red" style="width: 33%;"></div>
@@ -250,7 +250,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<li><a href="#">
 									<div class="task-info">
 										<span class="task-desc">Issues fixed</span><span class="percentage">80%</span>
-										<div class="clearfix"></div>	
+										<div class="clearfix"></div>
 									</div>
 									<div class="progress progress-striped active">
 										<div class="bar  blue" style="width: 80%;"></div>
@@ -259,10 +259,10 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<li>
 									<div class="notification_bottom">
 										<a href="#">See all pending tasks</a>
-									</div> 
+									</div>
 								</li>
 							</ul>
-						</li>	
+						</li>
 					</ul>
 				</li>
 
@@ -276,7 +276,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				</li>
 				<li class="second full-screen">
 					<section class="full-top">
-						<button id="toggle"><i class="fa fa-arrows-alt" aria-hidden="true"></i></button>	
+						<button id="toggle"><i class="fa fa-arrows-alt" aria-hidden="true"></i></button>
 					</section>
 				</li>
 
@@ -350,12 +350,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 					<div class="agile-tables">
 						<div class="w3l-table-info agile_info_shadow">
-							<?php 
+							<?php
 							//Category
 							if(isset($_GET['page']) && $_GET['page'] == "category")
 							{
 								include("../Src/Category/Category.php");
-								
+
 							}
 							if($_GET['page'] == "UpadateCategory"){
 								include("../Src/Category/UpdateCategory.php");
@@ -390,7 +390,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							if(isset($_GET['page']) && $_GET['page'] == "country")
 							{
 								include("../Src/Country/Country.php");
-								
+
 							}
 							if($_GET['page'] == "UpdateCountry"){
 								include("../Src/Country/UpdateCountry.php");
@@ -484,12 +484,30 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								deleteEmployee($_GET['empCode']);
 								echo "<script>window.location.href='?page=employee'</script>";
 							}
+							//Promotion
+							if(isset($_GET['page'])&& $_GET['page']=="promotion")
+							{
+								include_once("../Src/Promotion/Promotion.php");
+							}
+							if($_GET['page']=="UpadatePromotion")
+							{
+
+								include_once("../Src/Promotion/UpdatePromotion.php");
+							}
+							elseif ($_GET['page']=="AddPromotion") {
+								# code...
+								include('../Src/Promotion/AddPromotion.php');
+							}
+							elseif(isset($_GET['PromotionId'])){
+								deletePaymentMethod($_GET['PromotionId']);
+								echo "<script>window.location.href='?page=promotion'</script>";
+							}
 							?>
 						</div>
 					</div>
 
 
-					
+
 				</div>
 				<!-- //inner_content_w3_agile_info-->
 			</div>
@@ -499,7 +517,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!--copy rights start here-->
 		<div class="copyrights">
 			<p>© 2018 CT250 - Nhóm 02. All Rights Reserved</p>
-		</div>	
+		</div>
 		<!--copy rights end here-->
 		<!-- js -->
 
@@ -508,7 +526,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!-- /amcharts -->
 		<script src="../public/admin/js/amcharts.js"></script>
 		<script src="../public/admin/js/serial.js"></script>
-		<script src="../public/admin/js/export.js"></script>	
+		<script src="../public/admin/js/export.js"></script>
 		<script src="../public/admin/js/light.js"></script>
 		<!-- Chart code -->
 		<script>
@@ -811,7 +829,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 				$("ul.gn-submenu").slideUp('slow');
 
-				$("ul.gn-menu li").hover(function () { 
+				$("ul.gn-menu li").hover(function () {
 					$(this).children("ul.gn-submenu").slideDown('fast');
 				}, function () {
 					$(this).children("ul.gn-submenu").slideUp('slow');
@@ -832,7 +850,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 				$('#toggle').click(function () {
 					screenfull.toggle($('#container')[0]);
-				});	
+				});
 			});
 		</script>
 		<script src="../public/admin/js/flipclock.js"></script>
