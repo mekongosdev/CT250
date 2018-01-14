@@ -64,7 +64,7 @@
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"><a href="typo.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lỷ rượu</a></li>
 										<li class="mini_list_w3"><a href="icons.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý nhà sản xuất</a></li>
-										<li class="mini_list_agile"><a href="?page=PaymentMethod"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lỷ HTTT</a></li>
+										<li class="mini_list_agile"><a href="?page=paymentmethod"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lỷ HTTT</a></li>
 										<li class="mini_list_w3"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý khuyến mãi</a></li>
 										<li class="mini_list_w3"><a href="?page=subject"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý chủ đề liên hệ</a></li>
 										
@@ -444,12 +444,7 @@
 							{
 								include_once("../Src/Contact/Contact.php");
 							}
-							if($_GET['page']=="UpdateContact")
-							{
-
-								include_once("../Src/Contact/UpdateContact.php");
-							}
-							elseif(isset($_GET['ContactId'])){
+							if(isset($_GET['ContactId'])){
 								deleteContact($_GET['ContactId']);
 								echo "<script>window.location.href='?page=contact'</script>";
 							}

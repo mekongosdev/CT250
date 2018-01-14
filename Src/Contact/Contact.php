@@ -38,7 +38,7 @@
 					<td class="col-md-3"><?= $Phone;?> </td>
 					<td class="col-md-6"><?= $Address;?> </td>
 					<td class="text-center col-md-2">
-						<a class="btn btn-warning btn" href="?page=UpadateContac&ContacId=<?php echo $ContactId; ?>"><i class="fa fa-edit"></i></a>
+						
 						<a class='btn btn-danger' href="?page=DeleteContac&ContactId=<?php echo $ContactId; ?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?')"><i class="fa fa-remove"></i></a>
 					</td>     
 				</tr>
