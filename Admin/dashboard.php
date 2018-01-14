@@ -499,15 +499,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								# code...
 								include('../Src/Promotion/AddPromotion.php');
 							}
-							elseif(isset($_GET['page']=="DeletePromotion" && $_GET['PromotionId'])){
+							elseif($_GET['page']=="DeletePromotion"){
 								deletePromotion($_GET['PromotionId']);
 								echo "<script>window.location.href='?page=promotion'</script>";
 							}
-							elseif(isset($_GET['page']=="ChangeActive" && $_GET['Do'])){
+							elseif($_GET['page']=="ChangeActive"){
 								changeActive($_GET['Do']);
-								echo "<script>window.location.href='?page=promotion'</script>";
-							}
-							elseif{
 								echo "<script>window.location.href='?page=promotion'</script>";
 							}
 							?>

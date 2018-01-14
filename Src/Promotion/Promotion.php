@@ -35,7 +35,7 @@ $list_Promotion= mysql_query($sqlSelect);
 				<td class="col-md-6"><?= $active;?> </td>
 				<td class="col-md-6"><?= $close;?> </td>
 				<td class="col-md-6" style="text-align:center;">
-					<?= ($open == 0) ? '<a class="btn btn-default" href="?page=ChangeActive&Do=OK"><span class="glyphicon glyphicon-ọk" style="color:blue;"></span></a>"' : '<a class="btn btn-default" href="?page=UpadateActive&Do=Remove"><span class="glyphicon glyphicon-remove" style="color:red;"></span></a>';?>
+					<?= ($open == 0) ? '<a class="btn btn-default" href="?page=ChangeActive&Do=OK"><span class="glyphicon glyphicon-ọk" style="color:blue;"></span></a>"' : '<a class="btn btn-default" href="?page=ChangeActive&Do=Remove"><span class="glyphicon glyphicon-remove" style="color:red;"></span></a>';?>
 				</td>
 				<td class="text-center col-md-2">
 					<a class="btn btn-warning" href="?page=UpdatePromotion&PromotionId=<?php echo $PromotionId; ?>"><i class="fa fa-edit"></i></a>
