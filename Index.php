@@ -163,7 +163,7 @@ $('#user_modal').remove();
 <!-- banner -->
 	<div class="banner" id="home1">
 		<div class="container">
-			<h3 class="pull-right">fashions fade, <span>style is eternal</span></h3>
+			<h3>fashions fade, <span>style is eternal</span></h3>
 		</div>
 	</div>
 <!-- //banner -->
@@ -182,7 +182,7 @@ $('#user_modal').remove();
 						<script src="public/client/js/jquery.magnific-popup.js" type="text/javascript"></script>
 					<!--//pop-up-box -->
 					<div id="small-dialog" class="mfp-hide">
-						<iframe src="https://player.vimeo.com/video/23259282?title=0&byline=0&portrait=0"></iframe>
+						<iframe src="https://player.vimeo.com/video/132524151?title=0&byline=0&portrait=0"></iframe>
 					</div>
 					<script>
 						$(document).ready(function() {
@@ -1016,7 +1016,7 @@ $('#user_modal').remove();
 	<div class="banner-bottom1">
 		<div class="agileinfo_banner_bottom1_grids">
 			<div class="col-md-7 agileinfo_banner_bottom1_grid_left">
-				<h3>Grand Opening Event With flat<span>20% <i>Discount</i></span></h3>
+				<h3 >Grand Opening Event With flat<span>20% <i>Discount</i></span></h3>
 				<a href="products.html">Shop Now</a>
 			</div>
 			<div class="col-md-5 agileinfo_banner_bottom1_grid_right">
