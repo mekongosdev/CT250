@@ -75,7 +75,7 @@ include("Src/User/Register.php");
 				</div>
 			</div>
 			<div class="cart box_1">
-				<a href="checkout.html">
+				<a href="#">
 					<div class="total">
 					<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
 					<img src="public/client/images/bag.png" alt="" />
@@ -100,7 +100,7 @@ include("Src/User/Register.php");
 				</div> 
 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="index.html" class="act">Trang chủ</a></li>	
+						<li class="active"><a href="#" class="act">Trang chủ</a></li>	
 						<!-- Mega Menu -->
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sản phẩm <b class="caret"></b></a>
@@ -109,11 +109,11 @@ include("Src/User/Register.php");
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Rượu truyền thống</h6>
-											<li><a href="dresses.html">Dresses<span>New</span></a></li>
-											<li><a href="sweaters.html">Sweaters</a></li>
-											<li><a href="skirts.html">Shorts & Skirts</a></li>
-											<li><a href="jeans.html">Jeans</a></li>
-											<li><a href="shirts.html">Shirts & Tops<span>New</span></a></li>
+											<li><a href="#">Dresses<span>New</span></a></li>
+											<li><a href="#">Sweaters</a></li>
+											<li><a href="#">Shorts & Skirts</a></li>
+											<li><a href="#">Jeans</a></li>
+											<li><a href="#">Shirts & Tops<span>New</span></a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
@@ -300,7 +300,7 @@ include("Src/User/Register.php");
 											</ul>
 										</div>
 									</div>
-									<h5><a href="single.html">Skirt</a></h5>
+									<h5><a href="#">Skirt</a></h5>
 									<div class="simpleCart_shelfItem">
 										<p><span>$320</span> <i class="item_price">$250</i></p>
 										<p><a class="item_add" href="#">Add to cart</a></p>
@@ -478,7 +478,7 @@ include("Src/User/Register.php");
 											</ul>
 										</div>
 									</div>
-									<h5><a href="single.html">Sandal</a></h5>
+									<h5><a href="#">Sandal</a></h5>
 									<div class="simpleCart_shelfItem">
 										<p><span>$320</span> <i class="item_price">$250</i></p>
 										<p><a class="item_add" href="#">Add to cart</a></p>
@@ -502,7 +502,7 @@ include("Src/User/Register.php");
 											</ul>
 										</div>
 									</div>
-									<h5><a href="single.html">Sandal</a></h5>
+									<h5><a href="#">Sandal</a></h5>
 									<div class="simpleCart_shelfItem">
 										<p><span>$320</span> <i class="item_price">$250</i></p>
 										<p><a class="item_add" href="#">Add to cart</a></p>
@@ -531,7 +531,7 @@ include("Src/User/Register.php");
 											</ul>
 										</div>
 									</div>
-									<h5><a href="single.html">Jewellery</a></h5>
+									<h5><a href="#">Jewellery</a></h5>
 									<div class="simpleCart_shelfItem">
 										<p><span>$320</span> <i class="item_price">$250</i></p>
 										<p><a class="item_add" href="#">Add to cart</a></p>
