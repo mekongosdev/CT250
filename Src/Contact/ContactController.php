@@ -9,9 +9,10 @@ function addContact($name,$subject,$datewrite,$information,$email,$phone,$addres
 	`ContactDate`, `Information`, `Email`, 
 	`Phone`, `Address`)
 	VALUES
-	('$name','$subject','$datewrite',
+	('$subject','$name','$datewrite',
 	'$information','$email','$phone',
 	'$address1')";
+	mysql_query($insert);
 }
 
 

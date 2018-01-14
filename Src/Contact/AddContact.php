@@ -36,8 +36,7 @@
 		$address1 = $_POST["txtAddress"];
 		addContact($name,$subject,$datewrite,$information,$email,$phone,$address1);
 		echo '<script> alert("Liên hệ thành công");</script>';
-		echo "<script>window.location.href='Contact.php'</script>";
-
+		 echo "<script>window.location.href='../../index.php'</script>";
 	}
 	?>
 	<div class="jumbotron jumbotron-sm">
