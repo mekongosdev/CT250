@@ -38,6 +38,7 @@
 	include_once("../Src/Role//RoleController.php");
 	include_once("../Src/Subject/SubjectController.php");
 	include_once("../Src/Contact/ContactController.php");
+	include_once("../Src/PaymentMethod/PaymentMethodController.php");
 	?>
 	<!-- banner -->
 	<div class="wthree_agile_admin_info">
@@ -453,7 +454,7 @@
 								echo "<script>window.location.href='?page=contact'</script>";
 							}
 							//Payment Method
-							if(isset($_GET['page'])&& $_GET['page']=="PaymentMethod")
+							if(isset($_GET['page'])&& $_GET['page']=="paymentmethod")
 							{
 								include_once("../Src/PaymentMethod/PaymentMethod.php");
 							}
@@ -467,8 +468,8 @@
 								include('../Src/PaymentMethod/AddPaymentMethod.php');
 							}
 							elseif(isset($_GET['PaymentMethodId'])){
-								deleteSubject($_GET['PaymentMethodId']);
-								echo "<script>window.location.href='?page=PaymentMethod'</script>";
+								deletePaymentMethod($_GET['PaymentMethodId']);
+								echo "<script>window.location.href='?page=paymentmethod'</script>";
 							}
 							?>
 						</div>

@@ -1,17 +1,14 @@
 
 <?php 
-include_once("PaymentMethodController.php");
-
 $name= "";
 $description ="";
 if(isset($_POST["btnAdd"]))
 {
 	$name = $_POST["txtName"];
 	$description = $_POST["txtDetails"];
-
 	addPaymentMethod($name,$description);
 	echo '<script> alert("Đã tạo mới một hình thức thanh toán!");</script>';
-	echo "<script>window.location.href='?page=PaymentMethod'</script>";
+	echo "<script>window.location.href='?page=paymentmethod'</script>";
 
 }
 ?>

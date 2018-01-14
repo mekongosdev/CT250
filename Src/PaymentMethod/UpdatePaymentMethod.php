@@ -1,5 +1,4 @@
 	<?php 
-	include_once("PaymentMethodController.php");
 	$PaymentMethodId = 0;
 	if(isset($_GET['PaymentMethodId']))
 		$PaymentMethodId=$_GET['PaymentMethodId'];
@@ -19,7 +18,7 @@
 		$description=$_POST['txtDetails'];
 		updatePaymentMethod($PaymentMethodId,$name,$description);
 		echo '<script> alert("Cập nhật thành công!");</script>';
-		echo "<script>window.location.href='?page=PaymentMethod'</script>";
+		echo "<script>window.location.href='?page=paymentmethod'</script>";
 	}
 
 	?>
