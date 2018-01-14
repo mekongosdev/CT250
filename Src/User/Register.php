@@ -41,7 +41,7 @@ if (isset($_POST['btnLogin'])) {
 		$_SESSION["username"] = $loginusername;
 	}
 	else{
-		echo 'Username or Password is not correct';
+		echo '<script> alert("Tài khoản hoặc mật khẩu không đúng!");</script>';
 	}
 }
 

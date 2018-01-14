@@ -163,7 +163,7 @@ $('#user_modal').remove();
 <!-- banner -->
 	<div class="banner" id="home1">
 		<div class="container">
-			<h3>fashions fade, <span>style is eternal</span></h3>
+			<h3 class="pull-right">fashions fade, <span>style is eternal</span></h3>
 		</div>
 	</div>
 <!-- //banner -->
