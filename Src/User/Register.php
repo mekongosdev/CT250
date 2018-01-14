@@ -27,7 +27,9 @@ if(isset($_POST["btnAdd"]))
 	addUser($username, $password,$fullname,$sex,$address,$phone,$email,$dayofbirth,$identitycard);
 }
 ?>
-
+<?php
+include_once("Login.php");
+?>
 <!-- header -->
 <div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
 aria-hidden="true">
@@ -52,7 +54,7 @@ aria-hidden="true">
 								<div class="facts">
 									<div class="register">
 										<form action="UserController.php" method="post">			
-											<input name="txtUsername" placeholder="Địa chỉ email" type="text" required="">						
+											<input name="txtSignIn" placeholder="Địa chỉ email" type="text" required="">						
 											<input name="txtPassword" placeholder="Mật khẩu" type="password" required="">										
 											<div class="sign-up">
 												<input type="submit" value="Đăng nhập"/>

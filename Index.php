@@ -3,7 +3,7 @@
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang='vi'>
 <head>
 <title>Windsor Shop</title>
 <!-- for-mobile-apps -->
@@ -324,7 +324,7 @@ include("Src/User/Register.php");
 											</ul>
 										</div>
 									</div>
-									<h5><a href="single.html">Skirt</a></h5>
+									<h5><a href="#">Skirt</a></h5>
 									<div class="simpleCart_shelfItem">
 										<p><span>$320</span> <i class="item_price">$250</i></p>
 										<p><a class="item_add" href="#">Add to cart</a></p>
@@ -401,6 +401,7 @@ include("Src/User/Register.php");
 											</ul>
 										</div>
 									</div>
+									
 									<h5><a href="single.html">Watch</a></h5>
 									<div class="simpleCart_shelfItem">
 										<p><span>$320</span> <i class="item_price">$250</i></p>

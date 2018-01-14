@@ -24,7 +24,7 @@ if (isset($_POST['btnLogin'])) {
             $_SESSION["username"] = $username;
             //if ($Role) 
                // $_SESSION['admin'] = $username;
-            echo "<script language='javascript'>window.location='Index.php'</script>";
+            echo "<script language='javascript'>window.location='../../Index.php'</script>";
         }
         else{
             echo 'Username or Password is not correct';
