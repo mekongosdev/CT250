@@ -36,7 +36,8 @@
 	include_once("../Src/Publisher/PublisherController.php");
 	include_once("../Src/Country/CountryController.php");
 	include_once("../Src/Role//RoleController.php");
-	include_once("../Src/Subject//SubjectController.php");
+	include_once("../Src/Subject/SubjectController.php");
+	include_once("../Src/Contact/ContactController.php");
 	?>
 	<!-- banner -->
 	<div class="wthree_agile_admin_info">
@@ -434,6 +435,21 @@
 							elseif(isset($_GET['SubjectId'])){
 								deleteSubject($_GET['SubjectId']);
 								echo "<script>window.location.href='?page=subject'</script>";
+							}
+
+							//Contact
+							if(isset($_GET['page'])&& $_GET['page']=="contact")
+							{
+								include_once("../Src/Contact/Contact.php");
+							}
+							if($_GET['page']=="UpdateContact")
+							{
+
+								include_once("../Src/Contact/UpdateContact.php");
+							}
+							elseif(isset($_GET['ContactId'])){
+								deleteContact($_GET['ContactId']);
+								echo "<script>window.location.href='?page=contact'</script>";
 							}
 							?>
 						</div>
