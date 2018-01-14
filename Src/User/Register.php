@@ -148,6 +148,3 @@ aria-hidden="true">
 	</div>
 </div>
 </div>
-<script>
-	$('#myModal88').modal('show');
-</script>

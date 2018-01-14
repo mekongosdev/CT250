@@ -40,6 +40,8 @@
 	});
 </script>
 <!-- //end-smooth-scrolling -->
+
+
 </head>
 	
 <body>
@@ -53,14 +55,19 @@
 <?php 
 include("Src/User/Register.php");
 ?>
- <!-- 
-	Modal đăng ký
- -->
+<script>$(document).ready(function(){
+<?php
+ if(!isset($_SESSION["username"])){ ?>
+$('#myModal88').modal('show');
+<?php }else{ ?>
+$('#user_modal').remove();
+	<?php } ?>
+});</script>
 	<div class="header">
 		<div class="container">
-			<div class="w3l_login">
+			<div class="w3l_login" id="user_modal">
 		
-				<a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a><?=$_SESSION["username"]?>
+				<a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 			</div>
 			<div class="w3l_logo">
 				<h1><a href="index.html">Windsor's Wine<span>Siêu Thị Rượu Ngoại</span></a></h1>
@@ -78,10 +85,10 @@ include("Src/User/Register.php");
 			<div class="cart box_1">
 				<a href="#">
 					<div class="total">
-					<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+					<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> sản phẩm)</div>
 					<img src="public/client/images/bag.png" alt="" />
 				</a>
-				<p><a href="javascript:;" class="simpleCart_empty">Giỏ hàng trống</a></p>
+				<p style="margin-left: 58px;" ><?php if(isset($_SESSION["username"])){echo $_SESSION["username"]." <a href='Src/User/Signout.php'><span class=' 	glyphicon glyphicon-log-out'></span></a>";}?> </p>
 				<div class="clearfix"> </div>
 			</div>	
 			<div class="clearfix"> </div>
