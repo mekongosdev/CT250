@@ -10,15 +10,15 @@ function deletePromotion($PromotionId)
 	$delete = "DELETE FROM Promotion WHERE PromotionId=$PromotionId";
 	mysql_query($delete);
 }
-function changeActive($do)
+function changeActive($PromotionId,$do)
 {
 	if ($do == "OK") {
-		$Promotionopen = 1;
+		$Promotionopen = '1';
 	} else if ($do == "Remove") {
-		$Promotionopen = 0;
+		$Promotionopen = '0';
 	}
 
-	$update = "UPDATE Promotion	SET PromotionOpen='$Promotionopen'WHERE PromotionId='$PromotionId'";
+	$update = "UPDATE Promotion	SET PromotionOpen='$Promotionopen' WHERE PromotionId='$PromotionId'";
 	mysql_query($update);
 }
 function updatePromotion($PromotionId,$name,$discount,$content,$Promotionacctive,$Promotionclose,$Promotionopen)

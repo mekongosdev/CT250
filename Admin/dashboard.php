@@ -504,7 +504,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								echo "<script>window.location.href='?page=promotion'</script>";
 							}
 							elseif($_GET['page']=="ChangeActive"){
-								changeActive($_GET['Do']);
+								changeActive($_GET['PromotionId'],$_GET['Do']);
 								echo "<script>window.location.href='?page=promotion'</script>";
 							}
 							?>
