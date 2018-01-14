@@ -10,6 +10,11 @@ function deletePromotion($PromotionId)
 	$delete = "DELETE FROM Promotion WHERE PromotionId=$PromotionId";
 	mysql_query($delete);
 }
+function changePromotion($PromotionId)
+{
+	$delete = "DELETE FROM Promotion WHERE PromotionId=$PromotionId";
+	mysql_query($delete);
+}
 function updatePromotion($PromotionId,$name,$discount,$content,$Promotionacctive,$Promotionclose,$Promotionopen)
 {
 	$update =
