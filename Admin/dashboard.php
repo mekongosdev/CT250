@@ -499,7 +499,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								include('../Src/Promotion/AddPromotion.php');
 							}
 							elseif(isset($_GET['PromotionId'])){
-								deletePaymentMethod($_GET['PromotionId']);
+								deletePromotion($_GET['PromotionId']);
 								echo "<script>window.location.href='?page=promotion'</script>";
 							}
 							?>
