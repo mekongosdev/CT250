@@ -30,29 +30,10 @@ function searchEmployee($empCode)
 	"SELECT 
 	`EmployeeCode`, `EmployeePass`, `EmployeeName`, `EmployeeBirth`, `EmployeeAddress`, `EmployeeEmail`, `EmployeeIC`, `Role` 
 	FROM `employee` 
-	WHERE'EmployeeCode'=$empCode";
+	WHERE `EmployeeCode`='$empCode'";
 	return mysql_query($select);
 }
-function blindListRoleUpdate($selectValue)
-{
-	$sqlSelect = "SELECT `RoleId`, `RoleName`, `RoleDetails`, `RoleActive` FROM `role`";
-	$result = mysql_query($sqlSelect);
-	echo "<select> name='slRole' class='form-control'><option value='0'>Vui lòng chọn quyền cho nhân viên của hệ thống</option>";
-	while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) 
-	{
-		if($row['RoleId'] == $selectedValue)
-		{
-			echo "<option value='".$row['RoleId']."' selected>".$row['RoleName']."</option>";
-		}
-		else
-		{
-			echo "<option value='".$row['RoleId']."'>".$row['RoleName']."</option>";
-		}
-	# code...
 
-	}
-	echo "</select>";
-}
 function updateEmployee($empCode,$empPass,$empName,$empBrith,$empAddress,$empMail,$empIC,$empRole)
 {
 	$sqlUpdate=
@@ -63,7 +44,7 @@ function updateEmployee($empCode,$empPass,$empName,$empBrith,$empAddress,$empMai
 	`EmployeeEmail`='$empMail',`EmployeeIC`='$empIC',
 	`Role`='$empRole' 
 	WHERE 
-	'EmployeeCode'=$empCode";
+	`EmployeeCode`='$empCode'";
 	mysql_query($sqlUpdate);
 }
 //Delete

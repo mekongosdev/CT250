@@ -472,11 +472,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							//Employee
 							if(isset($_GET['page'])&& $_GET['page']=="employee")
 							{
-								include_once("../Src/employee/employee.php");
+								include_once("../Src/Employee/Employee.php");
 							}
-							if($_GET['page']=="UpadatEemployee")
+							if($_GET['page']=="UpadateEmployee")
 							{
-								include_once("../Src/Employee/UpadatEemployee.php");
+								include_once("../Src/Employee/UpdateEmployee.php");
 							}
 							elseif ($_GET['page']=="AddEmployee") {
 								include('../Src/Employee/AddEmployee.php');
