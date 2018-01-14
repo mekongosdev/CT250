@@ -22,7 +22,7 @@ if(isset($_POST["btnAdd"]))
 	$phone=$_POST["NumPhone"];
 	$email=$_POST["txtEmail"];
 	
-	$dayofbirth=date('Y-m-d',  strtotime($_POST['dateOfBirth']));
+	$dayofbirth=date('Y-m-d',strtotime($_POST['dateOfBirth']));
 	$identitycard=$_POST["txtIdentitycard"];
 	addUser($username, $password,$fullname,$sex,$address,$phone,$email,$dayofbirth,$identitycard);
 }

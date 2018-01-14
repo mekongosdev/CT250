@@ -965,7 +965,7 @@ ul.wmuSliderPagination {
 }
 .agileinfo_banner_bottom1_grid_left h3{
 	font-size: 14px;
-    color: #212121;
+    color: white;
     text-transform: capitalize;
 	margin-bottom:4em;
 }
@@ -974,10 +974,10 @@ ul.wmuSliderPagination {
     font-size: 3em;
     font-weight: 700;
     margin: .5em 1em 0 0;
-    color: #ff9b05;
+    color: red;
 }
 .agileinfo_banner_bottom1_grid_left h3 span i{
-	color:#212121;
+	color:white;
 }
 .agileinfo_banner_bottom1_grid_left a,.team-bottom a{
 	text-align: right;
@@ -985,7 +985,7 @@ ul.wmuSliderPagination {
     text-transform: uppercase;
     font-size: 1em;
     letter-spacing: 2px;
-    color: #ff9b05;
+    color: yellow;
     background: url(../images/img-sp.png) no-repeat 112px -4px;
     padding: 0 45px 0 0;
 }
