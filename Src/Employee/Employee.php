@@ -1,10 +1,10 @@
 <?php 
 include_once("EmployeeController.php");
-include_once("../Role/RoleController.php");
 $sqlSelect="SELECT `EmployeeCode`, `EmployeePass`, `EmployeeName`, `EmployeeBirth`, `EmployeeAddress`, `EmployeeEmail`, `EmployeeIC`, `Role` FROM employee";
 $list_employee= mysql_query($sqlSelect);
 ?>
 <h3 class="w3_inner_tittle two text-center">Quản lý Nhân Viên</h3>
+<a class="btn btn-primary" href="?page=AddEmployee">THÊM <i class="fa fa-plus"></i></a> 
 <table id="table" class="table-striped table-bordered table-hover table-condensed">
 	<thead >
 		<tr>
@@ -29,11 +29,11 @@ $list_employee= mysql_query($sqlSelect);
 			<tr>
 				<td class="col-md-1"><?= $num;?> </td>
 				<?php 
-				$result = searchRole($RoleId);
+				$result = searchRole($empRole);
 				if(isset($result))
 				{
 					list($RoleId,$RoleName)=mysql_fetch_array($result);
-					$RoleId = $RoleName;
+					$empRole = $RoleName;
 				} ?>
 				<td class="col-md-3"><?= $empCode;?> </td>
 				<td class="col-md-6"><?= $empPass;?> </td>
@@ -44,8 +44,8 @@ $list_employee= mysql_query($sqlSelect);
 				<td class="col-md-6"><?= $empIC?> </td>
 				<td class="col-md-6"><?= $empRole?> </td>
 				<td class="text-center col-md-2">
-
-					<a class='btn btn-danger' href="?page=DeleteEmployee&EmployeeCode=<?php echo $ContactId; ?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?')"><i class="fa fa-remove"></i></a>
+					<a class="btn btn-warning btn" href="?page=UpadateEmployee&empCode=<?php echo $empCode; ?>"><i class="fa fa-edit"></i></a>
+					<a class='btn btn-danger' href="?page=DeleteEmployee&empCode=<?php echo $empCode; ?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?')"><i class="fa fa-remove"></i></a>
 				</td>     
 			</tr>
 			<?php

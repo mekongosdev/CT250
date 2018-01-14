@@ -39,6 +39,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	include_once("../Src/Subject/SubjectController.php");
 	include_once("../Src/Contact/ContactController.php");
 	include_once("../Src/PaymentMethod/PaymentMethodController.php");
+	include_once("../Src/Employee/EmployeeController.php");
 	?>
 	<!-- banner -->
 	<div class="wthree_agile_admin_info">
@@ -474,14 +475,13 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							}
 							if($_GET['page']=="UpadatEemployee")
 							{
-
 								include_once("../Src/Employee/UpadatEemployee.php");
 							}
 							elseif ($_GET['page']=="AddEmployee") {
 								include('../Src/Employee/AddEmployee.php');
 							}
-							elseif(isset($_GET['EmployeId'])){
-								deletePaymentMethod($_GET['EmployeId']);
+							elseif(isset($_GET['empCode'])){
+								deleteEmployee($_GET['empCode']);
 								echo "<script>window.location.href='?page=employee'</script>";
 							}
 							//Promotion
