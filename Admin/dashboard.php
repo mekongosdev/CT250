@@ -36,6 +36,7 @@
 	include_once("../Src/Publisher/PublisherController.php");
 	include_once("../Src/Country/CountryController.php");
 	include_once("../Src/Role//RoleController.php");
+	include_once("../Src/Subject//SubjectController.php");
 	?>
 	<!-- banner -->
 	<div class="wthree_agile_admin_info">
@@ -417,6 +418,23 @@
 								echo "<script>window.location.href='?page=role'</script>";
 							}
 							//Subject
+							if(isset($_GET['page'])&& $_GET['page']=="subject")
+							{
+								include_once("../Src/Subject/Subject.php");
+							}
+							if($_GET['page']=="UpadateSubject")
+							{
+
+								include_once("../Src/Subject/UpdateSubject.php");
+							}
+							elseif ($_GET['page']=="AddSubject") {
+								# code...
+								include('../Src/Subject/AddSubject.php');
+							}
+							elseif(isset($_GET['SubjectId'])){
+								deleteSubject($_GET['SubjectId']);
+								echo "<script>window.location.href='?page=subject'</script>";
+							}
 							?>
 						</div>
 					</div>

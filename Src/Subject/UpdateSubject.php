@@ -17,7 +17,7 @@
 		$name=$_POST['txtName'];
 		updateSubject($SubjectId,$name);
 		echo '<script> alert("Cập nhật thành công!");</script>';
-		echo "<script>window.location.href='?page=Subject'</script>";
+		echo "<script>window.location.href='?page=subject'</script>";
 	}
 
 	?>
@@ -34,8 +34,8 @@
 			<div class="form-group">
 				<label class="control-label col-md-2" for="txtName">Tên chủ đề:</label>
 				<div class="col-sm-10">
-					<input type="number" class="form-control" id="txtNum"  name="txtNum"
-					required  readonly="true" value="<?php echo $SubjectId;?>" >
+					<input type="text" class="form-control" id="txtNum"  name="txtName"
+					required   value="<?php echo $name;?>" >
 				</div>
 			</div>
 			<div class="form-group">        
