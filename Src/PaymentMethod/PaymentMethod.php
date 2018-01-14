@@ -5,14 +5,14 @@ $sqlSelect = "SELECT `PaymentMethodId`, `PaymentMethodName`, `PaymentMethodDescr
 $list_PaymentMethod= mysql_query($sqlSelect);
 
 ?>
-<h3 class="w3_inner_tittle two text-center">Quản lý rượu</h3>
+<h3 class="w3_inner_tittle two text-center">Quản lý hình thức thanh toán</h3>
 <a class="btn btn-primary" href="?page=AddPaymentMethod">THÊM <i class="fa fa-plus"></i></a> 
 
 <table id="table" class="table-striped table-bordered table-hover table-condensed">
 	<thead >
 		<tr>
 			<th><strong>STT</strong></th>
-			<th><strong>Tên</strong></th>
+			<th><strong>Tên HTTT</strong></th>
 			<th><strong>Mô Tả</strong></th>
 			<th><strong>Phương Thức</strong></th>
 		</tr>

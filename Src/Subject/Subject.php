@@ -5,7 +5,7 @@ $sqlSelect = "SELECT `SubjectId`, `SubjectName` FROM Subject";
 $list_Subject= mysql_query($sqlSelect);
 
 ?>
-<h3 class="w3_inner_tittle two text-center">Quản lý chủ đề</h3>
+<h3 class="w3_inner_tittle two text-center">Quản lý chủ đề liên hệ</h3>
 <a class="btn btn-primary" href="?page=AddSubject">THÊM <i class="fa fa-plus"></i></a> 
 
 <table id="table" class="table-striped table-bordered table-hover table-condensed">
