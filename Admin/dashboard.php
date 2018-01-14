@@ -63,8 +63,9 @@
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"><a href="typo.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lỷ rượu</a></li>
 										<li class="mini_list_w3"><a href="icons.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý nhà sản xuất</a></li>
-										<li class="mini_list_agile"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lỷ xuất xứ</a></li>
+										<li class="mini_list_agile"><a href="?page=PaymentMethod"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lỷ HTTT</a></li>
 										<li class="mini_list_w3"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý khuyến mãi</a></li>
+										<li class="mini_list_w3"><a href="?page=subject"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý chủ đề liên hệ</a></li>
 										
 									</ul>
 								</li>
@@ -450,6 +451,24 @@
 							elseif(isset($_GET['ContactId'])){
 								deleteContact($_GET['ContactId']);
 								echo "<script>window.location.href='?page=contact'</script>";
+							}
+							//Payment Method
+							if(isset($_GET['page'])&& $_GET['page']=="PaymentMethod")
+							{
+								include_once("../Src/PaymentMethod/PaymentMethod.php");
+							}
+							if($_GET['page']=="UpadatePaymentMethod")
+							{
+
+								include_once("../Src/PaymentMethod/UpdatePaymentMethod.php");
+							}
+							elseif ($_GET['page']=="AddPaymentMethod") {
+								# code...
+								include('../Src/PaymentMethod/AddPaymentMethod.php');
+							}
+							elseif(isset($_GET['PaymentMethodId'])){
+								deleteSubject($_GET['PaymentMethodId']);
+								echo "<script>window.location.href='?page=PaymentMethod'</script>";
 							}
 							?>
 						</div>
