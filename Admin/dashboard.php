@@ -40,6 +40,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	include_once("../Src/Contact/ContactController.php");
 	include_once("../Src/PaymentMethod/PaymentMethodController.php");
 	include_once("../Src/Employee/EmployeeController.php");
+	include_once("../Src/Promotion/PromotionController.php");
 	?>
 	<!-- banner -->
 	<div class="wthree_agile_admin_info">
@@ -489,7 +490,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/Promotion/Promotion.php");
 							}
-							if($_GET['page']=="UpadatePromotion")
+							if($_GET['page']=="UpdatePromotion")
 							{
 
 								include_once("../Src/Promotion/UpdatePromotion.php");
@@ -498,8 +499,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								# code...
 								include('../Src/Promotion/AddPromotion.php');
 							}
-							elseif(isset($_GET['PromotionId'])){
-								deletePaymentMethod($_GET['PromotionId']);
+							elseif($_GET['page']=="DeletePromotion"){
+								deletePromotion($_GET['PromotionId']);
+								echo "<script>window.location.href='?page=promotion'</script>";
+							}
+							elseif($_GET['page']=="ChangeActive"){
+								changeActive($_GET['PromotionId'],$_GET['Do']);
 								echo "<script>window.location.href='?page=promotion'</script>";
 							}
 							?>

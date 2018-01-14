@@ -30,13 +30,15 @@ $list_Promotion= mysql_query($sqlSelect);
 			<tr>
 				<td class="col-md-1"><?= $num;?> </td>
 				<td class="col-md-3"><?= $name;?> </td>
-				<td class="col-md-6"><?= $details;?> </td>
+				<td class="col-md-6"><?= $discount;?> </td>
 				<td class="col-md-6"><?= $content;?> </td>
 				<td class="col-md-6"><?= $active;?> </td>
 				<td class="col-md-6"><?= $close;?> </td>
-				<td class="col-md-6"><?= $open;?> </td>
+				<td class="col-md-6" style="text-align:center;">
+					<?= ($open == 0) ? '<a class="btn btn-default" href="?page=ChangeActive&PromotionId='.$PromotionId.'&Do=OK"><span class="glyphicon glyphicon-ok" style="color:blue;"></span></a>' : '<a class="btn btn-default" href="?page=ChangeActive&PromotionId='.$PromotionId.'&Do=Remove"><span class="glyphicon glyphicon-remove" style="color:red;"></span></a>';?>
+				</td>
 				<td class="text-center col-md-2">
-					<a class="btn btn-warning btn" href="?page=UpadatePromotion&PromotionId=<?php echo $PromotionId; ?>"><i class="fa fa-edit"></i></a>
+					<a class="btn btn-warning" href="?page=UpdatePromotion&PromotionId=<?php echo $PromotionId; ?>"><i class="fa fa-edit"></i></a>
 					<a class='btn btn-danger' href="?page=DeletePromotion&PromotionId=<?php echo $PromotionId; ?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?')"><i class="fa fa-remove"></i></a>
 				</td>
 			</tr>
