@@ -10,7 +10,7 @@ if(isset($_POST["btnAdd"]))
 	$description = $_POST["txtDetails"];
 
 	addPaymentMethod($name,$description);
-	echo '<script> alert("Thêm rượu thành công!");</script>';
+	echo '<script> alert("Đã tạo mới một hình thức thanh toán!");</script>';
 	echo "<script>window.location.href='?page=PaymentMethod'</script>";
 
 }
@@ -21,7 +21,7 @@ if(isset($_POST["btnAdd"]))
 	<div class="col-md-12"/>
 	<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data" form-horizontal>
 		<div class="form_group">
-			<label class="control-label col-sm-12" for="email"><h2 align="center">Thêm Rượu</h2></label>
+			<label class="control-label col-sm-12" for="email"><h2 align="center">Thêm hình thức thanh toán</h2></label>
 		</div>
 
 	</form>
@@ -29,9 +29,9 @@ if(isset($_POST["btnAdd"]))
 
 
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtName">Tên:</label>
+			<label class="control-label col-md-2" for="txtName">Tên hình thức:</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="txtName" placeholder="Nhập vào tên loại rượu" name="txtName"
+				<input type="text" class="form-control" id="txtName" placeholder="Nhập và hình thức thanh toán" name="txtName"
 				required autofocus >
 			</div>
 		</div>
@@ -40,7 +40,7 @@ if(isset($_POST["btnAdd"]))
 			<div class="col-md-10">          
 
 				<textarea name="txtDetails" id="txtDetails"
-				placeholder="Nhập vào mô tả ch tiết loại rượu" class="form-control" required></textarea>
+				placeholder="Nhập vào " class="form-control" required></textarea>
 			</div>
 		</div>
 
