@@ -16,8 +16,8 @@ if(isset($_POST["btnAdd"]))
 	$password = $_POST["txtPassword"];
 	$fullname=$_POST["txtFullname"];
 	if(isset($_POST['grpGender'])) {
-      $sex = $_POST['grpGender'];
-    }
+		$sex = $_POST['grpGender'];
+	}
 	$address=$_POST["txtAddress"];
 	$phone=$_POST["NumPhone"];
 	$email=$_POST["txtEmail"];
@@ -27,8 +27,24 @@ if(isset($_POST["btnAdd"]))
 	addUser($username, $password,$fullname,$sex,$address,$phone,$email,$dayofbirth,$identitycard);
 }
 ?>
+
 <?php
-include_once("Login.php");
+if (isset($_POST['btnLogin'])) {
+	$loginusername = trim($_POST["txtSignIn"]);
+	$loginpassword = trim($_POST["txtPassword"]);
+
+
+	$loginpassword = md5($loginpassword);
+	$result = mysql_query("SELECT * FROM User WHERE Username='$loginusername' AND Password='$loginpassword'") or die(mysql_error());
+	if (mysql_num_rows($result) == 1)
+	{
+		$_SESSION["username"] = $loginusername;
+	}
+	else{
+		echo 'Username or Password is not correct';
+	}
+}
+
 ?>
 <!-- header -->
 <div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
@@ -53,11 +69,11 @@ aria-hidden="true">
 							<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 								<div class="facts">
 									<div class="register">
-										<form action="UserController.php" method="post">			
-											<input name="txtSignIn" placeholder="Địa chỉ email" type="text" required="">						
+										<form action="" method="post">			
+											<input name="txtSignIn" placeholder="Tài khoản" type="text" required="">						
 											<input name="txtPassword" placeholder="Mật khẩu" type="password" required="">										
 											<div class="sign-up">
-												<input type="submit" value="Đăng nhập"/>
+												<input type="submit" name="btnLogin" value="Đăng nhập"/>
 											</div>
 										</form>
 									</div>
@@ -132,6 +148,3 @@ aria-hidden="true">
 	</div>
 </div>
 </div>
-<script>
-	$('#myModal88').modal('show');
-</script>
