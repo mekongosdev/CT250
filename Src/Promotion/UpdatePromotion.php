@@ -1,29 +1,29 @@
 	<?php 
-	include_once("RoleController.php");
-	$RoleId = 0;
-	if(isset($_GET['RoleId'])){
-		$RoleId=$_GET['RoleId'];
+	include_once("PromotionController.php");
+	$PromotionId = 0;
+	if(isset($_GET['PromotionId'])){
+		$PromotionId=$_GET['PromotionId'];
 	}
 
 	$name="";
 	$description="";
-	$RoleActive="";
-	$result = searchRole($RoleId);
+	$PromotionActive="";
+	$result = searchPromotion($PromotionId);
 	//Lấy dữ liệu đưa vào mảng
 	if(isset($result))
 	{
-		list($RoleId,$name,$description,$RoleActive)=mysql_fetch_array($result);
+		list($PromotionId,$name,$description,$PromotionActive)=mysql_fetch_array($result);
 	}
 	//Cập nhật lại dữ liệu
 	if(isset($_POST['btnUpdate']))
 	{
-		$RoleId=$_GET['RoleId'];
+		$PromotionId=$_GET['PromotionId'];
 		$name=$_POST['txtName'];
 		$description=$_POST['txtDetails'];
-		$RoleActive=$_POST['RoleActive'];
-		updateRole($RoleId, $name,$description,$RoleActive);
+		$PromotionActive=$_POST['PromotionActive'];
+		updatePromotion($PromotionId, $name,$description,$PromotionActive);
 		echo '<script> alert("Cập nhật thành công!");</script>';
-		echo "<script>window.location.href='?page=role'</script>";
+		echo "<script>window.location.href='?page=Promotion'</script>";
 	}
 
 	?>
@@ -35,13 +35,13 @@
 			</div>
 
 		</form>
-		<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" >
+		<form class="form-horizontal" accept-charset="utf-8" method="post" Promotion="form" >
 
 			<div class="form-group">
 				<label class="control-label col-md-2" for="txtName">Mã Số:</label>
 				<div class="col-sm-10">
 					<input type="number" class="form-control" id="txtNum"  name="txtNum"
-					required  readonly="true" value="<?php echo $RoleId;?>" >
+					required  readonly="true" value="<?php echo $PromotionId;?>" >
 				</div>
 			</div>
 			<div class="form-group">
@@ -58,9 +58,9 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-md-2" for="RoleActive">Tình trạng:</label>
+				<label class="control-label col-md-2" for="PromotionActive">Tình trạng:</label>
 				<div class="col-md-10">          
-					<textarea name="RoleActive" id="RoleActive" class="form-control"><?php echo $RoleActive?></textarea>
+					<textarea name="PromotionActive" id="PromotionActive" class="form-control"><?php echo $PromotionActive?></textarea>
 				</div>
 			</div>
 

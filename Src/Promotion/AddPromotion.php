@@ -1,6 +1,6 @@
 
 <?php 
-include_once("RoleController.php");
+include_once("PromotionController.php");
 
 $name= "";
 $description ="";
@@ -8,9 +8,9 @@ if(isset($_POST["btnAdd"]))
 {
 	$name = $_POST["txtName"];
 	$description = $_POST["txtDetails"];
-	addRole($name,$description,0);
+	addPromotion($name,$description,0);
 	echo '<script> alert("Thêm quyền thành công!");</script>';
-	echo "<script>window.location.href='?page=role'</script>";
+	echo "<script>window.location.href='?page=Promotion'</script>";
 
 }
 ?>
@@ -24,7 +24,7 @@ if(isset($_POST["btnAdd"]))
 		</div>
 
 	</form>
-	<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" action="" >
+	<form class="form-horizontal" accept-charset="utf-8" method="post" Promotion="form" action="" >
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtName">Tên Quyền:</label>
 			<div class="col-sm-10">

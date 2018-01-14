@@ -1,12 +1,12 @@
 <?php 
 
-include_once("RoleController.php");
-$sqlSelect = "SELECT `RoleId`, `RoleName`, `RoleDetails`, `RoleActive` FROM `Role`";
-$list_Role= mysql_query($sqlSelect);
+include_once("PromotionController.php");
+$sqlSelect = "SELECT `PromotionId`, `PromotionName`, `PromotionDetails`, `PromotionActive` FROM `Promotion`";
+$list_Promotion= mysql_query($sqlSelect);
 
 ?>
 <h3 class="w3_inner_tittle two text-center">Quản lý quyền</h3>
-<a class="btn btn-primary" href="?page=AddRole">THÊM <i class="fa fa-plus"></i></a> 
+<a class="btn btn-primary" href="?page=AddPromotion">THÊM <i class="fa fa-plus"></i></a> 
 
 <table id="table" class="table-striped table-bordered table-hover table-condensed">
 	<thead >
@@ -21,7 +21,7 @@ $list_Role= mysql_query($sqlSelect);
 	<tbody>
 		<?php 
 		$num = 1;
-		while(list($RoleId, $name, $details,$active) = mysql_fetch_array($list_Role))
+		while(list($PromotionId, $name, $details,$active) = mysql_fetch_array($list_Promotion))
 		{
 			?>
 			<tr>
@@ -30,8 +30,8 @@ $list_Role= mysql_query($sqlSelect);
 				<td class="col-md-6"><?= $details;?> </td>
 				<td class="col-md-6"><?= $active;?> </td>
 				<td class="text-center col-md-2">
-					<a class="btn btn-warning btn" href="?page=UpadateRole&RoleId=<?php echo $RoleId; ?>"><i class="fa fa-edit"></i></a>
-					<a class='btn btn-danger' href="?page=DeleteRole&RoleId=<?php echo $RoleId; ?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?')"><i class="fa fa-remove"></i></a>
+					<a class="btn btn-warning btn" href="?page=UpadatePromotion&PromotionId=<?php echo $PromotionId; ?>"><i class="fa fa-edit"></i></a>
+					<a class='btn btn-danger' href="?page=DeletePromotion&PromotionId=<?php echo $PromotionId; ?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?')"><i class="fa fa-remove"></i></a>
 				</td>     
 			</tr>
 			<?php
