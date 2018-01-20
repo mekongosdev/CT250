@@ -10,9 +10,9 @@ function addUser($username, $password,$fullname,$sex,$address,$phone,$email,$day
 function updateUser($password,$fullname,$sex,$address,$phone,$email,$dateofbirthday, $identitycard)
 {
 	$updateUser = "UPDATE user
-					SET Password = '$password', FullName = '$fullname', Sex = '$sex',Address='$address'
-					,Phone='$phone',Email='$email',DateOfBirth='$dateofbirthday',IC='$identitycard'
-					WHERE Username = '$username'";
+	SET Password = '$password', FullName = '$fullname', Sex = '$sex',Address='$address'
+	,Phone='$phone',Email='$email',DateOfBirth='$dateofbirthday',IC='$identitycard'
+	WHERE Username = '$username'";
 	mysql_query($updateUser);
 }
 //Update User Admin
@@ -39,8 +39,8 @@ function blindRoleUpdatetList($selectValue)
 function updateUserAdmin($active,$status,$role)
 {
 	$updateUserAdmin = "UPDATE user
-						SET `Active` = '$active', `Status`='status', `Role`='$role'
-						WHERE 	Username = '$username' ";
+	SET `Active` = '$active', `Status`='status', `Role`='$role'
+	WHERE 	Username = '$username' ";
 	mysql_query($updateUserAdmin);
 
 }
@@ -48,10 +48,10 @@ function searchUser($username)
 {
 	$sqlSelect = "
 	SELECT
-	 `Username`, `Password`, `FullName`, `Sex`, `Address`, `Phone`, `Email`, `DateOfBirth`, `IC`, `Active`, `Status`, `Role` 
-	 FROM `user` 
-	 WHERE `Username`='$username'";
-	 mysql_query($sqlSelect);
+	`Username`, `Password`, `FullName`, `Sex`, `Address`, `Phone`, `Email`, `DateOfBirth`, `IC`, `Active`, `Status`, `Role` 
+	FROM `user` 
+	WHERE `Username`='$username'";
+	mysql_query($sqlSelect);
 }
 function deleteUser($username)
 

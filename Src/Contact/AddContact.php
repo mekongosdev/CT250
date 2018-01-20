@@ -83,12 +83,7 @@
 									<div class="form-group">
 										<label for="subject">
 										Chủ Đề</label>
-										<!-- <select id="subject" name="subject" class="form-control" required="required">
-											<option value="na" selected="">Choose One:</option>
-											<option value="service">General Customer Service</option>
-											<option value="suggestions">Suggestions</option>
-											<option value="product">Product Support</option>
-										</select> -->
+										
 										<?php
 										blindSubjectList()
 										?>
