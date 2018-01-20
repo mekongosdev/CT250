@@ -24,6 +24,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 
 
+
 <!-- font-awesome-icons -->
 <link href="../public/admin/css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome-icons -->
@@ -506,6 +507,29 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							elseif($_GET['page']=="ChangeActive"){
 								changeActive($_GET['PromotionId'],$_GET['Do']);
 								echo "<script>window.location.href='?page=promotion'</script>";
+							}
+
+							//User
+							if(isset($_GET['page'])&& $_GET['page']=="user")
+							{
+								include_once("../Src/User/User.php");
+							}
+							if($_GET['page']=="DeleteUser"){
+								deletePromotion($_GET['UserId']);
+								echo "<script>window.location.href='?page=user'</script>";
+							}
+							
+							if(isset($_GET['page'])&& $_GET['page']=="ActiveUser"){
+							
+								if($_GET['Status'] == 0){
+										$status = 1;
+								}
+								else{
+									$status = 0;
+								}
+								$updateStatus = "UPDATE `user` SET `Status`=".$status." where `UserName` = '".$_GET['UserId']."'";
+								mysql_query($updateStatus);
+								echo "<script>window.location.href='?page=user'</script>";
 							}
 							?>
 						</div>

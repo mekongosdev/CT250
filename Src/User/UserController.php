@@ -2,7 +2,7 @@
 function addUser($username, $password,$fullname,$sex,$address,$phone,$email,$dayofbirth,$identitycard)
 {
 	$insert = "INSERT INTO 
-	`User`(`Username`, `Password`, `FullName`, `Sex`, `Address`, `Phone`, `Email`, `DateOfBirth`, `IC`, `Active`, `Status`, `Role`) 
+	`User`(`Username`, `Password`, `FullName`, `Sex`, `Address`, `Phone`, `Email`, `DateOfBirth`, `IC`, `Status`, `Role`) 
 	VALUES ('$username', '".md5($password)."', '$fullname', '$sex','$address', '$phone', '$email', '$dayofbirth', '$identitycard', 1, 1,1)";
 	mysql_query($insert);
 }
@@ -48,7 +48,7 @@ function searchUser($username)
 {
 	$sqlSelect = "
 	SELECT
-	 `Username`, `Password`, `FullName`, `Sex`, `Address`, `Phone`, `Email`, `DateOfBirth`, `IC`, `Active`, `Status`, `Role` 
+	 `Username`, `Password`, `FullName`, `Sex`, `Address`, `Phone`, `Email`, `DateOfBirth`, `IC`, `Status`, `Role` 
 	 FROM `user` 
 	 WHERE `Username`='$username'";
 	 mysql_query($sqlSelect);
@@ -59,4 +59,6 @@ function deleteUser($username)
 	$delete = "DELETE FROM `user` WHERE Username = $username";
 	mysql_query($delete);
 }
+
+
 ?>
