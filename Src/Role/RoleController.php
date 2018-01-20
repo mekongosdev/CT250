@@ -10,6 +10,8 @@ function deleteRole($RoleId)
 	$delete = "DELETE FROM Role WHERE RoleId=$RoleId";
 	mysql_query($delete);
 }
+//Update
+
 function updateRole($RoleId, $name,$description,$rolecctive)
 {
 	$update = 
