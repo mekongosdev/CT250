@@ -73,4 +73,14 @@ function deleteEmployee($empCode)
 	$delete = "DELETE FROM employee WHERE EmployeeCode='$empCode'";
 	mysql_query($delete);
 }
+
+function deleteImageEmployee($id){
+	$Imageid = $_GET["ImgEmployeeId"];
+	$result= mysql_query("SELECT * FROM imageemployee WHERE ImgEmployeeId=$Imageid");
+	$row = mysql_fetch_array($result, MYSQL_ASSOC);
+	$fileDelete = $row['ImgEmployee'];
+	$WineId = $row['EmployeeCode'];
+	unlink("../../public/admin/images/".$fileDelete);
+	mysql_query("DELETE FROM imageemployee WHERE ImgEmployeeId=$Imageid");
+}
 ?>

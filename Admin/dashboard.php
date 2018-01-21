@@ -380,12 +380,10 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								include_once("../Src/Publisher/UpdatePublisher.php");
 							}
 							elseif ($_GET['page']=="AddPublisher") {
-								# code...
 								include('../Src/Publisher/AddPublisher.php');
 							}
 							elseif (isset($_GET['PublisherId'])) {
 								deletePublisher($_GET['PublisherId']);
-								# code...
 								echo "<script>window.location.href='?page=publisher'</script>";
 							}
 							//Country
@@ -416,7 +414,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								include_once("../Src/Role/UpdateRole.php");
 							}
 							elseif ($_GET['page']=="AddRole") {
-								# code...
 								include('../Src/Role/AddRole.php');
 							}
 							elseif(isset($_GET['RoleId'])){
@@ -434,7 +431,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								include_once("../Src/Subject/UpdateSubject.php");
 							}
 							elseif ($_GET['page']=="AddSubject") {
-								# code...
 								include('../Src/Subject/AddSubject.php');
 							}
 							elseif(isset($_GET['SubjectId'])){
@@ -469,7 +465,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								echo "<script>window.location.href='?page=paymentmethod'</script>";
 							}
 
-
 							//Employee
 							if(isset($_GET['page'])&& $_GET['page']=="employee")
 							{
@@ -482,10 +477,16 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							elseif ($_GET['page']=="AddEmployee") {
 								include('../Src/Employee/AddEmployee.php');
 							}
-							elseif(isset($_GET['empCode'])){
+							elseif($_GET['page']=="DeleteEmployee"){
 								deleteEmployee($_GET['empCode']);
 								echo "<script>window.location.href='?page=employee'</script>";
+							}elseif ($_GET['page']=='UploadImageEmployee') {
+								include('../Src/Employee/Quanly_HinhAnh_NV.php');
+							}elseif ($_GET['page']=='DeleteEmployeeImage') {
+								deleteImageEmployee($_GET['ImgEmployeeId']);
+								echo "<script>window.location.href='?page=employee'</script>";
 							}
+
 							//Promotion
 							if(isset($_GET['page'])&& $_GET['page']=="promotion")
 							{
