@@ -19,6 +19,19 @@ function searchNews($NewsId)
 	return mysql_query($sqlSelect);
 }
 
+function blindListEmployye() 
+{ 
+  $sqlString="SELECT `EmployeeCode`, `EmployeePass`, `EmployeeName`, `EmployeeBirth`, `EmployeeAddress`, `EmployeeEmail`, `EmployeeIC`, `Role` FROM `employee`"; 
+  $sqlresult = mysql_query($sqlString); 
+  echo "<select name='slEmpl' class='form-control'><option value='0'>Vui lòng chọn nhân viên thêm tin tức cho thống</option>"; 
+ 
+  while ($row = mysql_fetch_array($sqlresult,MYSQL_ASSOC)) { 
+    echo "<option value='".$row['EmployeeCode']."'>".$row['EmployeeName']."</option>"; 
+ 
+  } 
+  echo "</select>"; 
+} 
+
 function UpdateNews($NewsId,$NewsName,$title,$content,$employeecode)
 {
 	$sqlUpdate = "UPDATE `news` SET 
