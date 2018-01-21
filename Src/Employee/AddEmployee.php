@@ -20,7 +20,7 @@ if(isset($_POST["btnAdd"]))
 		$empRole=$_POST["slRole"];
 		addEmployee($empCode,$empPass,$empName,$empBrith,$empAddress,$empMail,$empIC,$empRole);
 		echo '<script> alert("Thêm nhân viên thành công");</script>';
-		 echo "<script>window.location.href='?page=employee'</script>";
+		echo "<script>window.location.href='?page=employee'</script>";
 	}
 ?>
 <div class="row">

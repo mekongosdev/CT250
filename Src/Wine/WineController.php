@@ -1,7 +1,7 @@
 <?php 
 //Insert Code
-function addWine($name,$strength,$price,$shortdetails,$details,$wineupdate,$quantity,$idCat, $idPub,
-	$idCountry)
+function addWine($name,$strength,$price,$shortdetails,$details,$wineupdate,$quantity,
+	$idCat, $idPub,$idCountry)
 {
 	$insert = "INSERT INTO 
 	`wine`(`WineName`, `WineStrength`, `WinePrice`,
