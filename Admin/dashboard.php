@@ -68,7 +68,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<li class="mini_list_agile"><a href="typo.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lỷ rượu</a></li>
 										<li class="mini_list_w3"><a href="icons.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý nhà sản xuất</a></li>
 										<li class="mini_list_agile"><a href="?page=paymentmethod"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lỷ HTTT</a></li>
-										<li class="mini_list_w3"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý khuyến mãi</a></li>
+										<li class="mini_list_w3"><a href="?page=promotion"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý khuyến mãi</a></li>
 										<li class="mini_list_w3"><a href="?page=subject"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý chủ đề liên hệ</a></li>
 
 									</ul>
@@ -85,7 +85,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quyền hạn</a></li>
 									</ul>
 								</li>
-								<li><a href="?page=promotion"> <i class="fa fa-table top" aria-hidden="true"></i> Khuyến mãi</a></li>
 							</ul>
 						</div><!-- /gn-scroller -->
 					</nav>
@@ -518,9 +517,9 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								deletePromotion($_GET['UserId']);
 								echo "<script>window.location.href='?page=user'</script>";
 							}
-							
+
 							if(isset($_GET['page'])&& $_GET['page']=="ActiveUser"){
-							
+
 								if($_GET['Status'] == 0){
 										$status = 1;
 								}
