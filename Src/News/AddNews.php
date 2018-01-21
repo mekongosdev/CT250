@@ -22,7 +22,8 @@ if(isset($_POST["btnAdd"]))
 			<label class="control-label col-sm-12" for="email"><h2 align="center">Thêm Tin Tức</h2></label>
 		</div>
 
-
+	</form>
+	<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" >
 
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtName">Tên Tin Tức:</label>
