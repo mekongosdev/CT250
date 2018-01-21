@@ -9,7 +9,8 @@ function addWine($name,$strength,$price,$shortdetails,$details,$wineupdate,$quan
 	`WineQuantity`, `CategoryId`, 
 	`PublisherId`, `CountryId`)
 	VALUES('$name','$strength','$price','$shortdetails','$details','$wineupdate','$quantity','$idCat', '$idPub','$idCountry')";
-	mysql_query($insert);
+	echo $insert;
+	// mysql_query($insert);
 }
 function blindListCountry()
 {

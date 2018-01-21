@@ -16,16 +16,16 @@ if(isset($_POST["btnAdd"]))
 	$strength = $_POST["txtstrength"];
 	$price = $_POST["txtPrice"];
 	$shortdetails = $_POST["txtShort"];
-	$details = $_POST["txtDetails"]
+	$details = $_POST["txtDetails"];
 	$wineupdate =date('Y-m-d',  strtotime($_POST['txtDate']));
 	$quantity=$_POST["txtNum"];
 	$idCat = $_POST["slCategory"];
 	$idPub = $_POST["slPublisher"];
 	$idCountry =$_POST["slCountry"];
-	addWine($name,$strength,$price,$shortdetails,$details,$wineupdate,$quantity,
-		$idCat, $idPub,$idCountry);
-	echo '<script> alert("Thêm rượu thành công");</script>';
-	echo "<script>window.location.href='?page=wine'</script>";
+	addWine($name,$strength,$price,$wineupdate,$quantity,$idCat, $idPub,$idCountry);
+	
+	// echo '<script> alert("Thêm rượu thành công");</script>';
+	// echo "<script>window.location.href='?page=wine'</script>";
 }
 ?>
 <div class="row">
@@ -56,7 +56,7 @@ if(isset($_POST["btnAdd"]))
 			<label class="control-label col-md-2" for="txtPrice">Giá:</label>
 			<div class="col-md-10">          
 
-				<input type="number" class="form-control" id="txtPrice" placeholder="Nhập vào họ tên của nhân viên" name="txtPrice"
+				<input type="number" class="form-control" id="txtPrice" placeholder="Nhập vào giá" name="txtPrice"
 				required />
 			</div>
 		</div>
@@ -64,7 +64,7 @@ if(isset($_POST["btnAdd"]))
 			<label class="control-label col-md-2" for="txtShort">Mô tả ngắn:</label>
 			<div class="col-md-10">          
 
-				<input type="date" class="form-control" id="txtShort" placeholder="Nhập vào ngày tháng năm sinh" name="txtShort"
+				<input type="text" class="form-control" id="txtShort" placeholder="Nhập vào mô tả ngắn" name="txtShort"
 				required  >
 			</div>
 		</div>
@@ -79,7 +79,7 @@ if(isset($_POST["btnAdd"]))
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtNum">Số lượng rượu:</label>
 			<div class="col-md-10">          
-				<input type="email" class="form-control" id="txtNum" placeholder="Nhập vào địa chỉ của nhân viên" name="txtNum"
+				<input type="text" class="form-control" id="txtNum" placeholder="Nhập vào số lượng rượu" name="txtNum"
 				required  >
 			</div>
 		</div>

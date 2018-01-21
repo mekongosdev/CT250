@@ -1,17 +1,6 @@
 <?php 
-$sql="
-SELECT 
-`WineId`, `WineName`, `WineStrength`, 
-`WinePrice`,`WineUpdateDate`, `WineQuantity`, 
-`CategoryId`, `PublisherId`, `CountryId` 
-FROM wine, country,category,country
-WHERE 
-wine.CategoryId = category.CategoryId
-AND
-wine.CountryId = country.CountryId
-AND
-wine.PublisherId = publisher.PublisherId";
-$listwine = mysql_query($sql);
+$sql="SELECT WineId, WineName, WineStrength, WinePrice, WineShortDetails, WineDetails, WineUpdateDate,WineQuantity, WineSold, wine.CategoryId, wine.PublisherId, wine.CountryId FROM wine, category, country, publisher WHERE wine.CategoryId = category.CategoryId AND wine.PublisherId = publisher.PublisherId AND wine.CountryId = country.CountryId";
+$listwine = mysql_query($sql) or trigger_error(mysql_error().$sql);
 ?>
 <h3 class="w3_inner_tittle two text-center">Quản lý Rượu</h3>
 <a class="btn btn-primary" href="?page=AddWine">THÊM <i class="fa fa-plus"></i></a> 
@@ -39,15 +28,15 @@ $listwine = mysql_query($sql);
 			?>
 			<tr>
 				<td class="col-md-1"><?= $num;?> </td>
-				<td class="col-md-3"><?= $name;?> </td>
-				<td class="col-md-6"><?= $strength;?> </td>
-				<td class="col-md-6"><?= $price;?> </td>
-				<td class="col-md-6"><?= $wineupdate;?> </td>
-				<td class="col-md-6"><?= $quantity;?> </td>
-				<td class="col-md-6"><?= $idCat?> </td>
-				<td class="col-md-6"><?= $idPub?> </td>
-				<td class="col-md-6"><?= $idCountrb?> </td>
-				<td class="text-center col-md-2">
+				<td class="col-md-1"><?= $name;?> </td>
+				<td class="col-md-1"><?= $strength;?> </td>
+				<td class="col-md-1"><?= $price;?> </td>
+				<td class="col-md-1"><?= $wineupdate;?> </td>
+				<td class="col-md-1"><?= $quantity;?> </td>
+				<td class="col-md-1"><?= $idCat?> </td>
+				<td class="col-md-1"><?= $idPub?> </td>
+				<td class="col-md-1"><?= $idCountrb?> </td>
+				<td class="text-center col-md-4">
 					<a class="btn btn-warning btn" href="?page=UpdateWine&WineId=<?php echo $WineId; ?>"><i class="fa fa-edit"></i></a>
 					<a class='btn btn-danger' href="?page=DeletePublisher&PublisherId=<?php echo $WineId; ?>" onclick="return confirm('Bạn có chắc chắn xóa loại rượu này không?')"><i class="fa fa-remove"></i></a>
 				</td>     

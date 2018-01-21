@@ -43,6 +43,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	include_once("../Src/Employee/EmployeeController.php");
 	include_once("../Src/Promotion/PromotionController.php");
 	include_once("../Src/News/NewsController.php");
+	include_once("../Src/Wine/WineController.php");
 	?>
 	<!-- banner -->
 	<div class="wthree_agile_admin_info">
@@ -463,6 +464,24 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							elseif(isset($_GET['PaymentMethodId'])){
 								deletePaymentMethod($_GET['PaymentMethodId']);
 								echo "<script>window.location.href='?page=paymentmethod'</script>";
+							}
+
+							//Wine
+							if(isset($_GET['page'])&& $_GET['page']=="wine")
+							{
+								include_once("../Src/Wine/Wine.php");
+							}
+							if($_GET['page']=="UpadateWine")
+							{
+
+								include_once("../Src/Wine/UpdateWine.php");
+							}
+							elseif ($_GET['page']=="AddWine") {
+								include('../Src/Wine/AddWine.php');
+							}
+							elseif(isset($_GET['WineId'])){
+								deleteWine($_GET['WineId']);
+								echo "<script>window.location.href='?page=wine'</script>";
 							}
 
 							//Employee
