@@ -4,7 +4,7 @@ $Newsname = "";
 $title = "";
 $content="";
 $employeecode="";
-if(iseet($_POST["btnAdd"]))
+if(isset($_POST["btnAdd"]))
 {
 	$Newsname = $_POST['txtName'];
 	$title = $_POST['txtTitle'];
@@ -12,7 +12,7 @@ if(iseet($_POST["btnAdd"]))
 	$employeecode=$_POST['slEmpl'];
 	addNew($Newsname,$title,$content,$employeecode);
 	echo '<script> alert("Thêm 1 tin tức thành công");</script>';
-	echo "<script>window.location.href='../../index.php'</script>";
+	echo "<script>window.location.href='?page=news'</script>";
 }
 ?>
 <div class="row">
@@ -35,7 +35,7 @@ if(iseet($_POST["btnAdd"]))
 			<label class="control-label col-md-2" for="txtTitle">Tự đề:</label>
 			<div class="col-md-10">          
 
-				<input type="password" class="form-control" id="txtTitle" placeholder="Tựa đề" name="txtTitle"
+				<input type="text" class="form-control" id="txtTitle" placeholder="Tựa đề" name="txtTitle"
 				required  >
 			</div>
 		</div>

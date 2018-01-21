@@ -42,6 +42,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	include_once("../Src/PaymentMethod/PaymentMethodController.php");
 	include_once("../Src/Employee/EmployeeController.php");
 	include_once("../Src/Promotion/PromotionController.php");
+	include_once("../Src/News/NewsController.php");
 	?>
 	<!-- banner -->
 	<div class="wthree_agile_admin_info">
@@ -497,12 +498,33 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								include_once("../Src/Promotion/UpdatePromotion.php");
 							}
 							elseif ($_GET['page']=="AddPromotion") {
-								# code...
 								include('../Src/Promotion/AddPromotion.php');
 							}
 							elseif($_GET['page']=="DeletePromotion"){
 								deletePromotion($_GET['PromotionId']);
 								echo "<script>window.location.href='?page=promotion'</script>";
+							}
+							elseif($_GET['page']=="ChangeActive"){
+								changeActive($_GET['PromotionId'],$_GET['Do']);
+								echo "<script>window.location.href='?page=promotion'</script>";
+							}
+
+							//News
+							if(isset($_GET['page'])&& $_GET['page']=="news")
+							{
+								include_once("../Src/News/News.php");
+							}
+							if($_GET['page']=="UpadateNews")
+							{
+
+								include_once("../Src/News/UpdateNews.php");
+							}
+							elseif ($_GET['page']=="AddNews") {
+								include('../Src/News/AddNews.php');
+							}
+							elseif($_GET['page']=="DeleteNews"){
+								deleteNews($_GET['NewsId']);
+								echo "<script>window.location.href='?page=news'</script>";
 							}
 							elseif($_GET['page']=="ChangeActive"){
 								changeActive($_GET['PromotionId'],$_GET['Do']);
@@ -520,9 +542,9 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							}
 							
 							if(isset($_GET['page'])&& $_GET['page']=="ActiveUser"){
-							
+
 								if($_GET['Status'] == 0){
-										$status = 1;
+									$status = 1;
 								}
 								else{
 									$status = 0;

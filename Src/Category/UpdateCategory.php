@@ -1,5 +1,4 @@
 	<?php 
-	include_once("CategoryController.php");
 	$CategoryId = 0;
 	if(isset($_GET['CategoryId']))
 		$CategoryId=$_GET['CategoryId'];

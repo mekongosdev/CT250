@@ -22,17 +22,17 @@ $list_News= mysql_query($sqlSelect);
 	<tbody>
 		<?php 
 		$num = 1;
-		while(list($NewsId, $Newsname, $title,$content,$employeecode) = mysql_fetch_array($list_Role))
+		while(list($NewsId, $Newsname, $title,$content,$employeecode) = mysql_fetch_array($list_News))
 		{
 			?>
 			<tr>
 				<td class="col-md-1"><?= $NewsId;?> </td>
-				<td class="col-md-3"><?= $Newsname;?> </td>
-				<td class="col-md-6"><?= $title;?> </td>
-				<td class="col-md-6"><?= $content;?> </td>
+				<td class="col-md-2"><?= $Newsname;?> </td>
+				<td class="col-md-2"><?= $title;?> </td>
+				<td class="col-md-4"><?= $content;?> </td>
 				<td class="col-md-2"><?= $employeecode?></td>
-				<td class="text-center col-md-2">
-					<a class="btn btn-warning btn" href="?page=UpadateRole&RoleId=<?php echo $RoleId; ?>"><i class="fa fa-edit"></i></a>
+				<td class="text-center col-md-4">
+					<a class="btn btn-warning btn" href="?page=UpadateNews&NewsId=<?php echo $NewsId; ?>"><i class="fa fa-edit"></i></a>
 					<a class='btn btn-danger' href="?page=DeleteNews&NewsId=<?php echo $NewsId; ?>" onclick="return confirm('Bạn có chắc chắn xóa tin tức này không này không?')"><i class="fa fa-remove"></i></a>
 				</td>     
 			</tr>
