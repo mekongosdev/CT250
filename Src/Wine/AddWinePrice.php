@@ -1,6 +1,8 @@
 <?php 
+include_once("WineController.php");
 $name ="";
 $strength = "";
+$price ="";
 $shortdetails ="";
 $details = "";
 $wineupdate = date_default_timezone_set('Asia/Vientiane');
@@ -12,6 +14,7 @@ if(isset($_POST["btnAdd"]))
 {
 	$name = $_POST["txtName"];
 	$strength = $_POST["txtstrength"];
+	$price = $_POST["txtPrice"];
 	$shortdetails = $_POST["txtShort"];
 	$details = $_POST["txtDetails"];
 	$wineupdate =date('Y-m-d',  strtotime($_POST['txtDate']));
@@ -19,9 +22,10 @@ if(isset($_POST["btnAdd"]))
 	$idCat = $_POST["slCategory"];
 	$idPub = $_POST["slPublisher"];
 	$idCountry =$_POST["slCountry"];
-	addWine($name,$strength,$wineupdate,$quantity,$idCat, $idPub,$idCountry);
-	echo '<script> alert("Thêm rượu thành công");</script>';
-	echo "<script>window.location.href='?page=wine'</script>";
+	addWine($name,$strength,$price,$wineupdate,$quantity,$idCat, $idPub,$idCountry);
+	
+	// echo '<script> alert("Thêm rượu thành công");</script>';
+	// echo "<script>window.location.href='?page=wine'</script>";
 }
 ?>
 <div class="row">
@@ -44,8 +48,16 @@ if(isset($_POST["btnAdd"]))
 			<label class="control-label col-md-2" for="txtstrength">Độ rượu:</label>
 			<div class="col-md-10">          
 
-				<input type="text" class="form-control" id="txtstrength" placeholder="Nhập vào nồng độ của rượu" name="txtstrength"
+				<input type="text" class="form-control" id="txtstrength" placeholder="Nhập vào mật khẩu của nhân viên" name="txtstrength"
 				required  >
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2" for="txtPrice">Giá:</label>
+			<div class="col-md-10">          
+
+				<input type="number" class="form-control" id="txtPrice" placeholder="Nhập vào giá" name="txtPrice"
+				required />
 			</div>
 		</div>
 		<div class="form-group">

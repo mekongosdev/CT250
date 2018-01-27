@@ -1,16 +1,13 @@
 <?php 
-//Insert Code
-function addWine($name,$strength,$price,$shortdetails,$details,$wineupdate,$quantity,
-	$idCat, $idPub,$idCountry)
+function addWine($name,$strength,$wineupdate,$quantity,$idCat, $idPub,$idCountry)
 {
 	$insert = "INSERT INTO 
-	`wine`(`WineName`, `WineStrength`, `WinePrice`,
+	`wine`(`WineName`, `WineStrength`,
 	`WineShortDetails`, `WineDetails`, `WineUpdateDate`,
 	`WineQuantity`, `CategoryId`, 
 	`PublisherId`, `CountryId`)
-	VALUES('$name','$strength','$price','$shortdetails','$details','$wineupdate','$quantity','$idCat', '$idPub','$idCountry')";
-	echo $insert;
-	// mysql_query($insert);
+	VALUES('$name','$strength','$shortdetails','$details','$wineupdate','$quantity','$idCat', '$idPub','$idCountry')";
+	mysql_query($insert);
 }
 function blindListCountry()
 {
@@ -42,83 +39,32 @@ function blindListPublisher()
 	}
 	echo "</select>";
 }
-//Update Code
 function searchWine($WineId)
 {
 	$sqlSelect = "
 	SELECT 
-	`WineId`, `WineName`, `WineStrength`,
-	`WinePrice`, `WineShortDetails`, `WineDetails`, 
-	`WineUpdateDate`, `WineQuantity`, `WineSold`, `CategoryId`, 
+	`WineId`, `WineName`, `WineStrength`, `WineShortDetails`, `WineDetails`, 
+	`WineUpdateDate`, `WineQuantity`, `CategoryId`, 
 	`PublisherId`, `CountryId` 
 	FROM `wine` 
 	WHERE WineId='$WineId'";
 	return mysql_query($sqlSelect);
 }
-function blindCountryUpdatetList($selectValue)
+function searchTime($TimeId)
 {
-	$sqlSelect = "SELECT `CountryId`, `CountryName`, `CountryDetails` FROM `country`";
-	$result = mysql_query($sqlSelect);
-	echo "<select> name='slCountry' class='form-control'><option value='0'>Vui lòng chọn xuất xứ</option>";
-	while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) 
-	{
-		if($row['CountryId'] == $selectedValue)
-		{
-			echo "<option value='".$row['CountryId']."' selected>".$row['CountryName']."</option>";
-		}
-		else
-		{
-			echo "<option value='".$row['CountryId']."'>".$row['CountryName']."</option>";
-		}
-
-	}
-	echo "</select>";
-}
-function blindCategoryUpdateList($selectedValue)
-{
-	$sqlSelect = "SELECT `CategoryId`, `CategoryName`, `CategoryDescription` FROM `category`";
-	$result = mysql_query($sqlSelect);
-	echo "<select> name='slCategory' class='form-control'><option value='0'>Vui lòng chọn loại rượu</option>";
-	while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) 
-	{
-		if($row['CategoryId'] == $selectedValue)
-		{
-			echo "<option value='".$row['CategoryId']."' selected>".$row['CategoryName']."</option>";
-		}
-		else
-		{
-			echo "<option value='".$row['CategoryId']."'>".$row['CategoryName']."</option>";
-		}
-
-	}
-	echo "</select>";
-}
-function blindPublisherUpdateList($selectedValue)
-{
-	$sqlSelect = "SELECT `PublisherId`, `PublisherName`, `PublisherDescription` FROM `publisher`";
-	$result = mysql_query($sqlSelect);
-	echo "<select> name='slPublisher' class='form-control'><option value='0'>Vui lòng chọn nhà sản xuất</option>";
-	while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) 
-	{
-		if($row['PublisherId'] == $selectedValue)
-		{
-			echo "<option value='".$row['PublisherId']."' selected>".$row['PublisherName']."</option>";
-		}
-		else
-		{
-			echo "<option value='".$row['PublisherId']."'>".$row['PublisherName']."</option>";
-		}
-
-	}
-	echo "</select>";
+	$sqlSelect = "
+	SELECT 
+	`TimeId`, `ApplicationTime`
+	FROM `time` 
+	WHERE TimeId='$TimeId'";
+	return mysql_query($sqlSelect);
 }
 
-function updateWine($WineId,$name,$strength,$price,$shortdetails,$details,$wineupdate,$quantity,$idCat, $idPub,$idCountry)
+function updateWine($WineId,$name,$strength,$shortdetails,$details,$wineupdate,$quantity,$idCat, $idPub,$idCountry)
 {
 	$sqlUpdate = "UPDATE wine SET 
 	WineName = '$name',
 	WineStrength = '$strength',
-	WinePrice = '$price',
 	WineShortDetails = '$shortdetails',
 	WineDetails = '$details',
 	WineUpdateDate = '$wineupdate',
@@ -133,6 +79,12 @@ function updateWine($WineId,$name,$strength,$price,$shortdetails,$details,$wineu
 function deleteWine($WineId)
 {
 	$sqldelete = "DELETE FROM `wine` WHERE WineId='$WineId'";
+	mysql_query($sqldelete);
+}
+
+function DeleteWinePrice($WineId, $TimeId)
+{
+	$sqldelete = "DELETE FROM `time_wine` WHERE WineId='$WineId' and TimeId = '$TimeId'";
 	mysql_query($sqldelete);
 }
 ?>

@@ -471,15 +471,14 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/Wine/Wine.php");
 							}
-							if($_GET['page']=="UpadateWine")
+							if(isset($_GET['page'])&& $_GET['page']=="UpdateWine")
 							{
-
 								include_once("../Src/Wine/UpdateWine.php");
 							}
 							elseif ($_GET['page']=="AddWine") {
 								include('../Src/Wine/AddWine.php');
 							}
-							elseif(isset($_GET['WineId'])){
+							elseif($_GET['page']=="DeleteWine"){
 								deleteWine($_GET['WineId']);
 								echo "<script>window.location.href='?page=wine'</script>";
 							}
@@ -555,7 +554,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/User/User.php");
 							}
-							if($_GET['page']=="DeleteUser"){
+							if(isset($_GET['page'])&& $_GET['page']=="DeleteUser"){
 								deletePromotion($_GET['UserId']);
 								echo "<script>window.location.href='?page=user'</script>";
 							}
@@ -571,6 +570,25 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								$updateStatus = "UPDATE `user` SET `Status`=".$status." where `UserName` = '".$_GET['UserId']."'";
 								mysql_query($updateStatus);
 								echo "<script>window.location.href='?page=user'</script>";
+							}
+
+							//Price History
+							if(isset($_GET['page'])&& $_GET['page']=="PriceHistory")
+							{
+								include_once("../Src/Wine/PriceHistory.php");
+							}
+							if(isset($_GET['page'])&& $_GET['page']=="addwineprice")
+							{
+								include_once("../Src/Wine/AddWinePrice.php");
+							}
+							if(isset($_GET['page'])&& $_GET['page']=="DeleteWinePrice")
+							{
+								DeleteWinePrice($_GET['WineId'], $_GET['TimeId']);
+								echo "<script>window.location.href='?page=PriceHistory&&WineId=".$_GET['WineId']."'</script>";
+							}
+							if($_GET['page']=="UpdateWinePrice")
+							{
+								include_once("../Src/Wine/UpdateWinePrice.php");
 							}
 							?>
 						</div>
