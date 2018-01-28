@@ -1,8 +1,8 @@
 	<?php 
 	include_once("TimeController.php");
-	$timeId = 0;
-	if(isset($_GET['$timeId ']))
-		$timeId =$_GET['$timeId'];
+	$TimeId = 0;
+	if(isset($_GET['$TimeId ']))
+		$TimeId =$_GET['$TimeId'];
 	$applicationTime=date_default_timezone_set('Asia/Tokyo');
 	$result = searchTime($timeId);
 	//Lấy dữ liệu đưa vào mảng
@@ -13,9 +13,9 @@
 	//Cập nhật lại dữ liệu
 	if(isset($_POST['btnUpdate']))
 	{
-		$timeId=$_GET['$timeId'];
-		$applicationTime=date('Y-m-d',  strtotime($_POST['txtName']));
-		updateTimeeasy($timeId,$applicationTime);
+		$TimeId=$_GET['$TimeId'];
+		$ApplicationTime=date('Y-m-d',  strtotime($_POST['txtName']));
+		updateTime($TimeId,$applicationTime);
 		echo '<script> alert("Cập nhật thành công!");</script>';
 		echo "<script>window.location.href='?page=time'</script>";
 	}
@@ -34,14 +34,14 @@
 				<label class="control-label col-md-2" for="txtName">Mã số:</label>
 				<div class="col-sm-10">
 					<input type="date" class="form-control" id="txtNum"  name="txtName"
-					required   value="<?php echo $timeId;?>" readonly="true" >
+					required   value="<?php echo $TimeId;?>" readonly="true" >
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-md-2" for="txtName">Tên chủ đề:</label>
 				<div class="col-sm-10">
 					<input type="date" class="form-control" id="txtNum"  name="txtName"
-					required   value="<?php echo $applicationTime;?>" >
+					required   value="<?php echo $ApplicationTime;?>" >
 				</div>
 			</div>
 			<div class="form-group">        

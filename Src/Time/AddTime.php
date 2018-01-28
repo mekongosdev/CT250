@@ -4,9 +4,9 @@ include_once("TimeController.php");
 $applicationTime= date_default_timezone_set('Asia/Vientiane');
 if(isset($_POST["btnAdd"]))
 {
-	$applicationTime=date('Y-m-d',strtotime($_POST['txtName']));
+	$ApplicationTime=date('Y-m-d',strtotime($_POST['txtName']));
 
-	addTime($applicationTime);
+	addTime($ApplicationTime);
 	echo '<script> alert("Thêm thời gian thành công!");</script>';
 	echo "<script>window.location.href='?page=time'</script>";
 

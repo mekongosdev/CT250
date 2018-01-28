@@ -1,15 +1,15 @@
 <?php 
-function addTime($applicationTime)
+function addTime($ApplicationTime)
 {
 	$insertTime="INSERT INTO `time`(`ApplicationTime`) VALUES('appicationTime')";
 	mysql_query($insertTime);
 }
-function deleteTime($timeId)
+function deleteTime($TimeId)
 {
 	$delete = "DELETE FROM `time` WHERE TimeId=$timeId";
 	mysql_query($delete);
 }
-function updateTime($timeId,$applicationTime)
+function updateTime($TimeId,$applicationTime)
 {
 	$update = 
 	"UPDATE 'time' 
@@ -17,7 +17,7 @@ function updateTime($timeId,$applicationTime)
 	WHERE TimeId='$timeId'";
 	mysql_query($update);
 }
-function searchTimeeasy($timeId)
+function searchTimeeasy($TimeId)
 {
 	$select = 
 	"SELECT TimeId,ApplicationTime
