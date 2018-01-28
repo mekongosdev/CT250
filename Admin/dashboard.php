@@ -59,49 +59,47 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							<ul class="gn-menu agile_menu_drop">
 								<li><a href="#"> <i class="fa fa-tachometer"></i>Bảng điều khiển</a></li>
 								<li>
-<a href="?page=category"><i class="fa fa-cogs" aria-hidden="true"></i>Đơn hàng</a>
+									<a href="?page=category"><i class="fa fa-opencart" aria-hidden="true"></i>Đơn hàng</a>
 								</li>
 								<li>
-<a href="#"> <i class="fa fa-file-text-o" aria-hidden="true"></i>Hóa đơn</a>
+									<a href="#"> <i class="fa fa-money" aria-hidden="true"></i>Hóa đơn</a>
 								</li>
 								<li>
-<a href="?page=paymentmethod"> <i class="fa fa-gift" aria-hidden="true"></i>Hình Thức Thanh Toán</a>
+									<a href="?page=paymentmethod"> <i class="fa fa-info-circle" aria-hidden="true"></i>Hình Thức Thanh Toán</a>
 								</li>
 								<li>
-<a href="#"> <i class="fa fa-money" aria-hidden="true"></i>Phản hồi</a>
+									<a href="#"> <i class="fa fa-mail-reply-all" aria-hidden="true"></i>Phản hồi</a>
 								</li>
 								<li>
-<a href="?page=subject"> <i class="fa fa-gift" aria-hidden="true"></i>Chủ đề liên hệ</a>
+									<a href="?page=subject"> <i class="fa fa-send" aria-hidden="true"></i>Chủ đề liên hệ</a>
 								</li>
-<li><a href="?page=contact"> <i class="fa fa-table top" aria-hidden="true"></i>Liên Hệ</a></li>
-<li><a href="#"><i class="fa fa-list" aria-hidden="true"></i>Quản lý sản phẩm<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
+								<li><a href="?page=contact"> <i class="fa fa-tty" aria-hidden="true"></i>Liên Hệ</a></li>
+								<li class="product"><a href="#"><i class="fa fa-product-hunt" aria-hidden="true"></i>Quản lý sản phẩm<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
 									<ul class="gn-submenu">
-<li class="mini_list_agile"><a href="?page=publisher"><i class="fa fa-caret-right" aria-hidden="true"></i> Nhà sản xuất</a></li>
-<li class="mini_list_w3"><a href="?page=category"> <i class="fa fa-caret-right" aria-hidden="true"></i> Loại sản phẩm</a></li>
-<li class="mini_list_agile"><a href="?page=country"><i class="fa fa-caret-right" aria-hidden="true"></i> Xuất xứ</a></li>
-<li class="mini_list_w3"><a href="?page=promotion"> <i class="fa fa-caret-right" aria-hidden="true"></i> Khuyến mãi</a></li>
-<li class="mini_list_agile"><a href="?page=wine"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý rượu</a></li>
-<li class="mini_list_agile"><a href="?page=time"><i class="fa fa-caret-right" aria-hidden="true"></i> Thời gian cập nhật</a></li>
+										<li class="mini_list_agile"><a href="?page=publisher"><i class="fa fa-caret-right" aria-hidden="true"></i> Nhà sản xuất</a></li>
+										<li class="mini_list_w3"><a href="?page=category"> <i class="fa fa-caret-right" aria-hidden="true"></i> Loại sản phẩm</a></li>
+										<li class="mini_list_agile"><a href="?page=country"><i class="fa fa-caret-right" aria-hidden="true"></i> Xuất xứ</a></li>
+										<li class="mini_list_w3"><a href="?page=promotion"> <i class="fa fa-caret-right" aria-hidden="true"></i> Khuyến mãi</a></li>
+										<li class="mini_list_agile"><a href="?page=wine"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý rượu</a></li>
+										<li class="mini_list_agile"><a href="?page=time"><i class="fa fa-caret-right" aria-hidden="true"></i> Thời gian cập nhật</a></li>
 
-<li class="mini_list_w3"><a href="?page=PriceHistory"> <i class="fa fa-caret-right" aria-hidden="true"></i> Giá Rượu</a></li>
+										<li class="mini_list_w3"><a href="?page=PriceHistory"> <i class="fa fa-caret-right" aria-hidden="true"></i> Giá Rượu</a></li>
 
 									</ul>
 								</li>
 
-								<li class="employee"><a href="#"><i class="fa fa-files-o" aria-hidden="true"></i> Quản lý nhân viên <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+								<li class="employee"><a href="#"><i class="fa fa-cubes" aria-hidden="true"></i> Quản lý nhân viên <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="gn-submenu">
-
-<li class="mini_list_agile"> <a href="?page=employee"> <i class="fa fa-caret-right" aria-hidden="true"></i> Thông tin nhân viên</a></li>
-<li class="mini_list_w3"><a href="?page=news"> <i class="fa fa-caret-right" aria-hidden="true"></i> Tin tức</a></li>
-<li class="mini_list_agile error"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Chi nhánh </a></li>
+										<li class="mini_list_agile"> <a href="?page=employee"> <i class="fa fa-caret-right" aria-hidden="true"></i> Thông tin nhân viên</a></li>
+										<li class="mini_list_w3"><a href="?page=news"> <i class="fa fa-caret-right" aria-hidden="true"></i> Tin tức</a></li>
+										<li class="mini_list_agile error"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Chi nhánh </a></li>
 
 										<li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quyền hạn</a></li>
 									</ul>
 								</li>
-								<li class="page">
+								<li>
 									<a href="?page=about">
-										<i class="fa fa-files-o" aria-hidden="true"></i> Giới thiệu
-										<i class="fa fa-angle-down" aria-hidden="true"></i>
+										<i class="fa fa-bookmark" aria-hidden="true"></i> Giới thiệu
 									</a>
 								</li>
 							</ul>
@@ -374,17 +372,17 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							//Category
 							if(isset($_GET['page']) && $_GET['page'] == "category")
 							{
-								include("../Src/Category/Category.php");
+								include_once("../Src/Category/Category.php");
+							}
+							if(isset($_GET['page']) && $_GET['page'] == "UpadateCategory"){
+								include_once("../Src/Category/UpdateCategory.php");
+							}
+							
+							if (isset($_GET['page']) && $_GET['page'] == "AddCategory") {
+								include_once("../Src/Category/AddCategory.php");
 
 							}
-							if($_GET['page'] == "UpadateCategory"){
-								include("../Src/Category/UpdateCategory.php");
-							}
-							elseif ($_GET['page'] == "AddCategory") {
-								include("../Src/Category/AddCategory.php");
-
-							}
-							elseif(isset($_GET['CategoryId'])){
+							if(isset($_GET['page']) && $_GET['page'] =='DeleteCategory'){
 								deleteCategory($_GET['CategoryId']);
 								echo "<script>window.location.href='?page=category'</script>";
 							}
@@ -393,31 +391,31 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/Publisher/Publisher.php");
 							}
-							if($_GET['page']=="UpdatePublisher")
+							if(isset($_GET['page'])&& $_GET['page']=="UpdatePublisher")
 							{
 								include_once("../Src/Publisher/UpdatePublisher.php");
 							}
-							elseif ($_GET['page']=="AddPublisher") {
-								include('../Src/Publisher/AddPublisher.php');
+							if (isset($_GET['page'])&&$_GET['page']=="AddPublisher") {
+								include_once('../Src/Publisher/AddPublisher.php');
 							}
-							elseif (isset($_GET['PublisherId'])) {
+							if (isset($_GET['page'])&&$_GET['page'] =='DeletePublisher') {
 								deletePublisher($_GET['PublisherId']);
 								echo "<script>window.location.href='?page=publisher'</script>";
 							}
 							//Country
 							if(isset($_GET['page']) && $_GET['page'] == "country")
 							{
-								include("../Src/Country/Country.php");
+								include_once("../Src/Country/Country.php");
 
 							}
-							if($_GET['page'] == "UpdateCountry"){
-								include("../Src/Country/UpdateCountry.php");
+							if(isset($_GET['page']) &&$_GET['page'] == "UpdateCountry"){
+								include_once("../Src/Country/UpdateCountry.php");
 							}
-							elseif ($_GET['page'] == "AddCountry") {
-								include("../Src/Country/AddCountry.php");
+							if (isset($_GET['page']) &&$_GET['page'] == "AddCountry") {
+								include_once("../Src/Country/AddCountry.php");
 
 							}
-							elseif(isset($_GET['CountryId'])){
+							if(isset($_GET['page']) && $_GET['page'] == 'DeleteCountry'){
 								deleteCountry($_GET['CountryId']);
 								echo "<script>window.location.href='?page=country'</script>";
 							}
@@ -426,15 +424,15 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/Role/Role.php");
 							}
-							if($_GET['page']=="UpadateRole")
+							if(isset($_GET['page'])&& $_GET['page']=="UpadateRole")
 							{
 
 								include_once("../Src/Role/UpdateRole.php");
 							}
-							elseif ($_GET['page']=="AddRole") {
-								include('../Src/Role/AddRole.php');
+							if (isset($_GET['page'])&& $_GET['page']=="AddRole") {
+								include_once('../Src/Role/AddRole.php');
 							}
-							elseif(isset($_GET['RoleId'])){
+							if(isset($_GET['page'])&& $_GET['page']=='DeleteRole'){
 								deleteRole($_GET['RoleId']);
 								echo "<script>window.location.href='?page=role'</script>";
 							}
@@ -443,15 +441,14 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/Subject/Subject.php");
 							}
-							if($_GET['page']=="UpadateSubject")
+							if(isset($_GET['page'])&&$_GET['page']=="UpadateSubject")
 							{
-
 								include_once("../Src/Subject/UpdateSubject.php");
 							}
-							elseif ($_GET['page']=="AddSubject") {
-								include('../Src/Subject/AddSubject.php');
+							if (isset($_GET['page'])&&$_GET['page']=="AddSubject") {
+								include_once('../Src/Subject/AddSubject.php');
 							}
-							elseif(isset($_GET['SubjectId'])){
+							if(isset($_GET['page'])&&$_GET['page']=='DeleteSubject'){
 								deleteSubject($_GET['SubjectId']);
 								echo "<script>window.location.href='?page=subject'</script>";
 							}
@@ -461,7 +458,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/Contact/Contact.php");
 							}
-							if(isset($_GET['ContactId'])){
+							if(isset($_GET['page'])&& $_GET['page'] =='DeleteContact'){
 								deleteContact($_GET['ContactId']);
 								echo "<script>window.location.href='?page=contact'</script>";
 							}
@@ -470,15 +467,15 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/PaymentMethod/PaymentMethod.php");
 							}
-							if($_GET['page']=="UpadatePaymentMethod")
+							if(isset($_GET['page'])&& $_GET['page']=="UpadatePaymentMethod")
 							{
 
 								include_once("../Src/PaymentMethod/UpdatePaymentMethod.php");
 							}
-							elseif ($_GET['page']=="AddPaymentMethod") {
-								include('../Src/PaymentMethod/AddPaymentMethod.php');
+							if (isset($_GET['page'])&& $_GET['page']=="AddPaymentMethod") {
+								include_once('../Src/PaymentMethod/AddPaymentMethod.php');
 							}
-							elseif(isset($_GET['PaymentMethodId'])){
+							if(isset($_GET['page'])&& $_GET['page']=='DeletePaymentMethod'){
 								deletePaymentMethod($_GET['PaymentMethodId']);
 								echo "<script>window.location.href='?page=paymentmethod'</script>";
 							}
@@ -492,10 +489,10 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/Wine/UpdateWine.php");
 							}
-							elseif ($_GET['page']=="AddWine") {
-								include('../Src/Wine/AddWine.php');
+							if (isset($_GET['page'])&&$_GET['page']=="AddWine") {
+								include_once('../Src/Wine/AddWine.php');
 							}
-							elseif($_GET['page']=="DeleteWine"){
+							if(isset($_GET['page'])&&$_GET['page']=="DeleteWine"){
 								deleteWine($_GET['WineId']);
 								echo "<script>window.location.href='?page=wine'</script>";
 							}
@@ -505,19 +502,21 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/Employee/Employee.php");
 							}
-							if($_GET['page']=="UpadateEmployee")
+							if(isset($_GET['page'])&&$_GET['page']=="UpadateEmployee")
 							{
 								include_once("../Src/Employee/UpdateEmployee.php");
 							}
-							elseif ($_GET['page']=="AddEmployee") {
-								include('../Src/Employee/AddEmployee.php');
+							if (isset($_GET['page'])&&$_GET['page']=="AddEmployee") {
+								include_once('../Src/Employee/AddEmployee.php');
 							}
-							elseif($_GET['page']=="DeleteEmployee"){
+							if(isset($_GET['page'])&&$_GET['page']=="DeleteEmployee"){
 								deleteEmployee($_GET['empCode']);
 								echo "<script>window.location.href='?page=employee'</script>";
-							}elseif ($_GET['page']=='UploadImageEmployee') {
-								include('../Src/Employee/Quanly_HinhAnh_NV.php');
-							}elseif ($_GET['page']=='DeleteEmployeeImage') {
+							}
+							if (isset($_GET['page'])&&$_GET['page']=='UploadImageEmployee') {
+								include_once('../Src/Employee/Quanly_HinhAnh_NV.php');
+							}
+							if (isset($_GET['page'])&&$_GET['page']=='DeleteEmployeeImage') {
 								deleteImageEmployee($_GET['ImgEmployeeId']);
 								echo "<script>window.location.href='?page=employee'</script>";
 							}
@@ -527,19 +526,19 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/Promotion/Promotion.php");
 							}
-							if($_GET['page']=="UpdatePromotion")
+							if(isset($_GET['page'])&&$_GET['page']=="UpdatePromotion")
 							{
 
 								include_once("../Src/Promotion/UpdatePromotion.php");
 							}
-							elseif ($_GET['page']=="AddPromotion") {
-								include('../Src/Promotion/AddPromotion.php');
+							if (isset($_GET['page'])&&$_GET['page']=="AddPromotion") {
+								include_once('../Src/Promotion/AddPromotion.php');
 							}
-							elseif($_GET['page']=="DeletePromotion"){
+							if(isset($_GET['page'])&&$_GET['page']=="DeletePromotion"){
 								deletePromotion($_GET['PromotionId']);
 								echo "<script>window.location.href='?page=promotion'</script>";
 							}
-							elseif($_GET['page']=="ChangeActive"){
+							if(isset($_GET['page'])&&$_GET['page']=="ChangeActive"){
 								changeActive($_GET['PromotionId'],$_GET['Do']);
 								echo "<script>window.location.href='?page=promotion'</script>";
 							}
@@ -549,19 +548,19 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/News/News.php");
 							}
-							if($_GET['page']=="UpadateNews")
+							if(isset($_GET['page'])&&$_GET['page']=="UpadateNews")
 							{
 
 								include_once("../Src/News/UpdateNews.php");
 							}
-							elseif ($_GET['page']=="AddNews") {
-								include('../Src/News/AddNews.php');
+							if (isset($_GET['page'])&&$_GET['page']=="AddNews") {
+								include_once('../Src/News/AddNews.php');
 							}
-							elseif($_GET['page']=="DeleteNews"){
+							if(isset($_GET['page'])&&$_GET['page']=="DeleteNews"){
 								deleteNews($_GET['NewsId']);
 								echo "<script>window.location.href='?page=news'</script>";
 							}
-							elseif($_GET['page']=="ChangeActive"){
+							if(isset($_GET['page'])&&$_GET['page']=="ChangeActive"){
 								changeActive($_GET['PromotionId'],$_GET['Do']);
 								echo "<script>window.location.href='?page=promotion'</script>";
 							}
@@ -603,11 +602,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								DeleteWinePrice($_GET['WineId'], $_GET['TimeId']);
 								echo "<script>window.location.href='?page=PriceHistory&&WineId=".$_GET['WineId']."'</script>";
 							}
-							if($_GET['page']=="UpdateWinePrice")
+							if(isset($_GET['page'])&&$_GET['page']=="UpdateWinePrice")
 							{
 								include_once("../Src/Wine/UpdateWinePrice.php");
 							}
-							if($_GET['page']=="AddWinePrice")
+							if(isset($_GET['page'])&&$_GET['page']=="AddWinePrice")
 							{
 								include_once("../Src/Wine/AddWinePrice.php");
 							}
@@ -616,15 +615,15 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/Time/Time.php");
 							}
-							if($_GET['page']=="UpadateTime")
+							if(isset($_GET['page'])&&$_GET['page']=="UpadateTime")
 							{
 
 								include_once("../Src/Time/UpdateTime.php");
 							}
-							elseif ($_GET['page']=="AddTime") {
-								include('../Src/Time/AddTime.php');
+							if (isset($_GET['page'])&&$_GET['page']=="AddTime") {
+								include_once('../Src/Time/AddTime.php');
 							}
-							elseif(isset($_GET['timeId'])){
+							if(isset($_GET['page'])&&isset($_GET['timeId'])){
 								deleteTime($_GET['timeId']);
 								echo "<script>window.location.href='?page=time'</script>";
 							}
@@ -987,6 +986,14 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					$(this).children("ul.gn-submenu").slideUp('slow');
 				});
 
+				$("ul.gn-menu li.about").click(function () {
+					$(this).children("ul.gn-submenu").slideDown('slow');
+				});
+
+				$("ul.gn-menu li.about").mouseleave(function(){
+					$(this).children("ul.gn-submenu").slideUp('slow');
+				});
+
 				$("ul.gn-menu li.product").mouseleave(function(){
 					$(this).children("ul.gn-submenu").slideUp('slow');
 				});
@@ -1035,28 +1042,28 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 		<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 		<script type="text/javascript">
-		$(document).ready(function(){
-			$('#myTable').DataTable({
-				responsive: true,
-				"language": {
-					"lengthMenu": "Hiển thị _MENU_ số dòng trên trang",
-					"info": "Hiển thị _START_ trong tổng số _TOTAL_ dòng dữ liệu",
-					"infoEmpty": "Dữ liệu rỗng",
-					"emptyTable": "Chưa có dữ liệu nào",
-					"processing": "Đang xử lý...",
-					"search": "Tìm kiếm:",
-					"loadingRecords": "Đang load dữ liệu...",
-					"zeroRecords": "không tìm thấy dữ liệu",
-					"infoFiltered": "(Được từ tổng số _MAX_ dòng dữ liệu)",
-					"paginate": {
-						"first": "|<",
-						"last": ">|",
-						"next": ">>",
-						"previous": "<<"
-					}
-				},
-				"lengthMenu": [[5, 10, 15, 20, 25, 30, -1], [5, 10, 15, 20, 25, 30, "Tất cả"]]
-			});
-		</script>
-	</body>
-	</html>
+			$(document).ready(function(){
+				$('#myTable').DataTable({
+					responsive: true,
+					"language": {
+						"lengthMenu": "Hiển thị _MENU_ số dòng trên trang",
+						"info": "Hiển thị _START_ trong tổng số _TOTAL_ dòng dữ liệu",
+						"infoEmpty": "Dữ liệu rỗng",
+						"emptyTable": "Chưa có dữ liệu nào",
+						"processing": "Đang xử lý...",
+						"search": "Tìm kiếm:",
+						"loadingRecords": "Đang load dữ liệu...",
+						"zeroRecords": "không tìm thấy dữ liệu",
+						"infoFiltered": "(Được từ tổng số _MAX_ dòng dữ liệu)",
+						"paginate": {
+							"first": "|<",
+							"last": ">|",
+							"next": ">>",
+							"previous": "<<"
+						}
+					},
+					"lengthMenu": [[5, 10, 15, 20, 25, 30, -1], [5, 10, 15, 20, 25, 30, "Tất cả"]]
+				});
+			</script>
+		</body>
+		</html>
