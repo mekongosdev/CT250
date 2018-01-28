@@ -87,6 +87,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quyền hạn</a></li>
 									</ul>
 								</li>
+								<li class="page">
+									<a href="?page=about">
+										<i class="fa fa-files-o" aria-hidden="true"></i> Giới thiệu
+										<i class="fa fa-angle-down" aria-hidden="true"></i>
+									</a>
+								</li>
 							</ul>
 						</div><!-- /gn-scroller -->
 					</nav>
@@ -594,6 +600,29 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/Wine/AddWinePrice.php");
 							}
+
+							// About
+							if(isset($_GET['page'])&& $_GET['page']=="about")
+							{
+								include_once("../Src/About/About.php");
+							}
+							// if(isset($_GET['page'])&& $_GET['page']=="addwineprice")
+							// {
+							// 	include_once("../Src/Wine/AddWinePrice.php");
+							// }
+							// if(isset($_GET['page'])&& $_GET['page']=="DeleteWinePrice")
+							// {
+							// 	DeleteWinePrice($_GET['WineId'], $_GET['TimeId']);
+							// 	echo "<script>window.location.href='?page=PriceHistory&&WineId=".$_GET['WineId']."'</script>";
+							// }
+							// if($_GET['page']=="UpdateWinePrice")
+							// {
+							// 	include_once("../Src/Wine/UpdateWinePrice.php");
+							// }
+							// if($_GET['page']=="AddWinePrice")
+							// {
+							// 	include_once("../Src/Wine/AddWinePrice.php");
+							// }
 							?>
 						</div>
 					</div>
@@ -615,7 +644,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<!-- 	<script type="text/javascript" src="../public/admin/js/jquery-2.1.4.min.js"></script> -->
 
-		
+
 
 		<!-- /amcharts -->
 		<script src="../public/admin/js/amcharts.js"></script>
