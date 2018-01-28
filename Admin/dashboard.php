@@ -16,13 +16,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="../public/admin/css/component.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../public/admin/css/component.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../public/admin/css/export.css" rel="stylesheet" type="text/css" media="all" />
+
 <link href="../public/admin/css/flipclock.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../public/admin/css/circles.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../public/admin/css/style_grid.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../public/admin/css/style.css" rel="stylesheet" type="text/css" media="all" />
-
-
-
+<!--Data Table-->
 
 
 <!-- font-awesome-icons -->
@@ -57,34 +56,35 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller scrollbar1">
 							<ul class="gn-menu agile_menu_drop">
-								<li><a href="#"> <i class="fa fa-tachometer"></i> Bảng điều khiển</a></li>
+								<li><a href="#"> <i class="fa fa-tachometer"></i>Bảng điều khiển</a></li>
 								<li>
-									<a href="?page=category"><i class="fa fa-cogs" aria-hidden="true"></i> Danh mục </a>
+									<a href="?page=category"><i class="fa fa-cogs" aria-hidden="true"></i>Đơn hàng</a>
 								</li>
 								<li>
-									<a href="?page=publisher"> <i class="fa fa-file-text-o" aria-hidden="true"></i>Publisher</a>
+									<a href="#"> <i class="fa fa-file-text-o" aria-hidden="true"></i>Hóa đơn</a>
 								</li>
-								<li><a href="?page=country"> <i class="fa fa-table top" aria-hidden="true"></i> Country</a></li>
+								<li><a href="#"> <i class="fa fa-table top" aria-hidden="true"></i>Phản hồi</a></li>
 								<li><a href="#"><i class="fa fa-list" aria-hidden="true"></i>Quản lý sản phẩm<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
 									<ul class="gn-submenu">
-										<li class="mini_list_agile"><a href="typo.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lỷ rượu</a></li>
-										<li class="mini_list_w3"><a href="icons.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý nhà sản xuất</a></li>
-										<li class="mini_list_agile"><a href="?page=paymentmethod"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lỷ HTTT</a></li>
-										<li class="mini_list_w3"><a href="?page=promotion"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý khuyến mãi</a></li>
-										<li class="mini_list_w3"><a href="?page=subject"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý chủ đề liên hệ</a></li>
+<li class="mini_list_agile"><a href="?page=category"><i class="fa fa-caret-right" aria-hidden="true"></i> Nhà sản xuất</a></li>
+<li class="mini_list_w3"><a href="?page=publisher"> <i class="fa fa-caret-right" aria-hidden="true"></i> Loại sản phẩm</a></li>
+<li class="mini_list_agile"><a href="?page=country"><i class="fa fa-caret-right" aria-hidden="true"></i> Xuất xứ</a></li>
+<li class="mini_list_w3"><a href="?page=promotion"> <i class="fa fa-caret-right" aria-hidden="true"></i> Khuyến mãi</a></li>
+<li class="mini_list_agile"><a href="?name=wine"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý rượu</a></li>
+
+<li class="mini_list_w3"><a href="?page=paymentmethod"> <i class="fa fa-caret-right" aria-hidden="true"></i> Hình thức thanh toán</a></li>
 
 									</ul>
 								</li>
 
-								<li class="page">
-									<a href="#"><i class="fa fa-files-o" aria-hidden="true"></i> Quản lý nhân viên <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+<li class="page"><a href="#"><i class="fa fa-files-o" aria-hidden="true"></i> Quản lý nhân viên <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="gn-submenu">
 
-										<li class="mini_list_agile"> <a href="signin.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Thông tin nhân viên</a></li>
-										<li class="mini_list_w3"><a href="signup.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Tin tức</a></li>
-										<li class="mini_list_agile error"><a href="404.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Chi nhánh </a></li>
+<li class="mini_list_agile"> <a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Thông tin nhân viên</a></li>
+<li class="mini_list_w3"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Tin tức</a></li>
+<li class="mini_list_agile error"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Chi nhánh </a></li>
 
-										<li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quyền hạn</a></li>
+<li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quyền hạn</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -98,7 +98,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 						<li class="dropdown profile_details_drop">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 								<div class="profile_img">
-									<span class="prfil-img"><img src="images/admin.jpg" alt=""> </span>
+									<span class="prfil-img"><img src="#" alt=""> </span>
 								</div>
 							</a>
 							<ul class="dropdown-menu drp-mnu">
@@ -121,7 +121,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									</div>
 								</li>
 								<li><a href="#">
-									<div class="user_img"><img src="images/a3.jpg" alt=""></div>
+									<div class="user_img"><img src="#" alt=""></div>
 									<div class="notification_desc">
 										<h6>John Smith</h6>
 										<p>Lorem ipsum dolor</p>
@@ -130,7 +130,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									<div class="clearfix"></div>
 								</a></li>
 								<li class="odd"><a href="#">
-									<div class="user_img"><img src="images/a1.jpg" alt=""></div>
+									<div class="user_img"><img src="#" alt=""></div>
 									<div class="notification_desc">
 										<h6>Jasmin Leo</h6>
 										<p>Lorem ipsum dolor</p>
@@ -139,7 +139,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									<div class="clearfix"></div>
 								</a></li>
 								<li><a href="#">
-									<div class="user_img"><img src="images/a2.jpg" alt=""></div>
+									<div class="user_img"><img src="#" alt=""></div>
 									<div class="notification_desc">
 										<h6>James Smith</h6>
 										<p>Lorem ipsum dolor</p>
@@ -148,7 +148,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									<div class="clearfix"></div>
 								</a></li>
 								<li><a href="#">
-									<div class="user_img"><img src="images/a4.jpg" alt=""></div>
+									<div class="user_img"><img src="#" alt=""></div>
 									<div class="notification_desc">
 										<h6>James Smith</h6>
 										<p>Lorem ipsum dolor</p>
@@ -177,7 +177,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									</div>
 								</li>
 								<li><a href="#">
-									<div class="user_img"><img src="images/a3.jpg" alt=""></div>
+									<div class="user_img"><img src="#" alt=""></div>
 									<div class="notification_desc">
 										<h6>John Smith</h6>
 										<p>Lorem ipsum dolor</p>
@@ -186,7 +186,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									<div class="clearfix"></div>
 								</a></li>
 								<li class="odd"><a href="#">
-									<div class="user_img"><img src="images/a1.jpg" alt=""></div>
+									<div class="user_img"><img src="#" alt=""></div>
 									<div class="notification_desc">
 										<h6>Jasmin Leo</h6>
 										<p>Lorem ipsum dolor</p>
@@ -195,7 +195,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									<div class="clearfix"></div>
 								</a></li>
 								<li><a href="#">
-									<div class="user_img"><img src="images/a2.jpg" alt=""></div>
+									<div class="user_img"><img src="#" alt=""></div>
 									<div class="notification_desc">
 										<h6>James Smith</h6>
 										<p>Lorem ipsum dolor</p>
@@ -608,8 +608,10 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		</div>
 		<!--copy rights end here-->
 		<!-- js -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- 	<script type="text/javascript" src="../public/admin/js/jquery-2.1.4.min.js"></script> -->
 
-		<script type="text/javascript" src="../public/admin/js/jquery-2.1.4.min.js"></script>
+		
 
 		<!-- /amcharts -->
 		<script src="../public/admin/js/amcharts.js"></script>
@@ -617,7 +619,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<script src="../public/admin/js/export.js"></script>
 		<script src="../public/admin/js/light.js"></script>
 		<!-- Chart code -->
-		<script>
+		<!-- <script>
 			var chart = AmCharts.makeChart("chartdiv", {
 				"theme": "light",
 				"type": "serial",
@@ -716,9 +718,9 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				}
 
 			}, 0);
-		</script>
+		</script> -->
 		<!-- Chart code -->
-		<script>
+		<!-- <script>
 			var chart = AmCharts.makeChart("chartdiv1", {
 				"type": "serial",
 				"theme": "light",
@@ -826,11 +828,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					"enabled": true
 				}
 			});
-		</script>
+		</script> -->
 
 		<!-- //amcharts -->
-		<script src="../public/admin/js/chart1.js"></script>
-		<script src="js/Chart.min.js"></script>
+	<!-- 	<script src="../public/admin/js/chart1.js"></script> -->
+		<!-- <script src="js/Chart.min.js"></script> -->
 		<script src="../public/admin/js/modernizr.custom.js"></script>
 
 		<script src="../public/admin/js/classie.js"></script>
@@ -960,5 +962,33 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!-- <script type="text/javascript" src="../public/admin/js/bootstrap-3.1.1.min.js"></script> -->
 
 		<script src="../Public/admin/js/bootstrap-3.1.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$('#myTable').DataTable({
+				responsive: true,
+				"language": {
+					"lengthMenu": "Hiển thị _MENU_ số dòng trên trang",
+					"info": "Hiển thị _START_ trong tổng số _TOTAL_ dòng dữ liệu",
+					"infoEmpty": "Dữ liệu rỗng",
+					"emptyTable": "Chưa có dữ liệu nào",
+					"processing": "Đang xử lý...",
+					"search": "Tìm kiếm:",
+					"loadingRecords": "Đang load dữ liệu...",
+					"zeroRecords": "không tìm thấy dữ liệu",
+					"infoFiltered": "(Được từ tổng số _MAX_ dòng dữ liệu)",
+					"paginate": {
+						"first": "|<",
+						"last": ">|",
+						"next": ">>",
+						"previous": "<<"
+					}
+				},
+				"lengthMenu": [[2, 5, 10, 15, 20, 25, 30, -1], [2, 5, 10, 15, 20, 25, 30, "Tất cả"]]
+			});
+			new $.fn.dataTable.FixedHeader( table );
+		});
+	</script>
 	</body>
 	</html>

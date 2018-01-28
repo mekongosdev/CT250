@@ -13,14 +13,14 @@ else
 }
 // Genarate file name
 function random_name() {
-    $key = '';
-    $keys = array_merge(range(0, 9), range('a', 'z'));
+	$key = '';
+	$keys = array_merge(range(0, 9), range('a', 'z'));
     // string length = 10
-    for ($i = 0; $i < 10; $i++) {
-        $key .= $keys[array_rand($keys)];
-    }
+	for ($i = 0; $i < 10; $i++) {
+		$key .= $keys[array_rand($keys)];
+	}
 
-    return $key;
+	return $key;
 }
 
 if(isset($_POST['btnUpload']))

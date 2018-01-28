@@ -10,7 +10,7 @@ $list_category= mysql_query($sqlSelect);
 <h3 class="w3_inner_tittle two text-center">Quản lý danh mục rượu</h3>
 <a class="btn btn-primary" href="?page=AddCategory">THÊM <i class="fa fa-plus"></i></a> 
 
-<table id="table" class="table-striped table-bordered table-hover table-condensed">
+<table id="myTable" class="table-striped table-bordered table-hover table-condensed">
 	<thead >
 		<tr>
 			<th><strong>STT</strong></th>
