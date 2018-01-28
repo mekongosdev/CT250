@@ -35,6 +35,8 @@ if(isset($_POST['btnUpdate']))
 			<div class="form_group">
 				<label class="control-label col-sm-12" for="email"><h2 align="center">Thêm Tin Tức</h2></label>
 			</div>
+			</form>
+		<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" >
 			<div class="form-group">
 				<label class="control-label col-md-2" for="txtId">Mã Tin Tức:</label>
 				<div class="col-sm-10">
@@ -93,7 +95,7 @@ if(isset($_POST['btnUpdate']))
 			</div>
 			<div class="form-group">        
 				<div class="col-md-offset-2 col-md-10">
-					<button type="submit" class="btn btn-info" name="btnUpdate" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Thêm</button>
+					<button type="submit" class="btn btn-info" name="btnUpdate" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Cập Nhật</button>
 					<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Bỏ Qua</button>
 				</div>
 			</div>

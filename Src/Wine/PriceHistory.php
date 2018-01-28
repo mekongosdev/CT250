@@ -1,8 +1,6 @@
 <?php 
-include_once("../Src/Wine/WineController.php");
 if(isset($_GET['WineId'])){
-	$WineId=$_GET['WineId'];
-	$sql="SELECT TimeId, PurchasePrice, SellingPrice, Note FROM time_wine where WineId = '".$WineId."'";
+	$sql="SELECT WineId, TimeId, PurchasePrice, SellingPrice, Note FROM time_wine where WineId = '".$_GET['WineId']."'";
 	$pricehistory = mysql_query($sql) or trigger_error(mysql_error().$sql);
 }else{
 	$sql="SELECT WineId, TimeId, PurchasePrice, SellingPrice, Note FROM time_wine";
@@ -11,8 +9,9 @@ if(isset($_GET['WineId'])){
 ?>
 <h3 class="w3_inner_tittle two text-center">Lịch sử giá rượu</h3>
 <a class="btn btn-primary" href="?page=AddWinePrice">THÊM <i class="fa fa-plus"></i></a> 
-
-<table id="table" class="table-striped table-bordered table-hover table-condensed">
+<br>
+<br>
+<table id="myTable" class="table-striped table-bordered table-hover table-condensed">
 	<thead >
 		<tr>
 			<th><strong>STT</strong></th>
@@ -27,7 +26,7 @@ if(isset($_GET['WineId'])){
 	<tbody>
 		<?php 
 		$num = 1;
-		while(list($TimeId, $PurchasePrice, $SellingPrice, $Note) = mysql_fetch_array($pricehistory))
+		while(list($WineId,$TimeId, $PurchasePrice, $SellingPrice, $Note) = mysql_fetch_array($pricehistory))
 		{
 			?>
 			<tr>

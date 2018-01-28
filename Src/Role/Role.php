@@ -7,7 +7,8 @@ $list_Role= mysql_query($sqlSelect);
 ?>
 <h3 class="w3_inner_tittle two text-center">Quản lý quyền</h3>
 <a class="btn btn-primary" href="?page=AddRole">THÊM <i class="fa fa-plus"></i></a> 
-
+</br>
+</br>
 <table id="myTable" class="table-striped table-bordered table-hover table-condensed">
 	<thead >
 		<tr>
@@ -27,9 +28,9 @@ $list_Role= mysql_query($sqlSelect);
 			<tr>
 				<td class="col-md-1"><?= $num;?> </td>
 				<td class="col-md-3"><?= $name;?> </td>
-				<td class="col-md-6"><?= $details;?> </td>
-				<td class="col-md-6"><?= $active;?> </td>
-				<td class="text-center col-md-2">
+				<td class="col-md-3"><?= $details;?> </td>
+				<td class="col-md-3"><?= $active;?> </td>
+				<td class="text-center col-md-6">
 					<a class="btn btn-warning btn" href="?page=UpadateRole&RoleId=<?php echo $RoleId; ?>"><i class="fa fa-edit"></i></a>
 					<a class='btn btn-danger' href="?page=DeleteRole&RoleId=<?php echo $RoleId; ?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?')"><i class="fa fa-remove"></i></a>
 				</td>     
