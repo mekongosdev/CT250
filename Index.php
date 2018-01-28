@@ -1,4 +1,4 @@
-<?php 
+<?php
     session_start();
 
 ?>
@@ -33,7 +33,7 @@
 <!-- start-smooth-scrolling -->
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
+		$(".scroll").click(function(event){
 			event.preventDefault();
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
@@ -43,17 +43,18 @@
 
 
 </head>
-	
+
 <body>
-	<?php 
+	<?php
 	include_once("Library/connect.php");
 	include_once("Src/User/UserController.php");
 	?>
-<!-- 
+<!--
 	Modal đăng ký
  -->
-<?php 
+<?php
 include("Src/User/Register.php");
+include("Src/About/About_FEV.php");
 ?>
 <script>$(document).ready(function(){
 <?php
@@ -66,7 +67,7 @@ $('#user_modal').remove();
 	<div class="header">
 		<div class="container">
 			<div class="w3l_login" id="user_modal">
-		
+
 				<a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 			</div>
 			<div class="w3l_logo">
@@ -90,7 +91,7 @@ $('#user_modal').remove();
 				</a>
 				<p style="margin-left: 58px;" ><?php if(isset($_SESSION["username"])){echo $_SESSION["username"]." <a href='Src/User/Signout.php'><span class=' 	glyphicon glyphicon-log-out'></span></a>";}?> </p>
 				<div class="clearfix"> </div>
-			</div>	
+			</div>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
@@ -105,10 +106,10 @@ $('#user_modal').remove();
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-				</div> 
+				</div>
 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#" class="act">Trang chủ</a></li>	
+						<li class="active"><a href="#" class="act">Trang chủ</a></li>
 						<!-- Mega Menu -->
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sản phẩm <b class="caret"></b></a>
@@ -177,7 +178,7 @@ $('#user_modal').remove();
 						<span class="glyphicon glyphicon-expand" aria-hidden="true"></span>
 					</a>
 				</div>
-				<!-- pop-up-box -->    
+				<!-- pop-up-box -->
 						<link href="public/client/css/popuo-box.css" rel="stylesheet" type="text/css" property="" media="all" />
 						<script src="public/client/js/jquery.magnific-popup.js" type="text/javascript"></script>
 					<!--//pop-up-box -->
@@ -197,7 +198,7 @@ $('#user_modal').remove();
 							removalDelay: 300,
 							mainClass: 'my-mfp-zoom-in'
 						});
-																						
+
 						});
 					</script>
 			</div>
@@ -409,7 +410,7 @@ $('#user_modal').remove();
 											</ul>
 										</div>
 									</div>
-									
+
 									<h5><a href="single.html">Watch</a></h5>
 									<div class="simpleCart_shelfItem">
 										<p><span>$320</span> <i class="item_price">$250</i></p>
@@ -604,7 +605,7 @@ $('#user_modal').remove();
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<section>
 								<div class="modal-body">
@@ -613,12 +614,12 @@ $('#user_modal').remove();
 									</div>
 									<div class="col-md-7 modal_body_right">
 										<h4>a good look women's shirt</h4>
-										<p>Ut enim ad minim veniam, quis nostrud 
-											exercitation ullamco laboris nisi ut aliquip ex ea 
-											commodo consequat.Duis aute irure dolor in 
-											reprehenderit in voluptate velit esse cillum dolore 
-											eu fugiat nulla pariatur. Excepteur sint occaecat 
-											cupidatat non proident, sunt in culpa qui officia 
+										<p>Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea
+											commodo consequat.Duis aute irure dolor in
+											reprehenderit in voluptate velit esse cillum dolore
+											eu fugiat nulla pariatur. Excepteur sint occaecat
+											cupidatat non proident, sunt in culpa qui officia
 											deserunt mollit anim id est laborum.</p>
 										<div class="rating">
 											<div class="rating-left">
@@ -662,7 +663,7 @@ $('#user_modal').remove();
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<section>
 								<div class="modal-body">
@@ -671,12 +672,12 @@ $('#user_modal').remove();
 									</div>
 									<div class="col-md-7 modal_body_right">
 										<h4>a good look black women's jeans</h4>
-										<p>Ut enim ad minim veniam, quis nostrud 
-											exercitation ullamco laboris nisi ut aliquip ex ea 
-											commodo consequat.Duis aute irure dolor in 
-											reprehenderit in voluptate velit esse cillum dolore 
-											eu fugiat nulla pariatur. Excepteur sint occaecat 
-											cupidatat non proident, sunt in culpa qui officia 
+										<p>Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea
+											commodo consequat.Duis aute irure dolor in
+											reprehenderit in voluptate velit esse cillum dolore
+											eu fugiat nulla pariatur. Excepteur sint occaecat
+											cupidatat non proident, sunt in culpa qui officia
 											deserunt mollit anim id est laborum.</p>
 										<div class="rating">
 											<div class="rating-left">
@@ -720,7 +721,7 @@ $('#user_modal').remove();
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<section>
 								<div class="modal-body">
@@ -729,12 +730,12 @@ $('#user_modal').remove();
 									</div>
 									<div class="col-md-7 modal_body_right">
 										<h4>a good look women's Watch</h4>
-										<p>Ut enim ad minim veniam, quis nostrud 
-											exercitation ullamco laboris nisi ut aliquip ex ea 
-											commodo consequat.Duis aute irure dolor in 
-											reprehenderit in voluptate velit esse cillum dolore 
-											eu fugiat nulla pariatur. Excepteur sint occaecat 
-											cupidatat non proident, sunt in culpa qui officia 
+										<p>Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea
+											commodo consequat.Duis aute irure dolor in
+											reprehenderit in voluptate velit esse cillum dolore
+											eu fugiat nulla pariatur. Excepteur sint occaecat
+											cupidatat non proident, sunt in culpa qui officia
 											deserunt mollit anim id est laborum.</p>
 										<div class="rating">
 											<div class="rating-left">
@@ -778,7 +779,7 @@ $('#user_modal').remove();
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<section>
 								<div class="modal-body">
@@ -787,12 +788,12 @@ $('#user_modal').remove();
 									</div>
 									<div class="col-md-7 modal_body_right">
 										<h4>a good look women's Sandal</h4>
-										<p>Ut enim ad minim veniam, quis nostrud 
-											exercitation ullamco laboris nisi ut aliquip ex ea 
-											commodo consequat.Duis aute irure dolor in 
-											reprehenderit in voluptate velit esse cillum dolore 
-											eu fugiat nulla pariatur. Excepteur sint occaecat 
-											cupidatat non proident, sunt in culpa qui officia 
+										<p>Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea
+											commodo consequat.Duis aute irure dolor in
+											reprehenderit in voluptate velit esse cillum dolore
+											eu fugiat nulla pariatur. Excepteur sint occaecat
+											cupidatat non proident, sunt in culpa qui officia
 											deserunt mollit anim id est laborum.</p>
 										<div class="rating">
 											<div class="rating-left">
@@ -836,7 +837,7 @@ $('#user_modal').remove();
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<section>
 								<div class="modal-body">
@@ -845,12 +846,12 @@ $('#user_modal').remove();
 									</div>
 									<div class="col-md-7 modal_body_right">
 										<h4>a good look women's Necklace</h4>
-										<p>Ut enim ad minim veniam, quis nostrud 
-											exercitation ullamco laboris nisi ut aliquip ex ea 
-											commodo consequat.Duis aute irure dolor in 
-											reprehenderit in voluptate velit esse cillum dolore 
-											eu fugiat nulla pariatur. Excepteur sint occaecat 
-											cupidatat non proident, sunt in culpa qui officia 
+										<p>Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea
+											commodo consequat.Duis aute irure dolor in
+											reprehenderit in voluptate velit esse cillum dolore
+											eu fugiat nulla pariatur. Excepteur sint occaecat
+											cupidatat non proident, sunt in culpa qui officia
 											deserunt mollit anim id est laborum.</p>
 										<div class="rating">
 											<div class="rating-left">
@@ -894,7 +895,7 @@ $('#user_modal').remove();
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<section>
 								<div class="modal-body">
@@ -903,12 +904,12 @@ $('#user_modal').remove();
 									</div>
 									<div class="col-md-7 modal_body_right">
 										<h4>a good look women's Jacket</h4>
-										<p>Ut enim ad minim veniam, quis nostrud 
-											exercitation ullamco laboris nisi ut aliquip ex ea 
-											commodo consequat.Duis aute irure dolor in 
-											reprehenderit in voluptate velit esse cillum dolore 
-											eu fugiat nulla pariatur. Excepteur sint occaecat 
-											cupidatat non proident, sunt in culpa qui officia 
+										<p>Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea
+											commodo consequat.Duis aute irure dolor in
+											reprehenderit in voluptate velit esse cillum dolore
+											eu fugiat nulla pariatur. Excepteur sint occaecat
+											cupidatat non proident, sunt in culpa qui officia
 											deserunt mollit anim id est laborum.</p>
 										<div class="rating">
 											<div class="rating-left">
@@ -952,7 +953,7 @@ $('#user_modal').remove();
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<section>
 								<div class="modal-body">
@@ -961,12 +962,12 @@ $('#user_modal').remove();
 									</div>
 									<div class="col-md-7 modal_body_right">
 										<h4>a good look women's Long Skirt</h4>
-										<p>Ut enim ad minim veniam, quis nostrud 
-											exercitation ullamco laboris nisi ut aliquip ex ea 
-											commodo consequat.Duis aute irure dolor in 
-											reprehenderit in voluptate velit esse cillum dolore 
-											eu fugiat nulla pariatur. Excepteur sint occaecat 
-											cupidatat non proident, sunt in culpa qui officia 
+										<p>Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea
+											commodo consequat.Duis aute irure dolor in
+											reprehenderit in voluptate velit esse cillum dolore
+											eu fugiat nulla pariatur. Excepteur sint occaecat
+											cupidatat non proident, sunt in culpa qui officia
 											deserunt mollit anim id est laborum.</p>
 										<div class="rating">
 											<div class="rating-left">
@@ -1049,34 +1050,34 @@ $('#user_modal').remove();
 					</div>
 					<div class="wmuSlider example1">
 						<div class="wmuSliderWrapper">
-							<article style="position: absolute; width: 100%; opacity: 0;"> 
+							<article style="position: absolute; width: 100%; opacity: 0;">
 								<div class="banner-wrap">
 									<div class="w3agile_special_deals_grid_left_grid1">
 										<img src="public/client/images/1.png" alt=" " class="img-responsive" />
-										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
-											velit esse quam nihil molestiae consequatur, vel illum qui dolorem 
+										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate
+											velit esse quam nihil molestiae consequatur, vel illum qui dolorem
 											eum fugiat quo voluptas nulla pariatur</p>
 										<h4>Laura</h4>
 									</div>
 								</div>
 							</article>
-							<article style="position: absolute; width: 100%; opacity: 0;"> 
+							<article style="position: absolute; width: 100%; opacity: 0;">
 								<div class="banner-wrap">
 									<div class="w3agile_special_deals_grid_left_grid1">
 										<img src="public/client/images/2.png" alt=" " class="img-responsive" />
-										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
-											velit esse quam nihil molestiae consequatur, vel illum qui dolorem 
+										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate
+											velit esse quam nihil molestiae consequatur, vel illum qui dolorem
 											eum fugiat quo voluptas nulla pariatur</p>
 										<h4>Michael</h4>
 									</div>
 								</div>
 							</article>
-							<article style="position: absolute; width: 100%; opacity: 0;"> 
+							<article style="position: absolute; width: 100%; opacity: 0;">
 								<div class="banner-wrap">
 									<div class="w3agile_special_deals_grid_left_grid1">
 										<img src="public/client/images/3.png" alt=" " class="img-responsive" />
-										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
-											velit esse quam nihil molestiae consequatur, vel illum qui dolorem 
+										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate
+											velit esse quam nihil molestiae consequatur, vel illum qui dolorem
 											eum fugiat quo voluptas nulla pariatur</p>
 										<h4>Rosy</h4>
 									</div>
@@ -1084,10 +1085,10 @@ $('#user_modal').remove();
 							</article>
 						</div>
 					</div>
-						<script src="public/client/js/jquery.wmuSlider.js"></script> 
+						<script src="public/client/js/jquery.wmuSlider.js"></script>
 						<script>
-							$('.example1').wmuSlider();         
-						</script> 
+							$('.example1').wmuSlider();
+						</script>
 				</div>
 				<div class="col-md-5 w3agile_special_deals_grid_right">
 					<img src="public/client/images/25.jpg" alt=" " class="img-responsive" />
@@ -1220,7 +1221,7 @@ $('#user_modal').remove();
 		<div class="container">
 			<h3>Top Brands</h3>
 			<div class="sliderfig">
-				<ul id="flexiselDemo1">			
+				<ul id="flexiselDemo1">
 					<li>
 						<img src="public/client/images/4.png" alt=" " class="img-responsive" />
 					</li>
@@ -1244,25 +1245,25 @@ $('#user_modal').remove();
 									visibleItems: 4,
 									animationSpeed: 1000,
 									autoPlay: true,
-									autoPlaySpeed: 3000,    		
+									autoPlaySpeed: 3000,
 									pauseOnHover: true,
 									enableResponsiveBreakpoints: true,
-									responsiveBreakpoints: { 
-										portrait: { 
+									responsiveBreakpoints: {
+										portrait: {
 											changePoint:480,
 											visibleItems: 1
-										}, 
-										landscape: { 
+										},
+										landscape: {
 											changePoint:640,
 											visibleItems:2
 										},
-										tablet: { 
+										tablet: {
 											changePoint:768,
 											visibleItems: 3
 										}
 									}
 								});
-								
+
 							});
 					</script>
 					<script type="text/javascript" src="public/client/js/jquery.flexisel.js"></script>
@@ -1301,7 +1302,7 @@ $('#user_modal').remove();
 				</div>
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Information</h3>
-					<ul class="info"> 
+					<ul class="info">
 						<li><a href="about.html">About Us</a></li>
 						<li><a href="mail.html">Contact Us</a></li>
 						<li><a href="short-codes.html">Short Codes</a></li>
@@ -1311,7 +1312,7 @@ $('#user_modal').remove();
 				</div>
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Category</h3>
-					<ul class="info"> 
+					<ul class="info">
 						<li><a href="dresses.html">Dresses</a></li>
 						<li><a href="sweaters.html">Sweaters</a></li>
 						<li><a href="shirts.html">Shirts</a></li>
@@ -1321,7 +1322,7 @@ $('#user_modal').remove();
 				</div>
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Profile</h3>
-					<ul class="info"> 
+					<ul class="info">
 						<li><a href="products.html">Summer Store</a></li>
 						<li><a href="checkout.html">My Cart</a></li>
 					</ul>
