@@ -9,6 +9,14 @@ function addWine($name,$strength,$wineupdate,$quantity,$idCat, $idPub,$idCountry
 	VALUES('$name','$strength','$shortdetails','$details','$wineupdate','$quantity','$idCat', '$idPub','$idCountry')";
 	mysql_query($insert);
 }
+
+function addWinePrice($WineId,$TimeId,$PurchasePrice,$SellingPrice,$Note)
+{
+	$insert = "INSERT INTO `time_wine`(`WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note`)
+	VALUES('$WineId','$TimeId','$PurchasePrice','$SellingPrice','$Note')";
+	return mysql_query($insert);
+}
+
 function blindListCountry()
 {
 	$sqlString="SELECT `CountryId`, `CountryName`, `CountryDetails` FROM `country`";
@@ -50,6 +58,14 @@ function searchWine($WineId)
 	WHERE WineId='$WineId'";
 	return mysql_query($sqlSelect);
 }
+function searchWineTime($WineId, $TimeId)
+{
+	$sqlSelect = "
+	SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine`
+	WHERE TimeId='$TimeId' and WineId ='$WineId'";
+	return mysql_query($sqlSelect);
+}
+
 function searchTime($TimeId)
 {
 	$sqlSelect = "
@@ -73,6 +89,19 @@ function updateWine($WineId,$name,$strength,$shortdetails,$details,$wineupdate,$
 	PublisherId = '$idPub',
 	CountryId = '$idCountry'
 	WHERE WineId = '$WineId'";
+	mysql_query($sqlUpdate);
+}
+
+function updateWinePrice($WineId,$TimeId,$PurchasePrice,$SellingPrice,$Note)
+{
+	$sqlUpdate = "UPDATE time_wine SET 
+	WineId = '$WineId',
+	TimeId = '$TimeId',
+	PurchasePrice = '$PurchasePrice',
+	SellingPrice = '$SellingPrice',
+	Note = '$Note',
+	WHERE WineId = '$WineId'
+	and TimeId ='$TimeId'";
 	mysql_query($sqlUpdate);
 }
 // Delete

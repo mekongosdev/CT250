@@ -590,6 +590,10 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/Wine/UpdateWinePrice.php");
 							}
+							if($_GET['page']=="AddWinePrice")
+							{
+								include_once("../Src/Wine/AddWinePrice.php");
+							}
 							?>
 						</div>
 					</div>

@@ -96,7 +96,7 @@ if(isset($_POST['btnUpdate']))
 				$sqlSelect = "SELECT `PublisherId`, `PublisherName`, `PublisherDescription` FROM `publisher`";
 				$result = mysql_query($sqlSelect);
 				$selectedValue = $idPub;
-				echo "<select> name='slCountry' class='form-control'>";
+				echo "<select name='slPublisher' class='form-control'>";
 				while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) 
 				{
 					if($row['PublisherId'] == $selectedValue)
@@ -120,7 +120,7 @@ if(isset($_POST['btnUpdate']))
 				$sqlSelect = "SELECT `CategoryId`, `CategoryName`, `CategoryDescription` FROM `category`";
 				$result = mysql_query($sqlSelect);
 				$selectedValue = $idCat;
-				echo "<select> name='slCategory' class='form-control'>";
+				echo "<select name='slCategory' class='form-control'>";
 				while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) 
 				{
 					if($row['CategoryId'] == $selectedValue)
@@ -144,7 +144,7 @@ if(isset($_POST['btnUpdate']))
 				$sqlSelect = "SELECT `CountryId`, `CountryName`, `CountryDetails` FROM `country`";
 				$result = mysql_query($sqlSelect);
 				$selectedValue = $idCountry;
-				echo "<select> name='slCountry' class='form-control'>";
+				echo "<select name='slCountry' class='form-control'>";
 				while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) 
 				{
 					if($row['CountryId'] == $selectedValue)
@@ -171,7 +171,7 @@ if(isset($_POST['btnUpdate']))
 		</div>
 		<div class="form-group">        
 			<div class="col-md-offset-2 col-md-10">
-				<button type="submit" class="btn btn-info" name="btnAdd" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Thêm</button>
+				<button type="submit" class="btn btn-info" name="btnUpdate" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Cập nhật</button>
 				<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Bỏ Qua</button>
 			</div>
 		</div>
