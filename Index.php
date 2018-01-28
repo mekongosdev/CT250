@@ -54,7 +54,7 @@
  -->
 <?php
 include("Src/User/Register.php");
-include("Src/About/About_FEV.php");
+// include("Src/About/About_FEV.php");
 ?>
 <script>$(document).ready(function(){
 <?php
