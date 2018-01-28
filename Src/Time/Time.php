@@ -1,6 +1,4 @@
 <?php 
-
-include_once("TimeController.php");
 $sqlSelect = "SELECT `TimeId`, `ApplicationTime` FROM `time`";
 $list_Time= mysql_query($sqlSelect);
 
@@ -20,20 +18,19 @@ $list_Time= mysql_query($sqlSelect);
 	<tbody>
 		<?php 
 		$num = 1;
-		while(list($timeId, $applicationTime) = mysql_fetch_array($list_Time))
-	
+		while(list($TimeId, $applicationTime) = mysql_fetch_array($list_Time)){
 			?>
 			<tr>
 				<td class="col-md-1"><?= $num;?> </td>
 				<td class="col-md-3"><?= $applicationTime;?> </td>
 				<td class="text-center col-md-2">
-					<a class="btn btn-warning btn" href="?page=UpadateTime&TimeId=<?php echo $TimeId; ?>"><i class="fa fa-edit"></i></a>
-					<a class='btn btn-danger' href="?page=DeleteTime&TimeId=<?php echo $TimectId; ?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?')"><i class="fa fa-remove"></i></a>
+					<a class="btn btn-warning btn" href="?page=UpadateTime&TimeId=<?=$TimeId?>"><i class="fa fa-edit"></i></a>
+					<a class='btn btn-danger' href="?page=DeleteTime&TimeId=<?=$TimeId?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?')"><i class="fa fa-remove"></i></a>
 				</td>     
 			</tr>
 			<?php
 			$num++;
-		//}
+		}
 		?>
 	</tbody>
 </table>

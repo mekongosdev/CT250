@@ -1,47 +1,48 @@
 	<?php 
-	include_once("TimeController.php");
 	$TimeId = 0;
-	if(isset($_GET['$TimeId ']))
-		$TimeId =$_GET['$TimeId'];
-	$applicationTime=date_default_timezone_set('Asia/Tokyo');
-	$result = searchTime($timeId);
+	if(isset($_GET['TimeId']))
+		$TimeId =$_GET['TimeId'];
+	$ApplicationTime=date_default_timezone_set('Asia/Tokyo');
+	$result = searchTimeeasy($TimeId) or trigger_error(mysql_error().$result);
 	//Lấy dữ liệu đưa vào mảng
 	if(isset($result))
 	{
-		list($timeId,$applicationTime)=mysql_fetch_array($result);
+		list($TimeId,$ApplicationTime)=mysql_fetch_array($result);
 	}
+
+	
 	//Cập nhật lại dữ liệu
 	if(isset($_POST['btnUpdate']))
 	{
-		$TimeId=$_GET['$TimeId'];
-		$ApplicationTime=date('Y-m-d',  strtotime($_POST['txtName']));
-		updateTime($TimeId,$applicationTime);
+		$TimeId=$_GET['TimeId'];
+		$ApplicationTime=date('Y-m-d',  strtotime($_POST['txtApplicationTime']));
+		updateTime($TimeId,$ApplicationTime);
 		echo '<script> alert("Cập nhật thành công!");</script>';
 		echo "<script>window.location.href='?page=time'</script>";
 	}
 
 	?>
 	<div class="row">
-		<div class="col-md-12"/>
+		<div class="col-md-12">
 		<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data" form-horizontal>
 			<div class="form_group">
-				<label class="control-label col-sm-12" for="email"><h2 align="center">Loại chủ đề</h2></label>
+				<label class="control-label col-sm-12" for="email"><h2 align="center">Thời gian áp dụng</h2></label>
 			</div>
 
 		</form>
 		<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" >
 			<div class="form-group">
-				<label class="control-label col-md-2" for="txtName">Mã số:</label>
+				<label class="control-label col-md-2" for="txtTimeId">Mã:</label>
 				<div class="col-sm-10">
-					<input type="date" class="form-control" id="txtNum"  name="txtName"
-					required   value="<?php echo $TimeId;?>" readonly="true" >
+					<input type="text" class="form-control" id="txtTimeId"  name="txtTimeId"
+					required   value="<?=$TimeId?>" readonly=true>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-md-2" for="txtName">Tên chủ đề:</label>
+				<label class="control-label col-md-2" for="txtApplicationTime">Thời gian áp dụng:</label>
 				<div class="col-sm-10">
-					<input type="date" class="form-control" id="txtNum"  name="txtName"
-					required   value="<?php echo $ApplicationTime;?>" >
+					<input type="date" class="form-control" id="txtApplicationTime"  name="txtApplicationTime"
+					required   value="<?=$ApplicationTime?>" >
 				</div>
 			</div>
 			<div class="form-group">        

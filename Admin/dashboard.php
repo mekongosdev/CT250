@@ -97,6 +97,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quyền hạn</a></li>
 									</ul>
 								</li>
+								<li class="customer"><a href="#"><i class="fa fa-database" aria-hidden="true"></i>Quản lý Khách hàng<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
+									<ul class="gn-submenu">
+										<li class="mini_list_agile"><a href="?page=publisher"><i class="fa fa-caret-right" aria-hidden="true"></i> Thông tin khách hàng</a></li>
+										<li class="mini_list_agile"><a href="?page=publisher"><i class="fa fa-caret-right" aria-hidden="true"></i> Hóa đơn</a></li>
+									</ul>
+								</li>
 								<li>
 									<a href="?page=about">
 										<i class="fa fa-bookmark" aria-hidden="true"></i> Giới thiệu
@@ -370,8 +376,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 						<div class="w3l-table-info agile_info_shadow">
 							<?php
 							//Category
-							if(isset($_GET['page']) && $_GET['page'] == "category")
-							{
+							if(isset($_GET['page']) && $_GET['page'] == "category"){
 								include_once("../Src/Category/Category.php");
 							}
 							if(isset($_GET['page']) && $_GET['page'] == "UpadateCategory"){
@@ -387,12 +392,10 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								echo "<script>window.location.href='?page=category'</script>";
 							}
 							//Publisher
-							if(isset($_GET['page'])&& $_GET['page']=="publisher")
-							{
+							if(isset($_GET['page'])&& $_GET['page']=="publisher"){
 								include_once("../Src/Publisher/Publisher.php");
 							}
-							if(isset($_GET['page'])&& $_GET['page']=="UpdatePublisher")
-							{
+							if(isset($_GET['page'])&& $_GET['page']=="UpdatePublisher"){
 								include_once("../Src/Publisher/UpdatePublisher.php");
 							}
 							if (isset($_GET['page'])&&$_GET['page']=="AddPublisher") {
@@ -623,8 +626,8 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							if (isset($_GET['page'])&&$_GET['page']=="AddTime") {
 								include_once('../Src/Time/AddTime.php');
 							}
-							if(isset($_GET['page'])&&isset($_GET['timeId'])){
-								deleteTime($_GET['timeId']);
+							if(isset($_GET['page'])&&$_GET['page']=='DeleteTime'){
+								deleteTime($_GET['TimeId']);
 								echo "<script>window.location.href='?page=time'</script>";
 							}
 							// About
@@ -632,23 +635,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/About/About.php");
 							}
-							// if(isset($_GET['page'])&& $_GET['page']=="addwineprice")
-							// {
-							// 	include_once("../Src/Wine/AddWinePrice.php");
-							// }
-							// if(isset($_GET['page'])&& $_GET['page']=="DeleteWinePrice")
-							// {
-							// 	DeleteWinePrice($_GET['WineId'], $_GET['TimeId']);
-							// 	echo "<script>window.location.href='?page=PriceHistory&&WineId=".$_GET['WineId']."'</script>";
-							// }
-							// if($_GET['page']=="UpdateWinePrice")
-							// {
-							// 	include_once("../Src/Wine/UpdateWinePrice.php");
-							// }
-							// if($_GET['page']=="AddWinePrice")
-							// {
-							// 	include_once("../Src/Wine/AddWinePrice.php");
-							// }
 							?>
 						</div>
 					</div>
@@ -1001,6 +987,14 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				$("ul.gn-menu li.product").click(function () {
 					$(this).children("ul.gn-submenu").slideDown('slow');
 				});
+
+				$("ul.gn-menu li.customer").mouseleave(function(){
+					$(this).children("ul.gn-submenu").slideUp('slow');
+				});
+
+				$("ul.gn-menu li.customer").click(function () {
+					$(this).children("ul.gn-submenu").slideDown('slow');
+				});
 			});
 		</script>
 		<!-- //js -->
@@ -1064,6 +1058,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					},
 					"lengthMenu": [[5, 10, 15, 20, 25, 30, -1], [5, 10, 15, 20, 25, 30, "Tất cả"]]
 				});
+			})
 			</script>
 		</body>
 		</html>
