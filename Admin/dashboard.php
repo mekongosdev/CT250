@@ -43,6 +43,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	include_once("../Src/Promotion/PromotionController.php");
 	include_once("../Src/News/NewsController.php");
 	include_once("../Src/Wine/WineController.php");
+	include_once("../Src/Time/TimeController.php");
 	?>
 	<!-- banner -->
 	<div class="wthree_agile_admin_info">
@@ -58,21 +59,31 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							<ul class="gn-menu agile_menu_drop">
 								<li><a href="#"> <i class="fa fa-tachometer"></i>Bảng điều khiển</a></li>
 								<li>
-									<a href="?page=category"><i class="fa fa-cogs" aria-hidden="true"></i>Đơn hàng</a>
+<a href="?page=category"><i class="fa fa-cogs" aria-hidden="true"></i>Đơn hàng</a>
 								</li>
 								<li>
-									<a href="#"> <i class="fa fa-file-text-o" aria-hidden="true"></i>Hóa đơn</a>
+<a href="#"> <i class="fa fa-file-text-o" aria-hidden="true"></i>Hóa đơn</a>
 								</li>
-								<li><a href="#"> <i class="fa fa-table top" aria-hidden="true"></i>Phản hồi</a></li>
-								<li class="product"><a href="#"><i class="fa fa-list" aria-hidden="true"></i>Quản lý sản phẩm<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
+								<li>
+<a href="?page=paymentmethod"> <i class="fa fa-gift" aria-hidden="true"></i>Hình Thức Thanh Toán</a>
+								</li>
+								<li>
+<a href="#"> <i class="fa fa-money" aria-hidden="true"></i>Phản hồi</a>
+								</li>
+								<li>
+<a href="?page=subject"> <i class="fa fa-gift" aria-hidden="true"></i>Chủ đề liên hệ</a>
+								</li>
+<li><a href="?page=contact"> <i class="fa fa-table top" aria-hidden="true"></i>Liên Hệ</a></li>
+<li><a href="#"><i class="fa fa-list" aria-hidden="true"></i>Quản lý sản phẩm<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
 									<ul class="gn-submenu">
-										<li class="mini_list_agile"><a href="?page=category"><i class="fa fa-caret-right" aria-hidden="true"></i> Nhà sản xuất</a></li>
-										<li class="mini_list_w3"><a href="?page=publisher"> <i class="fa fa-caret-right" aria-hidden="true"></i> Loại sản phẩm</a></li>
-										<li class="mini_list_agile"><a href="?page=country"><i class="fa fa-caret-right" aria-hidden="true"></i> Xuất xứ</a></li>
-										<li class="mini_list_w3"><a href="?page=promotion"> <i class="fa fa-caret-right" aria-hidden="true"></i> Khuyến mãi</a></li>
-										<li class="mini_list_agile"><a href="?name=wine"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý rượu</a></li>
+<li class="mini_list_agile"><a href="?page=publisher"><i class="fa fa-caret-right" aria-hidden="true"></i> Nhà sản xuất</a></li>
+<li class="mini_list_w3"><a href="?page=category"> <i class="fa fa-caret-right" aria-hidden="true"></i> Loại sản phẩm</a></li>
+<li class="mini_list_agile"><a href="?page=country"><i class="fa fa-caret-right" aria-hidden="true"></i> Xuất xứ</a></li>
+<li class="mini_list_w3"><a href="?page=promotion"> <i class="fa fa-caret-right" aria-hidden="true"></i> Khuyến mãi</a></li>
+<li class="mini_list_agile"><a href="?page=wine"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý rượu</a></li>
+<li class="mini_list_agile"><a href="?page=time"><i class="fa fa-caret-right" aria-hidden="true"></i> Thời gian cập nhật</a></li>
 
-										<li class="mini_list_w3"><a href="?page=paymentmethod"> <i class="fa fa-caret-right" aria-hidden="true"></i> Hình thức thanh toán</a></li>
+<li class="mini_list_w3"><a href="?page=PriceHistory"> <i class="fa fa-caret-right" aria-hidden="true"></i> Giá Rượu</a></li>
 
 									</ul>
 								</li>
@@ -80,12 +91,18 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<li class="employee"><a href="#"><i class="fa fa-files-o" aria-hidden="true"></i> Quản lý nhân viên <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="gn-submenu">
 
-										<li class="mini_list_agile"> <a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Thông tin nhân viên</a></li>
-										<li class="mini_list_w3"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Tin tức</a></li>
-										<li class="mini_list_agile error"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Chi nhánh </a></li>
+<li class="mini_list_agile"> <a href="?page=employee"> <i class="fa fa-caret-right" aria-hidden="true"></i> Thông tin nhân viên</a></li>
+<li class="mini_list_w3"><a href="?page=news"> <i class="fa fa-caret-right" aria-hidden="true"></i> Tin tức</a></li>
+<li class="mini_list_agile error"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Chi nhánh </a></li>
 
 										<li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quyền hạn</a></li>
 									</ul>
+								</li>
+								<li class="page">
+									<a href="?page=about">
+										<i class="fa fa-files-o" aria-hidden="true"></i> Giới thiệu
+										<i class="fa fa-angle-down" aria-hidden="true"></i>
+									</a>
 								</li>
 							</ul>
 						</div><!-- /gn-scroller -->
@@ -594,6 +611,45 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/Wine/AddWinePrice.php");
 							}
+							//Time
+							if(isset($_GET['page'])&& $_GET['page']=="time")
+							{
+								include_once("../Src/Time/Time.php");
+							}
+							if($_GET['page']=="UpadateTime")
+							{
+
+								include_once("../Src/Time/UpdateTime.php");
+							}
+							elseif ($_GET['page']=="AddTime") {
+								include('../Src/Time/AddTime.php');
+							}
+							elseif(isset($_GET['timeId'])){
+								deleteTime($_GET['timeId']);
+								echo "<script>window.location.href='?page=time'</script>";
+							}
+							// About
+							if(isset($_GET['page'])&& $_GET['page']=="about")
+							{
+								include_once("../Src/About/About.php");
+							}
+							// if(isset($_GET['page'])&& $_GET['page']=="addwineprice")
+							// {
+							// 	include_once("../Src/Wine/AddWinePrice.php");
+							// }
+							// if(isset($_GET['page'])&& $_GET['page']=="DeleteWinePrice")
+							// {
+							// 	DeleteWinePrice($_GET['WineId'], $_GET['TimeId']);
+							// 	echo "<script>window.location.href='?page=PriceHistory&&WineId=".$_GET['WineId']."'</script>";
+							// }
+							// if($_GET['page']=="UpdateWinePrice")
+							// {
+							// 	include_once("../Src/Wine/UpdateWinePrice.php");
+							// }
+							// if($_GET['page']=="AddWinePrice")
+							// {
+							// 	include_once("../Src/Wine/AddWinePrice.php");
+							// }
 							?>
 						</div>
 					</div>
@@ -615,7 +671,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<!-- 	<script type="text/javascript" src="../public/admin/js/jquery-2.1.4.min.js"></script> -->
 
-		
+
 
 		<!-- /amcharts -->
 		<script src="../public/admin/js/amcharts.js"></script>
@@ -979,29 +1035,27 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 		<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 		<script type="text/javascript">
-			$(document).ready(function(){
-				$('#myTable').DataTable({
-					responsive: true,
-					"language": {
-						"lengthMenu": "Hiển thị _MENU_ số dòng trên trang",
-						"info": "Hiển thị _START_ trong tổng số _TOTAL_ dòng dữ liệu",
-						"infoEmpty": "Dữ liệu rỗng",
-						"emptyTable": "Chưa có dữ liệu nào",
-						"processing": "Đang xử lý...",
-						"search": "Tìm kiếm:",
-						"loadingRecords": "Đang load dữ liệu...",
-						"zeroRecords": "không tìm thấy dữ liệu",
-						"infoFiltered": "(Được từ tổng số _MAX_ dòng dữ liệu)",
-						"paginate": {
-							"first": "|<",
-							"last": ">|",
-							"next": ">>",
-							"previous": "<<"
-						}
-					},
-					"lengthMenu": [[2, 5, 10, 15, 20, 25, 30, -1], [2, 5, 10, 15, 20, 25, 30, "Tất cả"]]
-				});
-				new $.fn.dataTable.FixedHeader( table );
+		$(document).ready(function(){
+			$('#myTable').DataTable({
+				responsive: true,
+				"language": {
+					"lengthMenu": "Hiển thị _MENU_ số dòng trên trang",
+					"info": "Hiển thị _START_ trong tổng số _TOTAL_ dòng dữ liệu",
+					"infoEmpty": "Dữ liệu rỗng",
+					"emptyTable": "Chưa có dữ liệu nào",
+					"processing": "Đang xử lý...",
+					"search": "Tìm kiếm:",
+					"loadingRecords": "Đang load dữ liệu...",
+					"zeroRecords": "không tìm thấy dữ liệu",
+					"infoFiltered": "(Được từ tổng số _MAX_ dòng dữ liệu)",
+					"paginate": {
+						"first": "|<",
+						"last": ">|",
+						"next": ">>",
+						"previous": "<<"
+					}
+				},
+				"lengthMenu": [[5, 10, 15, 20, 25, 30, -1], [5, 10, 15, 20, 25, 30, "Tất cả"]]
 			});
 		</script>
 	</body>

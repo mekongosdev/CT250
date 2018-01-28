@@ -10,7 +10,8 @@ $list_Promotion= mysql_query($sqlSelect);
 ?>
 <h3 class="w3_inner_tittle two text-center">Quản lý Khuyến mãi</h3>
 <a class="btn btn-primary" href="?page=AddPromotion">THÊM <i class="fa fa-plus"></i></a>
-
+<br/>
+<br/>
 <table id="myTable" class="table-striped table-bordered table-hover table-condensed">
 	<thead >
 		<tr>

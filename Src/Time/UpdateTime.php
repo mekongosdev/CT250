@@ -1,23 +1,23 @@
 	<?php 
-	include_once("SubjectController.php");
-	$SubjectId = 0;
-	if(isset($_GET['SubjectId']))
-		$SubjectId=$_GET['SubjectId'];
-	$name="";
-	$result = searchSubject($SubjectId);
+	include_once("TimeController.php");
+	$timeId = 0;
+	if(isset($_GET['$timeId ']))
+		$timeId =$_GET['$timeId'];
+	$applicationTime=date_default_timezone_set('Asia/Tokyo');
+	$result = searchTime($timeId);
 	//Lấy dữ liệu đưa vào mảng
 	if(isset($result))
 	{
-		list($SubjectId,$name)=mysql_fetch_array($result);
+		list($timeId,$applicationTime)=mysql_fetch_array($result);
 	}
 	//Cập nhật lại dữ liệu
 	if(isset($_POST['btnUpdate']))
 	{
-		$SubjectId=$_GET['SubjectId'];
-		$name=$_POST['txtName'];
-		updateSubject($SubjectId,$name);
+		$timeId=$_GET['$timeId'];
+		$applicationTime=date('Y-m-d',  strtotime($_POST['txtName']));
+		updateTimeeasy($timeId,$applicationTime);
 		echo '<script> alert("Cập nhật thành công!");</script>';
-		echo "<script>window.location.href='?page=subject'</script>";
+		echo "<script>window.location.href='?page=time'</script>";
 	}
 
 	?>
@@ -25,17 +25,23 @@
 		<div class="col-md-12"/>
 		<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data" form-horizontal>
 			<div class="form_group">
-				<label class="control-label col-sm-12" for="email"><h2 align="center">Chủ đề</h2></label>
+				<label class="control-label col-sm-12" for="email"><h2 align="center">Loại chủ đề</h2></label>
 			</div>
 
 		</form>
 		<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" >
-
+			<div class="form-group">
+				<label class="control-label col-md-2" for="txtName">Mã số:</label>
+				<div class="col-sm-10">
+					<input type="date" class="form-control" id="txtNum"  name="txtName"
+					required   value="<?php echo $timeId;?>" readonly="true" >
+				</div>
+			</div>
 			<div class="form-group">
 				<label class="control-label col-md-2" for="txtName">Tên chủ đề:</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="txtNum"  name="txtName"
-					required   value="<?php echo $name;?>" >
+					<input type="date" class="form-control" id="txtNum"  name="txtName"
+					required   value="<?php echo $applicationTime;?>" >
 				</div>
 			</div>
 			<div class="form-group">        
