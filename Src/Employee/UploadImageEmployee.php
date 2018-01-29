@@ -86,10 +86,16 @@ if(isset($_POST['btnUpload']))
 		</div>    
 		<div class="form-group">    
 			<div class="col-sm-10 pull-right">
-				<input type="file" accept=".jpg, .png, .jpeg, .gif" name="fileToUpload" id="fileToUpload" class="form-control-file"/>
+				<input type="file" accept=".jpg, .png, .jpeg, .gif" name="fileToUpload" id="fileToUpload" class="form-control-file" onChange='hasExistfile()'/>
 			</div>
 		</div>  
-		<input type="submit" class="btn btn-primary pull-right" name="btnUpload" value="Upload Image"/>   
+
+		<button type="submit" class="btn btn-primary pull-right" name="btnUpload" disabled id="btnUploadImage">Tải ảnh</button>
+		<script type="text/javascript">
+			function hasExistfile(){
+				document.getElementById('btnUploadImage').disabled = false;
+			}
+		</script>
 		<?php
 		$query = "SELECT `ImgEmployeeId`, `ImgEmployee` FROM `imageemployee` WHERE `EmployeeCode`='".$_GET['empCode']."'";
 		$result = mysql_query($query) or trigger_error(mysql_error().$query);

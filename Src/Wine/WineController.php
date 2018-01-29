@@ -116,14 +116,15 @@ function DeleteWinePrice($WineId, $TimeId)
 	$sqldelete = "DELETE FROM `time_wine` WHERE WineId='$WineId' and TimeId = '$TimeId'";
 	mysql_query($sqldelete);
 }
-function deleteImageWine($id){
+function deleteImageWine($ImgWineId){
 	$Imageid = $_GET["ImgWineId"];
 	$result= mysql_query("SELECT * FROM imgwine WHERE ImgWineId=$Imageid");
 	
 	$row = mysql_fetch_array($result, MYSQL_ASSOC);
 	$fileDelete = $row['ImgWineId'];
 	$WineId = $row['WineId'];
-	unlink("../../public/admin/images_wines/".$fileDelete);
+	unlink("../../public/admin/images/".$fileDelete);
 	mysql_query("DELETE FROM `imgwine` WHERE ImgWineId=$Imageid");
 }
+
 ?>

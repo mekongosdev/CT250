@@ -517,7 +517,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								echo "<script>window.location.href='?page=employee'</script>";
 							}
 							if (isset($_GET['page'])&&$_GET['page']=='UploadImageEmployee') {
-								include_once('../Src/Employee/Quanly_HinhAnh_NV.php');
+								include_once('../Src/Employee/UploadImageEmployee.php');
 							}
 							if (isset($_GET['page'])&&$_GET['page']=='DeleteEmployeeImage') {
 								deleteImageEmployee($_GET['ImgEmployeeId']);
@@ -634,6 +634,14 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							if(isset($_GET['page'])&& $_GET['page']=="about")
 							{
 								include_once("../Src/About/About.php");
+							}
+
+							if (isset($_GET['page'])&&$_GET['page']=='UploadImageWine') {
+								include_once('../Src/Wine/UploadImageWine.php');
+							}
+							if (isset($_GET['page'])&&$_GET['page']=='DeleteWineImage') {
+								deleteImageWine($_GET['ImgWineId']);
+								echo "<script>window.location.href='?page=wine'</script>";
 							}
 							?>
 						</div>
