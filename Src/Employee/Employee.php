@@ -1,5 +1,5 @@
 <?php 
-	$sqlSelect="SELECT `EmployeeCode`, `EmployeePass`, `EmployeeName`, `EmployeeBirth`, `EmployeeAddress`, `EmployeeEmail`, `EmployeeIC`, `Role` FROM employee";
+	$sqlSelect="SELECT `EmployeeCode`, `EmployeeName`, `EmployeeBirth`, `EmployeeAddress`, `EmployeeEmail`, `EmployeeIC`, `Role` FROM employee";
 	$list_employee= mysql_query($sqlSelect);
 ?>
 <h3 class="w3_inner_tittle two text-center">Quản lý Nhân Viên</h3>
@@ -11,7 +11,7 @@
 		<tr>
 			<th><strong>STT</strong></th>
 			<th><strong>Mã Nhân Viên</strong></th>
-			<th><strong>Mật Khẩu</strong></th>
+		
 			<th><strong>Tên Nhân Viên</strong></th>
 			<th><strong>Ngày sinh</strong></th>
 			<th><strong>Địa chỉ</strong></th>
@@ -24,7 +24,7 @@
 	<tbody>
 		<?php 
 		$num = 1;
-		while(list($empCode,$empPass,$empName,$empBrith,$empAddress,$empMail,$empIC,$empRole) = mysql_fetch_array($list_employee))
+		while(list($empCode,$empName,$empBrith,$empAddress,$empMail,$empIC,$empRole) = mysql_fetch_array($list_employee))
 		{
 			?>
 			<tr>
@@ -37,14 +37,14 @@
 					$empRole = $RoleName;
 				} ?>
 				<td class="col-md-1"><?= $empCode;?> </td>
-				<td class="col-md-1"><?= $empPass;?> </td>
+			
 				<td class="col-md-1"><?= $empName;?> </td>
 				<td class="col-md-1"><?= $empBrith;?> </td>
-				<td class="col-md-1"><?= $empAddress;?> </td>
+				<td class="col-md-3"><?= $empAddress;?> </td>
 				<td class="col-md-1"><?= $empMail;?> </td>
 				<td class="col-md-1"><?= $empIC?> </td>
 				<td class="col-md-1"><?= $empRole?> </td>
-				<td class="text-center col-md-6">
+				<td class="text-center col-md-3">
 					<a class='btn btn-success' href="?page=UploadImageEmployee&&empCode=<?=$empCode?>">
 						<i class="fa fa-file-image-o"></i></a>
 						<a class="btn btn-warning btn" href="?page=UpadateEmployee&empCode=<?php echo $empCode; ?>"><i class="fa fa-edit"></i></a>

@@ -6,11 +6,11 @@ $list_User= mysql_query($sqlSelect);
 ?>
 <h3 class="w3_inner_tittle two text-center">Quản lý người dùng</h3>
 
-<table id="table" class="table-striped table-bordered table-hover table-condensed">
+<table id="myTable" class="table-striped table-bordered table-hover table-condensed">
 	<thead >
 		<tr>
 			<th><strong>STT</strong></th>
-			<th><strong>Tên Người dùng</strong></th>
+			<th><strong>Tài Khoản</strong></th>
 			<th><strong>Học Tên</strong></th>
 			<th><strong>Giới tính</strong></th>
 			<th><strong>Địa chỉ</strong></th>
