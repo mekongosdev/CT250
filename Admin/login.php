@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-<title>CT250</title>
-<!-- custom-theme -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Esteem Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-		function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<title>CT250</title>
+	<!-- custom-theme -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Esteem Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //custom-theme -->
 <link href="../public/admin/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../public/admin/css/component.css" rel="stylesheet" type="text/css" media="all" />
@@ -21,23 +21,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 </head>
 <body>
-<!-- banner -->
-<div class="wthree_agile_admin_info">
-		  <!-- /w3_agileits_top_nav-->
-		  <!-- /nav-->
-		  <div class="w3_agileits_top_nav">
+	<!-- banner -->
+	<div class="wthree_agile_admin_info">
+		<!-- /w3_agileits_top_nav-->
+		<!-- /nav-->
+		<div class="w3_agileits_top_nav">
 			<ul id="gn-menu" class="gn-menu-main">
-
 				<!-- //nav_agile_w3l -->
-                <li class="second logo admin"><h1><a href="dashboard.php"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Esteem </a></h1></li>
-					
+				<li class="second logo admin"><h1><a href="dashboard.php"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Esteem </a></h1></li>
 				<li class="second w3l_search admin_login">
-				 
-						<form action="#" method="post">
-							<input type="search" name="search" placeholder="Search here..." required="">
-							<button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-						</form>
-					
+					<form action="#" method="post">
+						<input type="search" name="search" placeholder="Search here..." required="">
+						<button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+					</form>
 				</li>
 				<li class="second full-screen">
 					<section class="full-top">
@@ -53,56 +49,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- //w3_agileits_top_nav-->
 		
 		<!-- /inner_content-->
-				<div class="inner_content">
-				    <!-- /inner_content_w3_agile_info-->
-					<div class="inner_content_w3_agile_info">
-					
-
-							<div class="registration admin_agile">
+		<div class="inner_content">
+			<!-- /inner_content_w3_agile_info-->
+			<div class="inner_content_w3_agile_info">
+				<div class="registration admin_agile">
+					<div class="signin-form profile admin">
+						<h2>Admin Login</h2>
+						<div class="login-form">
+							<form action="dashboard.php" method="post">
+								<input type="text" name="name" value="Username" required="">
+								<input type="password" name="password" value="Password" required="">
+								<div class="tp">
+									<input type="submit" value="LOGIN">
+								</div>
 								
-												<div class="signin-form profile admin">
-													<h2>Admin Login</h2>
-													<div class="login-form">
-														<form action="dashboard.php" method="post">
-															<input type="text" name="name" value="Username" required="">
-															<input type="password" name="password" value="Password" required="">
-															<div class="tp">
-																<input type="submit" value="LOGIN">
-															</div>
-															
-														</form>
-													</div>
-													
-												
-													 <h6><a href="dashboard.php">Back To Home</a><h6>
+							</form>
+						</div>
+						
+						<h6><a href="dashboard.php">Back To Home</a><h6>
+						</div>
 
-													 
-												</div>
-
-					
-
-				    </div>
+					</div>
 					<!-- //inner_content_w3_agile_info-->
 				</div>
-		<!-- //inner_content-->
-	</div>
-<!-- banner -->
-<!--copy rights start here-->
-<div class="copyrights">
-	 <p>© 2018 - CT250. All Rights Reserved | Nhóm 02 </p>
-</div>	
-<!--copy rights end here-->
-<!-- js -->
+				<!-- //inner_content-->
+			</div>
+			<!-- banner -->
+			<!--copy rights start here-->
+			<div class="copyrights">
+				<p>© 2018 - CT250. All Rights Reserved | Nhóm 02 </p>
+			</div>	
+			<!--copy rights end here-->
+			<!-- js -->
 
-          <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-		  <script src="../public/admin/js/modernizr.custom.js"></script>
-		
-		   <script src="../public/admin/js/classie.js"></script>
-		  <script src="../public/admin/js/gnmenu.js"></script>
-		  <script>
-			new gnMenu( document.getElementById( 'gn-menu' ) );
-		 </script>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>        
+			<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+			<script src="../public/admin/js/modernizr.custom.js"></script>
+			
+			<script src="../public/admin/js/classie.js"></script>
+			<script src="../public/admin/js/gnmenu.js"></script>
+			<script>
+				new gnMenu( document.getElementById( 'gn-menu' ) );
+			</script>
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>        
 			<script type="text/javascript">
 				google.maps.event.addDomListener(window, 'load', init);
 				function init() {
@@ -119,84 +107,84 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					});
 				}
 			</script>
-			  <script src="js/prettymaps.js"></script>
-				<script>
+			<script src="js/prettymaps.js"></script>
+			<script>
 
-        $(function(){
+				$(function(){
             //default
             $('.map-canvas').prettyMaps({
-                address: 'Melbourne, Australia',
-                image: 'map-icon.png',
-                hue: '#FF0000',
-                saturation: -20
+            	address: 'Melbourne, Australia',
+            	image: 'map-icon.png',
+            	hue: '#FF0000',
+            	saturation: -20
             });
 
             //red map example
             $('#default-map-btn').on('click', function(){
-                $('.map-canvas').prettyMaps();
+            	$('.map-canvas').prettyMaps();
             });
 
             //green map example
             $('#green-map-btn').on('click', function(){
-                $('.map-canvas').prettyMaps({
-                    address: 'Melbourne, Australia',
-                    image: 'map-icon.png',
-                    hue: '#00FF55',
-                    saturation: -30
-                });
+            	$('.map-canvas').prettyMaps({
+            		address: 'Melbourne, Australia',
+            		image: 'map-icon.png',
+            		hue: '#00FF55',
+            		saturation: -30
+            	});
             });
 
             //blue map example
             $('#blue-map-btn').on('click', function(){
-                $('.map-canvas').prettyMaps({
-                    address: 'Melbourne, Australia',
-                    image: 'map-icon.png',
-                    hue: '#0073FF',
-                    saturation: -30,
-                    zoom: 16,
-                    panControl: true,
-                    zoomControl: true,
-                    mapTypeControl: true,
-                    scaleControl: true,
-                    streetViewControl: true,
-                    overviewMapControl: true,
-                    scrollwheel: false,
-                });
+            	$('.map-canvas').prettyMaps({
+            		address: 'Melbourne, Australia',
+            		image: 'map-icon.png',
+            		hue: '#0073FF',
+            		saturation: -30,
+            		zoom: 16,
+            		panControl: true,
+            		zoomControl: true,
+            		mapTypeControl: true,
+            		scaleControl: true,
+            		streetViewControl: true,
+            		overviewMapControl: true,
+            		scrollwheel: false,
+            	});
             });
             
             //grey map example
             $('#grey-map-btn').on('click', function(){
-                $('.map-canvas').prettyMaps({
-                    address: 'Melbourne, Australia',
-                    image: 'map-icon.png',
-                    saturation: -100,
-                    lightness: 10
-                });
+            	$('.map-canvas').prettyMaps({
+            		address: 'Melbourne, Australia',
+            		image: 'map-icon.png',
+            		saturation: -100,
+            		lightness: 10
+            	});
             });
         });
 
-  </script>
-<!-- //js -->
-<script src="../public/admin/js/screenfull.js"></script>
-		<script>
-		$(function () {
-			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+    </script>
+    <!-- //js -->
+    <script src="../public/admin/js/screenfull.js"></script>
+    <script>
+    	$(function () {
+    		$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
 
-			if (!screenfull.enabled) {
-				return false;
-			}
+    		if (!screenfull.enabled) {
+    			return false;
+    		}
 
-			
+    		
 
-			$('#toggle').click(function () {
-				screenfull.toggle($('#container')[0]);
-			});	
-		});
-		</script>
-<script src="../public/admin/js/jquery.nicescroll.js"></script>
-<script src="../public/admin/js/scripts.js"></script>
+    		$('#toggle').click(function () {
+    			screenfull.toggle($('#container')[0]);
+    		});	
+    	});
+    </script>
+    <script src="../public/admin/js/jquery.nicescroll.js"></script>
+    <script src="../public/admin/js/scripts.js"></script>
 
-<script type="text/javascript" src="../public/admin/js/bootstrap-3.1.1.min.js"></script>
+    <script type="text/javascript" src="../public/admin/js/bootstrap-3.1.1.min.js"></script>
 
 
 </body>
