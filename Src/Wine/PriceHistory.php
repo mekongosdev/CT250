@@ -11,7 +11,7 @@ if(isset($_GET['WineId'])){
 <a class="btn btn-primary" href="?page=AddWinePrice">THÊM <i class="fa fa-plus"></i></a> 
 <br>
 <br>
-<table id="myTable" class="table-striped table-bordered table-hover table-condensed">
+<table id="myTable" class="table-striped table-hover">
 	<thead >
 		<tr>
 			<th><strong>STT</strong></th>

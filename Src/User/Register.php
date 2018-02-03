@@ -10,7 +10,7 @@ $phone="";
 $email="";
 $dayofbirth = date_default_timezone_set('Asia/Tokyo');
 $identitycard="";
-if(isset($_POST["btnAdd"]))
+if(isset($_POST["btnRegister"]))
 {
 	$username = $_POST["txtUsername"];
 	$password = $_POST["txtPassword"];
@@ -39,9 +39,6 @@ if (isset($_POST['btnLogin'])) {
 	if (mysql_num_rows($result) == 1)
 	{
 		$_SESSION["username"] = $loginusername;
-	}
-	else{
-		echo '<script> alert("Tài khoản hoặc mật khẩu không đúng!");</script>';
 	}
 }
 
@@ -73,7 +70,7 @@ aria-hidden="true">
 											<input name="txtSignIn" placeholder="Tài khoản" type="text" required="">						
 											<input name="txtPassword" placeholder="Mật khẩu" type="password" required="">										
 											<div class="sign-up">
-												<input type="submit" name="btnLogin" value="Đăng nhập"/>
+												<input type="submit" name="btnLogin" value="Đăng nhập" onclick="loginfail();" />
 											</div>
 										</form>
 									</div>
@@ -100,18 +97,18 @@ aria-hidden="true">
 														<div class="form-group">  
 															<label for="lblGender" class="col-sm-2 control-label">Gender(*):  </label>
 															<div class="col-sm-10">                              
-																<label class="radio-inline"><input type="radio" name="grpGender" value="0" id="grpGender" 
+																<label class="radio-inline"><input type="radio" name="grpGender" value="0"  
 																	<?php if(isset($Gender)&&$Gender=="0") { echo "checked";} ?> />
 																Male</label>
 
-																<label class="radio-inline"><input type="radio" name="grpGender" value="1" id="grpGender" 
+																<label class="radio-inline"><input type="radio" name="grpGender" value="1" 
 																	<?php if(isset($Gender)&&$Gender=="1") { echo "checked";} ?> />
 																Female</label>
 
 															</div>
 														</div>
 														<div class="sign-up">
-															<input type="submit" value="Đăng ký" name="btnAdd"/>
+														<input type="submit" value="Đăng ký" name="btnRegister" id="btnRegister"/>
 														</div>
 													</form>
 												</div>
@@ -152,3 +149,10 @@ aria-hidden="true">
 				</div>
 			</div>
 		</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		function loginfail(){
+			alert("d");
+			}
+	});
+</script>
