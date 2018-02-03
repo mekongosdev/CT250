@@ -19,9 +19,13 @@ if(isset($_POST["btnAdd"]))
 	$idCat = $_POST["slCategory"];
 	$idPub = $_POST["slPublisher"];
 	$idCountry =$_POST["slCountry"];
-	addWine($name,$strength,$wineupdate,$quantity,$idCat, $idPub,$idCountry);
-	echo '<script> alert("Thêm rượu thành công");</script>';
-	echo "<script>window.location.href='?page=wine'</script>";
+	$result = addWine($name,$strength,$shortdetails,$details,$wineupdate,$quantity,$idCat, $idPub,$idCountry);
+	if($result){
+		echo '<script> alert("Thêm dữ liệu thành công");</script>';
+		echo "<script>window.location.href='?page=wine'</script>";
+	}else{
+		echo '<script> alert("Dữ liệu đã tồn tại");</script>';
+	}
 }
 ?>
 <div class="row">
@@ -105,7 +109,7 @@ if(isset($_POST["btnAdd"]))
 		</div>
 		<div class="form-group">        
 			<div class="col-md-offset-2 col-md-10">
-				<button type="submit" class="btn btn-info" name="btnAdd" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Thêm</button>
+				<button type="submit" class="btn btn-info" name="btnAdd"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Thêm</button>
 				<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Bỏ Qua</button>
 			</div>
 		</div>

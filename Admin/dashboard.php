@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -518,7 +517,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							}
 
 							//Promotion
-							if(isset($_GET['page'])&& $_GET['page']=="promotion")
+							if(isset($_GET['page']) && $_GET['page']=="promotion")
 							{
 								include_once("../Src/Promotion/Promotion.php");
 							}
@@ -530,7 +529,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							if (isset($_GET['page'])&&$_GET['page']=="AddPromotion") {
 								include_once('../Src/Promotion/AddPromotion.php');
 							}
-							if(isset($_GET['page'])&&$_GET['page']=="DeletePromotion"){
+							if(isset($_GET['page']) &&$_GET['page']=="DeletePromotion"){
 								deletePromotion($_GET['PromotionId']);
 								echo "<script>window.location.href='?page=promotion'</script>";
 							}
@@ -634,14 +633,19 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							}
 							if (isset($_GET['page'])&&$_GET['page']=='DeleteWineImage') {
 								deleteImageWine($_GET['ImgWineId']);
-								echo "<script>window.location.href='?page=wine'</script>";
+								echo "<script>window.location.href='?page=wine'</script>"; 
 							}
+
+							if (isset($_GET['page'])&&$_GET['page']=='PromotionHistory') {
+								include_once('../Src/Wine/PromotionHistory.php');
+							}
+							if (isset($_GET['page'])&&$_GET['page']=='AddWinePromotion') {
+								include_once('../Src/Wine/AddWinePromotion.php');
+							}
+
 							?>
 						</div>
 					</div>
-
-
-
 				</div>
 				<!-- //inner_content_w3_agile_info-->
 			</div>
@@ -746,6 +750,23 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
+				$("#btnAdd").click(function(){
+					$.toast({
+				    text: "Thêm dữ liệu thành công!", // Text that is to be shown in the toast
+				    heading: 'Thông báo', // Optional heading to be shown on the toast
+				    icon: 'success', // Type of toast icon
+				    showHideTransition: 'slide', // fade, slide or plain
+				    allowToastClose: true, // Boolean value true or false
+				    hideAfter: 1000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+				    stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+				    position: 'top-center', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+				    textAlign: 'left',  // Text alignment i.e. left, right or center
+				    loader: true,  // Whether to show loader or not. True by default
+				    loaderBg: 'white',  // Background color of the toast loader
+				    bgColor: '#17a2b8',
+				});
+				})
+				
 				$('#myTable').DataTable({
 					responsive: true,
 					"language": {
@@ -767,7 +788,9 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					},
 					"lengthMenu": [[5, 10, 15, 20, 25, 30, -1], [5, 10, 15, 20, 25, 30, "Tất cả"]]
 				});
+
+
 			})
-			</script>
-		</body>
-		</html>
+		</script>
+	</body>
+	</html>

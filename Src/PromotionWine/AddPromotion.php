@@ -21,7 +21,7 @@ if(isset($_POST["btnAdd"]))
 	addPromotion($name,$discount,$content,$PromotionActive,$PromotionClose,$PromotionOpen);
 	echo '<script> alert("Thêm khuyến mãi thành công!");</script>';
 	echo "<script>window.location.href='?page=promotion'</script>";
-	
+
 }
 ?>
 <div class="row">
@@ -32,7 +32,7 @@ if(isset($_POST["btnAdd"]))
 		</div>
 
 	</form>
-	<form class="form-horizontal" accept-charset="utf-8" method="POST" Promotion="form" onsubmit="return validatePromotionDate();">
+	<form class="form-horizontal" accept-charset="utf-8" method="POST" Promotion="form" >
 
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtName">Tên Khuyến mãi:</label>
@@ -89,13 +89,5 @@ if(isset($_POST["btnAdd"]))
 <!-- Tích hợp TinyMCE -->
 <script src="../Public/admin/extensions/tinymce/tinymce.min.js"></script>
 <script>tinymce.init({ selector:'textarea' });</script>
-<script type="text/javascript">
-	function validatePromotionDate(){
-		var PromotionClose = document.getElementById("PromotionClose").value;
-		var PromotionOpen = document.getElementById("PromotionOpen").value;
-		if(PromotionOpen < PromotionClose){
-			alert("Ngày kết thúc phải sau ngày bắt đầu!");
-			return false;
-		}
-	}
-</script>
+
+<!-- End javascript -->

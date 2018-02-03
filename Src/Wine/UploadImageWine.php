@@ -11,17 +11,6 @@
 	{
 		echo '<meta http-equiv="refresh" content="0: URL=Wine.php"/>';
 	}
-	// Genarate file name
-	function random_name() {
-		$key = '';
-		$keys = array_merge(range(0, 9), range('a', 'z'));
-	// string length = 10
-		for ($i = 0; $i < 10; $i++) {
-			$key .= $keys[array_rand($keys)];
-		}
-
-		return $key;
-	}
 
 	if(isset($_POST['btnUpload']))
 	{
@@ -34,19 +23,22 @@
 	  	list($width, $height) = getimagesize($file['tmp_name']);
 	  	$ratio = $height / $width;
 	  	if ($ratio < 1.5) {
+
 	  		$nw = 200;
 	  		$nh = ceil( $ratio * $nw );
 	  		$dst = imagecreatetruecolor( $nw, $nh );
 	          $ext = pathinfo($file['name'], PATHINFO_EXTENSION); // Get file extension
-	          $file_name = $_GET['WineId']."_".random_name().".".$ext;
-	          copy($file['tmp_name'], "../Public/admin/images/".$file_name);
+	          $sql = 'SELECT max(`ImgWineId`) FROM `imgwine` WHERE `WineId` = '.$_GET['WineId'].'';
+	          $id = mysql_result(mysql_query($sql),0);
+	         $file_name = remove_vietnamese_accents((++$id)."_".$_GET['WineId']."_".$_POST['WineName'].".".$ext);
+	          copy($file['tmp_name'], "../Public/admin/images/products/".$file_name);
 	          unlink($file['tmp_name']);
 	          $cmd = "INSERT INTO imgwine (ImgWine, WineId) values('$file_name', '$WineId')";
-
 	          $rs = mysql_query($cmd);
 	          if($rs)
 	          {
-	          	echo "<script>alert('Tải lên hình ảnh thành công!);</script>";
+	          	echo "<script>alert('Tải lên hình ảnh thành công!');</script>";
+	          	echo "<meta http-equiv='refresh' content='0'>";
 	          }
 	          else 
 	          {
@@ -55,12 +47,12 @@
 	          }
 	      }
 	      else {
-	      	echo "Please choose other image has lower ratio";
+	      	echo "Chọn ảnh có độ phân giải cao hơn!";
 	      }
 	  }
 	  else
 	  {
-	  	echo "hình có kích thước quá lớn";
+	  	echo "Hình có kích thước quá lớn!";
 	  }
 
 	}
@@ -68,10 +60,11 @@
 	{
 		echo "Hình không đúng định dạng";
 	} 
-}
+	}
 
-?>
-<div class="container">
+	?>
+
+	<div class="container">
 	<form  id="frmHinhAnh" class="form-horizontal" name="frmHinhAnh" method="post" action="" enctype="multipart/form-data" role="form">
 		<div class="form-group">
 			<label for="WineId" class="col-sm-2 control-label">Mã hình (*):  </label>
@@ -106,12 +99,11 @@
 			?>
 			<div class='col-sm-offset-2 col-sm-12'>
 				<div class="row">
-
 					<div class='col-sm-1'>
 						<?php echo $num; ?>
 					</div>
 					<div class='col-sm-2'>
-						<img src="<?php echo "../Public/admin/images/".$row['ImgWine']; ?>" width="100px"/>
+						<img src="<?php echo "../Public/admin/images/products/".$row['ImgWine']; ?>" width="100px"/>
 					</div>
 					<a class='btn btn-danger' href="?page=DeleteWineImage&ImgWineId=<?=$ImgWineId;?>" onclick="return confirm('Bạn có chắc chắn hình này không?')"><i class="fa fa-remove"></i></a>
 				</div>
@@ -124,4 +116,4 @@
 		}
 		?>
 	</form>
-</div>
+	</div>

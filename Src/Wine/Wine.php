@@ -56,9 +56,10 @@ $listwine = mysql_query($sql) or trigger_error(mysql_error().$sql);
 				<td class="text-center col-md-2">
 					<a class='btn btn-success' href="?page=UploadImageWine&&WineId=<?=$WineId?>">
 						<i class="fa fa-file-image-o"></i></a>
-					<a class="btn btn-warning btn" href="?page=UpdateWine&WineId=<?php echo $WineId; ?>"><i class="fa fa-edit"></i></a>
+					<a class="btn btn-warning" href="?page=UpdateWine&WineId=<?php echo $WineId; ?>"><i class="fa fa-edit"></i></a>
 					<a class='btn btn-danger' href="?page=DeleteWine&WineId=<?php echo $WineId; ?>" onclick="return confirm('Bạn có chắc chắn xóa loại rượu này không?')"><i class="fa fa-remove"></i></a>
-					<a class="btn btn-info" href="?page=PriceHistory&WineId=<?php echo $WineId; ?>"><i class="fa fa-history"></i></a>
+					<a class="btn btn-info" href="?page=PriceHistory&WineId=<?php echo $WineId; ?>"><i class="fa fa-money"></i></a>
+					<a class="btn btn-primary" href="?page=PromotionHistory&WineId=<?php echo $WineId; ?>"><i class="fa fa-gift"></i></a>
 				</td>     
 			</tr>
 			<?php
