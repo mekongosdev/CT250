@@ -16,9 +16,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="../public/admin/css/component.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../public/admin/css/style_grid.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../public/admin/css/style.css" rel="stylesheet" type="text/css" media="all" />
-<!--Data Table-->
-
-
+<link href="../public/admin/css/jquery.toast.min.css" rel="stylesheet" type="text/css" media="all" />
 <!-- font-awesome-icons -->
 <link href="../public/admin/css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome-icons -->
@@ -739,10 +737,10 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				});
 			});
 		</script>
-		<script src="../public/admin/js/flipclock.js"></script>
 		<script src="../Public/admin/js/bars.js"></script>
 		<script src="../Public/admin/js/jquery.nicescroll.js"></script>
 		<script src="../Public/admin/js/scripts.js"></script>
+		<script src="../Public/admin/js/jquery.toast.min.js"></script>
 		<script src="../Public/admin/js/bootstrap-3.1.1.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 		<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
