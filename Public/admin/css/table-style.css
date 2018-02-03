@@ -6,6 +6,9 @@
   margin-top: 6em;
 }
 
+table.dataTable thead th, table.dataTable thead td{
+  border: none;
+}
 @media only screen and (max-width: 568px) {
   .phone-block {
     display: block;
@@ -68,7 +71,7 @@ table td {
 }
 
 table th {
-  background: black;
+  background: #141a24;
   color: #fff;
   text-transform: uppercase;
 }

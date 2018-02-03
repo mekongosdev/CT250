@@ -4,7 +4,7 @@ $sqlSelect="SELECT `ContactId`, `Subject`, `Names`, `ContactDate`, `Information`
 $list_contact= mysql_query($sqlSelect);
 ?>
 <h3 class="w3_inner_tittle two text-center">Quản lý liên hệ</h3>
-<table id="myTable" class="table-striped table-bordered table-hover table-condensed">
+<table id="myTable" class="table-striped table-hover">
 	<thead >
 		<tr>
 			<th><strong>STT</strong></th>

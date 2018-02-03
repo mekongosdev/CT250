@@ -1,7 +1,6 @@
 
 <?php
 include_once("PromotionController.php");
-
 $name="";
 $discount="";
 $content="";

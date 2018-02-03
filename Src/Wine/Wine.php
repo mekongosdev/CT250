@@ -6,7 +6,7 @@ $listwine = mysql_query($sql) or trigger_error(mysql_error().$sql);
 <a class="btn btn-primary" href="?page=AddWine">THÊM <i class="fa fa-plus"></i></a> 
 <br>
 <br>
-<table id="myTable" class="table-striped table-bordered table-hover table-condensed">
+<table id="myTable" class="table-striped table-hover">
 	<thead >
 		<tr>
 			<th><strong>STT</strong></th>
