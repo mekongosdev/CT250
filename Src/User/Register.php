@@ -18,13 +18,12 @@ if(isset($_POST["btnRegister"]))
 	if(isset($_POST['grpGender'])) {
 		$sex = $_POST['grpGender'];
 	}
-	$address=$_POST["txtAddress"];
 	$phone=$_POST["NumPhone"];
 	$email=$_POST["txtEmail"];
 	
 	$dayofbirth=date('Y-m-d',strtotime($_POST['dateOfBirth']));
-	$identitycard=$_POST["txtIdentitycard"];
-	addUser($username, $password,$fullname,$sex,$address,$phone,$email,$dayofbirth,$identitycard);
+	addUser($username, $password,$fullname,$sex,$phone,$email,$dayofbirth);
+	echo '<script> alert("Đăng ký tài khoản thành công!");</script>';
 }
 ?>
 
@@ -35,10 +34,12 @@ if (isset($_POST['btnLogin'])) {
 
 
 	$loginpassword = md5($loginpassword);
-	$result = mysql_query("SELECT * FROM User WHERE Username='$loginusername' AND Password='$loginpassword'") or die(mysql_error());
+	$result = mysql_query("SELECT * FROM User WHERE Username='$loginusername' AND Password='$loginpassword'");
 	if (mysql_num_rows($result) == 1)
 	{
 		$_SESSION["username"] = $loginusername;
+	}else{
+		echo '<script> alert("Tên tài khoản hoặc mật khẩu không chính xác!");</script>';
 	}
 }
 
@@ -70,7 +71,7 @@ aria-hidden="true">
 											<input name="txtSignIn" placeholder="Tài khoản" type="text" required="">						
 											<input name="txtPassword" placeholder="Mật khẩu" type="password" required="">										
 											<div class="sign-up">
-												<input type="submit" name="btnLogin" value="Đăng nhập" onclick="loginfail();" />
+												<input type="submit" name="btnLogin" value="Đăng nhập" />
 											</div>
 										</form>
 									</div>
@@ -87,12 +88,10 @@ aria-hidden="true">
 											<input placeholder="Họ tên đầy đủ" name="txtFullname" type="text" required="">
 											<div class="form-group">	
 												<input placeholder="Địa chỉ email" name="txtEmail" type="email" required=""></div>
-												<div class="form-group">		
-													<input placeholder="Địa chỉ" name="txtAddress" type="text" required="">
-												</div><div class="form-group">	
+												<div class="form-group">	
 													<input placeholder="Số điện thoại" name="NumPhone" type="text" required=""></div>
 													<div class="form-group">	<input placeholder="Sinh nhật" name="dateOfBirth" type="date" required="">	</div>
-													<input placeholder="Số chứng minh nhân dân" name="txtIdentitycard" type="text" required="">	<div class="form-group">	
+													<div class="form-group">	Mật khẩu
 														<input placeholder="Mật khẩu" name="txtPassword" type="password" required=""></div>	
 														<div class="form-group">  
 															<label for="lblGender" class="col-sm-2 control-label">Gender(*):  </label>
@@ -149,10 +148,3 @@ aria-hidden="true">
 				</div>
 			</div>
 		</div>
-<script type="text/javascript">
-	$(document).ready(function(){
-		function loginfail(){
-			alert("d");
-			}
-	});
-</script>

@@ -58,7 +58,7 @@ include("Src/User/Register.php");
 ?>
 <script>$(document).ready(function(){
 	<?php
-	if(!isset($_SESSION["username"])){ ?>
+	if(!isset($_SESSION['username'])){ ?>
 		$('#myModal88').modal('show');
 		<?php }else{ ?>
 			$('#user_modal').remove();

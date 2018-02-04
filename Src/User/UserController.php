@@ -1,9 +1,9 @@
 <?php
-function addUser($username, $password,$fullname,$sex,$address,$phone,$email,$dayofbirth,$identitycard)
+function addUser($username, $password,$fullname,$sex,$phone,$email,$dayofbirth)
 {
 	$insert = "INSERT INTO 
-	`User`(`Username`, `Password`, `FullName`, `Sex`, `Address`, `Phone`, `Email`, `DateOfBirth`, `IC`, `Status`, `Role`) 
-	VALUES ('$username', '".md5($password)."', '$fullname', '$sex','$address', '$phone', '$email', '$dayofbirth', '$identitycard', 1, 1,1)";
+	`User`(`Username`, `Password`, `FullName`, `Sex`, `Phone`, `Email`, `DateOfBirth`, `Status`, `Role`) 
+	VALUES ('$username', '".md5($password)."', '$fullname', '$sex', '$phone', '$email', '$dayofbirth', 1, 1,1)";
 	mysql_query($insert);
 }
 //Update User Layout

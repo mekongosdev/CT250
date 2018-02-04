@@ -14,12 +14,12 @@ $(document).ready(function(){
 	$('#links a').hover(
 		function(){ $(this).animate({ left: 3 }, 'fast'); },
 		function(){ $(this).animate({ left: 0 }, 'fast'); }
-	);
+		);
 
 	$('footer a').hover(
 		function(){ $(this).animate({ top: 3 }, 'fast'); },
 		function(){ $(this).animate({ top: 0 }, 'fast'); }
-	);
+		);
 
 
 	/* ---- Using Modernizr to check if the "required" and "placeholder" attributes are supported ---- */
@@ -55,3 +55,4 @@ $(document).ready(function(){
 
 
 });
+}
