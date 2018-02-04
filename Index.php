@@ -1,45 +1,45 @@
-<?php
-session_start();
+	<?php
+	session_start();
 
-?>
-<!DOCTYPE html>
-<html lang='vi'>
-<head>
-	<title>Windsor Shop</title>
-	<!-- for-mobile-apps -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="CT250" />
-	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- //for-mobile-apps -->
-<link href="public/client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="public/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="public/client/css/fasthover.css" rel="stylesheet" type="text/css" media="all" />
-<!-- js -->
-<script src="public/client/js/jquery.min.js"></script>
-<!-- //js -->
-<!-- countdown -->
-<link rel="stylesheet" href="public/client/css/jquery.countdown.css" />
-<!-- //countdown -->
-<!-- cart -->
-<script src="public/client/js/simpleCart.min.js"></script>
-<!-- cart -->
-<!-- for bootstrap working -->
-<script type="text/javascript" src="public/client/js/bootstrap-3.1.1.min.js"></script>
-<!-- //for bootstrap working -->
-<link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-<!-- start-smooth-scrolling -->
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){
-			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+	?>
+	<!DOCTYPE html>
+	<html lang='vi'>
+	<head>
+		<title>Windsor Shop</title>
+		<!-- for-mobile-apps -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="CT250" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+	function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //for-mobile-apps -->
+	<link href="public/client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="public/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="public/client/css/fasthover.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- js -->
+	<script src="public/client/js/jquery.min.js"></script>
+	<!-- //js -->
+	<!-- countdown -->
+	<link rel="stylesheet" href="public/client/css/jquery.countdown.css" />
+	<!-- //countdown -->
+	<!-- cart -->
+	<script src="public/client/js/simpleCart.min.js"></script>
+	<!-- cart -->
+	<!-- for bootstrap working -->
+	<script type="text/javascript" src="public/client/js/bootstrap-3.1.1.min.js"></script>
+	<!-- //for bootstrap working -->
+	<link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	<!-- start-smooth-scrolling -->
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
 		});
-	});
-</script>
-<!-- //end-smooth-scrolling -->
+	</script>
+	<!-- //end-smooth-scrolling -->
 
 
 </head>
@@ -49,12 +49,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	include_once("Library/connect.php");
 	include_once("Src/User/UserController.php");
 	?>
-<!--
+	<!--
 	Modal đăng ký
 -->
 <?php
 include("Src/User/Register.php");
-// include("Src/About/About_FEV.php");
+	// include("Src/About/About_FEV.php");
 ?>
 <script>$(document).ready(function(){
 	<?php
@@ -1107,250 +1107,206 @@ include("Src/User/Register.php");
 				<div class="container">
 					<h3>New Products</h3>
 					<div class="agileinfo_new_products_grids">
-						<div class="col-md-3 agileinfo_new_products_grid">
-							<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-								<div class="hs-wrapper hs-wrapper1">
-									<img src="public/client/images/27.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/28.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/29.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/30.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/27.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/28.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/29.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/30.jpg" alt=" " class="img-responsive" />
-									<div class="w3_hs_bottom w3_hs_bottom_sub">
-										<ul>
-											<li>
-												<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-											</li>
-										</ul>
+						<?php 
+						$result = mysql_query("
+							SELECT wine.*,
+							(SELECT imgwine 
+							FROM imgwine 
+							WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
+							LIMIT 1) as imgwine 
+							FROM wine ORDER BY WineUpdateDate");
+						while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
+							?>
+							<div class="col-md-3 agileinfo_new_products_grid">
+								<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
+									<div class="hs-wrapper hs-wrapper1">
+										<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
+										<img src="public/client/images/28.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/29.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/30.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/27.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/28.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/29.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/30.jpg" alt=" " class="img-responsive" />
+										<div class="w3_hs_bottom w3_hs_bottom_sub">
+											<ul>
+												<li>
+													<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<!-- <h5><a href="single.html">Skirts</a></h5> -->
+									<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
+									<div class="simpleCart_shelfItem">
+										
+										<p><span><?php echo  $row['WineSold']?>
+											<?php 
+											$sqlSelect = "
+											SELECT `WineId`, `TimeId`, `Price`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+
+											$resultPrice = mysql_query($sqlSelect);
+											while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
+											{
+												?>
+											</span> <i class="item_price"><?php echo  $rowPrice['Price']?></i></p>
+											<?php 
+											}
+										if ($row['WineQuantity'] > 0) 
+										{
+											?>
+											<p><a class="item_add" href="#">Mua ngay</a></p>
+											<?php
+										} else {
+											?>
+											<p><a class="item_add" href="#">Hết hàng</a></p>
+											<?php
+										}
+										?> 
 									</div>
 								</div>
-								<h5><a href="single.html">Skirts</a></h5>
-								<div class="simpleCart_shelfItem">
-									<p><span>$320</span> <i class="item_price">$250</i></p>
-									<p><a class="item_add" href="#">Add to cart</a></p>
-								</div>
-							</div>
+							</div> 
+							<?php } ?>
+							<div class="clearfix"> </div>
 						</div>
-						<div class="col-md-3 agileinfo_new_products_grid">
-							<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-								<div class="hs-wrapper hs-wrapper1">
-									<img src="public/client/images/31.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/32.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/33.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/34.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/31.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/32.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/33.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/34.jpg" alt=" " class="img-responsive" />
-									<div class="w3_hs_bottom w3_hs_bottom_sub">
-										<ul>
-											<li>
-												<a href="#" data-toggle="modal" data-target="#myModal5"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<h5><a href="single.html">Jackets</a></h5>
-								<div class="simpleCart_shelfItem">
-									<p><span>$320</span> <i class="item_price">$250</i></p>
-									<p><a class="item_add" href="#">Add to cart</a></p>
-								</div>
-							</div>
+					</div>
+				</div>
+				<!-- //new-products -->
+				<!-- top-brands -->
+				<div class="top-brands">
+					<div class="container">
+						<h3>Top Brands</h3>
+						<div class="sliderfig">
+							<ul id="flexiselDemo1">
+								<li>
+									<img src="public/client/images/4.png" alt=" " class="img-responsive" />
+								</li>
+								<li>
+									<img src="public/client/images/5.png" alt=" " class="img-responsive" />
+								</li>
+								<li>
+									<img src="public/client/images/6.png" alt=" " class="img-responsive" />
+								</li>
+								<li>
+									<img src="public/client/images/7.png" alt=" " class="img-responsive" />
+								</li>
+								<li>
+									<img src="public/client/images/46.jpg" alt=" " class="img-responsive" />
+								</li>
+							</ul>
 						</div>
-						<div class="col-md-3 agileinfo_new_products_grid">
-							<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-								<div class="hs-wrapper hs-wrapper1">
-									<img src="public/client/images/37.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/30.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/36.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/38.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/37.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/30.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/36.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/38.jpg" alt=" " class="img-responsive" />
-									<div class="w3_hs_bottom w3_hs_bottom_sub">
-										<ul>
-											<li>
-												<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<h5><a href="single.html">Dresses</a></h5>
-								<div class="simpleCart_shelfItem">
-									<p><span>$320</span> <i class="item_price">$250</i></p>
-									<p><a class="item_add" href="#">Add to cart</a></p>
-								</div>
-							</div>
+						<script type="text/javascript">
+							$(window).load(function() {
+								$("#flexiselDemo1").flexisel({
+									visibleItems: 4,
+									animationSpeed: 1000,
+									autoPlay: true,
+									autoPlaySpeed: 3000,
+									pauseOnHover: true,
+									enableResponsiveBreakpoints: true,
+									responsiveBreakpoints: {
+										portrait: {
+											changePoint:480,
+											visibleItems: 1
+										},
+										landscape: {
+											changePoint:640,
+											visibleItems:2
+										},
+										tablet: {
+											changePoint:768,
+											visibleItems: 3
+										}
+									}
+								});
+
+							});
+						</script>
+						<script type="text/javascript" src="public/client/js/jquery.flexisel.js"></script>
+						<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+					</div>
+				</div>
+				<!-- //top-brands -->
+				<!-- newsletter -->
+				<div class="newsletter">
+					<div class="container">
+						<div class="col-md-6 w3agile_newsletter_left">
+							<h3>Newsletter</h3>
+							<p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
 						</div>
-						<div class="col-md-3 agileinfo_new_products_grid">
-							<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-								<div class="hs-wrapper hs-wrapper1">
-									<img src="public/client/images/40.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/41.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/42.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/43.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/40.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/41.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/42.jpg" alt=" " class="img-responsive" />
-									<img src="public/client/images/43.jpg" alt=" " class="img-responsive" />
-									<div class="w3_hs_bottom w3_hs_bottom_sub">
-										<ul>
-											<li>
-												<a href="#" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<h5><a href="single.html">Jeans</a></h5>
-								<div class="simpleCart_shelfItem">
-									<p><span>$320</span> <i class="item_price">$250</i></p>
-									<p><a class="item_add" href="#">Add to cart</a></p>
-								</div>
-							</div>
+						<div class="col-md-6 w3agile_newsletter_right">
+							<form action="#" method="post">
+								<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+								<input type="submit" value="" />
+							</form>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
-			</div>
-			<!-- //new-products -->
-			<!-- top-brands -->
-			<div class="top-brands">
-				<div class="container">
-					<h3>Top Brands</h3>
-					<div class="sliderfig">
-						<ul id="flexiselDemo1">
-							<li>
-								<img src="public/client/images/4.png" alt=" " class="img-responsive" />
-							</li>
-							<li>
-								<img src="public/client/images/5.png" alt=" " class="img-responsive" />
-							</li>
-							<li>
-								<img src="public/client/images/6.png" alt=" " class="img-responsive" />
-							</li>
-							<li>
-								<img src="public/client/images/7.png" alt=" " class="img-responsive" />
-							</li>
-							<li>
-								<img src="public/client/images/46.jpg" alt=" " class="img-responsive" />
-							</li>
-						</ul>
-					</div>
-					<script type="text/javascript">
-						$(window).load(function() {
-							$("#flexiselDemo1").flexisel({
-								visibleItems: 4,
-								animationSpeed: 1000,
-								autoPlay: true,
-								autoPlaySpeed: 3000,
-								pauseOnHover: true,
-								enableResponsiveBreakpoints: true,
-								responsiveBreakpoints: {
-									portrait: {
-										changePoint:480,
-										visibleItems: 1
-									},
-									landscape: {
-										changePoint:640,
-										visibleItems:2
-									},
-									tablet: {
-										changePoint:768,
-										visibleItems: 3
-									}
-								}
-							});
-
-						});
-					</script>
-					<script type="text/javascript" src="public/client/js/jquery.flexisel.js"></script>
-					<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-				</div>
-			</div>
-			<!-- //top-brands -->
-			<!-- newsletter -->
-			<div class="newsletter">
-				<div class="container">
-					<div class="col-md-6 w3agile_newsletter_left">
-						<h3>Newsletter</h3>
-						<p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
-					</div>
-					<div class="col-md-6 w3agile_newsletter_right">
-						<form action="#" method="post">
-							<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-							<input type="submit" value="" />
-						</form>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-			</div>
-			<!-- //newsletter -->
-			<!-- footer -->
-			<div class="footer">
-				<div class="container">
-					<div class="w3_footer_grids">
-						<div class="col-md-3 w3_footer_grid">
-							<h3>Contact</h3>
-							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-							<ul class="address">
-								<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
-								<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
-								<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
-							</ul>
-						</div>
-						<div class="col-md-3 w3_footer_grid">
-							<h3>Information</h3>
-							<ul class="info">
-								<li><a href="about.html">About Us</a></li>
-								<li><a href="mail.html">Contact Us</a></li>
-								<li><a href="short-codes.html">Short Codes</a></li>
-								<li><a href="faq.html">FAQ's</a></li>
-								<li><a href="products.html">Special Products</a></li>
-							</ul>
-						</div>
-						<div class="col-md-3 w3_footer_grid">
-							<h3>Category</h3>
-							<ul class="info">
-								<li><a href="dresses.html">Dresses</a></li>
-								<li><a href="sweaters.html">Sweaters</a></li>
-								<li><a href="shirts.html">Shirts</a></li>
-								<li><a href="sarees.html">Sarees</a></li>
-								<li><a href="skirts.html">Shorts & Skirts</a></li>
-							</ul>
-						</div>
-						<div class="col-md-3 w3_footer_grid">
-							<h3>Profile</h3>
-							<ul class="info">
-								<li><a href="products.html">Summer Store</a></li>
-								<li><a href="checkout.html">My Cart</a></li>
-							</ul>
-							<h4>Follow Us</h4>
-							<div class="agileits_social_button">
-								<ul>
-									<li><a href="#" class="facebook"> </a></li>
-									<li><a href="#" class="twitter"> </a></li>
-									<li><a href="#" class="google"> </a></li>
-									<li><a href="#" class="pinterest"> </a></li>
+				<!-- //newsletter -->
+				<!-- footer -->
+				<div class="footer">
+					<div class="container">
+						<div class="w3_footer_grids">
+							<div class="col-md-3 w3_footer_grid">
+								<h3>Contact</h3>
+								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+								<ul class="address">
+									<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
+									<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
 								</ul>
 							</div>
+							<div class="col-md-3 w3_footer_grid">
+								<h3>Information</h3>
+								<ul class="info">
+									<li><a href="about.html">About Us</a></li>
+									<li><a href="mail.html">Contact Us</a></li>
+									<li><a href="short-codes.html">Short Codes</a></li>
+									<li><a href="faq.html">FAQ's</a></li>
+									<li><a href="products.html">Special Products</a></li>
+								</ul>
+							</div>
+							<div class="col-md-3 w3_footer_grid">
+								<h3>Category</h3>
+								<ul class="info">
+									<li><a href="dresses.html">Dresses</a></li>
+									<li><a href="sweaters.html">Sweaters</a></li>
+									<li><a href="shirts.html">Shirts</a></li>
+									<li><a href="sarees.html">Sarees</a></li>
+									<li><a href="skirts.html">Shorts & Skirts</a></li>
+								</ul>
+							</div>
+							<div class="col-md-3 w3_footer_grid">
+								<h3>Profile</h3>
+								<ul class="info">
+									<li><a href="products.html">Summer Store</a></li>
+									<li><a href="checkout.html">My Cart</a></li>
+								</ul>
+								<h4>Follow Us</h4>
+								<div class="agileits_social_button">
+									<ul>
+										<li><a href="#" class="facebook"> </a></li>
+										<li><a href="#" class="twitter"> </a></li>
+										<li><a href="#" class="google"> </a></li>
+										<li><a href="#" class="pinterest"> </a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="clearfix"> </div>
 						</div>
-						<div class="clearfix"> </div>
+					</div>
+					<div class="footer-copy">
+						<div class="footer-copy1">
+							<div class="footer-copy-pos">
+								<a href="#home1" class="scroll"><img src="public/client/images/arrow.png" alt=" " class="img-responsive" /></a>
+							</div>
+						</div>
+						<div class="container">
+							<p>&copy; 2016 Women's Fashion. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+						</div>
 					</div>
 				</div>
-				<div class="footer-copy">
-					<div class="footer-copy1">
-						<div class="footer-copy-pos">
-							<a href="#home1" class="scroll"><img src="public/client/images/arrow.png" alt=" " class="img-responsive" /></a>
-						</div>
-					</div>
-					<div class="container">
-						<p>&copy; 2016 Women's Fashion. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-					</div>
-				</div>
-			</div>
-			<!-- //footer -->
-		</body>
-		</html>
+				<!-- //footer -->
+			</body>
+			</html>
