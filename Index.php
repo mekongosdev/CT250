@@ -48,6 +48,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<?php
 	include_once("Library/connect.php");
 	include_once("Src/User/UserController.php");
+	include_once("Src/User/UpdateUser.php")
 	?>
 <!--
 	Modal đăng ký
