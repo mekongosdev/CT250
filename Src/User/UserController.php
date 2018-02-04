@@ -1,10 +1,10 @@
 <?php
 function addUser($username, $password,$fullname,$sex,$phone,$email,$dayofbirth)
 {
-	$insert = "INSERT INTO 
-	`User`(`Username`, `Password`, `FullName`, `Sex`, `Phone`, `Email`, `DateOfBirth`, `Status`, `Role`) 
-	VALUES ('$username', '".md5($password)."', '$fullname', '$sex', '$phone', '$email', '$dayofbirth', 1, 1,1)";
-	mysql_query($insert);
+  $insert = "INSERT INTO 
+  `User`(`Username`, `Password`, `FullName`, `Sex`, `Phone`, `Email`, `DateOfBirth`, `Status`, `Role`) 
+  VALUES ('$username', '".md5($password)."', '$fullname', '$sex', '$phone', '$email', '$dayofbirth', 1,1)";
+  mysql_query($insert);
 }
 //Update User Layout
 function updateUser($password,$fullname,$sex,$address,$phone,$email,$dateofbirthday, $identitycard)

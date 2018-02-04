@@ -98,17 +98,17 @@ aria-hidden="true">
 															<label for="lblGender" class="col-sm-2 control-label">Gender(*):  </label>
 															<div class="col-sm-10">                              
 																<label class="radio-inline"><input type="radio" name="grpGender" value="0"  
-	<?php if(isset($Gender)&&$Gender=="0") { echo "checked";} ?> />
+																	<?php if(isset($Gender)&&$Gender=="0") { echo "checked";} ?> />
 																Male</label>
 
-	<label class="radio-inline"><input type="radio" name="grpGender" value="1" 
-	<?php if(isset($Gender)&&$Gender=="1") { echo "checked";} ?> />
+																<label class="radio-inline"><input type="radio" name="grpGender" value="1" 
+																	<?php if(isset($Gender)&&$Gender=="1") { echo "checked";} ?> />
 																Female</label>
 
 															</div>
 														</div>
-							<div class="sign-up">
-	<input type="submit" value="Đăng ký" name="btnRegister" id="btnRegister"/>
+														<div class="sign-up">
+															<input type="submit" value="Đăng ký" name="btnRegister" id="btnRegister"/>
 														</div>
 													</form>
 												</div>

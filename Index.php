@@ -90,7 +90,7 @@ include("Src/User/Register.php");
 							<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> sản phẩm)</div>
 							<img src="public/client/images/bag.png" alt="" />
 						</a>
-						<p style="margin-left: 58px;" ><?php if(isset($_SESSION["username"])){echo $_SESSION["username"]." <a href='Src/User/Signout.php'><span class=' 	glyphicon glyphicon-log-out'></span></a>";}?> </p>
+						<p data-toggle="modal" data-target="#myLoginModal" style="margin-left: 58px;" ><?php if(isset($_SESSION["username"])){echo $_SESSION["username"]." <a href='Src/User/Signout.php'><span class=' glyphicon glyphicon-log-out'></span></a>";}?> </p>
 						<div class="clearfix"> </div>
 					</div>
 					<div class="clearfix"> </div>
