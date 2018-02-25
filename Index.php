@@ -40,10 +40,7 @@
 		});
 	</script>
 	<!-- //end-smooth-scrolling -->
-
-
 </head>
-
 <body>
 	<?php
 	include_once("Library/connect.php");
@@ -1128,7 +1125,7 @@ include("Src/User/Register.php");
 										<img src="public/client/images/27.jpg" alt=" " class="img-responsive" />
 										<img src="public/client/images/28.jpg" alt=" " class="img-responsive" />
 										<img src="public/client/images/29.jpg" alt=" " class="img-responsive" />
-										<img src="public/client/images/30.jpg" alt=" " class="img-responsive" />
+										<img src="public/client/images/30.jpg" alt=" " class="img-responsive" /> 
 										<div class="w3_hs_bottom w3_hs_bottom_sub">
 											<ul>
 												<li>
@@ -1140,19 +1137,19 @@ include("Src/User/Register.php");
 									<!-- <h5><a href="single.html">Skirts</a></h5> -->
 									<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
 									<div class="simpleCart_shelfItem">
-										
-										<p><span><?php echo  $row['WineSold']?>
-											<?php 
+										<?php 
 											$sqlSelect = "
-											SELECT `WineId`, `TimeId`, `Price`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+											SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
 
 											$resultPrice = mysql_query($sqlSelect);
 											while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
 											{
 												?>
-											</span> <i class="item_price"><?php echo  $rowPrice['Price']?></i></p>
+										<p><span><?php echo  $rowPrice['PurchasePrice']?>
+											
+											</span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
 											<?php 
-											}
+										}
 										if ($row['WineQuantity'] > 0) 
 										{
 											?>
