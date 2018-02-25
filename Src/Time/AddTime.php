@@ -1,11 +1,11 @@
 <?php 
 include_once("TimeController.php");
 
-$applicationTime= date_default_timezone_set('Asia/Vientiane');
 if(isset($_POST["btnAdd"]))
 {
+	$applicationTime= date_default_timezone_set('Asia/Tokyo');
 	$ApplicationTime=date('Y-m-d',strtotime($_POST['txtName']));
-
+	echo $ApplicationTime;
 	addTime($ApplicationTime);
 	echo '<script> alert("Thêm thời gian thành công!");</script>';
 	echo "<script>window.location.href='?page=time'</script>";
@@ -27,8 +27,8 @@ if(isset($_POST["btnAdd"]))
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtName">Ngày:</label>
 			<div class="col-sm-10">
-				<input type="date" class="form-control" id="txtName" name="txtName"
-				required autofocus >
+				<input type="date" class="form-control" id="txtName" name="txtName" value="2018-01-01"
+				required>
 			</div>
 		</div>
 		<div class="form-group">        
