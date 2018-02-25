@@ -272,310 +272,241 @@ include("Src/User/Register.php");
 									</div>
 									<div role="tabpanel" class="tab-pane fade" id="skirts" aria-labelledby="skirts-tab">
 										<div class="agile_ecommerce_tabs">
-											<div class="col-md-4 agile_ecommerce_tab_left">
+										<?php 
+											$result = mysql_query("
+												SELECT wine.*,
+												(SELECT imgwine  FROM imgwine 
+												WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
+												LIMIT 1) as imgwine 
+												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=2  ORDER BY WineUpdateDate");
+											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
+												?>
+										<div class="col-md-4 agile_ecommerce_tab_left">
+											
 												<div class="hs-wrapper">
-													<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/10.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/10.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
+													<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
+													<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
 													<div class="w3_hs_bottom">
 														<ul>
 															<li>
-																<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+																<a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
 															</li>
 														</ul>
 													</div>
 												</div>
-												<h5><a href="#">Skirt</a></h5>
+												<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
 												<div class="simpleCart_shelfItem">
-													<p><span>$320</span> <i class="item_price">$250</i></p>
-													<p><a class="item_add" href="#">Add to cart</a></p>
+													<?php 
+													$sqlSelect = "
+													SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+
+													$resultPrice = mysql_query($sqlSelect);
+													while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
+													{
+														?>
+														<p><span><?php echo  $rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
+														<?php 
+													}
+													if ($row['WineQuantity'] > 0) 
+													{
+														?>
+														<p><a class="item_add" href="#">Mua ngay</a></p>
+														<?php
+													} else {
+														?>
+														<p><a class="item_add" href="#">Hết hàng</a></p>
+														<?php
+													}
+													?> 
 												</div>
 											</div>
-											<div class="col-md-4 agile_ecommerce_tab_left">
-												<div class="hs-wrapper">
-													<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/10.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/10.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
-													<div class="w3_hs_bottom">
-														<ul>
-															<li>
-																<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-															</li>
-														</ul>
-													</div>
-												</div>
-												<h5><a href="#">Skirt</a></h5>
-												<div class="simpleCart_shelfItem">
-													<p><span>$320</span> <i class="item_price">$250</i></p>
-													<p><a class="item_add" href="#">Add to cart</a></p>
-												</div>
-											</div>
-											<div class="col-md-4 agile_ecommerce_tab_left">
-												<div class="hs-wrapper">
-													<img src="public/client/images/10.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/10.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/8.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/9.jpg" alt=" " class="img-responsive" />
-													<div class="w3_hs_bottom">
-														<ul>
-															<li>
-																<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-															</li>
-														</ul>
-													</div>
-												</div>
-												<h5><a href="single.html">Skirt</a></h5>
-												<div class="simpleCart_shelfItem">
-													<p><span>$320</span> <i class="item_price">$250</i></p>
-													<p><a class="item_add" href="#">Add to cart</a></p>
-												</div>
-											</div>
+											<?php } ?>
 											<div class="clearfix"> </div>
 										</div>
 									</div>
 									<div role="tabpanel" class="tab-pane fade" id="watches" aria-labelledby="watches-tab">
 										<div class="agile_ecommerce_tabs">
-											<div class="col-md-4 agile_ecommerce_tab_left">
+										<?php 
+											$result = mysql_query("
+												SELECT wine.*,
+												(SELECT imgwine  FROM imgwine 
+												WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
+												LIMIT 1) as imgwine 
+												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=3  ORDER BY WineUpdateDate");
+											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
+												?>
+										<div class="col-md-4 agile_ecommerce_tab_left">
+											
 												<div class="hs-wrapper">
-													<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/13.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/13.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
+													<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
+													<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
 													<div class="w3_hs_bottom">
 														<ul>
 															<li>
-																<a href="#" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+																<a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
 															</li>
 														</ul>
 													</div>
 												</div>
-												<h5><a href="single.html">Watch</a></h5>
+												<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
 												<div class="simpleCart_shelfItem">
-													<p><span>$320</span> <i class="item_price">$250</i></p>
-													<p><a class="item_add" href="#">Add to cart</a></p>
-												</div>
-											</div>
-											<div class="col-md-4 agile_ecommerce_tab_left">
-												<div class="hs-wrapper">
-													<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/13.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/13.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
-													<div class="w3_hs_bottom">
-														<ul>
-															<li>
-																<a href="#" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-															</li>
-														</ul>
-													</div>
-												</div>
+													<?php 
+													$sqlSelect = "
+													SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
 
-												<h5><a href="single.html">Watch</a></h5>
-												<div class="simpleCart_shelfItem">
-													<p><span>$320</span> <i class="item_price">$250</i></p>
-													<p><a class="item_add" href="#">Add to cart</a></p>
+													$resultPrice = mysql_query($sqlSelect);
+													while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
+													{
+														?>
+														<p><span><?php echo  $rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
+														<?php 
+													}
+													if ($row['WineQuantity'] > 0) 
+													{
+														?>
+														<p><a class="item_add" href="#">Mua ngay</a></p>
+														<?php
+													} else {
+														?>
+														<p><a class="item_add" href="#">Hết hàng</a></p>
+														<?php
+													}
+													?> 
 												</div>
 											</div>
-											<div class="col-md-4 agile_ecommerce_tab_left">
-												<div class="hs-wrapper">
-													<img src="public/client/images/13.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/13.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/11.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/12.jpg" alt=" " class="img-responsive" />
-													<div class="w3_hs_bottom">
-														<ul>
-															<li>
-																<a href="#" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-															</li>
-														</ul>
-													</div>
-												</div>
-												<h5><a href="single.html">Watch</a></h5>
-												<div class="simpleCart_shelfItem">
-													<p><span>$320</span> <i class="item_price">$250</i></p>
-													<p><a class="item_add" href="#">Add to cart</a></p>
-												</div>
-											</div>
+											<?php } ?>
 											<div class="clearfix"> </div>
 										</div>
 									</div>
 									<div role="tabpanel" class="tab-pane fade" id="sandals" aria-labelledby="sandals-tab">
 										<div class="agile_ecommerce_tabs">
-											<div class="col-md-4 agile_ecommerce_tab_left">
+										<?php 
+											$result = mysql_query("
+												SELECT wine.*,
+												(SELECT imgwine  FROM imgwine 
+												WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
+												LIMIT 1) as imgwine 
+												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=4  ORDER BY WineUpdateDate");
+											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
+												?>
+										<div class="col-md-4 agile_ecommerce_tab_left">
+											
 												<div class="hs-wrapper">
-													<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/16.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/16.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
+													<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
+													<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
 													<div class="w3_hs_bottom">
 														<ul>
 															<li>
-																<a href="#" data-toggle="modal" data-target="#myModal3"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+																<a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
 															</li>
 														</ul>
 													</div>
 												</div>
-												<h5><a href="single.html">Sandal</a></h5>
+												<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
 												<div class="simpleCart_shelfItem">
-													<p><span>$320</span> <i class="item_price">$250</i></p>
-													<p><a class="item_add" href="#">Add to cart</a></p>
+													<?php 
+													$sqlSelect = "
+													SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+
+													$resultPrice = mysql_query($sqlSelect);
+													while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
+													{
+														?>
+														<p><span><?php echo  $rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
+														<?php 
+													}
+													if ($row['WineQuantity'] > 0) 
+													{
+														?>
+														<p><a class="item_add" href="#">Mua ngay</a></p>
+														<?php
+													} else {
+														?>
+														<p><a class="item_add" href="#">Hết hàng</a></p>
+														<?php
+													}
+													?> 
 												</div>
 											</div>
-											<div class="col-md-4 agile_ecommerce_tab_left">
-												<div class="hs-wrapper">
-													<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/16.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/16.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
-													<div class="w3_hs_bottom">
-														<ul>
-															<li>
-																<a href="#" data-toggle="modal" data-target="#myModal3"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-															</li>
-														</ul>
-													</div>
-												</div>
-												<h5><a href="#">Sandal</a></h5>
-												<div class="simpleCart_shelfItem">
-													<p><span>$320</span> <i class="item_price">$250</i></p>
-													<p><a class="item_add" href="#">Add to cart</a></p>
-												</div>
-											</div>
-											<div class="col-md-4 agile_ecommerce_tab_left">
-												<div class="hs-wrapper">
-													<img src="public/client/images/16.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/16.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/14.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/15.jpg" alt=" " class="img-responsive" />
-													<div class="w3_hs_bottom">
-														<ul>
-															<li>
-																<a href="#" data-toggle="modal" data-target="#myModal3"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-															</li>
-														</ul>
-													</div>
-												</div>
-												<h5><a href="#">Sandal</a></h5>
-												<div class="simpleCart_shelfItem">
-													<p><span>$320</span> <i class="item_price">$250</i></p>
-													<p><a class="item_add" href="#">Add to cart</a></p>
-												</div>
-											</div>
+											<?php } ?>
 											<div class="clearfix"> </div>
 										</div>
 									</div>
 									<div role="tabpanel" class="tab-pane fade" id="jewellery" aria-labelledby="jewellery-tab">
 										<div class="agile_ecommerce_tabs">
-											<div class="col-md-4 agile_ecommerce_tab_left">
+										<?php 
+											$result = mysql_query("
+												SELECT wine.*,
+												(SELECT imgwine  FROM imgwine 
+												WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
+												LIMIT 1) as imgwine 
+												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=5  ORDER BY WineUpdateDate");
+											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
+												?>
+										<div class="col-md-4 agile_ecommerce_tab_left">
+											
 												<div class="hs-wrapper">
-													<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/19.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/19.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
+													<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
+													<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+													<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
 													<div class="w3_hs_bottom">
 														<ul>
 															<li>
-																<a href="#" data-toggle="modal" data-target="#myModal4"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+																<a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
 															</li>
 														</ul>
 													</div>
 												</div>
-												<h5><a href="#">Jewellery</a></h5>
+												<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
 												<div class="simpleCart_shelfItem">
-													<p><span>$320</span> <i class="item_price">$250</i></p>
-													<p><a class="item_add" href="#">Add to cart</a></p>
+													<?php 
+													$sqlSelect = "
+													SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+
+													$resultPrice = mysql_query($sqlSelect);
+													while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
+													{
+														?>
+														<p><span><?php echo  $rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
+														<?php 
+													}
+													if ($row['WineQuantity'] > 0) 
+													{
+														?>
+														<p><a class="item_add" href="#">Mua ngay</a></p>
+														<?php
+													} else {
+														?>
+														<p><a class="item_add" href="#">Hết hàng</a></p>
+														<?php
+													}
+													?> 
 												</div>
 											</div>
-											<div class="col-md-4 agile_ecommerce_tab_left">
-												<div class="hs-wrapper">
-													<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/19.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/19.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
-													<div class="w3_hs_bottom">
-														<ul>
-															<li>
-																<a href="#" data-toggle="modal" data-target="#myModal4"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-															</li>
-														</ul>
-													</div>
-												</div>
-												<h5><a href="single.html">Jewellery</a></h5>
-												<div class="simpleCart_shelfItem">
-													<p><span>$320</span> <i class="item_price">$250</i></p>
-													<p><a class="item_add" href="#">Add to cart</a></p>
-												</div>
-											</div>
-											<div class="col-md-4 agile_ecommerce_tab_left">
-												<div class="hs-wrapper">
-													<img src="public/client/images/19.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/19.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/17.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/18.jpg" alt=" " class="img-responsive" />
-													<div class="w3_hs_bottom">
-														<ul>
-															<li>
-																<a href="#" data-toggle="modal" data-target="#myModal4"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-															</li>
-														</ul>
-													</div>
-												</div>
-												<h5><a href="single.html">Jewellery</a></h5>
-												<div class="simpleCart_shelfItem">
-													<p><span>$320</span> <i class="item_price">$250</i></p>
-													<p><a class="item_add" href="#">Add to cart</a></p>
-												</div>
-											</div>
+											<?php } ?>
 											<div class="clearfix"> </div>
 										</div>
 									</div>
