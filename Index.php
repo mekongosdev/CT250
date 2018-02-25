@@ -213,17 +213,17 @@ include("Src/User/Register.php");
 								<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
 									<div class="agile_ecommerce_tabs">
 										<?php 
-											$result = mysql_query("
-												SELECT wine.*,
-												(SELECT imgwine  FROM imgwine 
-												WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
-												LIMIT 1) as imgwine 
-												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=1  ORDER BY WineUpdateDate 
-												LIMIT 3");
-											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
-												?>
-										<div class="col-md-4 agile_ecommerce_tab_left">
-											
+										$result = mysql_query("
+											SELECT wine.*,
+											(SELECT imgwine  FROM imgwine 
+											WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
+											LIMIT 1) as imgwine 
+											FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=1  ORDER BY WineUpdateDate 
+											LIMIT 3");
+										while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
+											?>
+											<div class="col-md-4 agile_ecommerce_tab_left">
+
 												<div class="hs-wrapper">
 													<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
 													<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
@@ -273,7 +273,7 @@ include("Src/User/Register.php");
 									</div>
 									<div role="tabpanel" class="tab-pane fade" id="skirts" aria-labelledby="skirts-tab">
 										<div class="agile_ecommerce_tabs">
-										<?php 
+											<?php 
 											$result = mysql_query("
 												SELECT wine.*,
 												(SELECT imgwine  FROM imgwine 
@@ -283,948 +283,967 @@ include("Src/User/Register.php");
 												LIMIT 3");
 											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 												?>
-										<div class="col-md-4 agile_ecommerce_tab_left">
-											
-												<div class="hs-wrapper">
-													<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
-													<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
-													<div class="w3_hs_bottom">
-														<ul>
-															<li>
-																<a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-															</li>
-														</ul>
+												<div class="col-md-4 agile_ecommerce_tab_left">
+
+													<div class="hs-wrapper">
+														<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
+														<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
+														<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+														<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+														<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
+														<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+														<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+														<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
+														<div class="w3_hs_bottom">
+															<ul>
+																<li>
+																	<a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
+													<div class="simpleCart_shelfItem">
+														<?php 
+														$sqlSelect = "
+														SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+
+														$resultPrice = mysql_query($sqlSelect);
+														while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
+														{
+															?>
+															<p><span><?php echo  $rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
+															<?php 
+														}
+														if ($row['WineQuantity'] > 0) 
+														{
+															?>
+															<p><a class="item_add" href="#">Mua ngay</a></p>
+															<?php
+														} else {
+															?>
+															<p><a class="item_add" href="#">Hết hàng</a></p>
+															<?php
+														}
+														?> 
 													</div>
 												</div>
-												<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
-												<div class="simpleCart_shelfItem">
-													<?php 
-													$sqlSelect = "
-													SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+												<?php } ?>
+												<div class="clearfix"> </div>
+											</div>
+										</div>
+										<div role="tabpanel" class="tab-pane fade" id="watches" aria-labelledby="watches-tab">
+											<div class="agile_ecommerce_tabs">
+												<?php 
+												$result = mysql_query("
+													SELECT wine.*,
+													(SELECT imgwine  FROM imgwine 
+													WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
+													LIMIT 1) as imgwine 
+													FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=3  ORDER BY WineUpdateDate
+													LIMIT 3");
+												while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
+													?>
+													<div class="col-md-4 agile_ecommerce_tab_left">
 
-													$resultPrice = mysql_query($sqlSelect);
-													while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
-													{
-														?>
-														<p><span><?php echo  $rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
-														<?php 
-													}
-													if ($row['WineQuantity'] > 0) 
-													{
-														?>
-														<p><a class="item_add" href="#">Mua ngay</a></p>
-														<?php
-													} else {
-														?>
-														<p><a class="item_add" href="#">Hết hàng</a></p>
-														<?php
-													}
-													?> 
+														<div class="hs-wrapper">
+															<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
+															<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
+															<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+															<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+															<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
+															<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+															<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+															<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
+															<div class="w3_hs_bottom">
+																<ul>
+																	<li>
+																		<a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+														<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
+														<div class="simpleCart_shelfItem">
+															<?php 
+															$sqlSelect = "
+															SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+
+															$resultPrice = mysql_query($sqlSelect);
+															while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
+															{
+																?>
+																<p><span><?php echo  $rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
+																<?php 
+															}
+															if ($row['WineQuantity'] > 0) 
+															{
+																?>
+																<p><a class="item_add" href="#">Mua ngay</a></p>
+																<?php
+															} else {
+																?>
+																<p><a class="item_add" href="#">Hết hàng</a></p>
+																<?php
+															}
+															?> 
+														</div>
+													</div>
+													<?php } ?>
+													<div class="clearfix"> </div>
 												</div>
 											</div>
-											<?php } ?>
+											<div role="tabpanel" class="tab-pane fade" id="sandals" aria-labelledby="sandals-tab">
+												<div class="agile_ecommerce_tabs">
+													<?php 
+													$result = mysql_query("
+														SELECT wine.*,
+														(SELECT imgwine  FROM imgwine 
+														WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
+														LIMIT 1) as imgwine 
+														FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=4  ORDER BY WineUpdateDate
+														LIMIT 3");
+													while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
+														?>
+														<div class="col-md-4 agile_ecommerce_tab_left">
+
+															<div class="hs-wrapper">
+																<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
+																<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
+																<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+																<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+																<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
+																<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+																<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+																<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
+																<div class="w3_hs_bottom">
+																	<ul>
+																		<li>
+																			<a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+																		</li>
+																	</ul>
+																</div>
+															</div>
+															<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
+															<div class="simpleCart_shelfItem">
+																<?php 
+																$sqlSelect = "
+																SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+
+																$resultPrice = mysql_query($sqlSelect);
+																while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
+																{
+																	?>
+																	<p><span><?php echo  $rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
+																	<?php 
+																}
+																if ($row['WineQuantity'] > 0) 
+																{
+																	?>
+																	<p><a class="item_add" href="#">Mua ngay</a></p>
+																	<?php
+																} else {
+																	?>
+																	<p><a class="item_add" href="#">Hết hàng</a></p>
+																	<?php
+																}
+																?> 
+															</div>
+														</div>
+														<?php } ?>
+														<div class="clearfix"> </div>
+													</div>
+												</div>
+												<div role="tabpanel" class="tab-pane fade" id="jewellery" aria-labelledby="jewellery-tab">
+													<div class="agile_ecommerce_tabs">
+														<?php 
+														$result = mysql_query("
+															SELECT wine.*,
+															(SELECT imgwine  FROM imgwine 
+															WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
+															LIMIT 1) as imgwine 
+															FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=5  ORDER BY WineUpdateDate
+															LIMIT 3");
+														while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
+															?>
+															<div class="col-md-4 agile_ecommerce_tab_left">
+
+																<div class="hs-wrapper">
+																	<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
+																	<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
+																	<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+																	<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+																	<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
+																	<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
+																	<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
+																	<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
+																	<div class="w3_hs_bottom">
+																		<ul>
+																			<li>
+																				<a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+																<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
+																<div class="simpleCart_shelfItem">
+																	<?php 
+																	$sqlSelect = "
+																	SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+
+																	$resultPrice = mysql_query($sqlSelect);
+																	while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
+																	{
+																		?>
+																		<p><span><?php echo  $rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
+																		<?php 
+																	}
+																	if ($row['WineQuantity'] > 0) 
+																	{
+																		?>
+																		<p><a class="item_add" href="#">Mua ngay</a></p>
+																		<?php
+																	} else {
+																		?>
+																		<p><a class="item_add" href="#">Hết hàng</a></p>
+																		<?php
+																	}
+																	?> 
+																</div>
+															</div>
+															<?php } ?>
+															<div class="clearfix"> </div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!--modal-video-->
+											<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+														</div>
+														<section>
+															<div class="modal-body">
+																<div class="col-md-5 modal_body_left">
+																	<img src="public/client/images/20.jpg" alt=" " class="img-responsive" />
+																</div>
+																<div class="col-md-7 modal_body_right">
+																	<h4>a good look women's shirt</h4>
+																	<p>Ut enim ad minim veniam, quis nostrud
+																		exercitation ullamco laboris nisi ut aliquip ex ea
+																		commodo consequat.Duis aute irure dolor in
+																		reprehenderit in voluptate velit esse cillum dolore
+																		eu fugiat nulla pariatur. Excepteur sint occaecat
+																		cupidatat non proident, sunt in culpa qui officia
+																	deserunt mollit anim id est laborum.</p>
+																	<div class="rating">
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="clearfix"> </div>
+																	</div>
+																	<div class="modal_body_right_cart simpleCart_shelfItem">
+																		<p><span>$320</span> <i class="item_price">$250</i></p>
+																		<p><a class="item_add" href="#">Add to cart</a></p>
+																	</div>
+																	<h5>Color</h5>
+																	<div class="color-quality">
+																		<ul>
+																			<li><a href="#"><span></span>Red</a></li>
+																			<li><a href="#" class="brown"><span></span>Yellow</a></li>
+																			<li><a href="#" class="purple"><span></span>Purple</a></li>
+																			<li><a href="#" class="gray"><span></span>Violet</a></li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="clearfix"> </div>
+															</div>
+														</section>
+													</div>
+												</div>
+											</div>
+											<div class="modal video-modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal1">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+														</div>
+														<section>
+															<div class="modal-body">
+																<div class="col-md-5 modal_body_left">
+																	<img src="public/client/images/63.jpg" alt=" " class="img-responsive" />
+																</div>
+																<div class="col-md-7 modal_body_right">
+																	<h4>a good look black women's jeans</h4>
+																	<p>Ut enim ad minim veniam, quis nostrud
+																		exercitation ullamco laboris nisi ut aliquip ex ea
+																		commodo consequat.Duis aute irure dolor in
+																		reprehenderit in voluptate velit esse cillum dolore
+																		eu fugiat nulla pariatur. Excepteur sint occaecat
+																		cupidatat non proident, sunt in culpa qui officia
+																	deserunt mollit anim id est laborum.</p>
+																	<div class="rating">
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="clearfix"> </div>
+																	</div>
+																	<div class="modal_body_right_cart simpleCart_shelfItem">
+																		<p><span>$320</span> <i class="item_price">$250</i></p>
+																		<p><a class="item_add" href="#">Add to cart</a></p>
+																	</div>
+																	<h5>Color</h5>
+																	<div class="color-quality">
+																		<ul>
+																			<li><a href="#"><span></span>Red</a></li>
+																			<li><a href="#" class="brown"><span></span>Yellow</a></li>
+																			<li><a href="#" class="purple"><span></span>Purple</a></li>
+																			<li><a href="#" class="gray"><span></span>Violet</a></li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="clearfix"> </div>
+															</div>
+														</section>
+													</div>
+												</div>
+											</div>
+											<div class="modal video-modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+														</div>
+														<section>
+															<div class="modal-body">
+																<div class="col-md-5 modal_body_left">
+																	<img src="public/client/images/23.jpg" alt=" " class="img-responsive" />
+																</div>
+																<div class="col-md-7 modal_body_right">
+																	<h4>a good look women's Watch</h4>
+																	<p>Ut enim ad minim veniam, quis nostrud
+																		exercitation ullamco laboris nisi ut aliquip ex ea
+																		commodo consequat.Duis aute irure dolor in
+																		reprehenderit in voluptate velit esse cillum dolore
+																		eu fugiat nulla pariatur. Excepteur sint occaecat
+																		cupidatat non proident, sunt in culpa qui officia
+																	deserunt mollit anim id est laborum.</p>
+																	<div class="rating">
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="clearfix"> </div>
+																	</div>
+																	<div class="modal_body_right_cart simpleCart_shelfItem">
+																		<p><span>$320</span> <i class="item_price">$250</i></p>
+																		<p><a class="item_add" href="#">Add to cart</a></p>
+																	</div>
+																	<h5>Color</h5>
+																	<div class="color-quality">
+																		<ul>
+																			<li><a href="#"><span></span>Red</a></li>
+																			<li><a href="#" class="brown"><span></span>Yellow</a></li>
+																			<li><a href="#" class="purple"><span></span>Purple</a></li>
+																			<li><a href="#" class="gray"><span></span>Violet</a></li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="clearfix"> </div>
+															</div>
+														</section>
+													</div>
+												</div>
+											</div>
+											<div class="modal video-modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModal3">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+														</div>
+														<section>
+															<div class="modal-body">
+																<div class="col-md-5 modal_body_left">
+																	<img src="public/client/images/24.jpg" alt=" " class="img-responsive" />
+																</div>
+																<div class="col-md-7 modal_body_right">
+																	<h4>a good look women's Sandal</h4>
+																	<p>Ut enim ad minim veniam, quis nostrud
+																		exercitation ullamco laboris nisi ut aliquip ex ea
+																		commodo consequat.Duis aute irure dolor in
+																		reprehenderit in voluptate velit esse cillum dolore
+																		eu fugiat nulla pariatur. Excepteur sint occaecat
+																		cupidatat non proident, sunt in culpa qui officia
+																	deserunt mollit anim id est laborum.</p>
+																	<div class="rating">
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="clearfix"> </div>
+																	</div>
+																	<div class="modal_body_right_cart simpleCart_shelfItem">
+																		<p><span>$320</span> <i class="item_price">$250</i></p>
+																		<p><a class="item_add" href="#">Add to cart</a></p>
+																	</div>
+																	<h5>Color</h5>
+																	<div class="color-quality">
+																		<ul>
+																			<li><a href="#"><span></span>Red</a></li>
+																			<li><a href="#" class="brown"><span></span>Yellow</a></li>
+																			<li><a href="#" class="purple"><span></span>Purple</a></li>
+																			<li><a href="#" class="gray"><span></span>Violet</a></li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="clearfix"> </div>
+															</div>
+														</section>
+													</div>
+												</div>
+											</div>
+											<div class="modal video-modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModal4">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+														</div>
+														<section>
+															<div class="modal-body">
+																<div class="col-md-5 modal_body_left">
+																	<img src="public/client/images/22.jpg" alt=" " class="img-responsive" />
+																</div>
+																<div class="col-md-7 modal_body_right">
+																	<h4>a good look women's Necklace</h4>
+																	<p>Ut enim ad minim veniam, quis nostrud
+																		exercitation ullamco laboris nisi ut aliquip ex ea
+																		commodo consequat.Duis aute irure dolor in
+																		reprehenderit in voluptate velit esse cillum dolore
+																		eu fugiat nulla pariatur. Excepteur sint occaecat
+																		cupidatat non proident, sunt in culpa qui officia
+																	deserunt mollit anim id est laborum.</p>
+																	<div class="rating">
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="clearfix"> </div>
+																	</div>
+																	<div class="modal_body_right_cart simpleCart_shelfItem">
+																		<p><span>$320</span> <i class="item_price">$250</i></p>
+																		<p><a class="item_add" href="#">Add to cart</a></p>
+																	</div>
+																	<h5>Color</h5>
+																	<div class="color-quality">
+																		<ul>
+																			<li><a href="#"><span></span>Red</a></li>
+																			<li><a href="#" class="brown"><span></span>Yellow</a></li>
+																			<li><a href="#" class="purple"><span></span>Purple</a></li>
+																			<li><a href="#" class="gray"><span></span>Violet</a></li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="clearfix"> </div>
+															</div>
+														</section>
+													</div>
+												</div>
+											</div>
+											<div class="modal video-modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModal5">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+														</div>
+														<section>
+															<div class="modal-body">
+																<div class="col-md-5 modal_body_left">
+																	<img src="public/client/images/35.jpg" alt=" " class="img-responsive" />
+																</div>
+																<div class="col-md-7 modal_body_right">
+																	<h4>a good look women's Jacket</h4>
+																	<p>Ut enim ad minim veniam, quis nostrud
+																		exercitation ullamco laboris nisi ut aliquip ex ea
+																		commodo consequat.Duis aute irure dolor in
+																		reprehenderit in voluptate velit esse cillum dolore
+																		eu fugiat nulla pariatur. Excepteur sint occaecat
+																		cupidatat non proident, sunt in culpa qui officia
+																	deserunt mollit anim id est laborum.</p>
+																	<div class="rating">
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="clearfix"> </div>
+																	</div>
+																	<div class="modal_body_right_cart simpleCart_shelfItem">
+																		<p><span>$320</span> <i class="item_price">$250</i></p>
+																		<p><a class="item_add" href="#">Add to cart</a></p>
+																	</div>
+																	<h5>Color</h5>
+																	<div class="color-quality">
+																		<ul>
+																			<li><a href="#"><span></span>Red</a></li>
+																			<li><a href="#" class="brown"><span></span>Yellow</a></li>
+																			<li><a href="#" class="purple"><span></span>Purple</a></li>
+																			<li><a href="#" class="gray"><span></span>Violet</a></li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="clearfix"> </div>
+															</div>
+														</section>
+													</div>
+												</div>
+											</div>
+											<div class="modal video-modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModal6">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+														</div>
+														<section>
+															<div class="modal-body">
+																<div class="col-md-5 modal_body_left">
+																	<img src="public/client/images/39.jpg" alt=" " class="img-responsive" />
+																</div>
+																<div class="col-md-7 modal_body_right">
+																	<h4>a good look women's Long Skirt</h4>
+																	<p>Ut enim ad minim veniam, quis nostrud
+																		exercitation ullamco laboris nisi ut aliquip ex ea
+																		commodo consequat.Duis aute irure dolor in
+																		reprehenderit in voluptate velit esse cillum dolore
+																		eu fugiat nulla pariatur. Excepteur sint occaecat
+																		cupidatat non proident, sunt in culpa qui officia
+																	deserunt mollit anim id est laborum.</p>
+																	<div class="rating">
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="rating-left">
+																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																		</div>
+																		<div class="clearfix"> </div>
+																	</div>
+																	<div class="modal_body_right_cart simpleCart_shelfItem">
+																		<p><span>$320</span> <i class="item_price">$250</i></p>
+																		<p><a class="item_add" href="#">Add to cart</a></p>
+																	</div>
+																	<h5>Color</h5>
+																	<div class="color-quality">
+																		<ul>
+																			<li><a href="#"><span></span>Red</a></li>
+																			<li><a href="#" class="brown"><span></span>Yellow</a></li>
+																			<li><a href="#" class="purple"><span></span>Purple</a></li>
+																			<li><a href="#" class="gray"><span></span>Violet</a></li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="clearfix"> </div>
+															</div>
+														</section>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+								</div>
+								<!-- //banner-bottom -->
+
+								<!-- banner-bottom1 -->
+								<div class="banner-bottom1">
+									<div class="agileinfo_banner_bottom1_grids">
+										<div class="col-md-7 agileinfo_banner_bottom1_grid_left">
+											<h3 >Grand Opening Event With flat<span>20% <i>Discount</i></span></h3>
+											<a href="products.html">Shop Now</a>
+										</div>
+										<div class="col-md-5 agileinfo_banner_bottom1_grid_right">
+											<h4>hot deal</h4>
+											<div class="timer_wrap">
+												<div id="counter"> </div>
+											</div>
+											<script src="public/client/js/jquery.countdown.js"></script>
+											<script src="public/client/js/script.js"></script>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+								</div>
+								<!-- //banner-bottom1 -->
+
+								<!-- special-deals -->
+								<div class="special-deals">
+									<div class="container">
+										<h2>Special Deals</h2>
+										<div class="w3agile_special_deals_grids">
+											<div class="col-md-7 w3agile_special_deals_grid_left">
+												<div class="w3agile_special_deals_grid_left_grid">
+													<img src="public/client/images/26.jpg" alt=" " class="img-responsive" />
+													<div class="w3agile_special_deals_grid_left_grid_pos1">
+														<h5>30%<span>Off/-</span></h5>
+													</div>
+													<div class="w3agile_special_deals_grid_left_grid_pos">
+														<h4>We Offer <span>Best Products</span></h4>
+													</div>
+												</div>
+												<div class="wmuSlider example1">
+													<div class="wmuSliderWrapper">
+														<article style="position: absolute; width: 100%; opacity: 0;">
+															<div class="banner-wrap">
+																<div class="w3agile_special_deals_grid_left_grid1">
+																	<img src="public/client/images/1.png" alt=" " class="img-responsive" />
+																	<p>Quis autem vel eum iure reprehenderit qui in ea voluptate
+																		velit esse quam nihil molestiae consequatur, vel illum qui dolorem
+																	eum fugiat quo voluptas nulla pariatur</p>
+																	<h4>Laura</h4>
+																</div>
+															</div>
+														</article>
+														<article style="position: absolute; width: 100%; opacity: 0;">
+															<div class="banner-wrap">
+																<div class="w3agile_special_deals_grid_left_grid1">
+																	<img src="public/client/images/2.png" alt=" " class="img-responsive" />
+																	<p>Quis autem vel eum iure reprehenderit qui in ea voluptate
+																		velit esse quam nihil molestiae consequatur, vel illum qui dolorem
+																	eum fugiat quo voluptas nulla pariatur</p>
+																	<h4>Michael</h4>
+																</div>
+															</div>
+														</article>
+														<article style="position: absolute; width: 100%; opacity: 0;">
+															<div class="banner-wrap">
+																<div class="w3agile_special_deals_grid_left_grid1">
+																	<img src="public/client/images/3.png" alt=" " class="img-responsive" />
+																	<p>Quis autem vel eum iure reprehenderit qui in ea voluptate
+																		velit esse quam nihil molestiae consequatur, vel illum qui dolorem
+																	eum fugiat quo voluptas nulla pariatur</p>
+																	<h4>Rosy</h4>
+																</div>
+															</div>
+														</article>
+													</div>
+												</div>
+												<script src="public/client/js/jquery.wmuSlider.js"></script>
+												<script>
+													$('.example1').wmuSlider();
+												</script>
+											</div>
+											<div class="col-md-5 w3agile_special_deals_grid_right">
+												<img src="public/client/images/25.jpg" alt=" " class="img-responsive" />
+												<div class="w3agile_special_deals_grid_right_pos">
+													<h4>Women's <span>Special</span></h4>
+													<h5>save up <span>to</span> 30%</h5>
+												</div>
+											</div>
 											<div class="clearfix"> </div>
 										</div>
 									</div>
-									<div role="tabpanel" class="tab-pane fade" id="watches" aria-labelledby="watches-tab">
-										<div class="agile_ecommerce_tabs">
-										<?php 
+								</div>
+								<!-- //special-deals -->
+								<!-- new-products -->
+								<div class="new-products">
+									<div class="container">
+										<h3>New Products</h3>
+										<div class="agileinfo_new_products_grids">
+											<?php 
 											$result = mysql_query("
 												SELECT wine.*,
-												(SELECT imgwine  FROM imgwine 
+												(SELECT imgwine 
+												FROM imgwine 
 												WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
 												LIMIT 1) as imgwine 
-												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=3  ORDER BY WineUpdateDate
-												LIMIT 3");
+												FROM wine ORDER BY WineUpdateDate
+												LIMIT 8");
 											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 												?>
-										<div class="col-md-4 agile_ecommerce_tab_left">
-											
-												<div class="hs-wrapper">
-													<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
-													<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
-													<div class="w3_hs_bottom">
-														<ul>
-															<li>
-																<a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-															</li>
-														</ul>
-													</div>
-												</div>
-												<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
-												<div class="simpleCart_shelfItem">
-													<?php 
-													$sqlSelect = "
-													SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+												<div class="col-md-3 agileinfo_new_products_grid">
+													<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
+														<div class="hs-wrapper hs-wrapper1">
+															<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
+															<img src="public/client/images/28.jpg" alt=" " class="img-responsive" />
+															<img src="public/client/images/29.jpg" alt=" " class="img-responsive" />
+															<img src="public/client/images/30.jpg" alt=" " class="img-responsive" />
+															<img src="public/client/images/27.jpg" alt=" " class="img-responsive" />
+															<img src="public/client/images/28.jpg" alt=" " class="img-responsive" />
+															<img src="public/client/images/29.jpg" alt=" " class="img-responsive" />
+															<img src="public/client/images/30.jpg" alt=" " class="img-responsive" /> 
+															<div class="w3_hs_bottom w3_hs_bottom_sub">
+																<ul>
+																	<li>
+																		<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+														<!-- <h5><a href="single.html">Skirts</a></h5> -->
+														<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
+														<div class="simpleCart_shelfItem">
+															<?php 
+															$sqlSelect = "
+															SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
 
-													$resultPrice = mysql_query($sqlSelect);
-													while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
-													{
-														?>
-														<p><span><?php echo  $rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
-														<?php 
-													}
-													if ($row['WineQuantity'] > 0) 
-													{
-														?>
-														<p><a class="item_add" href="#">Mua ngay</a></p>
-														<?php
-													} else {
-														?>
-														<p><a class="item_add" href="#">Hết hàng</a></p>
-														<?php
-													}
-													?> 
-												</div>
-											</div>
-											<?php } ?>
-											<div class="clearfix"> </div>
-										</div>
-									</div>
-									<div role="tabpanel" class="tab-pane fade" id="sandals" aria-labelledby="sandals-tab">
-										<div class="agile_ecommerce_tabs">
-										<?php 
-											$result = mysql_query("
-												SELECT wine.*,
-												(SELECT imgwine  FROM imgwine 
-												WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
-												LIMIT 1) as imgwine 
-												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=4  ORDER BY WineUpdateDate
-												LIMIT 3");
-											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
-												?>
-										<div class="col-md-4 agile_ecommerce_tab_left">
-											
-												<div class="hs-wrapper">
-													<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
-													<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
-													<div class="w3_hs_bottom">
-														<ul>
-															<li>
-																<a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-															</li>
-														</ul>
-													</div>
-												</div>
-												<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
-												<div class="simpleCart_shelfItem">
-													<?php 
-													$sqlSelect = "
-													SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+															$resultPrice = mysql_query($sqlSelect);
+															while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
+															{
+																?>
+																<p><span><?php echo  $rowPrice['PurchasePrice']?>
 
-													$resultPrice = mysql_query($sqlSelect);
-													while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
-													{
-														?>
-														<p><span><?php echo  $rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
-														<?php 
-													}
-													if ($row['WineQuantity'] > 0) 
-													{
-														?>
-														<p><a class="item_add" href="#">Mua ngay</a></p>
-														<?php
-													} else {
-														?>
-														<p><a class="item_add" href="#">Hết hàng</a></p>
-														<?php
-													}
-													?> 
-												</div>
-											</div>
-											<?php } ?>
-											<div class="clearfix"> </div>
-										</div>
-									</div>
-									<div role="tabpanel" class="tab-pane fade" id="jewellery" aria-labelledby="jewellery-tab">
-										<div class="agile_ecommerce_tabs">
-										<?php 
-											$result = mysql_query("
-												SELECT wine.*,
-												(SELECT imgwine  FROM imgwine 
-												WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
-												LIMIT 1) as imgwine 
-												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=5  ORDER BY WineUpdateDate
-												LIMIT 3");
-											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
-												?>
-										<div class="col-md-4 agile_ecommerce_tab_left">
-											
-												<div class="hs-wrapper">
-													<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
-													<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
-													<div class="w3_hs_bottom">
-														<ul>
-															<li>
-																<a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-															</li>
-														</ul>
+																</span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
+																<?php 
+															}
+															if ($row['WineQuantity'] > 0) 
+															{
+																?>
+																<p><a class="item_add" href="#">Mua ngay</a></p>
+																<?php
+															} else {
+																?>
+																<p><a class="item_add" href="#">Hết hàng</a></p>
+																<?php
+															}
+															?> 
+														</div>
 													</div>
-												</div>
-												<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
-												<div class="simpleCart_shelfItem">
-													<?php 
-													$sqlSelect = "
-													SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
-
-													$resultPrice = mysql_query($sqlSelect);
-													while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
-													{
-														?>
-														<p><span><?php echo  $rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
-														<?php 
-													}
-													if ($row['WineQuantity'] > 0) 
-													{
-														?>
-														<p><a class="item_add" href="#">Mua ngay</a></p>
-														<?php
-													} else {
-														?>
-														<p><a class="item_add" href="#">Hết hàng</a></p>
-														<?php
-													}
-													?> 
-												</div>
-											</div>
-											<?php } ?>
-											<div class="clearfix"> </div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--modal-video-->
-							<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										</div>
-										<section>
-											<div class="modal-body">
-												<div class="col-md-5 modal_body_left">
-													<img src="public/client/images/20.jpg" alt=" " class="img-responsive" />
-												</div>
-												<div class="col-md-7 modal_body_right">
-													<h4>a good look women's shirt</h4>
-													<p>Ut enim ad minim veniam, quis nostrud
-														exercitation ullamco laboris nisi ut aliquip ex ea
-														commodo consequat.Duis aute irure dolor in
-														reprehenderit in voluptate velit esse cillum dolore
-														eu fugiat nulla pariatur. Excepteur sint occaecat
-														cupidatat non proident, sunt in culpa qui officia
-													deserunt mollit anim id est laborum.</p>
-													<div class="rating">
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="clearfix"> </div>
-													</div>
-													<div class="modal_body_right_cart simpleCart_shelfItem">
-														<p><span>$320</span> <i class="item_price">$250</i></p>
-														<p><a class="item_add" href="#">Add to cart</a></p>
-													</div>
-													<h5>Color</h5>
-													<div class="color-quality">
-														<ul>
-															<li><a href="#"><span></span>Red</a></li>
-															<li><a href="#" class="brown"><span></span>Yellow</a></li>
-															<li><a href="#" class="purple"><span></span>Purple</a></li>
-															<li><a href="#" class="gray"><span></span>Violet</a></li>
-														</ul>
-													</div>
-												</div>
+												</div> 
+												<?php } ?>
 												<div class="clearfix"> </div>
 											</div>
-										</section>
-									</div>
-								</div>
-							</div>
-							<div class="modal video-modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal1">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 										</div>
-										<section>
-											<div class="modal-body">
-												<div class="col-md-5 modal_body_left">
-													<img src="public/client/images/63.jpg" alt=" " class="img-responsive" />
-												</div>
-												<div class="col-md-7 modal_body_right">
-													<h4>a good look black women's jeans</h4>
-													<p>Ut enim ad minim veniam, quis nostrud
-														exercitation ullamco laboris nisi ut aliquip ex ea
-														commodo consequat.Duis aute irure dolor in
-														reprehenderit in voluptate velit esse cillum dolore
-														eu fugiat nulla pariatur. Excepteur sint occaecat
-														cupidatat non proident, sunt in culpa qui officia
-													deserunt mollit anim id est laborum.</p>
-													<div class="rating">
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="clearfix"> </div>
-													</div>
-													<div class="modal_body_right_cart simpleCart_shelfItem">
-														<p><span>$320</span> <i class="item_price">$250</i></p>
-														<p><a class="item_add" href="#">Add to cart</a></p>
-													</div>
-													<h5>Color</h5>
-													<div class="color-quality">
-														<ul>
-															<li><a href="#"><span></span>Red</a></li>
-															<li><a href="#" class="brown"><span></span>Yellow</a></li>
-															<li><a href="#" class="purple"><span></span>Purple</a></li>
-															<li><a href="#" class="gray"><span></span>Violet</a></li>
-														</ul>
-													</div>
-												</div>
-												<div class="clearfix"> </div>
-											</div>
-										</section>
 									</div>
-								</div>
-							</div>
-							<div class="modal video-modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										</div>
-										<section>
-											<div class="modal-body">
-												<div class="col-md-5 modal_body_left">
-													<img src="public/client/images/23.jpg" alt=" " class="img-responsive" />
-												</div>
-												<div class="col-md-7 modal_body_right">
-													<h4>a good look women's Watch</h4>
-													<p>Ut enim ad minim veniam, quis nostrud
-														exercitation ullamco laboris nisi ut aliquip ex ea
-														commodo consequat.Duis aute irure dolor in
-														reprehenderit in voluptate velit esse cillum dolore
-														eu fugiat nulla pariatur. Excepteur sint occaecat
-														cupidatat non proident, sunt in culpa qui officia
-													deserunt mollit anim id est laborum.</p>
-													<div class="rating">
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="clearfix"> </div>
-													</div>
-													<div class="modal_body_right_cart simpleCart_shelfItem">
-														<p><span>$320</span> <i class="item_price">$250</i></p>
-														<p><a class="item_add" href="#">Add to cart</a></p>
-													</div>
-													<h5>Color</h5>
-													<div class="color-quality">
-														<ul>
-															<li><a href="#"><span></span>Red</a></li>
-															<li><a href="#" class="brown"><span></span>Yellow</a></li>
-															<li><a href="#" class="purple"><span></span>Purple</a></li>
-															<li><a href="#" class="gray"><span></span>Violet</a></li>
-														</ul>
-													</div>
-												</div>
-												<div class="clearfix"> </div>
-											</div>
-										</section>
-									</div>
-								</div>
-							</div>
-							<div class="modal video-modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModal3">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										</div>
-										<section>
-											<div class="modal-body">
-												<div class="col-md-5 modal_body_left">
-													<img src="public/client/images/24.jpg" alt=" " class="img-responsive" />
-												</div>
-												<div class="col-md-7 modal_body_right">
-													<h4>a good look women's Sandal</h4>
-													<p>Ut enim ad minim veniam, quis nostrud
-														exercitation ullamco laboris nisi ut aliquip ex ea
-														commodo consequat.Duis aute irure dolor in
-														reprehenderit in voluptate velit esse cillum dolore
-														eu fugiat nulla pariatur. Excepteur sint occaecat
-														cupidatat non proident, sunt in culpa qui officia
-													deserunt mollit anim id est laborum.</p>
-													<div class="rating">
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="clearfix"> </div>
-													</div>
-													<div class="modal_body_right_cart simpleCart_shelfItem">
-														<p><span>$320</span> <i class="item_price">$250</i></p>
-														<p><a class="item_add" href="#">Add to cart</a></p>
-													</div>
-													<h5>Color</h5>
-													<div class="color-quality">
-														<ul>
-															<li><a href="#"><span></span>Red</a></li>
-															<li><a href="#" class="brown"><span></span>Yellow</a></li>
-															<li><a href="#" class="purple"><span></span>Purple</a></li>
-															<li><a href="#" class="gray"><span></span>Violet</a></li>
-														</ul>
-													</div>
-												</div>
-												<div class="clearfix"> </div>
-											</div>
-										</section>
-									</div>
-								</div>
-							</div>
-							<div class="modal video-modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModal4">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										</div>
-										<section>
-											<div class="modal-body">
-												<div class="col-md-5 modal_body_left">
-													<img src="public/client/images/22.jpg" alt=" " class="img-responsive" />
-												</div>
-												<div class="col-md-7 modal_body_right">
-													<h4>a good look women's Necklace</h4>
-													<p>Ut enim ad minim veniam, quis nostrud
-														exercitation ullamco laboris nisi ut aliquip ex ea
-														commodo consequat.Duis aute irure dolor in
-														reprehenderit in voluptate velit esse cillum dolore
-														eu fugiat nulla pariatur. Excepteur sint occaecat
-														cupidatat non proident, sunt in culpa qui officia
-													deserunt mollit anim id est laborum.</p>
-													<div class="rating">
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="clearfix"> </div>
-													</div>
-													<div class="modal_body_right_cart simpleCart_shelfItem">
-														<p><span>$320</span> <i class="item_price">$250</i></p>
-														<p><a class="item_add" href="#">Add to cart</a></p>
-													</div>
-													<h5>Color</h5>
-													<div class="color-quality">
-														<ul>
-															<li><a href="#"><span></span>Red</a></li>
-															<li><a href="#" class="brown"><span></span>Yellow</a></li>
-															<li><a href="#" class="purple"><span></span>Purple</a></li>
-															<li><a href="#" class="gray"><span></span>Violet</a></li>
-														</ul>
-													</div>
-												</div>
-												<div class="clearfix"> </div>
-											</div>
-										</section>
-									</div>
-								</div>
-							</div>
-							<div class="modal video-modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModal5">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										</div>
-										<section>
-											<div class="modal-body">
-												<div class="col-md-5 modal_body_left">
-													<img src="public/client/images/35.jpg" alt=" " class="img-responsive" />
-												</div>
-												<div class="col-md-7 modal_body_right">
-													<h4>a good look women's Jacket</h4>
-													<p>Ut enim ad minim veniam, quis nostrud
-														exercitation ullamco laboris nisi ut aliquip ex ea
-														commodo consequat.Duis aute irure dolor in
-														reprehenderit in voluptate velit esse cillum dolore
-														eu fugiat nulla pariatur. Excepteur sint occaecat
-														cupidatat non proident, sunt in culpa qui officia
-													deserunt mollit anim id est laborum.</p>
-													<div class="rating">
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="clearfix"> </div>
-													</div>
-													<div class="modal_body_right_cart simpleCart_shelfItem">
-														<p><span>$320</span> <i class="item_price">$250</i></p>
-														<p><a class="item_add" href="#">Add to cart</a></p>
-													</div>
-													<h5>Color</h5>
-													<div class="color-quality">
-														<ul>
-															<li><a href="#"><span></span>Red</a></li>
-															<li><a href="#" class="brown"><span></span>Yellow</a></li>
-															<li><a href="#" class="purple"><span></span>Purple</a></li>
-															<li><a href="#" class="gray"><span></span>Violet</a></li>
-														</ul>
-													</div>
-												</div>
-												<div class="clearfix"> </div>
-											</div>
-										</section>
-									</div>
-								</div>
-							</div>
-							<div class="modal video-modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModal6">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										</div>
-										<section>
-											<div class="modal-body">
-												<div class="col-md-5 modal_body_left">
-													<img src="public/client/images/39.jpg" alt=" " class="img-responsive" />
-												</div>
-												<div class="col-md-7 modal_body_right">
-													<h4>a good look women's Long Skirt</h4>
-													<p>Ut enim ad minim veniam, quis nostrud
-														exercitation ullamco laboris nisi ut aliquip ex ea
-														commodo consequat.Duis aute irure dolor in
-														reprehenderit in voluptate velit esse cillum dolore
-														eu fugiat nulla pariatur. Excepteur sint occaecat
-														cupidatat non proident, sunt in culpa qui officia
-													deserunt mollit anim id est laborum.</p>
-													<div class="rating">
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="rating-left">
-															<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-														</div>
-														<div class="clearfix"> </div>
-													</div>
-													<div class="modal_body_right_cart simpleCart_shelfItem">
-														<p><span>$320</span> <i class="item_price">$250</i></p>
-														<p><a class="item_add" href="#">Add to cart</a></p>
-													</div>
-													<h5>Color</h5>
-													<div class="color-quality">
-														<ul>
-															<li><a href="#"><span></span>Red</a></li>
-															<li><a href="#" class="brown"><span></span>Yellow</a></li>
-															<li><a href="#" class="purple"><span></span>Purple</a></li>
-															<li><a href="#" class="gray"><span></span>Violet</a></li>
-														</ul>
-													</div>
-												</div>
-												<div class="clearfix"> </div>
-											</div>
-										</section>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<!-- //banner-bottom -->
-
-				<!-- banner-bottom1 -->
-				<div class="banner-bottom1">
-					<div class="agileinfo_banner_bottom1_grids">
-						<div class="col-md-7 agileinfo_banner_bottom1_grid_left">
-							<h3 >Grand Opening Event With flat<span>20% <i>Discount</i></span></h3>
-							<a href="products.html">Shop Now</a>
-						</div>
-						<div class="col-md-5 agileinfo_banner_bottom1_grid_right">
-							<h4>hot deal</h4>
-							<div class="timer_wrap">
-								<div id="counter"> </div>
-							</div>
-							<script src="public/client/js/jquery.countdown.js"></script>
-							<script src="public/client/js/script.js"></script>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<!-- //banner-bottom1 -->
-
-				<!-- special-deals -->
-				<div class="special-deals">
-					<div class="container">
-						<h2>Special Deals</h2>
-						<div class="w3agile_special_deals_grids">
-							<div class="col-md-7 w3agile_special_deals_grid_left">
-								<div class="w3agile_special_deals_grid_left_grid">
-									<img src="public/client/images/26.jpg" alt=" " class="img-responsive" />
-									<div class="w3agile_special_deals_grid_left_grid_pos1">
-										<h5>30%<span>Off/-</span></h5>
-									</div>
-									<div class="w3agile_special_deals_grid_left_grid_pos">
-										<h4>We Offer <span>Best Products</span></h4>
-									</div>
-								</div>
-								<div class="wmuSlider example1">
-									<div class="wmuSliderWrapper">
-										<article style="position: absolute; width: 100%; opacity: 0;">
-											<div class="banner-wrap">
-												<div class="w3agile_special_deals_grid_left_grid1">
-													<img src="public/client/images/1.png" alt=" " class="img-responsive" />
-													<p>Quis autem vel eum iure reprehenderit qui in ea voluptate
-														velit esse quam nihil molestiae consequatur, vel illum qui dolorem
-													eum fugiat quo voluptas nulla pariatur</p>
-													<h4>Laura</h4>
-												</div>
-											</div>
-										</article>
-										<article style="position: absolute; width: 100%; opacity: 0;">
-											<div class="banner-wrap">
-												<div class="w3agile_special_deals_grid_left_grid1">
-													<img src="public/client/images/2.png" alt=" " class="img-responsive" />
-													<p>Quis autem vel eum iure reprehenderit qui in ea voluptate
-														velit esse quam nihil molestiae consequatur, vel illum qui dolorem
-													eum fugiat quo voluptas nulla pariatur</p>
-													<h4>Michael</h4>
-												</div>
-											</div>
-										</article>
-										<article style="position: absolute; width: 100%; opacity: 0;">
-											<div class="banner-wrap">
-												<div class="w3agile_special_deals_grid_left_grid1">
-													<img src="public/client/images/3.png" alt=" " class="img-responsive" />
-													<p>Quis autem vel eum iure reprehenderit qui in ea voluptate
-														velit esse quam nihil molestiae consequatur, vel illum qui dolorem
-													eum fugiat quo voluptas nulla pariatur</p>
-													<h4>Rosy</h4>
-												</div>
-											</div>
-										</article>
-									</div>
-								</div>
-								<script src="public/client/js/jquery.wmuSlider.js"></script>
-								<script>
-									$('.example1').wmuSlider();
-								</script>
-							</div>
-							<div class="col-md-5 w3agile_special_deals_grid_right">
-								<img src="public/client/images/25.jpg" alt=" " class="img-responsive" />
-								<div class="w3agile_special_deals_grid_right_pos">
-									<h4>Women's <span>Special</span></h4>
-									<h5>save up <span>to</span> 30%</h5>
-								</div>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-					</div>
-				</div>
-				<!-- //special-deals -->
-				<!-- new-products -->
-				<div class="new-products">
-					<div class="container">
-						<h3>New Products</h3>
-						<div class="agileinfo_new_products_grids">
-							<?php 
-							$result = mysql_query("
-								SELECT wine.*,
-								(SELECT imgwine 
-								FROM imgwine 
-								WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
-								LIMIT 1) as imgwine 
-								FROM wine ORDER BY WineUpdateDate
-								LIMIT 8");
-							while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
-								?>
-								<div class="col-md-3 agileinfo_new_products_grid">
-									<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-										<div class="hs-wrapper hs-wrapper1">
-											<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
-											<img src="public/client/images/28.jpg" alt=" " class="img-responsive" />
-											<img src="public/client/images/29.jpg" alt=" " class="img-responsive" />
-											<img src="public/client/images/30.jpg" alt=" " class="img-responsive" />
-											<img src="public/client/images/27.jpg" alt=" " class="img-responsive" />
-											<img src="public/client/images/28.jpg" alt=" " class="img-responsive" />
-											<img src="public/client/images/29.jpg" alt=" " class="img-responsive" />
-											<img src="public/client/images/30.jpg" alt=" " class="img-responsive" /> 
-											<div class="w3_hs_bottom w3_hs_bottom_sub">
-												<ul>
+									<!-- //new-products -->
+									<!-- top-brands -->
+									<div class="top-brands">
+										<div class="container">
+											<h3>Top Brands</h3>
+											<div class="sliderfig">
+												<ul id="flexiselDemo1">
 													<li>
-														<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+														<img src="public/client/images/4.png" alt=" " class="img-responsive" />
+													</li>
+													<li>
+														<img src="public/client/images/5.png" alt=" " class="img-responsive" />
+													</li>
+													<li>
+														<img src="public/client/images/6.png" alt=" " class="img-responsive" />
+													</li>
+													<li>
+														<img src="public/client/images/7.png" alt=" " class="img-responsive" />
+													</li>
+													<li>
+														<img src="public/client/images/46.jpg" alt=" " class="img-responsive" />
 													</li>
 												</ul>
 											</div>
+											<script type="text/javascript">
+												$(window).load(function() {
+													$("#flexiselDemo1").flexisel({
+														visibleItems: 4,
+														animationSpeed: 1000,
+														autoPlay: true,
+														autoPlaySpeed: 3000,
+														pauseOnHover: true,
+														enableResponsiveBreakpoints: true,
+														responsiveBreakpoints: {
+															portrait: {
+																changePoint:480,
+																visibleItems: 1
+															},
+															landscape: {
+																changePoint:640,
+																visibleItems:2
+															},
+															tablet: {
+																changePoint:768,
+																visibleItems: 3
+															}
+														}
+													});
+
+												});
+											</script>
+											<script type="text/javascript" src="public/client/js/jquery.flexisel.js"></script>
+											<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 										</div>
-										<!-- <h5><a href="single.html">Skirts</a></h5> -->
-										<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
-										<div class="simpleCart_shelfItem">
-											<?php 
-											$sqlSelect = "
-											SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+									</div>
+									<!-- //top-brands -->
+									<!-- newsletter -->
+									<div class="newsletter">
+										<div class="container">
+											<div class="col-md-6 w3agile_newsletter_left">
+												<h3>Newsletter</h3>
+												<p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
+											</div>
+											<div class="col-md-6 w3agile_newsletter_right">
+												<form action="#" method="post">
+													<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+													<input type="submit" value="" />
+												</form>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+									</div>
+									<!-- //newsletter -->
+									<!-- footer -->
+									<div class="footer">
+										<div class="container">
+											<div class="w3_footer_grids">
+												<div class="col-md-3 w3_footer_grid">
+													<h3>Contact</h3>
+													<p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+													<ul class="address">
+														<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
+														<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
+														<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
+													</ul>
+												</div>
+												<div class="col-md-3 w3_footer_grid">
+													<h3>Producer</h3>
+													<?php 
+													$sqlSelect = "SELECT `PublisherName` FROM Publisher";
+													$list_publisher= mysql_query($sqlSelect);
 
-											$resultPrice = mysql_query($sqlSelect);
-											while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
-											{
-												?>
-												<p><span><?php echo  $rowPrice['PurchasePrice']?>
+													?>
+													<ul class="info"><?php 
+													while(list($name) = mysql_fetch_array($list_publisher))
+													{
+														?>
 
-												</span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
+														<li><a href="dresses.html"><?= $name;?></a></li>
+
+														<?php
+													}
+													?>
+												</ul>
+											</div>
+											<div class="col-md-3 w3_footer_grid">
+												<h3>Category</h3>
 												<?php 
-											}
-											if ($row['WineQuantity'] > 0) 
-											{
+												$sqlSelect = "SELECT `CategoryId`, `CategoryName`, `CategoryDescription` FROM Category";
+												$list_category= mysql_query($sqlSelect);
+
 												?>
-												<p><a class="item_add" href="#">Mua ngay</a></p>
-												<?php
-											} else {
-												?>
-												<p><a class="item_add" href="#">Hết hàng</a></p>
-												<?php
-											}
-											?> 
+												<ul class="info">
+													<?php 
+													while(list($CategoryId, $name, $details) = mysql_fetch_array($list_category))
+													{
+														?>
+
+														<li><a href="dresses.html"><?= $name;?></a></li>
+
+														<?php
+													}
+													?>
+												</ul>
+											</div>
+											<div class="col-md-3 w3_footer_grid">
+												<h3>Profile</h3>
+												<ul class="info">
+													<li><a href="products.html">Summer Store</a></li>
+													<li><a href="checkout.html">My Cart</a></li>
+												</ul>
+												<h4>Follow Us</h4>
+												<div class="agileits_social_button">
+													<ul>
+														<li><a href="#" class="facebook"> </a></li>
+														<li><a href="#" class="twitter"> </a></li>
+														<li><a href="#" class="google"> </a></li>
+														<li><a href="#" class="pinterest"> </a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="clearfix"> </div>
 										</div>
 									</div>
-								</div> 
-								<?php } ?>
-								<div class="clearfix"> </div>
-							</div>
-						</div>
-					</div>
-					<!-- //new-products -->
-					<!-- top-brands -->
-					<div class="top-brands">
-						<div class="container">
-							<h3>Top Brands</h3>
-							<div class="sliderfig">
-								<ul id="flexiselDemo1">
-									<li>
-										<img src="public/client/images/4.png" alt=" " class="img-responsive" />
-									</li>
-									<li>
-										<img src="public/client/images/5.png" alt=" " class="img-responsive" />
-									</li>
-									<li>
-										<img src="public/client/images/6.png" alt=" " class="img-responsive" />
-									</li>
-									<li>
-										<img src="public/client/images/7.png" alt=" " class="img-responsive" />
-									</li>
-									<li>
-										<img src="public/client/images/46.jpg" alt=" " class="img-responsive" />
-									</li>
-								</ul>
-							</div>
-							<script type="text/javascript">
-								$(window).load(function() {
-									$("#flexiselDemo1").flexisel({
-										visibleItems: 4,
-										animationSpeed: 1000,
-										autoPlay: true,
-										autoPlaySpeed: 3000,
-										pauseOnHover: true,
-										enableResponsiveBreakpoints: true,
-										responsiveBreakpoints: {
-											portrait: {
-												changePoint:480,
-												visibleItems: 1
-											},
-											landscape: {
-												changePoint:640,
-												visibleItems:2
-											},
-											tablet: {
-												changePoint:768,
-												visibleItems: 3
-											}
-										}
-									});
-
-								});
-							</script>
-							<script type="text/javascript" src="public/client/js/jquery.flexisel.js"></script>
-							<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-						</div>
-					</div>
-					<!-- //top-brands -->
-					<!-- newsletter -->
-					<div class="newsletter">
-						<div class="container">
-							<div class="col-md-6 w3agile_newsletter_left">
-								<h3>Newsletter</h3>
-								<p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
-							</div>
-							<div class="col-md-6 w3agile_newsletter_right">
-								<form action="#" method="post">
-									<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-									<input type="submit" value="" />
-								</form>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-					</div>
-					<!-- //newsletter -->
-					<!-- footer -->
-					<div class="footer">
-						<div class="container">
-							<div class="w3_footer_grids">
-								<div class="col-md-3 w3_footer_grid">
-									<h3>Contact</h3>
-									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-									<ul class="address">
-										<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
-										<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
-										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
-									</ul>
-								</div>
-								<div class="col-md-3 w3_footer_grid">
-									<h3>Information</h3>
-									<ul class="info">
-										<li><a href="about.html">About Us</a></li>
-										<li><a href="mail.html">Contact Us</a></li>
-										<li><a href="short-codes.html">Short Codes</a></li>
-										<li><a href="faq.html">FAQ's</a></li>
-										<li><a href="products.html">Special Products</a></li>
-									</ul>
-								</div>
-								<div class="col-md-3 w3_footer_grid">
-									<h3>Category</h3>
-									<ul class="info">
-										<li><a href="dresses.html">Dresses</a></li>
-										<li><a href="sweaters.html">Sweaters</a></li>
-										<li><a href="shirts.html">Shirts</a></li>
-										<li><a href="sarees.html">Sarees</a></li>
-										<li><a href="skirts.html">Shorts & Skirts</a></li>
-									</ul>
-								</div>
-								<div class="col-md-3 w3_footer_grid">
-									<h3>Profile</h3>
-									<ul class="info">
-										<li><a href="products.html">Summer Store</a></li>
-										<li><a href="checkout.html">My Cart</a></li>
-									</ul>
-									<h4>Follow Us</h4>
-									<div class="agileits_social_button">
-										<ul>
-											<li><a href="#" class="facebook"> </a></li>
-											<li><a href="#" class="twitter"> </a></li>
-											<li><a href="#" class="google"> </a></li>
-											<li><a href="#" class="pinterest"> </a></li>
-										</ul>
+									<div class="footer-copy">
+										<div class="footer-copy1">
+											<div class="footer-copy-pos">
+												<a href="#home1" class="scroll"><img src="public/client/images/arrow.png" alt=" " class="img-responsive" /></a>
+											</div>
+										</div>
+										<div class="container">
+											<p>&copy; 2016 Women's Fashion. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+										</div>
 									</div>
 								</div>
-								<div class="clearfix"> </div>
-							</div>
-						</div>
-						<div class="footer-copy">
-							<div class="footer-copy1">
-								<div class="footer-copy-pos">
-									<a href="#home1" class="scroll"><img src="public/client/images/arrow.png" alt=" " class="img-responsive" /></a>
-								</div>
-							</div>
-							<div class="container">
-								<p>&copy; 2016 Women's Fashion. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-							</div>
-						</div>
-					</div>
-					<!-- //footer -->
-				</body>
-				</html>
+								<!-- //footer -->
+							</body>
+							</html>
