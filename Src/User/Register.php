@@ -1,6 +1,5 @@
 <?php 
 include_once("UserController.php");
-
 $username= "";
 $password="";
 $fullname="";
@@ -13,18 +12,34 @@ $dayofbirth = date_default_timezone_set('Asia/Tokyo');
 $identitycard="";
 if(isset($_POST["btnRegister"]))
 {
-	$username = $_POST["txtUsername"];
-	$password = $_POST["txtPassword"];
-	$fullname=$_POST["txtFullname"];
-	if(isset($_POST['grpGender'])) {
-		$sex = $_POST['grpGender'];
-	}
-	$phone=$_POST["NumPhone"];
-	$email=$_POST["txtEmail"];
 	
-	$dayofbirth=date('Y-m-d',strtotime($_POST['dateOfBirth']));
-	addUser($username, $password,$fullname,$sex,$phone,$email,$dayofbirth);
-	echo '<script> alert("Đăng ký tài khoản thành công!");</script>';
+	$password = $_POST["txtPassword"];
+	$repeatpassword = $_POST["txtRepeatPassword"];
+	if($password!=$repeatpassword){
+		echo '<script> alert("Mật khẩu không trùng khớp. Vui lòng nhập lại!");</script>';
+	}else{
+
+		$username = $_POST["txtUsername"];
+		$fullname=$_POST["txtFullname"];
+		if(isset($_POST['grpGender'])) {
+			$sex = $_POST['grpGender'];
+		}
+		$phone=$_POST["NumPhone"];
+		$email=$_POST["txtEmail"];
+
+		$dayofbirth=date('Y-m-d',strtotime($_POST['dateOfBirth']));
+		addUser($username, $password,$fullname,$sex,$phone,$email,$dayofbirth);
+		include('class.smtp.php');
+		include "class.phpmailer.php"; 
+		include "functions.php"; 
+		$title = '[Windsor Shop] - Đăng ký tài khoản';
+		$content = '<p>Chuc mung ban $fullname da dang ky thanh cong tai Website Windsor</p>". "<p>Vui long nhan vao lien ket sau de kich hoat:
+		<a href="http://localhost:1000/salomon/index.php?khoatrang&taikhoan=$tendangnhap$ma=$randomcode"></a></p>';
+		$To = 'ntctuyen.ctu@gmail.com';
+		$mail = sendMail($title, $content, $email);
+		echo '<script> alert("Đăng ký tài khoản thành công!");</script>';
+		echo '<meta http-equiv="refresh" content="0: URL=Register.php"/>';
+	}
 }
 ?>
 
@@ -45,6 +60,7 @@ if (isset($_POST['btnLogin'])) {
 }
 
 ?>
+
 <!-- header -->
 <div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
 aria-hidden="true">
@@ -89,56 +105,61 @@ aria-hidden="true">
 												<input placeholder="Địa chỉ email" name="txtEmail" type="email" required=""></div>
 												<div class="form-group">	
 													<input placeholder="Số điện thoại" name="NumPhone" type="text" required=""></div>
-													<div class="form-group">	<input placeholder="Sinh nhật" name="dateOfBirth" type="date" required="">	</div>
-													<div class="form-group">	Mật khẩu
+													<div class="form-group">	<input placeholder="Sinh nhật" name="dateOfBirth" type="date"  class="form-control" required="" value="2018-01-01">	</div>
+													<div class="form-group">	
+														Mật khẩu
 														<input placeholder="Mật khẩu" name="txtPassword" type="password" required=""></div>	
-														<div class="form-group">  
-															<label for="lblGender" class="col-sm-2 control-label">Gender(*):  </label>
-															<div class="col-sm-10">                              
-																<label class="radio-inline"><input type="radio" name="grpGender" value="0"  
-																	<?php if(isset($Gender)&&$Gender=="0") { echo "checked";} ?> />
-																Male</label>
+														<div class="form-group">	
+															Lặp lại mật khẩu
+															<input placeholder="Mật khẩu lặp lại" name="txtRepeatPassword" type="password" required=""></div>	
+															<div class="form-group">  
+																<label for="lblGender" class="col-sm-2 control-label">Gender(*):  </label>
+																<div class="col-sm-10">                              
+																	<label class="radio-inline"><input type="radio" name="grpGender" value="0"  
+																		<?php if(isset($Gender)&&$Gender=="0") { echo "checked";} ?> />
+																	Male</label>
 
-																<label class="radio-inline"><input type="radio" name="grpGender" value="1" 
-																	<?php if(isset($Gender)&&$Gender=="1") { echo "checked";} ?> />
-																Female</label>
+																	<label class="radio-inline"><input type="radio" name="grpGender" value="1" 
+																		<?php if(isset($Gender)&&$Gender=="1") { echo "checked";} ?> />
+																	Female</label>
 
+																</div>
 															</div>
-														</div>
-														<div class="sign-up">
-															<input type="submit" value="Đăng ký" name="btnRegister" id="btnRegister"/>
-														</div>
-													</form>
+															<div class="sign-up">
+																<input type="submit" value="Đăng ký" name="btnRegister" id="btnRegister"/>
+															</div>
+														</form>
+													</div>
 												</div>
-											</div>
-										</div> 			        					            	      
-									</div>	
-								</div>
-								<script src="public/client/js/easyResponsiveTabs.js" type="text/javascript"></script>
-								<script type="text/javascript">
-									$(document).ready(function () {
-										$('#horizontalTab').easyResponsiveTabs({
+											</div> 			        					            	      
+										</div>	
+									</div>
+									<script src="public/client/js/easyResponsiveTabs.js" type="text/javascript"></script>
+									<script type="text/javascript">
+										$(document).ready(function () {
+											$('#horizontalTab').easyResponsiveTabs({
 										type: 'default', //Types: default, vertical, accordion           
 										width: 'auto', //auto or any width like 600px
 										fit: true   // 100% fit in a container
 									});
-									});
-								</script>
-								<div id="OR" class="hidden-xs">
-								hoặc</div>
-							</div>
-							<div class="col-md-4 modal_body_right modal_body_right1">
-								<div class="row text-center sign-with">
-									<div class="col-md-12">
-										<h3 class="other-nw pull-left">
-										Đăng ký với mạng xã hội</h3>
-									</div>
-									<div class="col-md-12">
-										<ul class="social">
-											<li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
-											<li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
-											<li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
-										</ul>
+										});
+									</script>
+									<div id="OR" class="hidden-xs">
+									hoặc</div>
+								</div>
+								<div class="col-md-4 modal_body_right modal_body_right1">
+									<div class="row text-center sign-with">
+										<div class="col-md-12">
+											<h3 class="other-nw pull-left">
+											Đăng ký với mạng xã hội</h3>
+										</div>
+										<div class="col-md-12">
+											<ul class="social">
+												<li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
+												<li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
+												<li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -146,4 +167,3 @@ aria-hidden="true">
 					</div>
 				</div>
 			</div>
-		</div>
