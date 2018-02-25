@@ -1,7 +1,7 @@
 <?php 
 function addTime($ApplicationTime)
 {
-	$insertTime="INSERT INTO `time`(`ApplicationTime`) VALUES('appicationTime')";
+	$insertTime="INSERT INTO `time`(`ApplicationTime`) VALUES('$ApplicationTime')";
 	mysql_query($insertTime);
 }
 function deleteTime($TimeId)
