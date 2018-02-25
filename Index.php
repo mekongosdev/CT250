@@ -218,7 +218,8 @@ include("Src/User/Register.php");
 												(SELECT imgwine  FROM imgwine 
 												WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
 												LIMIT 1) as imgwine 
-												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=1  ORDER BY WineUpdateDate");
+												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=1  ORDER BY WineUpdateDate 
+												LIMIT 3");
 											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 												?>
 										<div class="col-md-4 agile_ecommerce_tab_left">
@@ -278,7 +279,8 @@ include("Src/User/Register.php");
 												(SELECT imgwine  FROM imgwine 
 												WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
 												LIMIT 1) as imgwine 
-												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=2  ORDER BY WineUpdateDate");
+												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=2  ORDER BY WineUpdateDate
+												LIMIT 3");
 											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 												?>
 										<div class="col-md-4 agile_ecommerce_tab_left">
@@ -338,7 +340,8 @@ include("Src/User/Register.php");
 												(SELECT imgwine  FROM imgwine 
 												WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
 												LIMIT 1) as imgwine 
-												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=3  ORDER BY WineUpdateDate");
+												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=3  ORDER BY WineUpdateDate
+												LIMIT 3");
 											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 												?>
 										<div class="col-md-4 agile_ecommerce_tab_left">
@@ -398,7 +401,8 @@ include("Src/User/Register.php");
 												(SELECT imgwine  FROM imgwine 
 												WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
 												LIMIT 1) as imgwine 
-												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=4  ORDER BY WineUpdateDate");
+												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=4  ORDER BY WineUpdateDate
+												LIMIT 3");
 											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 												?>
 										<div class="col-md-4 agile_ecommerce_tab_left">
@@ -458,7 +462,8 @@ include("Src/User/Register.php");
 												(SELECT imgwine  FROM imgwine 
 												WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
 												LIMIT 1) as imgwine 
-												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=5  ORDER BY WineUpdateDate");
+												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=5  ORDER BY WineUpdateDate
+												LIMIT 3");
 											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 												?>
 										<div class="col-md-4 agile_ecommerce_tab_left">
@@ -1026,7 +1031,8 @@ include("Src/User/Register.php");
 								FROM imgwine 
 								WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
 								LIMIT 1) as imgwine 
-								FROM wine ORDER BY WineUpdateDate");
+								FROM wine ORDER BY WineUpdateDate
+								LIMIT 8");
 							while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 								?>
 								<div class="col-md-3 agileinfo_new_products_grid">
