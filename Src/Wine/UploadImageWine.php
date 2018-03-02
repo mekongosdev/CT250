@@ -30,7 +30,7 @@
 	          $ext = pathinfo($file['name'], PATHINFO_EXTENSION); // Get file extension
 	          $sql = 'SELECT max(`ImgWineId`) FROM `imgwine` WHERE `WineId` = '.$_GET['WineId'].'';
 	          $id = mysql_result(mysql_query($sql),0);
-	         $file_name = remove_vietnamese_accents((++$id)."_".$_GET['WineId']."_".$_POST['WineName'].".".$ext);
+	          $file_name = remove_vietnamese_accents((++$id)."_".$_GET['WineId']."_".$_POST['WineName'].".".$ext);
 	          copy($file['tmp_name'], "../Public/admin/images/products/".$file_name);
 	          unlink($file['tmp_name']);
 	          $cmd = "INSERT INTO imgwine (ImgWine, WineId) values('$file_name', '$WineId')";
@@ -60,11 +60,11 @@
 	{
 		echo "Hình không đúng định dạng";
 	} 
-	}
+}
 
-	?>
+?>
 
-	<div class="container">
+<div class="container">
 	<form  id="frmHinhAnh" class="form-horizontal" name="frmHinhAnh" method="post" action="" enctype="multipart/form-data" role="form">
 		<div class="form-group">
 			<label for="WineId" class="col-sm-2 control-label">Mã hình (*):  </label>
@@ -105,7 +105,7 @@
 					<div class='col-sm-2'>
 						<img src="<?php echo "../Public/admin/images/products/".$row['ImgWine']; ?>" width="100px"/>
 					</div>
-					<a class='btn btn-danger' href="?page=DeleteWineImage&ImgWineId=<?=$ImgWineId;?>" onclick="return confirm('Bạn có chắc chắn hình này không?')"><i class="fa fa-remove"></i></a>
+			<a class='btn btn-danger' href="?page=DeleteWineImage&&WineId=<?=$_GET['WineId'];?>&&ImgWineId=<?=$ImgWineId;?>" onclick="return confirm('Bạn có chắc chắn xóa hình này không?')"><i class="fa fa-remove"></i></a>
 				</div>
 				<div class='col-sm-offset-2 col-sm-4'>
 					<div><hr /></div>
@@ -116,4 +116,4 @@
 		}
 		?>
 	</form>
-	</div>
+</div>

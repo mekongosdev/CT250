@@ -633,7 +633,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							}
 							if (isset($_GET['page'])&&$_GET['page']=='DeleteWineImage') {
 								deleteImageWine($_GET['ImgWineId']);
-								echo "<script>window.location.href='?page=wine'</script>"; 
+								echo "<script>window.location.href='?page=UploadImageWine&&WineId=".$_GET['WineId']."'</script>"; 
 							}
 
 							if (isset($_GET['page'])&&$_GET['page']=='PromotionHistory') {
