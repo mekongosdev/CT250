@@ -1026,11 +1026,7 @@ include("Src/User/Register.php");
 										<div class="agileinfo_new_products_grids">
 											<?php 
 											$result = mysql_query("
-												SELECT wine.*,
-												(SELECT imgwine 
-												FROM imgwine 
-												WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
-												LIMIT 1) as imgwine 
+												SELECT wine.*
 												FROM wine ORDER BY WineUpdateDate
 												LIMIT 8");
 											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
@@ -1038,14 +1034,13 @@ include("Src/User/Register.php");
 												<div class="col-md-3 agileinfo_new_products_grid">
 													<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
 														<div class="hs-wrapper hs-wrapper1">
-															<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
-															<img src="public/client/images/28.jpg" alt=" " class="img-responsive" />
-															<img src="public/client/images/29.jpg" alt=" " class="img-responsive" />
-															<img src="public/client/images/30.jpg" alt=" " class="img-responsive" />
-															<img src="public/client/images/27.jpg" alt=" " class="img-responsive" />
-															<img src="public/client/images/28.jpg" alt=" " class="img-responsive" />
-															<img src="public/client/images/29.jpg" alt=" " class="img-responsive" />
-															<img src="public/client/images/30.jpg" alt=" " class="img-responsive" /> 
+															<?php
+															$imgResult = mysql_query("
+																SELECT ImgWine FROM imgwine, wine WHERE wine.WineId = imgwine.WineId and wine.WineId = ".$row['WineId']." LIMIT 6");
+															while ($imgRow = mysql_fetch_array($imgResult, MYSQL_ASSOC)){
+																echo'<img src="public/admin/images/products/'.$imgRow["ImgWine"].'" class="img-responsive" />';
+															} ?>
+
 															<div class="w3_hs_bottom w3_hs_bottom_sub">
 																<ul>
 																	<li>
