@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 06, 2018 at 07:13 PM
+-- Generation Time: Mar 02, 2018 at 11:39 AM
 -- Server version: 5.6.37
 -- PHP Version: 5.6.31
 
@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `About`
+-- Table structure for table `about`
 --
 
-CREATE TABLE IF NOT EXISTS `About` (
+CREATE TABLE IF NOT EXISTS `about` (
   `AboutId` smallint(6) NOT NULL,
   `AboutName` varchar(145) COLLATE utf8_unicode_ci NOT NULL,
   `AboutHistory` varchar(245) COLLATE utf8_unicode_ci NOT NULL,
@@ -38,10 +38,10 @@ CREATE TABLE IF NOT EXISTS `About` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Bill`
+-- Table structure for table `bill`
 --
 
-CREATE TABLE IF NOT EXISTS `Bill` (
+CREATE TABLE IF NOT EXISTS `bill` (
   `BillId` int(11) NOT NULL,
   `BillCreate` datetime NOT NULL,
   `BillDetails` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -51,10 +51,10 @@ CREATE TABLE IF NOT EXISTS `Bill` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Bill_Order`
+-- Table structure for table `bill_order`
 --
 
-CREATE TABLE IF NOT EXISTS `Bill_Order` (
+CREATE TABLE IF NOT EXISTS `bill_order` (
   `BillId` int(11) NOT NULL,
   `OrderId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -62,57 +62,69 @@ CREATE TABLE IF NOT EXISTS `Bill_Order` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Category`
+-- Table structure for table `category`
 --
 
-CREATE TABLE IF NOT EXISTS `Category` (
+CREATE TABLE IF NOT EXISTS `category` (
   `CategoryId` int(11) NOT NULL,
   `CategoryName` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `CategoryDescription` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `Category`
+-- Dumping data for table `category`
 --
 
-INSERT INTO `Category` (`CategoryId`, `CategoryName`, `CategoryDescription`) VALUES
-(1, 'Rượu Wisky', 'Nói chung , từ « whisky » có liên quan đến Whisky Scotch , có nghĩa là whisky của người Ecoss ( phần lớn sản phẩm ) , cũng như có thể nói người Ai Len');
+INSERT INTO `category` (`CategoryId`, `CategoryName`, `CategoryDescription`) VALUES
+(1, 'Vorka', 'Nổi tiếng ở Nhật Bản'),
+(2, 'Wisky', 'Wisky 3'),
+(3, 'Chivas', 'Otopo là loại rượu đến từ Nhật Bản'),
+(4, 'Việt Nam', 'Gồm nhiều loại rượu xuất xứ từ Việt Nam'),
+(5, 'Fruit', 'Trái cây lên men');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Contact`
+-- Table structure for table `contact`
 --
 
-CREATE TABLE IF NOT EXISTS `Contact` (
+CREATE TABLE IF NOT EXISTS `contact` (
   `ContactId` int(11) NOT NULL,
   `Subject` int(11) NOT NULL,
   `Names` varchar(145) COLLATE utf8_unicode_ci NOT NULL,
-  `Date` date DEFAULT NULL,
+  `ContactDate` date DEFAULT NULL,
   `Information` varchar(145) COLLATE utf8_unicode_ci NOT NULL,
-  `Email` varchar(145) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Email` varchar(145) COLLATE utf8_unicode_ci NOT NULL,
   `Phone` int(10) unsigned NOT NULL,
-  `Address` varchar(145) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `Address` varchar(145) COLLATE utf8_unicode_ci NOT NULL,
+  `RelyContact` int(11) DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`ContactId`, `Subject`, `Names`, `ContactDate`, `Information`, `Email`, `Phone`, `Address`, `RelyContact`) VALUES
+(1, 2, 'Đặng Tuấn Huy', '2018-01-14', 'Khuyến Mãi Trật Ngày', 'huysamasun@gmail.com', 963505927, '123, Nguyễn Văn Cừ nối dài', 0),
+(2, 2, 'Nguyễn Thị Cẩm Tuyên', '2018-01-09', 'Muốn được mua nhiều rượu nho hơn', 'ntctuyen@ctu.edu.vn', 925028460, 'Thốt Nốt', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Country`
+-- Table structure for table `country`
 --
 
-CREATE TABLE IF NOT EXISTS `Country` (
+CREATE TABLE IF NOT EXISTS `country` (
   `CountryId` int(12) NOT NULL,
   `CountryName` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `CountryDetails` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `Country`
+-- Dumping data for table `country`
 --
 
-INSERT INTO `Country` (`CountryId`, `CountryName`, `CountryDetails`) VALUES
-(1, 'Mỹ', ''),
+INSERT INTO `country` (`CountryId`, `CountryName`, `CountryDetails`) VALUES
 (2, 'Việt Nam', ''),
 (3, 'Thái Lan', ''),
 (4, 'Lào', ''),
@@ -130,17 +142,18 @@ INSERT INTO `Country` (`CountryId`, `CountryName`, `CountryDetails`) VALUES
 (16, 'Úc', 'Một trong những quốc gia nổi tiếng với rượu trái cây'),
 (17, 'Canada', 'Canada không mấy nổi tiếng về rượu'),
 (18, 'Canada', 'Canada không mấy nổi tiếng về rượu'),
-(19, 'Canada', 'Canada không mấy nổi tiếng về rượu');
+(19, 'Canada', 'Canada không mấy nổi tiếng về rượu'),
+(20, 'Nauy', 'ttttt');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Employee`
+-- Table structure for table `employee`
 --
 
-CREATE TABLE IF NOT EXISTS `Employee` (
+CREATE TABLE IF NOT EXISTS `employee` (
   `EmployeeCode` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `EmployeePass` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EmployeePass` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `EmployeeName` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
   `EmployeeBirth` date NOT NULL,
   `EmployeeAddress` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
@@ -150,74 +163,140 @@ CREATE TABLE IF NOT EXISTS `Employee` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `Employee`
+-- Dumping data for table `employee`
 --
 
-INSERT INTO `Employee` (`EmployeeCode`, `EmployeePass`, `EmployeeName`, `EmployeeBirth`, `EmployeeAddress`, `EmployeeEmail`, `EmployeeIC`, `Role`) VALUES
-('dangtuanhuy', '61fcd36c8292bdf65aab93287009f0f0', 'Đặng Tuấn Huy', '1997-01-02', '136B, Nguyễn Văn Cừ nối dài, Ninh Kiều, Cần Thơ', 'dangtuanhuyhachi@gmail.com', '321573023', 4);
+INSERT INTO `employee` (`EmployeeCode`, `EmployeePass`, `EmployeeName`, `EmployeeBirth`, `EmployeeAddress`, `EmployeeEmail`, `EmployeeIC`, `Role`) VALUES
+('CP808', 'e10adc3949ba59abbe56e057f20f883e', 'Đặng Tuấn Huy', '1997-02-01', 'Tiên Thủy, Châu Thành, Bến Tre', 'huygama@gmail.com', '321573034', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Feedback`
+-- Table structure for table `feedback`
 --
 
-CREATE TABLE IF NOT EXISTS `Feedback` (
+CREATE TABLE IF NOT EXISTS `feedback` (
   `FeedbackId` int(11) NOT NULL,
   `Username` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
   `FeedbackCreate` date DEFAULT NULL,
   `FeedbackAddress` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `FeedbackContent` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
-  `Reply` tinyint(1) DEFAULT '0',
-  `EmployeeCode` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL
+  `Reply` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ImgEmployee`
+-- Table structure for table `imageemployee`
 --
 
-CREATE TABLE IF NOT EXISTS `ImgEmployee` (
+CREATE TABLE IF NOT EXISTS `imageemployee` (
   `ImgEmployeeId` tinyint(4) NOT NULL,
   `ImgEmployee` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
   `EmployeeCode` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `imageemployee`
+--
+
+INSERT INTO `imageemployee` (`ImgEmployeeId`, `ImgEmployee`, `EmployeeCode`) VALUES
+(1, 'CP808_ywnbs510a4.png', 'CP808');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `imgnews`
+--
+
+CREATE TABLE IF NOT EXISTS `imgnews` (
+  `ImgNewsId` int(11) NOT NULL,
+  `ImgNews` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `NewsId` smallint(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ImgWine`
+-- Table structure for table `imgwine`
 --
 
-CREATE TABLE IF NOT EXISTS `ImgWine` (
+CREATE TABLE IF NOT EXISTS `imgwine` (
   `ImgWineId` int(11) NOT NULL,
   `ImgWine` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
   `WineId` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `imgwine`
+--
+
+INSERT INTO `imgwine` (`ImgWineId`, `ImgWine`, `WineId`) VALUES
+(3, '1_4_Basta.jpg', 4),
+(4, '4_4_Basta.jpg', 4),
+(5, '5_4_Basta.jpg', 4),
+(6, '1_5_Apple.jpg', 5),
+(7, '7_5_Apple.png', 5),
+(8, '8_5_Apple.jpg', 5),
+(9, '1_6_Cherry First.jpg', 6),
+(10, '10_6_Cherry First.jpg', 6),
+(11, '11_6_Cherry First.jpg', 6),
+(12, '1_1_Ruou Phu Le.png', 1),
+(13, '13_1_Ruou Phu Le.jpg', 1),
+(14, '14_1_Ruou Phu Le.png', 1),
+(15, '1_2_Nep Huong.jpg', 2),
+(16, '16_2_Nep Huong.jpg', 2),
+(17, '17_2_Nep Huong.jpg', 2),
+(18, '1_3_Ong gia ba tri.jpg', 3),
+(20, '19_3_Ong gia ba tri.jpg', 3),
+(21, '21_3_Ong gia ba tri.jpg', 3),
+(22, '1_10_Chivas regal.jpg', 10),
+(23, '23_10_Chivas regal.jpg', 10),
+(24, '24_10_Chivas regal.jpg', 10),
+(25, '1_11_Chivas 38.jpg', 11),
+(26, '26_11_Chivas 38.jpg', 11),
+(27, '27_11_Chivas 38.jpg', 11),
+(28, '1_12_Chivas 18 blue.jpg', 12),
+(29, '29_12_Chivas 18 blue.jpg', 12),
+(30, '30_12_Chivas 18 blue.jpg', 12),
+(31, '1_13_Whisky hibiki.jpg', 13),
+(32, '32_13_Whisky hibiki.jpg', 13),
+(33, '33_13_Whisky hibiki.jpg', 13),
+(34, '1_14_Whisky Ballantines.jpg', 14),
+(35, '35_14_Whisky Ballantines.jpg', 14),
+(36, '36_14_Whisky Ballantines.jpg', 14),
+(37, '1_15_Whisky Nikka.jpg', 15),
+(38, '38_15_Whisky Nikka.jpg', 15),
+(39, '39_15_Whisky Nikka.jpg', 15);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `News`
+-- Table structure for table `news`
 --
 
-CREATE TABLE IF NOT EXISTS `News` (
+CREATE TABLE IF NOT EXISTS `news` (
   `NewsId` smallint(6) NOT NULL,
   `NewsNames` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `Title` varchar(145) COLLATE utf8_unicode_ci NOT NULL,
   `NewsContent` varchar(145) COLLATE utf8_unicode_ci NOT NULL,
-  `Imgs` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `EmployeeCode` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`NewsId`, `NewsNames`, `Title`, `NewsContent`, `EmployeeCode`) VALUES
+(1, 'Tin hằng ngày', 'Rượu vàng ngày xuân', 'Rượu là một thứ thức uống', 'CP808');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Order`
+-- Table structure for table `order`
 --
 
-CREATE TABLE IF NOT EXISTS `Order` (
+CREATE TABLE IF NOT EXISTS `order` (
   `OrderId` int(11) NOT NULL,
   `OrderCreateDate` date NOT NULL,
   `OrderDeliverDate` date DEFAULT NULL,
@@ -230,10 +309,10 @@ CREATE TABLE IF NOT EXISTS `Order` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `OrderWineDetails`
+-- Table structure for table `orderwinedetails`
 --
 
-CREATE TABLE IF NOT EXISTS `OrderWineDetails` (
+CREATE TABLE IF NOT EXISTS `orderwinedetails` (
   `WineOrderId` int(11) NOT NULL,
   `OrderId` int(11) NOT NULL,
   `WineOrderQuantity` int(11) NOT NULL,
@@ -244,22 +323,30 @@ CREATE TABLE IF NOT EXISTS `OrderWineDetails` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `PaymentMethod`
+-- Table structure for table `paymentmethod`
 --
 
-CREATE TABLE IF NOT EXISTS `PaymentMethod` (
+CREATE TABLE IF NOT EXISTS `paymentmethod` (
   `PaymentMethodId` int(11) NOT NULL,
   `PaymentMethodName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `PaymentMethodDetails` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `paymentmethod`
+--
+
+INSERT INTO `paymentmethod` (`PaymentMethodId`, `PaymentMethodName`, `PaymentMethodDetails`) VALUES
+(1, 'Master Card', 'Thanh toán bằng thẻ quốc tế network'),
+(2, 'Bitcoin', 'Phải có thẻ Quốc tế để thanh toán');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Promotion`
+-- Table structure for table `promotion`
 --
 
-CREATE TABLE IF NOT EXISTS `Promotion` (
+CREATE TABLE IF NOT EXISTS `promotion` (
   `PromotionId` int(11) NOT NULL,
   `PromotionName` varchar(155) COLLATE utf8_unicode_ci NOT NULL,
   `PromotionDiscount` int(11) NOT NULL,
@@ -267,97 +354,202 @@ CREATE TABLE IF NOT EXISTS `Promotion` (
   `PromotionActive` date DEFAULT NULL,
   `PromotionClose` date DEFAULT NULL,
   `PromotionOpen` int(11) DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `promotion`
+--
+
+INSERT INTO `promotion` (`PromotionId`, `PromotionName`, `PromotionDiscount`, `PromotionContent`, `PromotionActive`, `PromotionClose`, `PromotionOpen`) VALUES
+(1, 'U23 Việt Nam', 20, '<p>Khi u23 chiến thắng sẽ giảm gi&aacute;</p>', '2018-01-27', '2018-01-31', 0),
+(2, 'Quốc Tế Phụ Nữ', 45, 'Tặng quà khi người mua là nữ', '2018-02-15', '2018-03-22', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Promotion_Wine`
+-- Table structure for table `promotion_wine`
 --
 
-CREATE TABLE IF NOT EXISTS `Promotion_Wine` (
+CREATE TABLE IF NOT EXISTS `promotion_wine` (
   `WineId` int(11) NOT NULL,
   `PromotionId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `promotion_wine`
+--
+
+INSERT INTO `promotion_wine` (`WineId`, `PromotionId`) VALUES
+(1, 1),
+(2, 1),
+(4, 1),
+(6, 2),
+(9, 2);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Publisher`
+-- Table structure for table `publisher`
 --
 
-CREATE TABLE IF NOT EXISTS `Publisher` (
+CREATE TABLE IF NOT EXISTS `publisher` (
   `PublisherId` int(11) NOT NULL,
   `PublisherName` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `PublisherDescription` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `publisher`
+--
+
+INSERT INTO `publisher` (`PublisherId`, `PublisherName`, `PublisherDescription`) VALUES
+(1, 'Việt Name', 'Cù Lý'),
+(2, 'Trung Quốc', 'Cỏ bỏ thêm rất nhiều Cồn');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Role`
+-- Table structure for table `role`
 --
 
-CREATE TABLE IF NOT EXISTS `Role` (
+CREATE TABLE IF NOT EXISTS `role` (
   `RoleId` smallint(6) NOT NULL,
   `RoleName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `RoleDetails` varchar(90) COLLATE utf8_unicode_ci DEFAULT NULL,
   `RoleActive` int(11) DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `Role`
+-- Dumping data for table `role`
 --
 
-INSERT INTO `Role` (`RoleId`, `RoleName`, `RoleDetails`, `RoleActive`) VALUES
+INSERT INTO `role` (`RoleId`, `RoleName`, `RoleDetails`, `RoleActive`) VALUES
 (1, 'Người dùng', 'Người dùng được phép mua hàng', 1),
-(2, 'Nhân viên', 'Kích hoạt đơn hàng', 1),
-(3, 'Khách vãn lai', 'Chỉ được xem và tìm kiếm', 1),
-(4, 'Quản trị hệ thống', 'Toàn quyền trên ứng dụng Windsor', 1);
+(2, 'Nhân viên', 'Nhân viên được phép vào hệ thống quản quản lý rượu', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Subject`
+-- Table structure for table `subject`
 --
 
-CREATE TABLE IF NOT EXISTS `Subject` (
+CREATE TABLE IF NOT EXISTS `subject` (
   `SubjectId` int(11) NOT NULL,
-  `SubjectNames` varchar(145) COLLATE utf8_unicode_ci NOT NULL
+  `SubjectName` varchar(145) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `subject`
+--
+
+INSERT INTO `subject` (`SubjectId`, `SubjectName`) VALUES
+(1, 'Chương trình khuyến mãi ngày tết'),
+(2, 'Việc giao hàng của Windsor'),
+(3, 'Giao diện Web'),
+(4, 'Phụ cấp ngày tết'),
+(5, 'Giao Thừa Giao rượu');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `time`
+--
+
+CREATE TABLE IF NOT EXISTS `time` (
+  `TimeId` int(11) NOT NULL,
+  `ApplicationTime` date DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `time`
+--
+
+INSERT INTO `time` (`TimeId`, `ApplicationTime`) VALUES
+(1, '2018-01-23'),
+(3, '2018-01-11'),
+(5, '2018-02-15'),
+(6, '2018-03-02'),
+(7, '2018-01-12'),
+(8, '2018-03-09'),
+(9, '2018-03-10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `time_wine`
+--
+
+CREATE TABLE IF NOT EXISTS `time_wine` (
+  `WineId` int(11) NOT NULL,
+  `TimeId` int(11) NOT NULL,
+  `PurchasePrice` decimal(12,2) unsigned DEFAULT NULL,
+  `SellingPrice` decimal(12,2) DEFAULT NULL,
+  `Note` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `time_wine`
+--
+
+INSERT INTO `time_wine` (`WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note`) VALUES
+(1, 1, '50000.00', '90000.00', 'Mua bán '),
+(2, 1, '12.00', '16.00', 'f'),
+(3, 3, '45000.00', '90000.00', 'Khách hàng có thể'),
+(4, 1, '45000.00', '90000.00', 'Đã có chiết khấu'),
+(5, 7, '45000.00', '90000.00', 'Đã có chiết khấu'),
+(6, 8, '67000.00', '123000.00', 'Giá bán đã bao gồm giá trị gia tăng'),
+(7, 1, '45000.00', '123000.00', 'Giá bán đã bao gồm giá trị gia tăng'),
+(8, 8, '8888888.00', '9999999.00', 'Đã bao gồm chiết khấu và lỗ vốn'),
+(9, 6, '70000.00', '710000.00', 'Vì đây là sản phẩm tồn kha giá rẻ'),
+(11, 9, '777777.00', '999999.00', 'Đã bao gồm chiết khấu và lỗ vốn'),
+(12, 5, '1500000.00', '2000000.00', 'Khách hàng có thể mua trả góp'),
+(13, 7, '1500000.00', '3000000.00', 'Giá bán đã bao gồm giá trị gia tăng'),
+(14, 3, '45000.00', '2000000.00', 'Giá bán đã bao gồm giá trị gia tăng'),
+(15, 6, '67000.00', '123000.00', 'Vì đây là sản phẩm tồn kha giá rẻ');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `User`
+-- Table structure for table `user`
 --
 
-CREATE TABLE IF NOT EXISTS `User` (
+CREATE TABLE IF NOT EXISTS `user` (
   `Username` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
   `Password` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
   `FullName` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
-  `Sex` int(11) NOT NULL DEFAULT '0',
+  `Sex` int(11) NOT NULL,
   `Address` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
   `Phone` int(11) NOT NULL,
   `Email` varchar(90) COLLATE utf8_unicode_ci NOT NULL,
   `DateOfBirth` date DEFAULT NULL,
   `IC` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Active` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Status` int(11) NOT NULL DEFAULT '1',
   `Role` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`Username`, `Password`, `FullName`, `Sex`, `Address`, `Phone`, `Email`, `DateOfBirth`, `IC`, `Status`, `Role`) VALUES
+('abc', '900150983cd24fb0d6963f7d28e17f72', 'abc', 1, '', 963505927, 'ntctuyen.ctu@gmail.com', '2018-01-01', NULL, 1, 1),
+('abcd', 'e2fc714c4727ee9395f324cd2e7f331f', 'abcd', 1, '', 963505927, 'ntctuyen.ctu@gmail.com', '2018-01-01', NULL, 1, 1),
+('dangtuanhuy', '61fcd36c8292bdf65aab93287009f0f0', 'Đặng Tuấn Huy 12', 1, '223, ấp Chánh, xã Tiên Thủy, huyện Châu Thành, tỉnh Bến Tre', 963505927, 'huyb1505883@student.ctu.edu.vn', '2018-02-03', '321573034', 1, 1),
+('dangtuanhuy1', '202cb962ac59075b964b07152d234b70', 'dangtuanhuy1', 0, '', 963505927, 'testct25005@gmail.com', '2018-01-01', NULL, 1, 1),
+('dangtuanhuy2', '202cb962ac59075b964b07152d234b70', 'Đặng Tuấn Huy', 0, '', 963505927, 'ntctuyen.ctu@gmail.com', '2018-01-27', NULL, 1, 1),
+('dangtuanhuy3', '202cb962ac59075b964b07152d234b70', 'Đặng Tuấn Huy', 0, '', 963505927, 'ntctuyen.ctu@gmail.com', '2018-01-27', NULL, 1, 1),
+('nguyennhuy', 'fcea920f7412b5da7be0cf42b8c93759', 'Nguyễn Như Ý', 0, 'CTU', 963505927, 'nny@ctu.edu.vn', '2018-01-20', '321464578569', 1, 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Wine`
+-- Table structure for table `wine`
 --
 
-CREATE TABLE IF NOT EXISTS `Wine` (
+CREATE TABLE IF NOT EXISTS `wine` (
   `WineId` int(11) NOT NULL,
   `WineName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `WineStrength` int(40) NOT NULL,
-  `WinePrice` decimal(12,5) NOT NULL,
   `WineShortDetails` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `WineDetails` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `WineUpdateDate` date NOT NULL,
@@ -366,150 +558,190 @@ CREATE TABLE IF NOT EXISTS `Wine` (
   `CategoryId` int(11) DEFAULT NULL,
   `PublisherId` int(11) DEFAULT NULL,
   `CountryId` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `wine`
+--
+
+INSERT INTO `wine` (`WineId`, `WineName`, `WineStrength`, `WineShortDetails`, `WineDetails`, `WineUpdateDate`, `WineQuantity`, `WineSold`, `CategoryId`, `PublisherId`, `CountryId`) VALUES
+(1, 'Rượu Phú Lể', 14, 'Rất nhiều loại rượu khác nhau', 'Rất nhiều loại rượu khác nhau', '2018-01-26', 50, 0, 4, 1, 2),
+(2, 'Nếp Hương', 15, 'Nồng độ cồn khá cao', 'Nồng độ cồ khá cao', '2018-02-22', 45, 0, 4, 1, 17),
+(3, 'Ông già ba tri', 12, '34', 'Rất Ngon', '2018-03-09', 45, 0, 4, 1, 9),
+(4, 'Grapes', 45, 'Là một loại rượu Nho', 'Là một loại rượu Nho', '2018-03-10', 45, 0, 5, 1, 3),
+(5, 'Apple', 12, 'Rượu Táo', 'Rượu Táo', '2018-03-07', 45, 0, 5, 1, 14),
+(6, 'Cherry First', 45, 'Chiết xuất từ cherry nguyên chất', 'Chiết xuất từ cherry nguyên chất', '2018-03-30', 100, 0, 5, 1, 16),
+(7, 'Vorka 1', 50, 'Rượu Ngâm', 'Rượu Ngâm', '2018-03-04', 13, 0, 1, 1, 2),
+(8, 'Vorka 2', 50, 'Rượu Ngâm', 'Rượu Ngâm', '2018-03-07', 666, 0, 1, 1, 17),
+(9, 'Vorka 3', 45, 'Rượu Ngâm', 'Rượu Ngâm', '2018-03-02', 666, 0, 1, 1, 13),
+(10, 'Chivas regal', 45, 'Là một loại rượu Chivas khá ngon', 'Là một loại rượu Chivas khá ngon', '2018-03-11', 45, 0, 3, 1, 11),
+(11, 'Chivas 38', 55, 'Rượu Ngâm', 'Rượu Ngâm', '2018-04-20', 9, 0, 3, 1, 11),
+(12, 'Chivas 18 blue', 45, 'Rượu Ngâm', 'Rượu Pha Chế', '2018-07-15', 666, 0, 3, 1, 7),
+(13, 'Whisky hibiki', 12, 'Một trong các loại Whisky nổi tiếng', 'Một trong các loại Whisky nổi tiếng', '2018-04-15', 70, 0, 2, 2, 8),
+(14, 'Whisky Ballantines', 50, 'Rượu Ngâm', 'Ballantines Finest là dòng rượu Whisky pha trộn ( Blended Scotch Whisky ) của Scotland , với hương vị phong phú , tinh tế và tao nhã , đáp ứng nhu cầu của những ai có phong cách sống hiện đại và trẻ trung ', '2018-05-04', 100, 0, 2, 2, 17),
+(15, 'Whisky Nikka', 45, 'Rượu Ngâm', 'Rượu Nikka Samurai không chỉ đơn thuần là dòng rượu whisky có hương vị thơm ngon mà nó còn tượng trưng cho con người, văn hóa Nhật Bản.', '2018-07-07', 66, 0, 2, 2, 13);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `About`
+-- Indexes for table `about`
 --
-ALTER TABLE `About`
+ALTER TABLE `about`
   ADD PRIMARY KEY (`AboutId`),
   ADD KEY `EmployeeCode` (`EmployeeCode`);
 
 --
--- Indexes for table `Bill`
+-- Indexes for table `bill`
 --
-ALTER TABLE `Bill`
+ALTER TABLE `bill`
   ADD PRIMARY KEY (`BillId`);
 
 --
--- Indexes for table `Bill_Order`
+-- Indexes for table `bill_order`
 --
-ALTER TABLE `Bill_Order`
+ALTER TABLE `bill_order`
   ADD PRIMARY KEY (`BillId`,`OrderId`),
   ADD KEY `OrderId` (`OrderId`);
 
 --
--- Indexes for table `Category`
+-- Indexes for table `category`
 --
-ALTER TABLE `Category`
+ALTER TABLE `category`
   ADD PRIMARY KEY (`CategoryId`);
 
 --
--- Indexes for table `Contact`
+-- Indexes for table `contact`
 --
-ALTER TABLE `Contact`
+ALTER TABLE `contact`
   ADD PRIMARY KEY (`ContactId`),
   ADD KEY `Subject` (`Subject`);
 
 --
--- Indexes for table `Country`
+-- Indexes for table `country`
 --
-ALTER TABLE `Country`
+ALTER TABLE `country`
   ADD PRIMARY KEY (`CountryId`);
 
 --
--- Indexes for table `Employee`
+-- Indexes for table `employee`
 --
-ALTER TABLE `Employee`
+ALTER TABLE `employee`
   ADD PRIMARY KEY (`EmployeeCode`),
   ADD KEY `Role` (`Role`);
 
 --
--- Indexes for table `Feedback`
+-- Indexes for table `feedback`
 --
-ALTER TABLE `Feedback`
+ALTER TABLE `feedback`
   ADD PRIMARY KEY (`FeedbackId`),
-  ADD KEY `Username` (`Username`),
-  ADD KEY `EmployeeCode` (`EmployeeCode`);
+  ADD KEY `Username` (`Username`);
 
 --
--- Indexes for table `ImgEmployee`
+-- Indexes for table `imageemployee`
 --
-ALTER TABLE `ImgEmployee`
+ALTER TABLE `imageemployee`
   ADD PRIMARY KEY (`ImgEmployeeId`),
   ADD KEY `EmployeeCode` (`EmployeeCode`);
 
 --
--- Indexes for table `ImgWine`
+-- Indexes for table `imgnews`
 --
-ALTER TABLE `ImgWine`
+ALTER TABLE `imgnews`
+  ADD PRIMARY KEY (`ImgNewsId`),
+  ADD KEY `NewsId` (`NewsId`);
+
+--
+-- Indexes for table `imgwine`
+--
+ALTER TABLE `imgwine`
   ADD PRIMARY KEY (`ImgWineId`),
   ADD KEY `WineId` (`WineId`);
 
 --
--- Indexes for table `News`
+-- Indexes for table `news`
 --
-ALTER TABLE `News`
+ALTER TABLE `news`
   ADD PRIMARY KEY (`NewsId`),
   ADD KEY `EmployeeCode` (`EmployeeCode`);
 
 --
--- Indexes for table `Order`
+-- Indexes for table `order`
 --
-ALTER TABLE `Order`
+ALTER TABLE `order`
   ADD PRIMARY KEY (`OrderId`),
   ADD KEY `Username` (`Username`),
   ADD KEY `PaymentMethodId` (`PaymentMethodId`);
 
 --
--- Indexes for table `OrderWineDetails`
+-- Indexes for table `orderwinedetails`
 --
-ALTER TABLE `OrderWineDetails`
+ALTER TABLE `orderwinedetails`
   ADD PRIMARY KEY (`WineOrderId`,`OrderId`),
   ADD KEY `OrderId` (`OrderId`);
 
 --
--- Indexes for table `PaymentMethod`
+-- Indexes for table `paymentmethod`
 --
-ALTER TABLE `PaymentMethod`
+ALTER TABLE `paymentmethod`
   ADD PRIMARY KEY (`PaymentMethodId`);
 
 --
--- Indexes for table `Promotion`
+-- Indexes for table `promotion`
 --
-ALTER TABLE `Promotion`
+ALTER TABLE `promotion`
   ADD PRIMARY KEY (`PromotionId`);
 
 --
--- Indexes for table `Promotion_Wine`
+-- Indexes for table `promotion_wine`
 --
-ALTER TABLE `Promotion_Wine`
+ALTER TABLE `promotion_wine`
   ADD PRIMARY KEY (`WineId`,`PromotionId`),
   ADD KEY `PromotionId` (`PromotionId`);
 
 --
--- Indexes for table `Publisher`
+-- Indexes for table `publisher`
 --
-ALTER TABLE `Publisher`
+ALTER TABLE `publisher`
   ADD PRIMARY KEY (`PublisherId`);
 
 --
--- Indexes for table `Role`
+-- Indexes for table `role`
 --
-ALTER TABLE `Role`
+ALTER TABLE `role`
   ADD PRIMARY KEY (`RoleId`);
 
 --
--- Indexes for table `Subject`
+-- Indexes for table `subject`
 --
-ALTER TABLE `Subject`
+ALTER TABLE `subject`
   ADD PRIMARY KEY (`SubjectId`);
 
 --
--- Indexes for table `User`
+-- Indexes for table `time`
 --
-ALTER TABLE `User`
+ALTER TABLE `time`
+  ADD PRIMARY KEY (`TimeId`);
+
+--
+-- Indexes for table `time_wine`
+--
+ALTER TABLE `time_wine`
+  ADD PRIMARY KEY (`WineId`,`TimeId`),
+  ADD KEY `TimeId` (`TimeId`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
   ADD PRIMARY KEY (`Username`),
   ADD KEY `Role` (`Role`);
 
 --
--- Indexes for table `Wine`
+-- Indexes for table `wine`
 --
-ALTER TABLE `Wine`
+ALTER TABLE `wine`
   ADD PRIMARY KEY (`WineId`),
   ADD KEY `CategoryId` (`CategoryId`),
   ADD KEY `PublisherId` (`PublisherId`),
@@ -520,168 +752,195 @@ ALTER TABLE `Wine`
 --
 
 --
--- AUTO_INCREMENT for table `About`
+-- AUTO_INCREMENT for table `about`
 --
-ALTER TABLE `About`
+ALTER TABLE `about`
   MODIFY `AboutId` smallint(6) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `Bill`
+-- AUTO_INCREMENT for table `bill`
 --
-ALTER TABLE `Bill`
+ALTER TABLE `bill`
   MODIFY `BillId` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `Category`
+-- AUTO_INCREMENT for table `category`
 --
-ALTER TABLE `Category`
-  MODIFY `CategoryId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+ALTER TABLE `category`
+  MODIFY `CategoryId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT for table `Contact`
+-- AUTO_INCREMENT for table `contact`
 --
-ALTER TABLE `Contact`
-  MODIFY `ContactId` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `contact`
+  MODIFY `ContactId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `Country`
+-- AUTO_INCREMENT for table `country`
 --
-ALTER TABLE `Country`
-  MODIFY `CountryId` int(12) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+ALTER TABLE `country`
+  MODIFY `CountryId` int(12) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
--- AUTO_INCREMENT for table `Feedback`
+-- AUTO_INCREMENT for table `feedback`
 --
-ALTER TABLE `Feedback`
+ALTER TABLE `feedback`
   MODIFY `FeedbackId` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `ImgWine`
+-- AUTO_INCREMENT for table `imageemployee`
 --
-ALTER TABLE `ImgWine`
-  MODIFY `ImgWineId` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `imageemployee`
+  MODIFY `ImgEmployeeId` tinyint(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `News`
+-- AUTO_INCREMENT for table `imgnews`
 --
-ALTER TABLE `News`
-  MODIFY `NewsId` smallint(6) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `imgnews`
+  MODIFY `ImgNewsId` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `Order`
+-- AUTO_INCREMENT for table `imgwine`
 --
-ALTER TABLE `Order`
+ALTER TABLE `imgwine`
+  MODIFY `ImgWineId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `NewsId` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `order`
+--
+ALTER TABLE `order`
   MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `PaymentMethod`
+-- AUTO_INCREMENT for table `paymentmethod`
 --
-ALTER TABLE `PaymentMethod`
-  MODIFY `PaymentMethodId` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `paymentmethod`
+  MODIFY `PaymentMethodId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `Promotion`
+-- AUTO_INCREMENT for table `promotion`
 --
-ALTER TABLE `Promotion`
-  MODIFY `PromotionId` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `promotion`
+  MODIFY `PromotionId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `Publisher`
+-- AUTO_INCREMENT for table `publisher`
 --
-ALTER TABLE `Publisher`
-  MODIFY `PublisherId` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `publisher`
+  MODIFY `PublisherId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `Role`
+-- AUTO_INCREMENT for table `role`
 --
-ALTER TABLE `Role`
-  MODIFY `RoleId` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+ALTER TABLE `role`
+  MODIFY `RoleId` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `Subject`
+-- AUTO_INCREMENT for table `subject`
 --
-ALTER TABLE `Subject`
-  MODIFY `SubjectId` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `subject`
+  MODIFY `SubjectId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT for table `Wine`
+-- AUTO_INCREMENT for table `time`
 --
-ALTER TABLE `Wine`
-  MODIFY `WineId` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `time`
+  MODIFY `TimeId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `wine`
+--
+ALTER TABLE `wine`
+  MODIFY `WineId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `About`
+-- Constraints for table `about`
 --
-ALTER TABLE `About`
-  ADD CONSTRAINT `about_ibfk_3` FOREIGN KEY (`EmployeeCode`) REFERENCES `Employee` (`EmployeeCode`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `about`
+  ADD CONSTRAINT `about_ibfk_3` FOREIGN KEY (`EmployeeCode`) REFERENCES `employee` (`EmployeeCode`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Bill_Order`
+-- Constraints for table `bill_order`
 --
-ALTER TABLE `Bill_Order`
-  ADD CONSTRAINT `bill_order_ibfk_1` FOREIGN KEY (`OrderId`) REFERENCES `Order` (`OrderId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `bill_order_ibfk_2` FOREIGN KEY (`BillId`) REFERENCES `Bill` (`BillId`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `bill_order`
+  ADD CONSTRAINT `bill_order_ibfk_1` FOREIGN KEY (`OrderId`) REFERENCES `order` (`OrderId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `bill_order_ibfk_2` FOREIGN KEY (`BillId`) REFERENCES `bill` (`BillId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Contact`
+-- Constraints for table `contact`
 --
-ALTER TABLE `Contact`
-  ADD CONSTRAINT `contact_ibfk_2` FOREIGN KEY (`Subject`) REFERENCES `Subject` (`SubjectId`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `contact`
+  ADD CONSTRAINT `contact_ibfk_2` FOREIGN KEY (`Subject`) REFERENCES `subject` (`SubjectId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Employee`
+-- Constraints for table `employee`
 --
-ALTER TABLE `Employee`
-  ADD CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`Role`) REFERENCES `Role` (`RoleId`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `employee`
+  ADD CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`Role`) REFERENCES `role` (`RoleId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Feedback`
+-- Constraints for table `feedback`
 --
-ALTER TABLE `Feedback`
-  ADD CONSTRAINT `feedback_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `User` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `feedback_ibfk_2` FOREIGN KEY (`EmployeeCode`) REFERENCES `Employee` (`EmployeeCode`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `feedback`
+  ADD CONSTRAINT `feedback_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `user` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `ImgEmployee`
+-- Constraints for table `imageemployee`
 --
-ALTER TABLE `ImgEmployee`
-  ADD CONSTRAINT `imgemployee_ibfk_3` FOREIGN KEY (`EmployeeCode`) REFERENCES `Employee` (`EmployeeCode`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `imageemployee`
+  ADD CONSTRAINT `imageemployee_ibfk_3` FOREIGN KEY (`EmployeeCode`) REFERENCES `employee` (`EmployeeCode`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `ImgWine`
+-- Constraints for table `imgnews`
 --
-ALTER TABLE `ImgWine`
-  ADD CONSTRAINT `imgwine_ibfk_2` FOREIGN KEY (`WineId`) REFERENCES `Wine` (`WineId`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `imgnews`
+  ADD CONSTRAINT `imgnews_ibfk_1` FOREIGN KEY (`NewsId`) REFERENCES `news` (`NewsId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `News`
+-- Constraints for table `imgwine`
 --
-ALTER TABLE `News`
-  ADD CONSTRAINT `news_ibfk_2` FOREIGN KEY (`EmployeeCode`) REFERENCES `Employee` (`EmployeeCode`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `imgwine`
+  ADD CONSTRAINT `imgwine_ibfk_2` FOREIGN KEY (`WineId`) REFERENCES `wine` (`WineId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Order`
+-- Constraints for table `news`
 --
-ALTER TABLE `Order`
-  ADD CONSTRAINT `order_ibfk_3` FOREIGN KEY (`Username`) REFERENCES `User` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_ibfk_4` FOREIGN KEY (`PaymentMethodId`) REFERENCES `PaymentMethod` (`PaymentMethodId`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `news`
+  ADD CONSTRAINT `news_ibfk_2` FOREIGN KEY (`EmployeeCode`) REFERENCES `employee` (`EmployeeCode`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `OrderWineDetails`
+-- Constraints for table `order`
 --
-ALTER TABLE `OrderWineDetails`
-  ADD CONSTRAINT `orderwinedetails_ibfk_3` FOREIGN KEY (`OrderId`) REFERENCES `Order` (`OrderId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `orderwinedetails_ibfk_4` FOREIGN KEY (`WineOrderId`) REFERENCES `Wine` (`WineId`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `order`
+  ADD CONSTRAINT `order_ibfk_3` FOREIGN KEY (`Username`) REFERENCES `user` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_ibfk_4` FOREIGN KEY (`PaymentMethodId`) REFERENCES `paymentmethod` (`PaymentMethodId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Promotion_Wine`
+-- Constraints for table `orderwinedetails`
 --
-ALTER TABLE `Promotion_Wine`
-  ADD CONSTRAINT `promotion_wine_ibfk_1` FOREIGN KEY (`WineId`) REFERENCES `Wine` (`WineId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `promotion_wine_ibfk_2` FOREIGN KEY (`PromotionId`) REFERENCES `Promotion` (`PromotionId`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `orderwinedetails`
+  ADD CONSTRAINT `orderwinedetails_ibfk_3` FOREIGN KEY (`OrderId`) REFERENCES `order` (`OrderId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `orderwinedetails_ibfk_4` FOREIGN KEY (`WineOrderId`) REFERENCES `wine` (`WineId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `User`
+-- Constraints for table `promotion_wine`
 --
-ALTER TABLE `User`
-  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`Role`) REFERENCES `Role` (`RoleId`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `promotion_wine`
+  ADD CONSTRAINT `promotion_wine_ibfk_1` FOREIGN KEY (`WineId`) REFERENCES `wine` (`WineId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `promotion_wine_ibfk_2` FOREIGN KEY (`PromotionId`) REFERENCES `promotion` (`PromotionId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Wine`
+-- Constraints for table `time_wine`
 --
-ALTER TABLE `Wine`
-  ADD CONSTRAINT `wine_ibfk_5` FOREIGN KEY (`CategoryId`) REFERENCES `Category` (`CategoryId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `wine_ibfk_6` FOREIGN KEY (`PublisherId`) REFERENCES `Publisher` (`PublisherId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `wine_ibfk_7` FOREIGN KEY (`CountryId`) REFERENCES `Country` (`CountryId`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `time_wine`
+  ADD CONSTRAINT `time_wine_ibfk_1` FOREIGN KEY (`WineId`) REFERENCES `wine` (`WineId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `time_wine_ibfk_2` FOREIGN KEY (`TimeId`) REFERENCES `time` (`TimeId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`Role`) REFERENCES `role` (`RoleId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `wine`
+--
+ALTER TABLE `wine`
+  ADD CONSTRAINT `wine_ibfk_5` FOREIGN KEY (`CategoryId`) REFERENCES `category` (`CategoryId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `wine_ibfk_6` FOREIGN KEY (`PublisherId`) REFERENCES `publisher` (`PublisherId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `wine_ibfk_7` FOREIGN KEY (`CountryId`) REFERENCES `country` (`CountryId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
