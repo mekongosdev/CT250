@@ -214,10 +214,7 @@ include("Src/User/Register.php");
 									<div class="agile_ecommerce_tabs">
 										<?php 
 										$result = mysql_query("
-											SELECT wine.*,
-											(SELECT imgwine  FROM imgwine 
-											WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
-											LIMIT 1) as imgwine 
+											SELECT wine.*
 											FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=1  ORDER BY WineUpdateDate 
 											LIMIT 3");
 										while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
@@ -225,14 +222,12 @@ include("Src/User/Register.php");
 											<div class="col-md-4 agile_ecommerce_tab_left">
 
 												<div class="hs-wrapper">
-													<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
-													<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-													<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
+													<?php
+													$imgResult = mysql_query("
+														SELECT ImgWine FROM imgwine, wine WHERE wine.WineId = imgwine.WineId and wine.WineId = ".$row['WineId']." LIMIT 6");
+													while ($imgRow = mysql_fetch_array($imgResult, MYSQL_ASSOC)){
+														echo'<img src="public/admin/images/products/'.$imgRow["ImgWine"].'" class="img-responsive" />';
+													} ?>
 													<div class="w3_hs_bottom">
 														<ul>
 															<li>
@@ -275,25 +270,20 @@ include("Src/User/Register.php");
 										<div class="agile_ecommerce_tabs">
 											<?php 
 											$result = mysql_query("
-												SELECT wine.*,
-												(SELECT imgwine  FROM imgwine 
-												WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
-												LIMIT 1) as imgwine 
-												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=2  ORDER BY WineUpdateDate
+												SELECT wine.*
+												FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=2  ORDER BY WineUpdateDate 
 												LIMIT 3");
 											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 												?>
 												<div class="col-md-4 agile_ecommerce_tab_left">
 
 													<div class="hs-wrapper">
-														<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
-														<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
-														<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-														<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-														<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
-														<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-														<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-														<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
+														<?php
+														$imgResult = mysql_query("
+															SELECT ImgWine FROM imgwine, wine WHERE wine.WineId = imgwine.WineId and wine.WineId = ".$row['WineId']." LIMIT 6");
+														while ($imgRow = mysql_fetch_array($imgResult, MYSQL_ASSOC)){
+															echo'<img src="public/admin/images/products/'.$imgRow["ImgWine"].'" class="img-responsive" />';
+														} ?>
 														<div class="w3_hs_bottom">
 															<ul>
 																<li>
@@ -336,25 +326,20 @@ include("Src/User/Register.php");
 											<div class="agile_ecommerce_tabs">
 												<?php 
 												$result = mysql_query("
-													SELECT wine.*,
-													(SELECT imgwine  FROM imgwine 
-													WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
-													LIMIT 1) as imgwine 
-													FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=3  ORDER BY WineUpdateDate
+													SELECT wine.*
+													FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=3  ORDER BY WineUpdateDate 
 													LIMIT 3");
 												while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 													?>
 													<div class="col-md-4 agile_ecommerce_tab_left">
 
 														<div class="hs-wrapper">
-															<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
-															<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
-															<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-															<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-															<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
-															<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-															<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-															<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
+															<?php
+															$imgResult = mysql_query("
+																SELECT ImgWine FROM imgwine, wine WHERE wine.WineId = imgwine.WineId and wine.WineId = ".$row['WineId']." LIMIT 6");
+															while ($imgRow = mysql_fetch_array($imgResult, MYSQL_ASSOC)){
+																echo'<img src="public/admin/images/products/'.$imgRow["ImgWine"].'" class="img-responsive" />';
+															} ?>
 															<div class="w3_hs_bottom">
 																<ul>
 																	<li>
@@ -397,25 +382,20 @@ include("Src/User/Register.php");
 												<div class="agile_ecommerce_tabs">
 													<?php 
 													$result = mysql_query("
-														SELECT wine.*,
-														(SELECT imgwine  FROM imgwine 
-														WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
-														LIMIT 1) as imgwine 
-														FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=4  ORDER BY WineUpdateDate
+														SELECT wine.*
+														FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=4  ORDER BY WineUpdateDate 
 														LIMIT 3");
 													while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 														?>
 														<div class="col-md-4 agile_ecommerce_tab_left">
 
 															<div class="hs-wrapper">
-																<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
-																<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
-																<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-																<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-																<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
-																<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-																<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-																<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
+																<?php
+																$imgResult = mysql_query("
+																	SELECT ImgWine FROM imgwine, wine WHERE wine.WineId = imgwine.WineId and wine.WineId = ".$row['WineId']." LIMIT 6");
+																while ($imgRow = mysql_fetch_array($imgResult, MYSQL_ASSOC)){
+																	echo'<img src="public/admin/images/products/'.$imgRow["ImgWine"].'" class="img-responsive" />';
+																} ?>
 																<div class="w3_hs_bottom">
 																	<ul>
 																		<li>
@@ -458,25 +438,20 @@ include("Src/User/Register.php");
 													<div class="agile_ecommerce_tabs">
 														<?php 
 														$result = mysql_query("
-															SELECT wine.*,
-															(SELECT imgwine  FROM imgwine 
-															WHERE wine.WineId = imgwine.WineId ORDER BY ImgWineId DESC 
-															LIMIT 1) as imgwine 
-															FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=5  ORDER BY WineUpdateDate
+															SELECT wine.*
+															FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=5  ORDER BY WineUpdateDate 
 															LIMIT 3");
 														while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 															?>
 															<div class="col-md-4 agile_ecommerce_tab_left">
 
 																<div class="hs-wrapper">
-																	<img src="public/images/products/"<?php echo ($row['imgwine'] != "") ? $row['imgwine'] : "no-image.png"; ?> alt="" class="img-responsive" />
-																	<img src="public/client/images/4.jpg" alt=" " class="img-responsive" />
-																	<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-																	<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-																	<img src="public/client/images/7.jpg" alt=" " class="img-responsive" />
-																	<img src="public/client/images/3.jpg" alt=" " class="img-responsive" />
-																	<img src="public/client/images/5.jpg" alt=" " class="img-responsive" />
-																	<img src="public/client/images/6.jpg" alt=" " class="img-responsive" />
+																	<?php
+																	$imgResult = mysql_query("
+																		SELECT ImgWine FROM imgwine, wine WHERE wine.WineId = imgwine.WineId and wine.WineId = ".$row['WineId']." LIMIT 6");
+																	while ($imgRow = mysql_fetch_array($imgResult, MYSQL_ASSOC)){
+																		echo'<img src="public/admin/images/products/'.$imgRow["ImgWine"].'" class="img-responsive" />';
+																	} ?>
 																	<div class="w3_hs_bottom">
 																		<ul>
 																			<li>
