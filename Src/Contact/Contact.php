@@ -3,13 +3,13 @@ include_once("ContactController.php");
 $sqlSelect="SELECT `ContactId`, `Subject`, `Names`, `ContactDate`, `Information`,`Email`, `Phone`, `Address` FROM `contact`";
 $list_contact= mysql_query($sqlSelect);
 ?>
-<h3 class="w3_inner_tittle two text-center">Quản lý liên hệ</h3>
+<h3 class="w3_inner_tittle two text-center">Quản lý Contact</h3>
 <table id="myTable" class="table-striped table-hover">
 	<thead >
 		<tr>
 			<th><strong>STT</strong></th>
 			<th><strong>Chủ Đề</strong></th>
-			<th><strong>Tên người liên hệ</strong></th>
+			<th><strong>Tên người Contact</strong></th>
 			<th><strong>Ngày</strong></th>
 			<th><strong>Thông tin</strong></th>
 			<th><strong>Email</strong></th>

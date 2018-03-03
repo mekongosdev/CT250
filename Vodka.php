@@ -125,7 +125,7 @@ include("Src/User/Register.php");
 					<a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 				</div>
 				<div class="w3l_logo">
-					<h1><a href="index.php">Windsor's Wine<span>Siêu Thị Rượu Ngoại</span></a></h1>
+					<h1><a href="index.php">Windsor's Wine<span>The Land & The Folk</span></a></h1>
 				</div>
 				<div class="search">
 					<input class="search_box" type="checkbox" id="search_box">
@@ -140,9 +140,7 @@ include("Src/User/Register.php");
 				<div class="cart box_1">
 					<a href="#">
 						<div class="total">
-							<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> sản phẩm)
-							<a href="Src/WineCart/Cart.php"><span class="glyphicon glyphicon-shopping-cart text-primary"></span> &nbsp;Shopping Cart&nbsp; <span class="badge"><?php if((isset($_SESSION['cart'])) && count($_SESSION['cart'])>0) echo count($_SESSION['cart']); else echo 0;?></span></a>
-						</div>
+							<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> item)</div>
 							<img src="public/client/images/bag.png" alt="" />
 						</a>
 						<p data-toggle="modal" data-target="#myLoginModal" style="margin-left: 58px;" ><?php if(isset($_SESSION["username"])){echo $_SESSION["username"]." <a href='Src/User/Signout.php'><span class=' glyphicon glyphicon-log-out'></span></a>";}?> </p>
@@ -165,10 +163,10 @@ include("Src/User/Register.php");
 						</div>
 						<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="Index.php" class="act">Trang chủ</a></li>
+								<li class="active"><a href="Index.php" class="act">Homepage</a></li>
 								<!-- Mega Menu -->
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sản phẩm <b class="caret"></b></a>
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Product <b class="caret"></b></a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<div class="row">
 											<div class="col-sm-3">
@@ -198,9 +196,9 @@ include("Src/User/Register.php");
 										</div>
 									</ul>
 								</li>
-								<li><a href="about.html">Tin tức</a></li>
-								<li><a href="short-codes.html">Liên Hệ</a></li>
-								<li><a href="mail.html">Về chúng tôi</a></li>
+								<li><a href="about.html">News</a></li>
+								<li><a href="short-codes.html">Contact</a></li>
+								<li><a href="mail.html">About</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -265,11 +263,11 @@ include("Src/User/Register.php");
 										if ($row['WineQuantity'] > 0) 
 										{
 											?>
-											<p><a class="item_add" href="#">Mua ngay</a></p>
+											<p><a class="item_add" href="#">Add to card</a></p>
 											<?php
 										} else {
 											?>
-											<p><a class="item_add" href="#">Hết hàng</a></p>
+											<p><a class="item_add" href="#">Out of stock</a></p>
 											<?php
 										}
 										?> 
