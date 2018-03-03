@@ -1,7 +1,7 @@
 								<!-- new-products -->
 								<div class="new-products">
 									<div class="container">
-										<h3>VIETNAM</h3>
+										<h3>Domestic</h3>
 										<div class="agileinfo_new_products_grids">
 											<?php 
 											$result = mysql_query("

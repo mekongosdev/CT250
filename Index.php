@@ -120,18 +120,18 @@ session_start();
      									<div class="col-sm-3">
      										<ul class="multi-column-dropdown">
      											<h6>Category</h6>
-     											<li><a href="Vodka.php">Vodka<span>New</span></a></li>
-     											<li><a href="Whisky.php">Whisky</a></li>
-     											<li><a href="Chivas.php">Chivas & Skirts</a></li>
-     											<li><a href="Domestic.php">Domestic</a></li>
-     											<li><a href="Fruit.php">Fruit & Tops<span>New</span></a></li>
+     											<li><a href="?page=Vodka">Vodka<span>New</span></a></li>
+     											<li><a href="?page=Whisky">Whisky</a></li>
+     											<li><a href="?page=Chivas">Chivas & Skirts</a></li>
+     											<li><a href="?page=Domestic">Domestic</a></li>
+     											<li><a href="?page=Fruit">Fruit & Tops<span>New</span></a></li>
      										</ul>
      									</div>
      									<div class="col-sm-3">
      										<ul class="multi-column-dropdown">
      											<h6>Country</h6>
-     											<li><a href="Vietnam.php">Vietnam</a></li>
-     											<li><a href="France.php">France<span>New</span></a></li>
+     											<li><a href="?page=Vietnam">Vietnam</a></li>
+     											<li><a href="?page=France">France<span>New</span></a></li>
      										</ul>
      									</div>
      									<div class="col-sm-6">
