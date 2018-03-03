@@ -63,9 +63,9 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									<a href="#"> <i class="fa fa-mail-reply-all" aria-hidden="true"></i>Phản hồi</a>
 								</li>
 								<li>
-									<a href="?page=subject"> <i class="fa fa-send" aria-hidden="true"></i>Chủ đề liên hệ</a>
+									<a href="?page=subject"> <i class="fa fa-send" aria-hidden="true"></i>Chủ đề Contact</a>
 								</li>
-								<li><a href="?page=contact"> <i class="fa fa-tty" aria-hidden="true"></i>Liên Hệ</a></li>
+								<li><a href="?page=contact"> <i class="fa fa-tty" aria-hidden="true"></i>Contact</a></li>
 								<li class="product"><a href="#"><i class="fa fa-product-hunt" aria-hidden="true"></i>Quản lý sản phẩm<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"><a href="?page=publisher"><i class="fa fa-caret-right" aria-hidden="true"></i> Nhà sản xuất</a></li>
@@ -83,7 +83,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<li class="employee"><a href="#"><i class="fa fa-cubes" aria-hidden="true"></i> Quản lý nhân viên <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"> <a href="?page=employee"> <i class="fa fa-caret-right" aria-hidden="true"></i> Thông tin nhân viên</a></li>
-										<li class="mini_list_w3"><a href="?page=news"> <i class="fa fa-caret-right" aria-hidden="true"></i> Tin tức</a></li>
+										<li class="mini_list_w3"><a href="?page=news"> <i class="fa fa-caret-right" aria-hidden="true"></i> News</a></li>
 										<li class="mini_list_agile error"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Chi nhánh </a></li>
 
 										<li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quyền hạn</a></li>

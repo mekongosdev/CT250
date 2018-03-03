@@ -88,7 +88,7 @@ include("Src/User/Register.php");
 				<div class="cart box_1">
 					<a href="#">
 						<div class="total">
-							<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> sản phẩm)</div>
+							<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> item)</div>
 							<img src="public/client/images/bag.png" alt="" />
 						</a>
 						<p data-toggle="modal" data-target="#myLoginModal" style="margin-left: 58px;" ><?php if(isset($_SESSION["username"])){echo $_SESSION["username"]." <a href='Src/User/Signout.php'><span class=' glyphicon glyphicon-log-out'></span></a>";}?> </p>
@@ -111,7 +111,7 @@ include("Src/User/Register.php");
 						</div>
 						<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="Index.php" class="act">Trang chủ</a></li>
+								<li class="active"><a href="Index.php" class="act">Homepage</a></li>
 								<!-- Mega Menu -->
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sản phẩm <b class="caret"></b></a>
@@ -144,9 +144,9 @@ include("Src/User/Register.php");
 										</div>
 									</ul>
 								</li>
-								<li><a href="about.html">Tin tức</a></li>
-								<li><a href="short-codes.html">Liên Hệ</a></li>
-								<li><a href="mail.html">Về chúng tôi</a></li>
+								<li><a href="about.html">News</a></li>
+								<li><a href="short-codes.html">Contact</a></li>
+								<li><a href="mail.html">About</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -211,11 +211,11 @@ include("Src/User/Register.php");
 										if ($row['WineQuantity'] > 0) 
 										{
 											?>
-											<p><a class="item_add" href="#">Mua ngay</a></p>
+											<p><a class="item_add" href="#">Add to card</a></p>
 											<?php
 										} else {
 											?>
-											<p><a class="item_add" href="#">Hết hàng</a></p>
+											<p><a class="item_add" href="#">Out of stock</a></p>
 											<?php
 										}
 										?> 

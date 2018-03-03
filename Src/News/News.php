@@ -6,7 +6,7 @@ $list_News= mysql_query($sqlSelect);
 
 ?>
 
-<h3 class="w3_inner_tittle two text-center">Quản lý tin tức</h3>
+<h3 class="w3_inner_tittle two text-center">Quản lý News</h3>
 <a class="btn btn-primary" href="?page=AddNews">THÊM <i class="fa fa-plus"></i></a> 
 <br>
 <br>
@@ -14,7 +14,7 @@ $list_News= mysql_query($sqlSelect);
 	<thead >
 		<tr>
 			<th><strong>STT</strong></th>
-			<th><strong>Tên Tin Tức</strong></th>
+			<th><strong>Tên News</strong></th>
 			<th><strong>Loại</strong></th>
 			<th><strong>Nội dung</strong></th>
 			<th><strong>Người lập</strong></th>
@@ -42,7 +42,7 @@ $list_News= mysql_query($sqlSelect);
 				?>
 				<td class="text-center col-md-6">
 					<a class="btn btn-warning btn" href="?page=UpadateNews&NewsId=<?php echo $NewsId; ?>"><i class="fa fa-edit"></i></a>
-					<a class='btn btn-danger' href="?page=DeleteNews&NewsId=<?php echo $NewsId; ?>" onclick="return confirm('Bạn có chắc chắn xóa tin tức này không này không?')"><i class="fa fa-remove"></i></a>
+					<a class='btn btn-danger' href="?page=DeleteNews&NewsId=<?php echo $NewsId; ?>" onclick="return confirm('Bạn có chắc chắn xóa News này không này không?')"><i class="fa fa-remove"></i></a>
 				</td>     
 			</tr>
 			<?php

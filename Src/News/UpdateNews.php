@@ -24,7 +24,7 @@ if(isset($_POST['btnUpdate']))
 	$content=$_POST['txtContent'];
 	$employeecode=$_POST['slEmpl'];
 	UpdateNews($NewsId,$NewsName,$title,$content,$employeecode);
-	echo '<script> alert("Cập nhật tin tức thành công!");</script>';
+	echo '<script> alert("Cập nhật News thành công!");</script>';
 	echo "<script>window.location.href='?page=news'</script>";
 }
 
@@ -33,12 +33,12 @@ if(isset($_POST['btnUpdate']))
 	<div class="col-md-12">
 		<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data" form-horizontal>
 			<div class="form_group">
-				<label class="control-label col-sm-12" for="email"><h2 align="center">Thêm Tin Tức</h2></label>
+				<label class="control-label col-sm-12" for="email"><h2 align="center">Thêm News</h2></label>
 			</div>
 			</form>
 		<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" >
 			<div class="form-group">
-				<label class="control-label col-md-2" for="txtId">Mã Tin Tức:</label>
+				<label class="control-label col-md-2" for="txtId">Mã News:</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" id="NewsId"  name="NewsId"
 					readonly="readonly" value="<?=$NewsId;?>" >
@@ -48,7 +48,7 @@ if(isset($_POST['btnUpdate']))
 
 
 			<div class="form-group">
-				<label class="control-label col-md-2" for="txtName">Tên Tin Tức:</label>
+				<label class="control-label col-md-2" for="txtName">Tên News:</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" id="txtName"  name="txtName"
 					required  value="<?=$NewsName;?>" >

@@ -35,7 +35,7 @@
 		$phone=$_POST["txtPhone"];
 		$address1 = $_POST["txtAddress"];
 		addContact($name,$subject,$datewrite,$information,$email,$phone,$address1);
-		echo '<script> alert("Liên hệ thành công");</script>';
+		echo '<script> alert("Contact thành công");</script>';
 		 echo "<script>window.location.href='../../index.php'</script>";
 	}
 	?>
@@ -44,7 +44,7 @@
 			<div class="row">
 				<div class="col-sm-12 col-lg-12">
 					<h1 class="h1">
-						Liên Hệ <small>Hãy Liên hệ với Windsor khi cần</small></h1>
+						Contact <small>Hãy Contact với Windsor khi cần</small></h1>
 					</div>
 				</div>
 			</div>
@@ -74,7 +74,7 @@
 									</div>
 									<div class="form-group">
 										<label for="txtName">
-										Ngày liên hệ:</label>
+										Ngày Contact:</label>
 										<div class="input-group">
 											<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 										</span>
@@ -109,7 +109,7 @@
 									</div>
 									<div class="form-group">
 										<label for="name">
-										Thông Tin Liên Hệ</label>
+										Thông Tin Contact</label>
 										<textarea name="message" id="message" class="form-control" rows="9" cols="25" required
 										placeholder="Nhập vào thông tin bạn muốn gửi"></textarea>
 									</div>

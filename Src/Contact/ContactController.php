@@ -20,7 +20,7 @@ function blindSubjectList()
 {
 	$sqlString="SELECT `SubjectId`, `SubjectName` FROM `subject`";
 	$sqlresult = mysql_query($sqlString);
-	echo "<select name='slSubject' class='form-control'><option value='0'>Vui lòng chọn chủ đề bạn muốn liên hệ</option>";
+	echo "<select name='slSubject' class='form-control'><option value='0'>Vui lòng chọn chủ đề bạn muốn Contact</option>";
 
 	while ($row = mysql_fetch_array($sqlresult,MYSQL_ASSOC)) {
 		echo "<option value='".$row['SubjectId']."'>".$row['SubjectName']."</option>";
@@ -44,7 +44,7 @@ function blindSubjecUpdatetList($selectValue)
 {
 	$sqlSelect = "SELECT `SubjectId`, `SubjectName` FROM `subject`";
 	$result = mysql_query($sqlSelect);
-	echo "<select> name='slSubject' class='form-control'><option value='0'>Vui lòng chọn chủ đề bạn muốn liên hệ</option>";
+	echo "<select> name='slSubject' class='form-control'><option value='0'>Vui lòng chọn chủ đề bạn muốn Contact</option>";
 	while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) 
 	{
 		if($row['SubjectId'] == $selectedValue)
