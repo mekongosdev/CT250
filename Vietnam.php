@@ -175,12 +175,12 @@ include("Src/User/Register.php");
 								<!-- new-products -->
 								<div class="new-products">
 									<div class="container">
-										<h3>VIETNAM</h3>
+										<h3>Vietnam</h3>
 										<div class="agileinfo_new_products_grids">
 											<?php 
 											$result = mysql_query("
 												SELECT wine.*
-											FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=4  ORDER BY WineUpdateDate 
+											FROM wine, publisher WHERE wine.PublisherId = publisher.PublisherId AND wine.PublisherId=1  ORDER BY WineUpdateDate 
 											LIMIT 12");
 											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 												?>
@@ -335,7 +335,7 @@ include("Src/User/Register.php");
 													{
 														?>
 
-														<li><a href="dresses.html"><?= $name;?></a></li>
+														<li><a href="<?=$name.".php";?>"><?= $name;?></a></li>
 
 														<?php
 													}

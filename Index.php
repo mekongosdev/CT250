@@ -1191,7 +1191,7 @@ include("Src/User/Register.php");
 													{
 														?>
 
-														<li><a href="dresses.html"><?= $name;?></a></li>
+														<li><a href="<?=$name.".php";?>"><?= $name;?></a></li>
 
 														<?php
 													}
