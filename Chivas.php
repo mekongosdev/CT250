@@ -111,7 +111,7 @@ include("Src/User/Register.php");
 						</div>
 						<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="#" class="act">Trang chủ</a></li>
+								<li class="active"><a href="Index.php" class="act">Trang chủ</a></li>
 								<!-- Mega Menu -->
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sản phẩm <b class="caret"></b></a>
@@ -119,34 +119,24 @@ include("Src/User/Register.php");
 										<div class="row">
 											<div class="col-sm-3">
 												<ul class="multi-column-dropdown">
-													<h6>Rượu truyền thống</h6>
-													<li><a href="#">Dresses<span>New</span></a></li>
-													<li><a href="#">Sweaters</a></li>
-													<li><a href="#">Shorts & Skirts</a></li>
-													<li><a href="#">Jeans</a></li>
-													<li><a href="#">Shirts & Tops<span>New</span></a></li>
+													<h6>Category</h6>
+													<li><a href="Vodka.php">Vodka<span>New</span></a></li>
+													<li><a href="Whisky.php">Whisky</a></li>
+													<li><a href="Chivas.php">Chivas & Skirts</a></li>
+													<li><a href="Domestic.php">Domestic</a></li>
+													<li><a href="Fruit.php">Fruit & Tops<span>New</span></a></li>
 												</ul>
 											</div>
 											<div class="col-sm-3">
 												<ul class="multi-column-dropdown">
-													<h6>Rượu ngoại nhập</h6>
-													<li><a href="salwars.html">Salwars</a></li>
-													<li><a href="sarees.html">Sarees<span>New</span></a></li>
-													<li><a href="products.html"><i>Summer Store</i></a></li>
+													<h6>Country</h6>
+													<li><a href="Vietnam.php">Vietnam</a></li>
+													<li><a href="France.php">France<span>New</span></a></li>
 												</ul>
 											</div>
-											<div class="col-sm-2">
-												<ul class="multi-column-dropdown">
-													<h6>Rượu pha chế</h6>
-													<li><a href="sandals.html">Flats</a></li>
-													<li><a href="sandals.html">Sandals</a></li>
-													<li><a href="sandals.html">Boots</a></li>
-													<li><a href="sandals.html">Heels</a></li>
-												</ul>
-											</div>
-											<div class="col-sm-4">
+											<div class="col-sm-6">
 												<div class="w3ls_products_pos">
-													<h4>50%<i>Off/-</i></h4>
+													<h4>50%<i>Deal of the day</i></h4>
 													<img src="public/client/images/1.jpg" alt=" " class="img-responsive" />
 												</div>
 											</div>
@@ -172,228 +162,228 @@ include("Src/User/Register.php");
 			<!-- //banner -->
 
 			
-								<!-- new-products -->
-								<div class="new-products">
-									<div class="container">
-										<h3>CHIVAS</h3>
-										<div class="agileinfo_new_products_grids">
+			<!-- new-products -->
+			<div class="new-products">
+				<div class="container">
+					<h3>CHIVAS</h3>
+					<div class="agileinfo_new_products_grids">
+						<?php 
+						$result = mysql_query("
+							SELECT wine.*
+							FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=3  ORDER BY WineUpdateDate 
+							LIMIT 12");
+						while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
+							?>
+							<div class="col-md-3 agileinfo_new_products_grid">
+								<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
+									<div class="hs-wrapper hs-wrapper1">
+										<?php
+										$imgResult = mysql_query("
+											SELECT ImgWine FROM imgwine, wine WHERE wine.WineId = imgwine.WineId and wine.WineId = ".$row['WineId']." LIMIT 6");
+										while ($imgRow = mysql_fetch_array($imgResult, MYSQL_ASSOC)){
+											echo'<img src="public/admin/images/products/'.$imgRow["ImgWine"].'" class="img-responsive" />';
+										} ?>
+
+										<div class="w3_hs_bottom w3_hs_bottom_sub">
+											<ul>
+												<li>
+													<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<!-- <h5><a href="single.html">Skirts</a></h5> -->
+									<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
+									<div class="simpleCart_shelfItem">
+										<?php 
+										$sqlSelect = "
+										SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+
+										$resultPrice = mysql_query($sqlSelect);
+										while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
+										{
+											?>
+											<p><span><?php echo  $rowPrice['PurchasePrice']?>
+
+											</span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
 											<?php 
-											$result = mysql_query("
-												SELECT wine.*
-											FROM wine, category WHERE wine.CategoryId = category.CategoryId AND wine.CategoryId=3  ORDER BY WineUpdateDate 
-											LIMIT 12");
-											while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
-												?>
-												<div class="col-md-3 agileinfo_new_products_grid">
-													<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-														<div class="hs-wrapper hs-wrapper1">
-															<?php
-															$imgResult = mysql_query("
-																SELECT ImgWine FROM imgwine, wine WHERE wine.WineId = imgwine.WineId and wine.WineId = ".$row['WineId']." LIMIT 6");
-															while ($imgRow = mysql_fetch_array($imgResult, MYSQL_ASSOC)){
-																echo'<img src="public/admin/images/products/'.$imgRow["ImgWine"].'" class="img-responsive" />';
-															} ?>
-
-															<div class="w3_hs_bottom w3_hs_bottom_sub">
-																<ul>
-																	<li>
-																		<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-																	</li>
-																</ul>
-															</div>
-														</div>
-														<!-- <h5><a href="single.html">Skirts</a></h5> -->
-														<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
-														<div class="simpleCart_shelfItem">
-															<?php 
-															$sqlSelect = "
-															SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
-
-															$resultPrice = mysql_query($sqlSelect);
-															while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
-															{
-																?>
-																<p><span><?php echo  $rowPrice['PurchasePrice']?>
-
-																</span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
-																<?php 
-															}
-															if ($row['WineQuantity'] > 0) 
-															{
-																?>
-																<p><a class="item_add" href="#">Mua ngay</a></p>
-																<?php
-															} else {
-																?>
-																<p><a class="item_add" href="#">Hết hàng</a></p>
-																<?php
-															}
-															?> 
-														</div>
-													</div>
-												</div> 
-												<?php } ?>
-												<div class="clearfix"> </div>
-											</div>
-										</div>
-									</div>
-									<!-- //new-products -->
-									<!-- top-brands -->
-									<div class="top-brands">
-										<div class="container">
-											<h3>Top Brands</h3>
-											<div class="sliderfig">
-												<ul id="flexiselDemo1">
-													<li>
-														<img src="public/client/images/4.png" alt=" " class="img-responsive" />
-													</li>
-													<li>
-														<img src="public/client/images/5.png" alt=" " class="img-responsive" />
-													</li>
-													<li>
-														<img src="public/client/images/6.png" alt=" " class="img-responsive" />
-													</li>
-													<li>
-														<img src="public/client/images/7.png" alt=" " class="img-responsive" />
-													</li>
-													<li>
-														<img src="public/client/images/46.jpg" alt=" " class="img-responsive" />
-													</li>
-												</ul>
-											</div>
-											<script type="text/javascript">
-												$(window).load(function() {
-													$("#flexiselDemo1").flexisel({
-														visibleItems: 4,
-														animationSpeed: 1000,
-														autoPlay: true,
-														autoPlaySpeed: 3000,
-														pauseOnHover: true,
-														enableResponsiveBreakpoints: true,
-														responsiveBreakpoints: {
-															portrait: {
-																changePoint:480,
-																visibleItems: 1
-															},
-															landscape: {
-																changePoint:640,
-																visibleItems:2
-															},
-															tablet: {
-																changePoint:768,
-																visibleItems: 3
-															}
-														}
-													});
-
-												});
-											</script>
-											<script type="text/javascript" src="public/client/js/jquery.flexisel.js"></script>
-											<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-										</div>
-									</div>
-									<!-- //top-brands -->
-									<!-- newsletter -->
-									<div class="newsletter">
-										<div class="container">
-											<div class="col-md-6 w3agile_newsletter_left">
-												<h3>Newsletter</h3>
-												<p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
-											</div>
-											<div class="col-md-6 w3agile_newsletter_right">
-												<form action="#" method="post">
-													<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-													<input type="submit" value="" />
-												</form>
-											</div>
-											<div class="clearfix"> </div>
-										</div>
-									</div>
-									<!-- //newsletter -->
-									<!-- footer -->
-									<div class="footer">
-										<div class="container">
-											<div class="w3_footer_grids">
-												<div class="col-md-3 w3_footer_grid">
-													<h3>Contact</h3>
-													<p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-													<ul class="address">
-														<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
-														<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
-														<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
-													</ul>
-												</div>
-												<div class="col-md-3 w3_footer_grid">
-													<h3>Producer</h3>
-													<?php 
-													$sqlSelect = "SELECT `PublisherName` FROM Publisher";
-													$list_publisher= mysql_query($sqlSelect);
-
-													?>
-													<ul class="info"><?php 
-													while(list($name) = mysql_fetch_array($list_publisher))
-													{
-														?>
-
-														<li><a href="<?=$name.".php";?>"><?= $name;?></a></li>
-
-														<?php
-													}
-													?>
-												</ul>
-											</div>
-											<div class="col-md-3 w3_footer_grid">
-												<h3>Category</h3>
-												<?php 
-												$sqlSelect = "SELECT `CategoryId`, `CategoryName`, `CategoryDescription` FROM Category";
-												$list_category= mysql_query($sqlSelect);
-
-												?>
-												<ul class="info">
-													<?php 
-													while(list($CategoryId, $name, $details) = mysql_fetch_array($list_category))
-													{
-														?>
-
-														<li><a href="<?=$name.".php";?>"><?= $name;?></a></li>
-
-														<?php
-													}
-													?>
-												</ul>
-											</div>
-											<div class="col-md-3 w3_footer_grid">
-												<h3>Profile</h3>
-												<ul class="info">
-													<li><a href="products.html">Summer Store</a></li>
-													<li><a href="checkout.html">My Cart</a></li>
-												</ul>
-												<h4>Follow Us</h4>
-												<div class="agileits_social_button">
-													<ul>
-														<li><a href="#" class="facebook"> </a></li>
-														<li><a href="#" class="twitter"> </a></li>
-														<li><a href="#" class="google"> </a></li>
-														<li><a href="#" class="pinterest"> </a></li>
-													</ul>
-												</div>
-											</div>
-											<div class="clearfix"> </div>
-										</div>
-									</div>
-									<div class="footer-copy">
-										<div class="footer-copy1">
-											<div class="footer-copy-pos">
-												<a href="#home1" class="scroll"><img src="public/client/images/arrow.png" alt=" " class="img-responsive" /></a>
-											</div>
-										</div>
-										<div class="container">
-											<p>&copy; 2016 Women's Fashion. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-										</div>
+										}
+										if ($row['WineQuantity'] > 0) 
+										{
+											?>
+											<p><a class="item_add" href="#">Mua ngay</a></p>
+											<?php
+										} else {
+											?>
+											<p><a class="item_add" href="#">Hết hàng</a></p>
+											<?php
+										}
+										?> 
 									</div>
 								</div>
-								<!-- //footer -->
-								<script src="Library/Others/bootstrap-touchspin/src/jquery.bootstrap-touchspin.js"></script>
-								<script> $("input[id='wine-quantity']").TouchSpin({min: 1, max: 100, step: 1, boostat: 5, maxboostedstep: 10, }); </script>
-							</body>
-							</html>
+							</div> 
+							<?php } ?>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>
+				<!-- //new-products -->
+				<!-- top-brands -->
+				<div class="top-brands">
+					<div class="container">
+						<h3>Top Brands</h3>
+						<div class="sliderfig">
+							<ul id="flexiselDemo1">
+								<li>
+									<img src="public/client/images/4.png" alt=" " class="img-responsive" />
+								</li>
+								<li>
+									<img src="public/client/images/5.png" alt=" " class="img-responsive" />
+								</li>
+								<li>
+									<img src="public/client/images/6.png" alt=" " class="img-responsive" />
+								</li>
+								<li>
+									<img src="public/client/images/7.png" alt=" " class="img-responsive" />
+								</li>
+								<li>
+									<img src="public/client/images/46.jpg" alt=" " class="img-responsive" />
+								</li>
+							</ul>
+						</div>
+						<script type="text/javascript">
+							$(window).load(function() {
+								$("#flexiselDemo1").flexisel({
+									visibleItems: 4,
+									animationSpeed: 1000,
+									autoPlay: true,
+									autoPlaySpeed: 3000,
+									pauseOnHover: true,
+									enableResponsiveBreakpoints: true,
+									responsiveBreakpoints: {
+										portrait: {
+											changePoint:480,
+											visibleItems: 1
+										},
+										landscape: {
+											changePoint:640,
+											visibleItems:2
+										},
+										tablet: {
+											changePoint:768,
+											visibleItems: 3
+										}
+									}
+								});
+
+							});
+						</script>
+						<script type="text/javascript" src="public/client/js/jquery.flexisel.js"></script>
+						<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+					</div>
+				</div>
+				<!-- //top-brands -->
+				<!-- newsletter -->
+				<div class="newsletter">
+					<div class="container">
+						<div class="col-md-6 w3agile_newsletter_left">
+							<h3>Newsletter</h3>
+							<p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
+						</div>
+						<div class="col-md-6 w3agile_newsletter_right">
+							<form action="#" method="post">
+								<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+								<input type="submit" value="" />
+							</form>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<!-- //newsletter -->
+				<!-- footer -->
+				<div class="footer">
+					<div class="container">
+						<div class="w3_footer_grids">
+							<div class="col-md-3 w3_footer_grid">
+								<h3>Contact</h3>
+								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+								<ul class="address">
+									<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
+									<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
+								</ul>
+							</div>
+							<div class="col-md-3 w3_footer_grid">
+								<h3>Producer</h3>
+								<?php 
+								$sqlSelect = "SELECT `PublisherName` FROM Publisher";
+								$list_publisher= mysql_query($sqlSelect);
+
+								?>
+								<ul class="info"><?php 
+								while(list($name) = mysql_fetch_array($list_publisher))
+								{
+									?>
+
+									<li><a href="<?=$name.".php";?>"><?= $name;?></a></li>
+
+									<?php
+								}
+								?>
+							</ul>
+						</div>
+						<div class="col-md-3 w3_footer_grid">
+							<h3>Category</h3>
+							<?php 
+							$sqlSelect = "SELECT `CategoryId`, `CategoryName`, `CategoryDescription` FROM Category";
+							$list_category= mysql_query($sqlSelect);
+
+							?>
+							<ul class="info">
+								<?php 
+								while(list($CategoryId, $name, $details) = mysql_fetch_array($list_category))
+								{
+									?>
+
+									<li><a href="<?=$name.".php";?>"><?= $name;?></a></li>
+
+									<?php
+								}
+								?>
+							</ul>
+						</div>
+						<div class="col-md-3 w3_footer_grid">
+							<h3>Profile</h3>
+							<ul class="info">
+								<li><a href="products.html">Summer Store</a></li>
+								<li><a href="checkout.html">My Cart</a></li>
+							</ul>
+							<h4>Follow Us</h4>
+							<div class="agileits_social_button">
+								<ul>
+									<li><a href="#" class="facebook"> </a></li>
+									<li><a href="#" class="twitter"> </a></li>
+									<li><a href="#" class="google"> </a></li>
+									<li><a href="#" class="pinterest"> </a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="footer-copy">
+					<div class="footer-copy1">
+						<div class="footer-copy-pos">
+							<a href="#home1" class="scroll"><img src="public/client/images/arrow.png" alt=" " class="img-responsive" /></a>
+						</div>
+					</div>
+					<div class="container">
+						<p>&copy; 2016 Women's Fashion. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+			<script src="Library/Others/bootstrap-touchspin/src/jquery.bootstrap-touchspin.js"></script>
+			<script> $("input[id='wine-quantity']").TouchSpin({min: 1, max: 100, step: 1, boostat: 5, maxboostedstep: 10, }); </script>
+		</body>
+		</html>
