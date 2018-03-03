@@ -22,7 +22,7 @@ if (isset($_POST['btnYes'])) {
         foreach ($_SESSION["cart"] as $key => $row) {
             $_SESSION['cart'][$key]['quantity'] = $_POST['Wine' . $key];
         }
-        echo "<script>window.location.href='./cart/checkout'</script>";
+        echo "<script>window.location.href='?page=checkout'</script>";
     } else {
         echo "<script>alert('Please Login to Checkout');</script>";
     }
