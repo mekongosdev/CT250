@@ -2,6 +2,14 @@
 	session_start();
 
 	?>
+	<?php
+	session_start();
+	if(!isset($_SESSION["giohang"])){
+		$_SESSION["giohang"] = array();
+	}
+
+	include_once("Library/connect.php");
+	?>
 	<!DOCTYPE html>
 	<html lang='vi'>
 	<head>
@@ -343,7 +351,7 @@ include("Src/User/Register.php");
 												<!-- END MODAL -->
 											</div>
 											
-										<?php }?>
+											<?php }?>
 											<div class="clearfix"> </div>
 										</div>
 									</div>

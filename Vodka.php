@@ -2,6 +2,14 @@
 	session_start();
 
 	?>
+	<?php
+	session_start();
+	if(!isset($_SESSION["giohang"])){
+		$_SESSION["giohang"] = array();
+	}
+
+	include_once("Library/connect.php");
+	?>
 	<!DOCTYPE html>
 	<html lang='vi'>
 	<head>
@@ -66,6 +74,50 @@ include("Src/User/Register.php");
 			$('#user_modal').remove();
 			<?php } ?>
 		});</script>
+<?php
+
+ if(isset($_POST['txtOrder']))
+    {
+      if(is_numeric($_POST['txtOrder']))
+      {
+         $wine_in_stock = mysql_query("SELECT WineQuantity FROM wine WHERE WineId = ".$id);
+         $wine_quantity = mysql_fetch_row($wine_in_stock);
+         if($wine_quantity[0] >= $_POST['txtOrder'])
+         {
+            $added = false;
+            foreach ($_SESSION["cart"] as $key => $row) 
+            {
+                if($key==$id)
+                {
+                    $_SESSION['cart'][$key]["quantity"] +=  $_POST['txtOrder'];
+                    $added = true;
+                }
+            }
+            if (!$added)
+            {            
+              $order = array(
+                "id" => $id,
+                "name" => $name,
+                "price" => $price,
+                "sold_price" => $sold_price,
+                "quantity" => $_POST['txtOrder'],
+                "publisher" => $publisher,        
+                "publisher_name" => $publisher_name,
+              );
+
+              $_SESSION['cart'][$id] = $order;
+            }
+             echo "<script language='javascript'>
+             alert('The product has been added to your shopping cart, go to your cart to view!!'); 
+             window.location=window.location; 
+             </script>";
+        }
+        else
+        {
+          echo "<script>alert('Order number is no valid.');</script>";
+        }
+      }
+    }?>
 		<div class="header">
 			<div class="container">
 				<div class="w3l_login" id="user_modal">
@@ -88,7 +140,9 @@ include("Src/User/Register.php");
 				<div class="cart box_1">
 					<a href="#">
 						<div class="total">
-							<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> sản phẩm)</div>
+							<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> sản phẩm)
+							<a href="Src/WineCart/Cart.php"><span class="glyphicon glyphicon-shopping-cart text-primary"></span> &nbsp;Shopping Cart&nbsp; <span class="badge"><?php if((isset($_SESSION['cart'])) && count($_SESSION['cart'])>0) echo count($_SESSION['cart']); else echo 0;?></span></a>
+						</div>
 							<img src="public/client/images/bag.png" alt="" />
 						</a>
 						<p data-toggle="modal" data-target="#myLoginModal" style="margin-left: 58px;" ><?php if(isset($_SESSION["username"])){echo $_SESSION["username"]." <a href='Src/User/Signout.php'><span class=' glyphicon glyphicon-log-out'></span></a>";}?> </p>
