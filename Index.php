@@ -16,6 +16,9 @@
 	<link href="public/client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="public/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="public/client/css/fasthover.css" rel="stylesheet" type="text/css" media="all" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	
+
 	<!-- js -->
 	<script src="public/client/js/jquery.min.js"></script>
 	<!-- //js -->
@@ -28,6 +31,7 @@
 	<!-- for bootstrap working -->
 	<script type="text/javascript" src="public/client/js/bootstrap-3.1.1.min.js"></script>
 	<!-- //for bootstrap working -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 	<!-- start-smooth-scrolling -->
@@ -162,7 +166,7 @@ include("Src/User/Register.php");
 			<!-- banner -->
 			<div class="banner" id="home1">
 				<div class="container">
-					<h3>fashions fade, <span>style is eternal</span></h3>
+					<h3>the Land & the Folk<span>embracing heritage lifting spirits</span></h3>
 				</div>
 			</div>
 			<!-- //banner -->
@@ -220,7 +224,6 @@ include("Src/User/Register.php");
 										while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 											?>
 											<div class="col-md-4 agile_ecommerce_tab_left">
-
 												<div class="hs-wrapper">
 													<?php
 													$imgResult = mysql_query("
@@ -231,7 +234,7 @@ include("Src/User/Register.php");
 													<div class="w3_hs_bottom">
 														<ul>
 															<li>
-																<a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+																<a href="#" data-toggle="modal" data-target="#view-detail"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
 															</li>
 														</ul>
 													</div>
@@ -252,17 +255,105 @@ include("Src/User/Register.php");
 													if ($row['WineQuantity'] > 0) 
 													{
 														?>
-														<p><a class="item_add" href="#">Mua ngay</a></p>
+														<p><a class="item_add" href="#">Add to card</a></p>
 														<?php
 													} else {
 														?>
-														<p><a class="item_add" href="#">Hết hàng</a></p>
+														<p><a class="item_add" href="#">Out of stock</a></p>
 														<?php
 													}
 													?> 
 												</div>
+												<!-- MODAL -->
+												<div class="modal video-modal fade" id="view-detail" tabindex="-1" role="dialog" aria-labelledby="view-detail">
+													<div class="modal-dialog" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+															</div>
+															<section>
+																<div class="modal-body">
+																	<div class="col-md-5 modal_body_left">
+																		<?php
+																		$imgResult = mysql_query("
+																			SELECT ImgWine FROM imgwine, wine WHERE wine.WineId = imgwine.WineId and wine.WineId = ".$row['WineId']." LIMIT 1");
+																		while ($imgRow = mysql_fetch_array($imgResult, MYSQL_ASSOC)){
+																			echo'<img src="public/admin/images/products/'.$imgRow["ImgWine"].'" class="img-responsive" />';
+																		} ?>
+																	</div>
+																	<div class="col-md-7 modal_body_right">
+																		<h4><?=$row['WineName']?></h4>
+																		<p><?=$row['WineDetails']?></p>
+																		<div class="rating">
+																			<div class="rating-left">
+																				<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																			</div>
+																			<div class="rating-left">
+																				<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																			</div>
+																			<div class="rating-left">
+																				<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																			</div>
+																			<div class="rating-left">
+																				<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																			</div>
+																			<div class="rating-left">
+																				<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																			</div>
+																			<div class="clearfix"> </div>
+																		</div>
+																		<div class="modal_body_right_cart simpleCart_shelfItem">
+																			<?php 
+																			$sqlSelect = "
+																			SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+
+																			$resultPrice = mysql_query($sqlSelect);
+																			while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
+																			{
+																				?>
+																				<p><span><?php echo  $rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
+																				<?php 
+																			}
+
+																			?> 
+																		</div>
+																		<form class="form-horizontal" name="frmOrder" id="frmOrder" method="post" action="">
+																			<div class="form-group">
+																				<label for="wine-quantity" class="col-sm-2 control-label">Quantity</label>
+																				<div class="col-sm-3">
+																					<div class="input-group bootstrap-touchspin">
+																						<input id="wine-quantity" class="form-control text-center" name="txtOrder" value="1"/>         
+																					</div>
+																				</div>
+																				<div class="col-sm-6">
+																					<div class="modal_body_right_cart simpleCart_shelfItem">
+																						<?php
+																						if ($row['WineQuantity'] > 0) 
+																						{
+																							?>
+																							<p><a class="item_add" href="#">Add to cart</a></p>
+																							<?php
+																						} else {
+																							?>
+																							<p><a class="item_add" href="#">Out of stock</a></p>
+																							<?php
+																						}
+																						?>
+																					</div>
+																				</div>
+																			</div>          
+																		</form>
+																	</div>
+																	<div class="clearfix"> </div>
+																</div>
+															</section>
+														</div>
+													</div>
+												</div>
+												<!-- END MODAL -->
 											</div>
-											<?php } ?>
+											
+										<?php }?>
 											<div class="clearfix"> </div>
 										</div>
 									</div>
@@ -551,64 +642,7 @@ include("Src/User/Register.php");
 													</div>
 												</div>
 											</div>
-											<div class="modal video-modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal1">
-												<div class="modal-dialog" role="document">
-													<div class="modal-content">
-														<div class="modal-header">
-															<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-														</div>
-														<section>
-															<div class="modal-body">
-																<div class="col-md-5 modal_body_left">
-																	<img src="public/client/images/63.jpg" alt=" " class="img-responsive" />
-																</div>
-																<div class="col-md-7 modal_body_right">
-																	<h4>a good look black women's jeans</h4>
-																	<p>Ut enim ad minim veniam, quis nostrud
-																		exercitation ullamco laboris nisi ut aliquip ex ea
-																		commodo consequat.Duis aute irure dolor in
-																		reprehenderit in voluptate velit esse cillum dolore
-																		eu fugiat nulla pariatur. Excepteur sint occaecat
-																		cupidatat non proident, sunt in culpa qui officia
-																	deserunt mollit anim id est laborum.</p>
-																	<div class="rating">
-																		<div class="rating-left">
-																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-																		</div>
-																		<div class="rating-left">
-																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-																		</div>
-																		<div class="rating-left">
-																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-																		</div>
-																		<div class="rating-left">
-																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-																		</div>
-																		<div class="rating-left">
-																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-																		</div>
-																		<div class="clearfix"> </div>
-																	</div>
-																	<div class="modal_body_right_cart simpleCart_shelfItem">
-																		<p><span>$320</span> <i class="item_price">$250</i></p>
-																		<p><a class="item_add" href="#">Add to cart</a></p>
-																	</div>
-																	<h5>Color</h5>
-																	<div class="color-quality">
-																		<ul>
-																			<li><a href="#"><span></span>Red</a></li>
-																			<li><a href="#" class="brown"><span></span>Yellow</a></li>
-																			<li><a href="#" class="purple"><span></span>Purple</a></li>
-																			<li><a href="#" class="gray"><span></span>Violet</a></li>
-																		</ul>
-																	</div>
-																</div>
-																<div class="clearfix"> </div>
-															</div>
-														</section>
-													</div>
-												</div>
-											</div>
+
 											<div class="modal video-modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2">
 												<div class="modal-dialog" role="document">
 													<div class="modal-content">
@@ -1177,7 +1211,7 @@ include("Src/User/Register.php");
 													{
 														?>
 
-														<li><a href="dresses.html"><?= $name;?></a></li>
+														<li><a href="<?=$name.".php";?>"><?= $name;?></a></li>
 
 														<?php
 													}
@@ -1215,5 +1249,7 @@ include("Src/User/Register.php");
 									</div>
 								</div>
 								<!-- //footer -->
+								<script src="Library/Others/bootstrap-touchspin/src/jquery.bootstrap-touchspin.js"></script>
+								<script> $("input[id='wine-quantity']").TouchSpin({min: 1, max: 100, step: 1, boostat: 5, maxboostedstep: 10, }); </script>
 							</body>
 							</html>
