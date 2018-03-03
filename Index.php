@@ -111,7 +111,7 @@ include("Src/User/Register.php");
 						</div>
 						<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="#" class="act">Trang chủ</a></li>
+								<li class="active"><a href="Index.php" class="act">Trang chủ</a></li>
 								<!-- Mega Menu -->
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sản phẩm <b class="caret"></b></a>
@@ -119,34 +119,24 @@ include("Src/User/Register.php");
 										<div class="row">
 											<div class="col-sm-3">
 												<ul class="multi-column-dropdown">
-													<h6>Rượu truyền thống</h6>
-													<li><a href="#">Dresses<span>New</span></a></li>
-													<li><a href="#">Sweaters</a></li>
-													<li><a href="#">Shorts & Skirts</a></li>
-													<li><a href="#">Jeans</a></li>
-													<li><a href="#">Shirts & Tops<span>New</span></a></li>
+													<h6>Category</h6>
+													<li><a href="Vodka.php">Vodka<span>New</span></a></li>
+													<li><a href="Whisky.php">Whisky</a></li>
+													<li><a href="Chivas.php">Chivas & Skirts</a></li>
+													<li><a href="Domestic.php">Domestic</a></li>
+													<li><a href="Fruit.php">Fruit & Tops<span>New</span></a></li>
 												</ul>
 											</div>
 											<div class="col-sm-3">
 												<ul class="multi-column-dropdown">
-													<h6>Rượu ngoại nhập</h6>
-													<li><a href="salwars.html">Salwars</a></li>
-													<li><a href="sarees.html">Sarees<span>New</span></a></li>
-													<li><a href="products.html"><i>Summer Store</i></a></li>
+													<h6>Country</h6>
+													<li><a href="Vietnam.php">Vietnam</a></li>
+													<li><a href="France.php">France<span>New</span></a></li>
 												</ul>
 											</div>
-											<div class="col-sm-2">
-												<ul class="multi-column-dropdown">
-													<h6>Rượu pha chế</h6>
-													<li><a href="sandals.html">Flats</a></li>
-													<li><a href="sandals.html">Sandals</a></li>
-													<li><a href="sandals.html">Boots</a></li>
-													<li><a href="sandals.html">Heels</a></li>
-												</ul>
-											</div>
-											<div class="col-sm-4">
+											<div class="col-sm-6">
 												<div class="w3ls_products_pos">
-													<h4>50%<i>Off/-</i></h4>
+													<h4>50%<i>Deal of the day</i></h4>
 													<img src="public/client/images/1.jpg" alt=" " class="img-responsive" />
 												</div>
 											</div>
@@ -1191,7 +1181,7 @@ include("Src/User/Register.php");
 													{
 														?>
 
-														<li><a href="dresses.html"><?= $name;?></a></li>
+														<li><a href="<?=$name.".php";?>"><?= $name;?></a></li>
 
 														<?php
 													}

@@ -165,12 +165,12 @@ include("Src/User/Register.php");
 			<!-- new-products -->
 			<div class="new-products">
 				<div class="container">
-					<h3>Vietnam</h3>
+					<h3>France</h3>
 					<div class="agileinfo_new_products_grids">
 						<?php 
 						$result = mysql_query("
 							SELECT wine.*
-							FROM wine, publisher WHERE wine.PublisherId = publisher.PublisherId AND wine.PublisherId=1  ORDER BY WineUpdateDate 
+							FROM wine, publisher WHERE wine.PublisherId = publisher.PublisherId AND wine.PublisherId=2  ORDER BY WineUpdateDate 
 							LIMIT 12");
 						while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 							?>
