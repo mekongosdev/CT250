@@ -183,12 +183,15 @@ session_start();
      		include_once("Src/Includes/France.php");
      	}
 
-     	if(isset($_GET['page']) && $_GET['page'] == 'Vietname'){
+     	if(isset($_GET['page']) && $_GET['page'] == 'Vietnam'){
      		include_once("Src/Includes/Vietnam.php");
      	}
      	if(isset($_GET['page']) && $_GET['page'] == 'Whisky'){
      		include_once("Src/Includes/Whisky.php");
      	}
+if(isset($_GET['page']) && $_GET['page'] == 'Fruit'){
+               include_once("Src/Includes/Fruit.php");
+          }
 
      	?>
      	<!-- INCLUDE -->
