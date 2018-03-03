@@ -73,7 +73,7 @@ include("Src/User/Register.php");
 					<a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 				</div>
 				<div class="w3l_logo">
-					<h1><a href="index.php">Windsor's Wine<span>Siêu Thị Rượu Ngoại</span></a></h1>
+					<h1><a href="index.php">Windsor's Wine<span>The Land & The Folk</span></a></h1>
 				</div>
 				<div class="search">
 					<input class="search_box" type="checkbox" id="search_box">
