@@ -114,7 +114,7 @@ include("Src/User/Register.php");
 								<li class="active"><a href="Index.php" class="act">Homepage</a></li>
 								<!-- Mega Menu -->
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sản phẩm <b class="caret"></b></a>
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Product <b class="caret"></b></a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<div class="row">
 											<div class="col-sm-3">
