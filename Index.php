@@ -224,7 +224,6 @@ include("Src/User/Register.php");
 										while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 											?>
 											<div class="col-md-4 agile_ecommerce_tab_left">
-
 												<div class="hs-wrapper">
 													<?php
 													$imgResult = mysql_query("
@@ -265,95 +264,96 @@ include("Src/User/Register.php");
 													}
 													?> 
 												</div>
-											</div>
-											<!-- MODAL -->
-											<div class="modal video-modal fade" id="view-detail" tabindex="-1" role="dialog" aria-labelledby="view-detail">
-												<div class="modal-dialog" role="document">
-													<div class="modal-content">
-														<div class="modal-header">
-															<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-														</div>
-														<section>
-															<div class="modal-body">
-																<div class="col-md-5 modal_body_left">
-																	<?php
-																	$imgResult = mysql_query("
-																		SELECT ImgWine FROM imgwine, wine WHERE wine.WineId = imgwine.WineId and wine.WineId = ".$row['WineId']." LIMIT 1");
-																	while ($imgRow = mysql_fetch_array($imgResult, MYSQL_ASSOC)){
-																		echo'<img src="public/admin/images/products/'.$imgRow["ImgWine"].'" class="img-responsive" />';
-																	} ?>
-																</div>
-																<div class="col-md-7 modal_body_right">
-																	<h4><?=$row['WineName']?></h4>
-																	<p><?=$row['WineDetails']?></p>
-																	<div class="rating">
-																		<div class="rating-left">
-																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-																		</div>
-																		<div class="rating-left">
-																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-																		</div>
-																		<div class="rating-left">
-																			<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
-																		</div>
-																		<div class="rating-left">
-																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-																		</div>
-																		<div class="rating-left">
-																			<img src="public/client/images/star.png" alt=" " class="img-responsive" />
-																		</div>
-																		<div class="clearfix"> </div>
-																	</div>
-																	<div class="modal_body_right_cart simpleCart_shelfItem">
-																		<?php 
-																		$sqlSelect = "
-																		SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
-
-																		$resultPrice = mysql_query($sqlSelect);
-																		while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
-																		{
-																			?>
-																			<p><span><?php echo  $rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
-																			<?php 
-																		}
-																		
-																		?> 
-																	</div>
-																	<form class="form-horizontal" name="frmOrder" id="frmOrder" method="post" action="">
-																		<div class="form-group">
-																			<label for="wine-quantity" class="col-sm-2 control-label">Quantity</label>
-																			<div class="col-sm-3">
-																				<div class="input-group bootstrap-touchspin">
-																					<input id="wine-quantity" class="form-control text-center" name="txtOrder" value="1"/>         
-																				</div>
-																			</div>
-																			<div class="col-sm-6">
-																				<div class="modal_body_right_cart simpleCart_shelfItem">
-																					<?php
-																					if ($row['WineQuantity'] > 0) 
-																					{
-																						?>
-																						<p><a class="item_add" href="#">Add to cart</a></p>
-																						<?php
-																					} else {
-																						?>
-																						<p><a class="item_add" href="#">Out of stock</a></p>
-																						<?php
-																					}
-																					?>
-																				</div>
-																			</div>
-																		</div>          
-																	</form>
-																</div>
-																<div class="clearfix"> </div>
+												<!-- MODAL -->
+												<div class="modal video-modal fade" id="view-detail" tabindex="-1" role="dialog" aria-labelledby="view-detail">
+													<div class="modal-dialog" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 															</div>
-														</section>
+															<section>
+																<div class="modal-body">
+																	<div class="col-md-5 modal_body_left">
+																		<?php
+																		$imgResult = mysql_query("
+																			SELECT ImgWine FROM imgwine, wine WHERE wine.WineId = imgwine.WineId and wine.WineId = ".$row['WineId']." LIMIT 1");
+																		while ($imgRow = mysql_fetch_array($imgResult, MYSQL_ASSOC)){
+																			echo'<img src="public/admin/images/products/'.$imgRow["ImgWine"].'" class="img-responsive" />';
+																		} ?>
+																	</div>
+																	<div class="col-md-7 modal_body_right">
+																		<h4><?=$row['WineName']?></h4>
+																		<p><?=$row['WineDetails']?></p>
+																		<div class="rating">
+																			<div class="rating-left">
+																				<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																			</div>
+																			<div class="rating-left">
+																				<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																			</div>
+																			<div class="rating-left">
+																				<img src="public/client/images/star-.png" alt=" " class="img-responsive" />
+																			</div>
+																			<div class="rating-left">
+																				<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																			</div>
+																			<div class="rating-left">
+																				<img src="public/client/images/star.png" alt=" " class="img-responsive" />
+																			</div>
+																			<div class="clearfix"> </div>
+																		</div>
+																		<div class="modal_body_right_cart simpleCart_shelfItem">
+																			<?php 
+																			$sqlSelect = "
+																			SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+
+																			$resultPrice = mysql_query($sqlSelect);
+																			while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
+																			{
+																				?>
+																				<p><span><?php echo  $rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
+																				<?php 
+																			}
+
+																			?> 
+																		</div>
+																		<form class="form-horizontal" name="frmOrder" id="frmOrder" method="post" action="">
+																			<div class="form-group">
+																				<label for="wine-quantity" class="col-sm-2 control-label">Quantity</label>
+																				<div class="col-sm-3">
+																					<div class="input-group bootstrap-touchspin">
+																						<input id="wine-quantity" class="form-control text-center" name="txtOrder" value="1"/>         
+																					</div>
+																				</div>
+																				<div class="col-sm-6">
+																					<div class="modal_body_right_cart simpleCart_shelfItem">
+																						<?php
+																						if ($row['WineQuantity'] > 0) 
+																						{
+																							?>
+																							<p><a class="item_add" href="#">Add to cart</a></p>
+																							<?php
+																						} else {
+																							?>
+																							<p><a class="item_add" href="#">Out of stock</a></p>
+																							<?php
+																						}
+																						?>
+																					</div>
+																				</div>
+																			</div>          
+																		</form>
+																	</div>
+																	<div class="clearfix"> </div>
+																</div>
+															</section>
+														</div>
 													</div>
 												</div>
+												<!-- END MODAL -->
 											</div>
-											<!-- END MODAL -->
-											<?php } ?>
+											
+										<?php }?>
 											<div class="clearfix"> </div>
 										</div>
 									</div>
@@ -1211,7 +1211,7 @@ include("Src/User/Register.php");
 													{
 														?>
 
-														<li><a href="dresses.html"><?= $name;?></a></li>
+														<li><a href="<?=$name.".php";?>"><?= $name;?></a></li>
 
 														<?php
 													}
