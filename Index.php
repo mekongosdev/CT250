@@ -186,7 +186,7 @@ session_start();
      	if(isset($_GET['page']) && $_GET['page'] == 'Vietname'){
      		include_once("Src/Includes/Vietnam.php");
      	}
-if(isset($_GET['page']) && $_GET['page'] == 'Whisky'){
+     	if(isset($_GET['page']) && $_GET['page'] == 'Whisky'){
      		include_once("Src/Includes/Whisky.php");
      	}
 
