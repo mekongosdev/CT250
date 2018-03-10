@@ -13,7 +13,7 @@ if (isset($_GET['action'])) {
     if ($_GET['action'] == "del") {
         $id = $_GET["id"];
         unset($_SESSION["cart"][$id]);
-        echo "<script>window.location.href='?page=cart'</script>";
+        echo "<script>window.location.href='?page=Cart'</script>";
     }
 }
 
@@ -22,7 +22,7 @@ if (isset($_POST['btnYes'])) {
         foreach ($_SESSION["cart"] as $key => $row) {
             $_SESSION['cart'][$key]['quantity'] = $_POST['Wine' . $key];
         }
-        echo "<script>window.location.href='?page=checkout'</script>";
+        echo "<script>window.location.href='?page=Checkout'</script>";
     } else {
         echo "<script>alert('Please Login to Checkout');</script>";
     }
