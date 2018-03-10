@@ -49,7 +49,7 @@ while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 						while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
 						{
 							?>
-							<p><span><?php echo  $rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
+							<p><span><?php echo  "$".$rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  "$".$rowPrice['SellingPrice']?></i></p>
 							<?php 
 						}
 

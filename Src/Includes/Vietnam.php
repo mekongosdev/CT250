@@ -39,9 +39,9 @@
 										while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
 										{
 											?>
-											<p><span><?php echo  $rowPrice['PurchasePrice']?>
+											<p><span><?php echo  "$".$rowPrice['PurchasePrice']?>
 
-											</span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i></p>
+											</span> <i class="item_price"><?php echo  "$".$rowPrice['SellingPrice']?></i></p>
 											<?php 
 										}
 										if ($row['WineQuantity'] > 0) 
