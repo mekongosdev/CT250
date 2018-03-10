@@ -20,7 +20,7 @@ if (isset($_GET['action'])) {
 if (isset($_POST['btnYes'])) {
     if (isset($_SESSION['username'])) {
         foreach ($_SESSION["cart"] as $key => $row) {
-            $_SESSION['cart'][$key]['quantity'] = $_POST['Wine' . $key];
+            $_SESSION['cart'][$key]['quantity'] = $_POST['Wine'.$key];
         }
         echo "<script>window.location.href='?page=Checkout'</script>";
     } else {
@@ -50,7 +50,7 @@ if (isset($_POST['btnYes'])) {
           {
     ?>
                 <div class="row">
-                    <div class="col-sm-3"><?php echo $row['name'] ?></div>
+                    <div class="col-sm-3"><?php echo $row['ten'] ?></div>
                     <div class="col-sm-2"><?php echo $row["publisher_name"] ?></div>
                     <div class="col-sm-2"><?php echo number_format($row["sold_price"], 0, ",", ".") ?></div>
                     <div class="col-sm-2"><input type='text' name='Wine<?php echo $key ?>' value='<?php echo $row["quantity"] ?>' size='5' style='text-align:center;' maxlength='3'/></div>
