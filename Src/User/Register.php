@@ -60,7 +60,7 @@ if (isset($_POST['btnLogin'])) {
 }
 
 ?>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
 <!-- header -->
 <div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
 aria-hidden="true">
@@ -93,73 +93,125 @@ aria-hidden="true">
 								</div> 
 							</div>	
 
-							<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
+							<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1" >
 								<div class="facts">
-									<div class="register">
-										<form  method="post">	
+									<div class="register" >
+										<form  method="post" name="myForm" ng-app="myApp" ng-controller="myController" novalidate>	
 											<div class="form-group">		
-												<input placeholder="Tên đăng nhập" name="txtUsername" type="text" required="">
+												<input placeholder="Tên đăng nhập" name="txtUsername" type="text" required="" ng-model="txtUsername">
+												<span style="color:red" ng-show="myForm.txtUsername.$dirty && myForm.txtUsername.$invalid">
+													<span ng-show="myForm.txtUsername.$error.required">Username is require.</span>
+													
+												</span>
 											</div>
-											<input placeholder="Họ tên đầy đủ" name="txtFullname" type="text" required="">
 											<div class="form-group">	
-												<input placeholder="Địa chỉ email" name="txtEmail" type="email" required=""></div>
+												<input placeholder="Họ tên đầy đủ" name="txtFullname" type="text" required="" ng-model="txtFullname">
+												<span style="color:red" ng-show="myForm.txtFullname.$dirty && myForm.txtFullname.$invalid">
+													<span ng-show="myForm.txtFullname.$error.required">FullName is require.</span>
+													
+												</span>
+											</div>
+											<div class="form-group">	
+												<input placeholder="Địa chỉ email" name="txtEmail" type="email" required="" ng-model="txtEmail">
+
+												<span style="color:red" ng-show="myForm.txtEmail.$dirty && myForm.txtEmail.$invalid">
+													<span ng-show="myForm.txtEmail.$error.required">Email is required.</span>
+													<span ng-show="myForm.txtEmail.$error.email">Invalid email address.</span>
+												</span>
+											</div>
+											<div class="form-group">	
+												<input placeholder="Số điện thoại" name="NumPhone" type="text" required="" ng-model="NumPhone" data-toggle="tooltip" data-placement="top">
+												
+												<span style="color:red" ng-show="myForm.NumPhone.$dirty && myForm.NumPhone.$invalid">
+													<span ng-show="myForm.NumPhone.$error.required">Phone Number is required.</span>
+													
+												</span>
+											</div>
+											<div class="form-group">	
+												<input placeholder="Sinh nhật" name="dateOfBirth" type="date"  class="form-control" required="" value="2018-01-01">	</div>
 												<div class="form-group">	
-													<input placeholder="Số điện thoại" name="NumPhone" type="text" required=""></div>
-													<div class="form-group">	<input placeholder="Sinh nhật" name="dateOfBirth" type="date"  class="form-control" required="" value="2018-01-01">	</div>
+													Mật khẩu
+													<input placeholder="Mật khẩu" name="txtPassword" type="password" required="" ng-model="txtPassword">
+														<span style="color:red" ng-show="myForm.txtPassword.$dirty && myForm.txtPassword.$invalid">
+													<span ng-show="myForm.txtPassword.$error.required">PassWord is require.</span>
+													
+												</span>
+												</div>	
 													<div class="form-group">	
-														Mật khẩu
-														<input placeholder="Mật khẩu" name="txtPassword" type="password" required=""></div>	
-														<div class="form-group">	
-															Lặp lại mật khẩu
-															<input placeholder="Mật khẩu lặp lại" name="txtRepeatPassword" type="password" required=""></div>	
-															<div class="form-group">  
-																<label for="lblGender" class="col-sm-2 control-label">Gender(*):  </label>
-																<div class="col-sm-10">                              
-																	<label class="radio-inline"><input type="radio" name="grpGender" value="0"  
-																		<?php if(isset($Gender)&&$Gender=="0") { echo "checked";} ?> />
-																	Male</label>
+														Lặp lại mật khẩu
+														<input placeholder="Mật khẩu lặp lại" name="txtRepeatPassword" type="password" required="" ng-model="txtRepeatPassword">
+														<span style="color:red" ng-show="myForm.txtRepeatPassword.$dirty && myForm.txtPassword.$invalid">
+													<span ng-show="myForm.txtRepeatPassword.$error.required">PassWord is require.</span>
+													</div>	
+														<div class="form-group">  
+															<label for="lblGender" class="col-sm-2 control-label">Gender(*):  </label>
+															<div class="col-sm-10">                              
+																<label class="radio-inline"><input type="radio" name="grpGender" value="0"  
+																	<?php if(isset($Gender)&&$Gender=="0") { echo "checked";} ?> />
+																Male</label>
 
-																	<label class="radio-inline"><input type="radio" name="grpGender" value="1" 
-																		<?php if(isset($Gender)&&$Gender=="1") { echo "checked";} ?> />
-																	Female</label>
+																<label class="radio-inline"><input type="radio" name="grpGender" value="1" 
+																	<?php if(isset($Gender)&&$Gender=="1") { echo "checked";} ?> />
+																Female</label>
 
-																</div>
 															</div>
-															<div class="sign-up">
-																<input type="submit" value="Đăng ký" name="btnRegister" id="btnRegister"/>
-															</div>
-														</form>
-													</div>
+														</div>
+														<div class="sign-up">
+															<input type="submit" value="Đăng ký" name="btnRegister" id="btnRegister" ng-disabled="
+															myForm.txtUsername.$dirty && myForm.txtUsername.$invalid
+															||
+															myForm.txtFullname.$dirty && myForm.txtFullname.$invalid
+															||
+															myForm.txtEmail.$dirty && myForm.txtEmail.$invalid
+															||
+															myForm.NumPhone.$dirty && myForm.NumPhone.$invalid
+															||
+															myForm.txtRepeatPassword.$dirty && myForm.txtPassword.$invalid
+															||
+															myForm.txtRepeatPassword.$dirty && myForm.txtPassword.$invalid
+															"/>
+														</div>
+													</form>
 												</div>
-											</div> 			        					            	      
-										</div>	
-									</div>
-									<script src="public/client/js/easyResponsiveTabs.js" type="text/javascript"></script>
-									<script type="text/javascript">
-										$(document).ready(function () {
-											$('#horizontalTab').easyResponsiveTabs({
+											</div>
+										</div> 			        					            	      
+									</div>	
+								</div>
+								<script>
+									var app = angular.module('myApp', []);
+									app.controller('myController', function($scope) {
+										$scope.txtUsername = "";
+										$scope.txtEmail = "";
+										$scope.NumPhone = "";
+										$scope.txtFullname="";
+										$scope.txtPassword="";
+									});
+								</script>
+								<script src="public/client/js/easyResponsiveTabs.js" type="text/javascript"></script>
+								<script type="text/javascript">
+									$(document).ready(function () {
+										$('#horizontalTab').easyResponsiveTabs({
 										type: 'default', //Types: default, vertical, accordion           
 										width: 'auto', //auto or any width like 600px
 										fit: true   // 100% fit in a container
 									});
-										});
-									</script>
-									<div id="OR" class="hidden-xs">
-									hoặc</div>
-								</div>
-								<div class="col-md-4 modal_body_right modal_body_right1">
-									<div class="row text-center sign-with">
-										<div class="col-md-12">
-											<h3 class="other-nw pull-left">
-											Đăng ký với mạng xã hội</h3>
-										</div>
-										<div class="col-md-12">
-											<ul class="social">
-												<li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
-												<li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
-												<li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
-											</ul>
-										</div>
+									});
+								</script>
+								<div id="OR" class="hidden-xs">
+								hoặc</div>
+							</div>
+							<div class="col-md-4 modal_body_right modal_body_right1">
+								<div class="row text-center sign-with">
+									<div class="col-md-12">
+										<h3 class="other-nw pull-left">
+										Đăng ký với mạng xã hội</h3>
+									</div>
+									<div class="col-md-12">
+										<ul class="social">
+											<li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
+											<li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
+											<li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
+										</ul>
 									</div>
 								</div>
 							</div>
@@ -167,3 +219,4 @@ aria-hidden="true">
 					</div>
 				</div>
 			</div>
+		</div>
