@@ -130,7 +130,7 @@ function checkout($WineId)
       <div class="cart box_1">
         <a href="#">
          <div class="total">
-          <a href="?page=cart"><span class="badge"><?php if((isset($_SESSION['cart'])) && count($_SESSION['cart'])>0) echo count($_SESSION['cart']); else echo '0';?></span></a>
+          <a href="?page=Cart"><span class="badge"><?php if((isset($_SESSION['cart'])) && count($_SESSION['cart'])>0) echo count($_SESSION['cart']); else echo '0';?></span></a>
         </div>
         <img src="public/client/images/bag.png" alt="" />
       </a>
@@ -247,7 +247,7 @@ if(isset($_GET['page']) && $_GET['page'] == 'Cart'){
  include_once("Src/WineCart/Cart.php");
 }
 
-if(isset($_GET['page']) && $_GET['page'] == 'checkout'){
+if(isset($_GET['page']) && $_GET['page'] == 'Checkout'){
  include_once("Src/WineCart/Checkout.php");
 }
 
@@ -261,6 +261,7 @@ if(isset($_GET['page']) && $_GET['page'] == 'Contact'){
 
 if(isset($_GET['page']) && $_GET['page'] == 'About'){
  include_once("Src/Includes/About.php");
+
 }
 ?>
 <!-- INCLUDE -->
