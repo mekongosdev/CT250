@@ -346,12 +346,7 @@ if(isset($_GET['page']) && $_GET['page'] == 'About'){
 </ul>
 </div>
 <div class="col-md-3 w3_footer_grid">
- <h3>Profile</h3>
- <ul class="info">
-  <li><a href="products.html">Summer Store</a></li>
-  <li><a href="checkout.html">My Cart</a></li>
-</ul>
-<h4>Follow Us</h4>
+ <h3>Follow Us</h3>
 <div class="agileits_social_button">
   <ul>
    <li><a href="#" class="facebook"> </a></li>
