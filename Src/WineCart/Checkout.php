@@ -36,7 +36,7 @@ if (isset($_POST['btnUpdate']))
     unset($_SESSION["cart"]);
         //Thông báo thêm giỏ hàng thành công
     echo "<script>alert('Your order are recorded.');</script>";
-    echo "<script>window.location='index.php';</script>";
+    echo "<script>window.location='?page=homepage.php';</script>";
   } 
   else
   {
@@ -88,7 +88,7 @@ function bindHTTTList()
      <div class="col-sm-2"></div>
      <div class="col-sm-10">
       <input type="submit" name="btnUpdate"  class="btn btn-primary" id="btnUpdate" value="Send"/>
-      <input name="btnCancel" type="button" class="btn btn-primary" id="btnCancel" value="Bỏ qua" onclick="window.location='index.php'" />
+      <input name="btnCancel" type="button" class="btn btn-primary" id="btnCancel" value="Bỏ qua" onclick="window.location='../../Index.php'" />
     </div>
   </div>   
 </form>

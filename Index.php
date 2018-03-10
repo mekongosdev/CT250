@@ -1,6 +1,11 @@
 <?php
 session_start();
-
+?>
+<?php
+session_start();
+if(!isset($_SESSION["giohang"])){
+     $_SESSION["giohang"] = array();
+}
 ?>
 <!DOCTYPE html>
 <html lang='vi'>
@@ -178,6 +183,9 @@ if(isset($_GET['page']) && $_GET['page'] == 'Domestic'){
   include_once("Src/Includes/Domestic.php");
 }
 
+if(isset($_GET['page']) && $_GET['page'] == 'Chivas'){
+   include_once("Src/Includes/Chivas.php");
+}
 
 if(isset($_GET['page']) && $_GET['page'] == 'France'){
   include_once("Src/Includes/France.php");

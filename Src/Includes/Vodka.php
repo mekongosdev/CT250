@@ -47,7 +47,7 @@
 										if ($row['WineQuantity'] > 0) 
 										{
 											?>
-											<p><a class="item_add" href="#">Add to card</a></p>
+											<p><a class="item_add" href="?func=dathang&ma=<?php echo  $row['WineId']?>">Add to card</a></p>
 											<?php
 										} else {
 											?>
