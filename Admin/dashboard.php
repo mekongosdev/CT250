@@ -741,6 +741,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				});
 			});
 		</script>
+		<script type="text/javascript" src="../Library/JS/angular.min.js"></script>
 		<script src="../Public/admin/js/bars.js"></script>
 		<script src="../Public/admin/js/jquery.nicescroll.js"></script>
 		<script src="../Public/admin/js/scripts.js"></script>
