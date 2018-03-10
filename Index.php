@@ -17,7 +17,6 @@ function checkout($WineId)
   $query = "Select wine.WineId, wine.WineName, wine.WineQuantity, publisher.PublisherName, time_wine.SellingPrice from wine, publisher, time_wine WHERE wine.WineId = time_wine.WineId and publisher.PublisherId = wine.PublisherId and  wine.WineId = ".$WineId;
   $result = mysql_query($query) or trigger_error(mysql_error().$query);
   while ($rowsql = mysql_fetch_array($result, MYSQL_ASSOC)){
-    if($rowsql['WineQuantity'] >= 1){
       $coroi = false; 
       foreach ($_SESSION["cart"] as $key => $row)  
       { 
@@ -41,11 +40,7 @@ function checkout($WineId)
       echo "<script language='javascript'> 
       alert('Sản phẩm đã được thêm vào giỏ hàng, truy cập giỏ hàng để xem!');  
       </script>"; 
-    }
-    else
-    {
-      echo "<script>alert('Số lượng bạn đặt vượt quá số lượng trong kho.');</script>";
-    }
+    
   }
 } 
 ?>
