@@ -89,7 +89,7 @@ if(!isset($_SESSION["giohang"])){
       <div class="cart box_1">
         <a href="#">
          <div class="total">
-          <a href="?khoatrang=giohang"><span class="badge"><?php if((isset($_SESSION['giohang'])) && count($_SESSION['giohang'])>0) echo count($_SESSION['giohang']); else echo '0';?></span></a>
+          <a href="?khoatrang=giohang"><span class="badge"><?php if((isset($_SESSION['quantity'])) && count($_SESSION['quantity'])>0) echo count($_SESSION['quantity']); else echo '0';?></span></a>
         </div>
         <img src="public/client/images/bag.png" alt="" />
       </a>
