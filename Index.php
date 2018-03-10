@@ -29,11 +29,13 @@ function checkout($WineId)
 
       if(!$coroi) 
       { 
-        $ten = $rowsql[1]; 
-        $nsx = $rowsql[3]; 
+        $ten = $rowsql['WineName']; 
+        $nsx = $rowsql['PublisherName']; 
+        $price = $rowsql['SellingPrice'];
         $cart = array( 
           "ten" => $ten, 
-          "quantity" =>1, 
+          "quantity" =>1,
+          "gia" => $price,
           "hang" => $nsx); 
         $_SESSION['cart'][$WineId]=$cart; 
       } 
