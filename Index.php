@@ -1,8 +1,53 @@
 <?php
 session_start();
-if(!isset($_SESSION["giohang"])){
- $_SESSION["giohang"] = array();
+include_once("Library/connect.php");
+if(!isset($_SESSION["cart"])){
+ $_SESSION["cart"] = array();
 }
+
+if(isset($_GET['action']) && isset($_GET['WineId'])) 
+{ 
+  $WineId = $_GET['WineId']; 
+  checkout($WineId); 
+} 
+
+function checkout($WineId) 
+{ 
+  $WineId = $_GET["WineId"]; 
+  $query = "Select wine.WineId, wine.WineName, wine.WineQuantity, publisher.PublisherName, time_wine.SellingPrice from wine, publisher, time_wine WHERE wine.WineId = time_wine.WineId and publisher.PublisherId = wine.PublisherId and  wine.WineId = ".$WineId;
+  $result = mysql_query($query) or trigger_error(mysql_error().$query);
+  while ($rowsql = mysql_fetch_array($result, MYSQL_ASSOC)){
+    if($rowsql['WineQuantity'] >= 1){
+      $coroi = false; 
+      foreach ($_SESSION["cart"] as $key => $row)  
+      { 
+        if($key==$WineId) 
+        { 
+          $_SESSION['cart'][$key]["quantity"] +=  1; 
+          $coroi = true; 
+        } 
+      } 
+
+      if(!$coroi) 
+      { 
+        $ten = $rowsql[1]; 
+        $nsx = $rowsql[3]; 
+        $cart = array( 
+          "ten" => $ten, 
+          "quantity" =>1, 
+          "hang" => $nsx); 
+        $_SESSION['cart'][$WineId]=$cart; 
+      } 
+      echo "<script language='javascript'> 
+      alert('Sản phẩm đã được thêm vào giỏ hàng, truy cập giỏ hàng để xem!');  
+      </script>"; 
+    }
+    else
+    {
+      echo "<script>alert('Số lượng bạn đặt vượt quá số lượng trong kho.');</script>";
+    }
+  }
+} 
 ?>
 <!DOCTYPE html>
 <html lang='vi'>
@@ -89,7 +134,7 @@ if(!isset($_SESSION["giohang"])){
       <div class="cart box_1">
         <a href="#">
          <div class="total">
-          <a href="?khoatrang=giohang"><span class="badge"><?php if((isset($_SESSION['quantity'])) && count($_SESSION['quantity'])>0) echo count($_SESSION['quantity']); else echo '0';?></span></a>
+          <a href="?page=cart"><span class="badge"><?php if((isset($_SESSION['cart'])) && count($_SESSION['cart'])>0) echo count($_SESSION['cart']); else echo '0';?></span></a>
         </div>
         <img src="public/client/images/bag.png" alt="" />
       </a>
@@ -347,7 +392,7 @@ if(isset($_GET['page']) && $_GET['page'] == 'About'){
 </div>
 <div class="col-md-3 w3_footer_grid">
  <h3>Follow Us</h3>
-<div class="agileits_social_button">
+ <div class="agileits_social_button">
   <ul>
    <li><a href="#" class="facebook"> </a></li>
    <li><a href="#" class="twitter"> </a></li>
