@@ -80,9 +80,9 @@ if(!isset($_SESSION["giohang"])){
           <input class="search_box" type="checkbox" id="search_box">
           <label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
           <div class="search_form">
-           <form action="#" method="post">
-            <input type="text" name="Search" placeholder="Search...">
-            <input type="submit" value="Send">
+           <form action="?page=Search" method="post">
+            <input type="text" name="WineName" placeholder="Wine's Name...">
+            <input type="submit" value="Search">
           </form>
         </div>
       </div>
@@ -210,6 +210,9 @@ if(isset($_GET['page']) && $_GET['page'] == 'checkout'){
  include_once("Src/WineCart/Checkout.php");
 }
 
+if(isset($_GET['page']) && $_GET['page'] == 'Search'){
+ include_once("Src/Includes/Search.php");
+}
 ?>
 <!-- INCLUDE -->
 
