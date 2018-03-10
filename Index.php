@@ -146,9 +146,9 @@ if(!isset($_SESSION["giohang"])){
 </div>
 </ul>
 </li>
-<li><a href="about.html">News</a></li>
-<li><a href="short-codes.html">Contact</a></li>
-<li><a href="mail.html">About</a></li>
+<li><a href="?page=?Cart">Cart</a></li>
+<li><a href="?page=Contact">Contact</a></li>
+<li><a href="?page=About">About</a></li>
 </ul>
 </div>
 </nav>
@@ -212,6 +212,14 @@ if(isset($_GET['page']) && $_GET['page'] == 'checkout'){
 
 if(isset($_GET['page']) && $_GET['page'] == 'Search'){
  include_once("Src/Includes/Search.php");
+}
+
+if(isset($_GET['page']) && $_GET['page'] == 'Contact'){
+ include_once("Src/Includes/Contact.php");
+}
+
+if(isset($_GET['page']) && $_GET['page'] == 'About'){
+ include_once("Src/Includes/About.php");
 }
 ?>
 <!-- INCLUDE -->
@@ -363,7 +371,7 @@ if(isset($_GET['page']) && $_GET['page'] == 'Search'){
  </div>
 </div>
 <div class="container">
-  <p>&copy; 2016 Women's Fashion. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+  <p>&copy; 2018 Wine's Shop All rights reserved</p>
 </div>
 </div>
 </div>
