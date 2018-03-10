@@ -1,10 +1,7 @@
 <?php
 session_start();
-?>
-<?php
-session_start();
 if(!isset($_SESSION["giohang"])){
-     $_SESSION["giohang"] = array();
+ $_SESSION["giohang"] = array();
 }
 ?>
 <!DOCTYPE html>
@@ -57,50 +54,50 @@ if(!isset($_SESSION["giohang"])){
 	?>
       <!--
          Modal đăng ký
-    -->
-    <?php
-    include("Src/User/Register.php");
+       -->
+       <?php
+       include("Src/User/Register.php");
          	// include("Src/About/About_FEV.php");
-    ?>
-    <script>$(document).ready(function(){
-      <?php
-      if(!isset($_SESSION['username'])){ ?>
-       $('#myModal88').modal('show');
-       <?php }else{ ?>
-        $('#user_modal').remove();
-        <?php } ?>
-   });
-</script>
-<div class="header">
-  <div class="container">
-   <div class="w3l_login" id="user_modal">
-    <a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-</div>
-<div class="w3l_logo">
-    <h1><a href="index.php">Windsor's Wine<span>The Land & The Folk</span></a></h1>
-</div>
-<div class="search">
-    <input class="search_box" type="checkbox" id="search_box">
-    <label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
-    <div class="search_form">
-     <form action="#" method="post">
-      <input type="text" name="Search" placeholder="Search...">
-      <input type="submit" value="Send">
- </form>
-</div>
-</div>
-<div class="cart box_1">
-    <a href="#">
-     <div class="total">
-      <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> item)
- </div>
- <img src="public/client/images/bag.png" alt="" />
-</a>
-<p data-toggle="modal" data-target="#myLoginModal" style="margin-left: 58px;" ><?php if(isset($_SESSION["username"])){echo $_SESSION["username"]." <a href='Src/User/Signout.php'><span class=' glyphicon glyphicon-log-out'></span></a>";}?> </p>
-<div class="clearfix"> </div>
-</div>
-<div class="clearfix"> </div>
-</div>
+       ?>
+       <script>$(document).ready(function(){
+        <?php
+        if(!isset($_SESSION['username'])){ ?>
+         $('#myModal88').modal('show');
+         <?php }else{ ?>
+          $('#user_modal').remove();
+          <?php } ?>
+        });
+      </script>
+      <div class="header">
+        <div class="container">
+         <div class="w3l_login" id="user_modal">
+          <a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+        </div>
+        <div class="w3l_logo">
+          <h1><a href="index.php">Windsor's Wine<span>The Land & The Folk</span></a></h1>
+        </div>
+        <div class="search">
+          <input class="search_box" type="checkbox" id="search_box">
+          <label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
+          <div class="search_form">
+           <form action="?page=Search" method="post">
+            <input type="text" name="WineName" placeholder="Wine's Name...">
+            <input type="submit" value="Search">
+          </form>
+        </div>
+      </div>
+      <div class="cart box_1">
+        <a href="#">
+         <div class="total">
+          <a href="?khoatrang=giohang"><span class="badge"><?php if((isset($_SESSION['giohang'])) && count($_SESSION['giohang'])>0) echo count($_SESSION['giohang']); else echo '0';?></span></a>
+        </div>
+        <img src="public/client/images/bag.png" alt="" />
+      </a>
+      <p data-toggle="modal" data-target="#myLoginModal" style="margin-left: 58px;" ><?php if(isset($_SESSION["username"])){echo $_SESSION["username"]." <a href='Src/User/Signout.php'><span class=' glyphicon glyphicon-log-out'></span></a>";}?> </p>
+      <div class="clearfix"> </div>
+    </div>
+    <div class="clearfix"> </div>
+  </div>
 </div>
 <div class="navigation">
   <div class="container">
@@ -112,40 +109,40 @@ if(!isset($_SESSION["giohang"])){
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
- </button>
-</div>
-<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-     <ul class="nav navbar-nav">
-      <li class="active"><a href="Index.php" class="act">Homepage</a></li>
-      <!-- Mega Menu -->
-      <li class="dropdown">
-       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Product <b class="caret"></b></a>
-       <ul class="dropdown-menu multi-column columns-3">
-        <div class="row">
-         <div class="col-sm-3">
-          <ul class="multi-column-dropdown">
-           <h6>Category</h6>
-           <li><a href="?page=Vodka">Vodka<span>New</span></a></li>
-           <li><a href="?page=Whisky">Whisky</a></li>
-           <li><a href="?page=Chivas">Chivas & Skirts</a></li>
-           <li><a href="?page=Domestic">Domestic</a></li>
-           <li><a href="?page=Fruit">Fruit & Tops<span>New</span></a></li>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+   <ul class="nav navbar-nav">
+    <li class="active"><a href="Index.php" class="act">Homepage</a></li>
+    <!-- Mega Menu -->
+    <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Product <b class="caret"></b></a>
+     <ul class="dropdown-menu multi-column columns-3">
+      <div class="row">
+       <div class="col-sm-3">
+        <ul class="multi-column-dropdown">
+         <h6>Category</h6>
+         <li><a href="?page=Vodka">Vodka<span>New</span></a></li>
+         <li><a href="?page=Whisky">Whisky</a></li>
+         <li><a href="?page=Chivas">Chivas & Skirts</a></li>
+         <li><a href="?page=Domestic">Domestic</a></li>
+         <li><a href="?page=Fruit">Fruit & Tops<span>New</span></a></li>
+       </ul>
+     </div>
+     <div class="col-sm-3">
+       <ul class="multi-column-dropdown">
+        <h6>Country</h6>
+        <li><a href="?page=Vietnam">Vietnam</a></li>
+        <li><a href="?page=France">France<span>New</span></a></li>
       </ul>
- </div>
- <div class="col-sm-3">
-     <ul class="multi-column-dropdown">
-      <h6>Country</h6>
-      <li><a href="?page=Vietnam">Vietnam</a></li>
-      <li><a href="?page=France">France<span>New</span></a></li>
- </ul>
-</div>
-<div class="col-sm-6">
+    </div>
+    <div class="col-sm-6">
      <div class="w3ls_products_pos">
       <h4>50%<i>Deal of the day</i></h4>
       <img src="public/client/images/1.jpg" alt=" " class="img-responsive" />
- </div>
-</div>
-<div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
 </div>
 </ul>
 </li>
@@ -162,7 +159,7 @@ if(!isset($_SESSION["giohang"])){
 <div class="banner" id="home1">
   <div class="container">
    <h3>the Land & the Folk<span>embracing heritage lifting spirits</span></h3>
-</div>
+ </div>
 </div>
 <!-- //banner -->
 <!-- INCLUDE -->
@@ -184,7 +181,7 @@ if(isset($_GET['page']) && $_GET['page'] == 'Domestic'){
 }
 
 if(isset($_GET['page']) && $_GET['page'] == 'Chivas'){
-   include_once("Src/Includes/Chivas.php");
+ include_once("Src/Includes/Chivas.php");
 }
 
 if(isset($_GET['page']) && $_GET['page'] == 'France'){
@@ -198,13 +195,24 @@ if(isset($_GET['page']) && $_GET['page'] == 'Whisky'){
   include_once("Src/Includes/Whisky.php");
 }
 if(isset($_GET['page']) && $_GET['page'] == 'Fruit'){
-     include_once("Src/Includes/Fruit.php");
+ include_once("Src/Includes/Fruit.php");
 }
 
 if(isset($_GET['page']) && $_GET['page'] == 'Details'){
-     include_once("Src/Includes/Details.php");
+ include_once("Src/Includes/Details.php");
 }
 
+if(isset($_GET['page']) && $_GET['page'] == 'Cart'){
+ include_once("Src/WineCart/Cart.php");
+}
+
+if(isset($_GET['page']) && $_GET['page'] == 'checkout'){
+ include_once("Src/WineCart/Checkout.php");
+}
+
+if(isset($_GET['page']) && $_GET['page'] == 'Search'){
+ include_once("Src/Includes/Search.php");
+}
 ?>
 <!-- INCLUDE -->
 
@@ -216,47 +224,47 @@ if(isset($_GET['page']) && $_GET['page'] == 'Details'){
     <ul id="flexiselDemo1">
      <li>
       <img src="public/client/images/4.png" alt=" " class="img-responsive" />
- </li>
- <li>
+    </li>
+    <li>
       <img src="public/client/images/5.png" alt=" " class="img-responsive" />
- </li>
- <li>
+    </li>
+    <li>
       <img src="public/client/images/6.png" alt=" " class="img-responsive" />
- </li>
- <li>
+    </li>
+    <li>
       <img src="public/client/images/7.png" alt=" " class="img-responsive" />
- </li>
- <li>
+    </li>
+    <li>
       <img src="public/client/images/46.jpg" alt=" " class="img-responsive" />
- </li>
-</ul>
+    </li>
+  </ul>
 </div>
 <script type="text/javascript">
-    $(window).load(function() {
-     $("#flexiselDemo1").flexisel({
-      visibleItems: 4,
-      animationSpeed: 1000,
-      autoPlay: true,
-      autoPlaySpeed: 3000,
-      pauseOnHover: true,
-      enableResponsiveBreakpoints: true,
-      responsiveBreakpoints: {
-       portrait: {
-        changePoint:480,
-        visibleItems: 1
-   },
-   landscape: {
-        changePoint:640,
-        visibleItems:2
-   },
-   tablet: {
-        changePoint:768,
-        visibleItems: 3
-   }
-}
+  $(window).load(function() {
+   $("#flexiselDemo1").flexisel({
+    visibleItems: 4,
+    animationSpeed: 1000,
+    autoPlay: true,
+    autoPlaySpeed: 3000,
+    pauseOnHover: true,
+    enableResponsiveBreakpoints: true,
+    responsiveBreakpoints: {
+     portrait: {
+      changePoint:480,
+      visibleItems: 1
+    },
+    landscape: {
+      changePoint:640,
+      visibleItems:2
+    },
+    tablet: {
+      changePoint:768,
+      visibleItems: 3
+    }
+  }
 });
 
-});
+ });
 </script>
 <script type="text/javascript" src="public/client/js/jquery.flexisel.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
@@ -269,14 +277,14 @@ if(isset($_GET['page']) && $_GET['page'] == 'Details'){
    <div class="col-md-6 w3agile_newsletter_left">
     <h3>Newsletter</h3>
     <p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
-</div>
-<div class="col-md-6 w3agile_newsletter_right">
+  </div>
+  <div class="col-md-6 w3agile_newsletter_right">
     <form action="#" method="post">
      <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
      <input type="submit" value="" />
-</form>
-</div>
-<div class="clearfix"> </div>
+   </form>
+ </div>
+ <div class="clearfix"> </div>
 </div>
 </div>
 <!-- //newsletter -->
@@ -291,71 +299,71 @@ if(isset($_GET['page']) && $_GET['page'] == 'Details'){
       <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
       <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
       <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
+    </ul>
+  </div>
+  <div class="col-md-3 w3_footer_grid">
+   <h3>Producer</h3>
+   <?php 
+   $sqlSelect = "SELECT `PublisherName` FROM Publisher";
+   $list_publisher= mysql_query($sqlSelect);
+
+   ?>
+   <ul class="info">
+    <?php 
+    while(list($name) = mysql_fetch_array($list_publisher))
+    {
+     ?>
+     <li><a href="?page=<?=$name?>"><?= $name;?></a></li>
+     <?php
+   }
+   ?>
  </ul>
 </div>
 <div class="col-md-3 w3_footer_grid">
-     <h3>Producer</h3>
-     <?php 
-     $sqlSelect = "SELECT `PublisherName` FROM Publisher";
-     $list_publisher= mysql_query($sqlSelect);
+ <h3>Category</h3>
+ <?php 
+ $sqlSelect = "SELECT `CategoryId`, `CategoryName`, `CategoryDescription` FROM Category";
+ $list_category= mysql_query($sqlSelect);
 
-     ?>
-     <ul class="info">
-      <?php 
-      while(list($name) = mysql_fetch_array($list_publisher))
-      {
-       ?>
-       <li><a href="?page=<?=$name?>"><?= $name;?></a></li>
-       <?php
-  }
-  ?>
+ ?>
+ <ul class="info">
+  <?php 
+  while(list($CategoryId, $name, $details) = mysql_fetch_array($list_category))
+  {
+   ?>
+   <li><a href="?page=<?=$name?>"><?= $name;?></a></li>
+   <?php
+ }
+ ?>
 </ul>
 </div>
 <div class="col-md-3 w3_footer_grid">
-     <h3>Category</h3>
-     <?php 
-     $sqlSelect = "SELECT `CategoryId`, `CategoryName`, `CategoryDescription` FROM Category";
-     $list_category= mysql_query($sqlSelect);
-
-     ?>
-     <ul class="info">
-      <?php 
-      while(list($CategoryId, $name, $details) = mysql_fetch_array($list_category))
-      {
-       ?>
-       <li><a href="?page=<?=$name?>"><?= $name;?></a></li>
-       <?php
-  }
-  ?>
+ <h3>Profile</h3>
+ <ul class="info">
+  <li><a href="products.html">Summer Store</a></li>
+  <li><a href="checkout.html">My Cart</a></li>
 </ul>
-</div>
-<div class="col-md-3 w3_footer_grid">
-     <h3>Profile</h3>
-     <ul class="info">
-      <li><a href="products.html">Summer Store</a></li>
-      <li><a href="checkout.html">My Cart</a></li>
+<h4>Follow Us</h4>
+<div class="agileits_social_button">
+  <ul>
+   <li><a href="#" class="facebook"> </a></li>
+   <li><a href="#" class="twitter"> </a></li>
+   <li><a href="#" class="google"> </a></li>
+   <li><a href="#" class="pinterest"> </a></li>
  </ul>
- <h4>Follow Us</h4>
- <div class="agileits_social_button">
-      <ul>
-       <li><a href="#" class="facebook"> </a></li>
-       <li><a href="#" class="twitter"> </a></li>
-       <li><a href="#" class="google"> </a></li>
-       <li><a href="#" class="pinterest"> </a></li>
-  </ul>
 </div>
 </div>
 <div class="clearfix"> </div>
 </div>
 </div>
 <div class="footer-copy">
-   <div class="footer-copy1">
-    <div class="footer-copy-pos">
-     <a href="#home1" class="scroll"><img src="public/client/images/arrow.png" alt=" " class="img-responsive" /></a>
-</div>
+ <div class="footer-copy1">
+  <div class="footer-copy-pos">
+   <a href="#home1" class="scroll"><img src="public/client/images/arrow.png" alt=" " class="img-responsive" /></a>
+ </div>
 </div>
 <div class="container">
-    <p>&copy; 2016 Women's Fashion. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+  <p>&copy; 2016 Women's Fashion. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
 </div>
 </div>
 </div>
