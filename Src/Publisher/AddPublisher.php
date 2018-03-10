@@ -1,11 +1,11 @@
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script type="text/javascript" >
 	var app = angular.module('myApp', []);
 	app.controller('myController', function($scope){
 		$scope.txtName = null;
 		$scope.txtDetails = null;
 	});
-</script>
+</script> -->
 <?php 
 include_once("PublisherController.php");
 $name = "";
@@ -36,9 +36,7 @@ if(isset($_POST['btnAdd']))
 			<div class="col-sm-10">
 				<input type="text" class="form-control" id="txtName" placeholder="Nhập vào tên nhà sản xuất" name="txtName"
 				required autofocus ng-model="txtName" >
-				<span style="color:red" ng-show="myForm.txtName.$dirty && myForm.txtName.$invalid">
-				<span ng-show="myForm.txtName.$error.required">Không Được Rỗng</span>
-				</span>
+				
 			</div>
 		</div>
 		<div class="form-group">
@@ -47,17 +45,14 @@ if(isset($_POST['btnAdd']))
 
 				<textarea name="txtDetails" id="txtDetails"
 				placeholder="Nhập vào mô tả chi tiết của nhà sản xuất rượu" class="form-control" required ng-model="txtDetails"></textarea>
-				<span style="color:red" ng-show="myForm.txtDetails.$dirty && myForm.txtDetails.$invalid">
-<span ng-show="myForm.txtDetails.$error.required">Không Được Rỗng</span>
-				</span>
+				
 			</div>
 		</div>
 
 		<div class="form-group">        
 			<div class="col-md-offset-2 col-md-10">
 				<!-- <button type="submit" class="btn btn-info" name="btnAdd" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Thêm</button> -->
-				<input type="submit" value="Thêm Mới" name="btnAdd" class="btn btn-info" ng-disabled="myForm.txtName.$dirty && myForm.txtName.$invalid ||  
-myForm.txtDetails.$dirty && myForm.txtDetails.$invalid"/>
+				<input type="submit" value="Thêm Mới" name="btnAdd" class="btn btn-info" />
 				<input type="reset" name="btnReset" class="btn btn-primary">
 			</div>
 		</div>

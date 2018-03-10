@@ -60,7 +60,7 @@ if (isset($_POST['btnLogin'])) {
 }
 
 ?>
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <!-- header -->
 <div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
 aria-hidden="true">
@@ -96,7 +96,7 @@ aria-hidden="true">
 							<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
 								<div class="facts">
 									<div class="register">
-										<form action="#" method="post">	
+										<form  method="post">	
 											<div class="form-group">		
 												<input placeholder="Tên đăng nhập" name="txtUsername" type="text" required="">
 											</div>
