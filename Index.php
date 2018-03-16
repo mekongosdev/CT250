@@ -17,31 +17,31 @@ function checkout($WineId)
   $query = "Select wine.WineId, wine.WineName, wine.WineQuantity, publisher.PublisherName, time_wine.SellingPrice from wine, publisher, time_wine WHERE wine.WineId = time_wine.WineId and publisher.PublisherId = wine.PublisherId and  wine.WineId = ".$WineId;
   $result = mysql_query($query) or trigger_error(mysql_error().$query);
   while ($rowsql = mysql_fetch_array($result, MYSQL_ASSOC)){
-      $coroi = false; 
-      foreach ($_SESSION["cart"] as $key => $row)  
+    $coroi = false; 
+    foreach ($_SESSION["cart"] as $key => $row)  
+    { 
+      if($key==$WineId) 
       { 
-        if($key==$WineId) 
-        { 
-          $_SESSION['cart'][$key]["quantity"] +=  1; 
-          $coroi = true; 
-        } 
+        $_SESSION['cart'][$key]["quantity"] +=  1; 
+        $coroi = true; 
       } 
+    } 
 
-      if(!$coroi) 
-      { 
-        $ten = $rowsql['WineName']; 
-        $nsx = $rowsql['PublisherName']; 
-        $price = $rowsql['SellingPrice'];
-        $cart = array( 
-          "ten" => $ten, 
-          "quantity" =>1,
-          "gia" => $price,
-          "hang" => $nsx); 
-        $_SESSION['cart'][$WineId]=$cart; 
-      } 
-      echo "<script language='javascript'> 
-      alert('Sản phẩm đã được thêm vào giỏ hàng, truy cập giỏ hàng để xem!');  
-      </script>"; 
+    if(!$coroi) 
+    { 
+      $ten = $rowsql['WineName']; 
+      $nsx = $rowsql['PublisherName']; 
+      $price = $rowsql['SellingPrice'];
+      $cart = array( 
+        "ten" => $ten, 
+        "quantity" =>1,
+        "gia" => $price,
+        "hang" => $nsx); 
+      $_SESSION['cart'][$WineId]=$cart; 
+    } 
+    echo "<script language='javascript'> 
+    alert('Sản phẩm đã được thêm vào giỏ hàng, truy cập giỏ hàng để xem!');  
+    </script>"; 
     
   }
 } 
@@ -130,17 +130,11 @@ function checkout($WineId)
         </div>
       </div>
       <div class="cart box_1">
-        <a href="#">
-         <div class="total">
-          <a href="?page=Cart"><span class="badge"><?php if((isset($_SESSION['cart'])) && count($_SESSION['cart'])>0) echo count($_SESSION['cart']); else echo '0';?></span></a>
-        </div>
-        <img src="public/client/images/bag.png" alt="" />
-      </a>
-      <p data-toggle="modal" data-target="#myLoginModal" style="margin-left: 58px;" ><?php if(isset($_SESSION["username"])){echo $_SESSION["username"]." <a href='Src/User/Signout.php'><span class=' glyphicon glyphicon-log-out'></span></a>";}?> </p>
-      <div class="clearfix"> </div>
-    </div>
-    <div class="clearfix"> </div>
-  </div>
+     <p data-toggle="modal" data-target="#myLoginModal" style="margin-left: 58px;" ><h4 class="text-primary"><?php if(isset($_SESSION["username"])){echo $_SESSION["username"]." <a href='Src/User/Signout.php'><span class=' glyphicon glyphicon-log-out'></span></a>";}?></h4> </p>
+   </div>
+   <div class="clearfix"> </div>
+
+ </div>
 </div>
 <div class="navigation">
   <div class="container">
@@ -192,6 +186,14 @@ function checkout($WineId)
 <li><a href="?page=?Cart">Cart</a></li>
 <li><a href="?page=Contact">Contact</a></li>
 <li><a href="?page=About">About</a></li>
+<div class="cart-box" id="Normal">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+           <button href="#" class="draggable dropdown-toggle btn btn-info btn-circle btn-xl" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span></button>
+           <span  class="cart-items-count"><span class=" notification-counter"><?php if((isset($_SESSION['cart'])) && count($_SESSION['cart'])>0) echo count($_SESSION['cart']); else echo '0';?></span></span>
+         </li>
+       </ul>
+     </div>
 </ul>
 </div>
 </nav>
