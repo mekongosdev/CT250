@@ -21,10 +21,10 @@ if (isset($_POST['btnUpdate']))
     foreach ($_SESSION["cart"] as $key => $row) 
     {
       $quantity = $_SESSION['cart'][$key]['quantity'];
-      $price = $_SESSION['cart'][$key]['sold_price'];
-      $ori_price = $_SESSION['cart'][$key]['price'];
+      $price = $_SESSION['cart'][$key]['gia'];
+      $ori_price = $_SESSION['cart'][$key]['gia'];
       $query = "INSERT INTO `orderwinedetails`(`WineOrderId`, `OrderId`, `WineOrderQuantity`, `WineSoldPrice`, `WineOriginalPrice`)
-      VALUES (".$key.",".$order_id.",".$quantity.",'".$price."','".$ori_price."')";
+      VALUES (".$key.",".$order_id.",".$quantity.",'".$price."','". $ori_price."')";
       echo $query;
       mysql_query($query) or die(mysql_error());
       $query_update_stock = "UPDATE wine 

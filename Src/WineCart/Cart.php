@@ -55,8 +55,7 @@ if (isset($_POST['btnYes'])) {
                     <div class="col-sm-2"><?php echo $row['gia'] ?></div>
                     <div class="col-sm-2"><input type='text' name='Wine<?php echo $key ?>' value='<?php echo $row["quantity"] ?>' size='5' style='text-align:center;' maxlength='3'/></div>
                     <div class="col-sm-2"><?php echo number_format($row["gia"] * $row["quantity"], 0, ",", ".") ?></div>
-                    <div class="col-sm-1"><a onclick='return confirmDelete()' href="?action=del<?php echo $key ?>"><span class="fa fa-remove"></span></a></div>
-                                
+                     <div class="col-sm-1"><a onclick='return confirmDelete()' href="./cart/del/<?php echo $key ?>"><span class="fa fa-remove"></span></a></div>
                     </div>             
                 <?php
                         $total += $row["gia"] * $row["quantity"];
