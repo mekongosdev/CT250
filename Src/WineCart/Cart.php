@@ -44,7 +44,7 @@ if (isset($_POST['btnYes'])) {
 <!-- about -->
 <div class="about">
     <div class="container"> 
-        <form id="form1" name="form1" method="post" action="">
+        <form id="form-1" name="form1" method="post" action="">
             <div class="row">
                 <div class="col-sm-1"><label>No.</label></div>
                 <div class="col-sm-2"><label>Product Names</label></div>
@@ -69,7 +69,11 @@ if (isset($_POST['btnYes'])) {
                     <div class="col-sm-2"><?php echo $row['ten'] ?></div>
                     <div class="col-sm-2"><?php echo $row["hang"] ?></div>
                     <div class="col-sm-2"><?php echo $row['gia'] ?></div>
-                    <div class="col-sm-2"><input type='text' name='Wine<?php echo $key ?>' value='<?php echo $row["quantity"] ?>' size='5' style='text-align:center;' maxlength='3'/></div>
+                    <div class="col-sm-2">
+                        <div class="input-group bootstrap-touchspin">
+                            <input type='text' id="wine-quantity" name='Wine<?php echo $key ?>' value='<?php echo $row["quantity"] ?>' class='form-control text-center'/>      
+                        </div>
+                    </div>
                     <div class="col-sm-2"><?php echo number_format($row["gia"] * $row["quantity"], 0, ",", ".") ?></div>
                     <div class="col-sm-1"><a onclick='return confirmDelete()' href="./cart/del/<?php echo $key ?>"><span class="fa fa-remove fa-lg"></span></a></div>
                 </div><hr>          
@@ -86,7 +90,7 @@ if (isset($_POST['btnYes'])) {
             echo "<div class='row'><div class='col-sm-12'>There are not any wine in cart</div></div>";
         }
         ?>
-        
+
     </form>
 </div>
 </div>
