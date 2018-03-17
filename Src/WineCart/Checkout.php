@@ -112,7 +112,7 @@ function bindHTTTList()
 <div class="form-group">     
 <label for="lblDeliverDate" class="col-sm-3 control-label">Deliver Date(*):  </label>
 <div class="col-sm-9">       
-<input class="form-control" id="txtDeliverDate" type="date" value="2018-01-01" id="example-date-input">
+<input class="form-control" id="txtDeliverDate"  name="txtDeliverDate" type="date" value="2018-01-01" id="example-date-input">
 </div>
 </div>
 
