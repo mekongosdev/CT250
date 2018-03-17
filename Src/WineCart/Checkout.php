@@ -58,39 +58,52 @@ function bindHTTTList()
   echo "</select>";
 }
 ?>
+<!-- breadcrumbs -->
+<div class="breadcrumb_dress">
+  <div class="container">
+    <ul>
+      <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
+      <li>Checkout</li>
+    </ul>
+  </div>
+</div>
+<!-- //breadcrumbs -->
 
-<div class="container">
-  <h1>Checkout products</h1>
-  <form id="form1" class="form-horizontal" name="form1" method="POST" action="">
+<!-- about -->
+<div class="about">
+  <div class="container"> 
+    <div class="col col-md-9 col-md-offset-3">
+      <form id="form1" class="form-horizontal" name="form1" method="POST" action="">
+        <div class="form-group">                            
+          <label for="lblNoiGiaoHang" class="col-sm-3 control-label">Deliver Address:(*):  </label>
+          <div class="col-sm-9">
+            <input type="text" name="txtDeliverAddress" id="txtDeliverAddress" class="form-control" placeholder="Nơi giao hàng" value=""/>
+          </div>
+        </div>     
 
-    <div class="form-group">                            
-      <label for="lblNoiGiaoHang" class="col-sm-2 control-label">Deliver Address:(*):  </label>
-      <div class="col-sm-10">
-        <input type="text" name="txtDeliverAddress" id="txtDeliverAddress" class="form-control" placeholder="Nơi giao hàng" value=""/>
-      </div>
-    </div>     
+        <div class="form-group">     
+          <label for="lblDeliverDate" class="col-sm-3 control-label">Deliver Date(*):  </label>
+          <div class="col-sm-9">       
+            <input class="form-control" id="txtDeliverDate" type="date" value="2018-01-01" id="example-date-input">
+          </div>
+        </div>
 
-    <div class="form-group">     
-      <label for="lblDeliverDate" class="col-sm-2 control-label">Deliver Date(*):  </label>
-      <div class="col-sm-10">       
-        <input name="txtDeliverDate" id="txtDeliverDate" type='date' class="form-control" />   
-      </div>
-    </div>
+        <div class="form-group">           
+          <label for="lblPaymentMethod" class="col-sm-3 control-label">Payment method(*):  </label>
+          <div class="col-sm-9">
+            <?php bindHTTTList() ?>
+          </div>
+        </div>     
 
-    <div class="form-group">           
-      <label for="lblPaymentMethod" class="col-sm-2 control-label">Payment method(*):  </label>
-      <div class="col-sm-10">
-        <?php bindHTTTList() ?>
-      </div>
-    </div>     
-
-    <div class="form-group">      
-     <div class="col-sm-2"></div>
-     <div class="col-sm-10">
-      <input type="submit" name="btnUpdate"  class="btn btn-primary" id="btnUpdate" value="Send"/>
-      <input name="btnCancel" type="button" class="btn btn-primary" id="btnCancel" value="Bỏ qua" onclick="window.location='../../Index.php'" />
-    </div>
-  </div>   
-</form>
+        <div class="form-group">      
+         <div class="col-sm-3"></div>
+         <div class="col-sm-9">
+          <input type="submit" name="btnUpdate"  class="btn btn-primary" id="btnUpdate" value="Check out"/>
+          <input name="btnCancel" type="button" class="btn btn-primary" id="btnCancel" value="Cancel" onclick="window.location='../../Index.php'" />
+        </div>
+      </div>   
+    </form>
+  </div>
+</div>
 </div>
 
