@@ -59,12 +59,15 @@ function checkout($WineId)
 </script>
 <!-- //for-mobile-apps -->
 <link href="public/client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="public/client/css/jquery.toast.min.css" rel="stylesheet" type="text/css" media="all" />
 <link href="public/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="public/client/css/fasthover.css" rel="stylesheet" type="text/css" media="all" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 <!-- js -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="public/client/js/jquery.min.js"></script>
+<script src="public/client/js/jquery.toast.min.js"></script>
 <!-- //js -->
 <!-- countdown -->
 <link rel="stylesheet" href="public/client/css/jquery.countdown.css" />

@@ -35,13 +35,41 @@ if (isset($_POST['btnUpdate']))
         //Xóa giỏ hàng sau khi thêm
     unset($_SESSION["cart"]);
         //Thông báo thêm giỏ hàng thành công
-    echo "<script>alert('Your order are recorded.');</script>";
+    echo "<script>
+    $.toast({
+      text: 'Your order is added successfully!', 
+      heading: 'success', 
+      icon: 'success', 
+      showHideTransition: 'fade', 
+      allowToastClose: true,
+      hideAfter: 2000, 
+      stack: 5, 
+      position: 'top-center', 
+      textAlign: 'left',
+      loader: true,
+      bgColor: '#160fdb',
+  });
+</script>";
     echo "<script>window.location='?page=homepage.php';</script>";
   } 
   else
   {
-    echo "Please fill all required field.";
-  }
+    echo "<script>
+    $.toast({
+      text: 'Please fill up required fields!', 
+      heading: 'Error', 
+      icon: 'error', 
+      showHideTransition: 'fade', 
+      allowToastClose: true,
+      hideAfter: 2000, 
+      stack: 5, 
+      position: 'top-center', 
+      textAlign: 'left',
+      loader: true,
+      bgColor: '#ff0000',
+  });
+</script>";
+}
 }
 
 function bindHTTTList() 
@@ -60,50 +88,50 @@ function bindHTTTList()
 ?>
 <!-- breadcrumbs -->
 <div class="breadcrumb_dress">
-  <div class="container">
-    <ul>
-      <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
-      <li>Checkout</li>
-    </ul>
-  </div>
+<div class="container">
+<ul>
+<li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
+<li>Checkout</li>
+</ul>
+</div>
 </div>
 <!-- //breadcrumbs -->
 
 <!-- about -->
 <div class="about">
-  <div class="container"> 
-    <div class="col col-md-9 col-md-offset-3">
-      <form id="form1" class="form-horizontal" name="form1" method="POST" action="">
-        <div class="form-group">                            
-          <label for="lblNoiGiaoHang" class="col-sm-3 control-label">Deliver Address:(*):  </label>
-          <div class="col-sm-9">
-            <input type="text" name="txtDeliverAddress" id="txtDeliverAddress" class="form-control" placeholder="Nơi giao hàng" value=""/>
-          </div>
-        </div>     
+<div class="container"> 
+<div class="col col-md-9 col-md-offset-3">
+<form id="form1" class="form-horizontal" name="form1" method="POST" action="">
+<div class="form-group">                            
+<label for="lblNoiGiaoHang" class="col-sm-3 control-label">Deliver Address:(*):  </label>
+<div class="col-sm-9">
+<input type="text" name="txtDeliverAddress" id="txtDeliverAddress" class="form-control" placeholder="Nơi giao hàng" value=""/>
+</div>
+</div>     
 
-        <div class="form-group">     
-          <label for="lblDeliverDate" class="col-sm-3 control-label">Deliver Date(*):  </label>
-          <div class="col-sm-9">       
-            <input class="form-control" id="txtDeliverDate" type="date" value="2018-01-01" id="example-date-input">
-          </div>
-        </div>
+<div class="form-group">     
+<label for="lblDeliverDate" class="col-sm-3 control-label">Deliver Date(*):  </label>
+<div class="col-sm-9">       
+<input class="form-control" id="txtDeliverDate" type="date" value="2018-01-01" id="example-date-input">
+</div>
+</div>
 
-        <div class="form-group">           
-          <label for="lblPaymentMethod" class="col-sm-3 control-label">Payment method(*):  </label>
-          <div class="col-sm-9">
-            <?php bindHTTTList() ?>
-          </div>
-        </div>     
+<div class="form-group">           
+<label for="lblPaymentMethod" class="col-sm-3 control-label">Payment method(*):  </label>
+<div class="col-sm-9">
+<?php bindHTTTList() ?>
+</div>
+</div>     
 
-        <div class="form-group">      
-         <div class="col-sm-3"></div>
-         <div class="col-sm-9">
-          <input type="submit" name="btnUpdate"  class="btn btn-primary" id="btnUpdate" value="Check out"/>
-          <input name="btnCancel" type="button" class="btn btn-primary" id="btnCancel" value="Cancel" onclick="window.location='../../Index.php'" />
-        </div>
-      </div>   
-    </form>
-  </div>
+<div class="form-group">      
+<div class="col-sm-3"></div>
+<div class="col-sm-9">
+<input type="submit" name="btnUpdate"  class="btn btn-primary" id="btnUpdate" value="Check out"/>
+<input name="btnCancel" type="button" class="btn btn-primary" id="btnCancel" value="Cancel" onclick="window.location='../../Index.php'" />
+</div>
+</div>   
+</form>
+</div>
 </div>
 </div>
 
