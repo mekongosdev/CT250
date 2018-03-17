@@ -82,7 +82,7 @@
       if ($row['WineQuantity'] > 0) 
       {
         ?>
-        <p><a class="item_add" href="#">Add to card</a></p>
+        <p><a class="item_add" href="?action=checkout&&WineId=<?php echo  $row['WineId']?>">Add to card</a></p>
         <?php
       } else {
         ?>
@@ -158,7 +158,7 @@
        if ($row['WineQuantity'] > 0) 
        {
         ?>
-        <p><a class="item_add" href="#">Add to cart</a></p>
+        <p><a class="item_add" href="?action=checkout&&WineId=<?php echo  $row['WineId']?>">Add to cart</a></p>
         <?php
       } else {
         ?>
@@ -225,7 +225,7 @@
  if ($row['WineQuantity'] > 0) 
  {
    ?>
-   <p><a class="item_add" href="#">Add to card</a></p>
+   <p><a class="item_add" href="?action=checkout&&WineId=<?php echo  $row['WineId']?>">Add to card</a></p>
    <?php
  } else {
    ?>
@@ -281,7 +281,7 @@
   if ($row['WineQuantity'] > 0) 
   {
     ?>
-    <p><a class="item_add" href="#">Add to card</a></p>
+    <p><a class="item_add" href="?action=checkout&&WineId=<?php echo  $row['WineId']?>">Add to card</a></p>
     <?php
   } else {
     ?>
@@ -337,7 +337,7 @@
  if ($row['WineQuantity'] > 0) 
  {
    ?>
-   <p><a class="item_add" href="#">Add to card</a></p>
+   <p><a class="item_add" href="?action=checkout&&WineId=<?php echo  $row['WineId']?>">Add to card</a></p>
    <?php
  } else {
    ?>
@@ -395,7 +395,7 @@
 if ($row['WineQuantity'] > 0) 
 {
   ?>
-  <p><a class="item_add" href="#">Add to card</a></p>
+  <p><a class="item_add" href="?action=checkout&&WineId=<?php echo  $row['WineId']?>">Add to card</a></p>
   <?php
 } else {
   ?>
