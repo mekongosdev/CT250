@@ -77,7 +77,7 @@ function bindHTTTList()
      // include 'database.php';
   $query = "SELECT PaymentMethodId, PaymentMethodName from PaymentMethod";
   $result = mysql_query($query);
-  echo "<select name='slPaymentMethod'>
+  echo "<select name='slPaymentMethod' class='form-control'>
   <option value='0'>Chọn hình thức thanh toán</option>";
   while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) 
   {
