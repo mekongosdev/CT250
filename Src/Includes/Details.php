@@ -78,7 +78,7 @@ while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 								if ($row['WineQuantity'] > 0) 
 								{
 									?>
-									<p><a class="item_add" href="#">Add to card</a></p>
+									<p><a class="item_add" href="?action=checkout&&WineId=<?php echo  $row['WineId']?>">Add to card</a></p>
 									<?php
 								} else {
 									?>
