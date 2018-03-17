@@ -192,7 +192,7 @@ function checkout($WineId)
 <div class="cart-box" id="Normal">
         <ul class="nav navbar-nav">
           <li class="dropdown">
-           <button class="btn btn-info btn-circle btn-xl"><a href="?page=Cart"> <span class="glyphicon glyphicon-shopping-cart"></span></a></button>
+           <button class="btn btn-info btn-circle btn-xl"><a href="?page=Cart"> <span class="glyphicon glyphicon-shopping-cart" style="color:white"></span></a></button>
            <span  class="cart-items-count"><span class=" notification-counter"><?php if((isset($_SESSION['cart'])) && count($_SESSION['cart'])>0) echo count($_SESSION['cart']); else echo '0';?></span></span>
          </li>
        </ul>
