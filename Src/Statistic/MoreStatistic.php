@@ -3,16 +3,19 @@
 // $list_PaymentMethod= mysql_query($sqlSelect);
 
 ?>
-<h3 class="w3_inner_tittle two text-center">Thống kê</h3>
-<a class="btn btn-primary" href="?page=more_statistic">Xem thêm <i class="fa fa-plus"></i></a>
+<h3 class="w3_inner_tittle two text-center">Thống kê (tiếp tục)</h3>
+<a class="btn btn-primary" href="?page=statistic">Quay lại <i class="fa fa-backward"></i></a>
 </br>
 </br>
 <center>
 	<div class="statistic">
 		<div id="chart_div"></div>
-		<div style="width: 1000px; height: 360px">
-				<div id="piechart" style="width: 499px; height: 350px; float: left"></div>
-				<div id="piechart2" style="width: 499px; height: 350px; float: left"></div>
+		<div style="width: 1000px; height: 780px">
+			<div id="piechart" style="width: 499px; height: 250px; float: left"></div>
+			<div id="piechart2" style="width: 499px; height: 250px; float: left"></div>
+			<div id="piechart3" style="width: 499px; height: 250px; float: left"></div>
+			<div id="piechart4" style="width: 499px; height: 250px; float: left"></div>
+			<div id="piechart5" style="width: 499px; height: 250px; float: left; margin: 0 248px 0 248px"></div>
 		</div>
 	</div>
 </center>
@@ -86,8 +89,14 @@ function drawChart() {
 
 	var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 	var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
+	var chart3 = new google.visualization.PieChart(document.getElementById('piechart3'));
+	var chart4 = new google.visualization.PieChart(document.getElementById('piechart4'));
+	var chart5 = new google.visualization.PieChart(document.getElementById('piechart5'));
 
 	chart.draw(data, options);
 	chart2.draw(data, options);
+	chart3.draw(data, options);
+	chart4.draw(data, options);
+	chart5.draw(data, options);
 }
 </script>
