@@ -36,7 +36,8 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	include_once("../Src/News/NewsController.php");
 	include_once("../Src/Wine/WineController.php");
 	include_once("../Src/Time/TimeController.php");
-	
+	include_once("../Src/Analytics/AnalyticsController.php");
+
 	?>
 	<!-- banner -->
 	<div class="wthree_agile_admin_info">
@@ -375,7 +376,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							if(isset($_GET['page']) && $_GET['page'] == "UpadateCategory"){
 								include_once("../Src/Category/UpdateCategory.php");
 							}
-							
+
 							if (isset($_GET['page']) && $_GET['page'] == "AddCategory") {
 								include_once("../Src/Category/AddCategory.php");
 
@@ -647,7 +648,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							}
 							if (isset($_GET['page'])&&$_GET['page']=='DeleteWineImage') {
 								deleteImageWine($_GET['ImgWineId']);
-								echo "<script>window.location.href='?page=UploadImageWine&&WineId=".$_GET['WineId']."'</script>"; 
+								echo "<script>window.location.href='?page=UploadImageWine&&WineId=".$_GET['WineId']."'</script>";
 							}
 
 							if (isset($_GET['page'])&&$_GET['page']=='PromotionHistory') {
@@ -657,6 +658,16 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								include_once('../Src/Wine/AddWinePromotion.php');
 							}
 
+							// Analytics
+							if(isset($_GET['page'])&& $_GET['page']=="analytics")
+							{
+								include_once("../Src/Analytics/Analytics.php");
+							}
+							if(isset($_GET['page'])&& $_GET['page']=="more_anlytics")
+							{
+								include_once("../Src/Analytics/MoreAnalytics.php");
+							}
+							
 							?>
 						</div>
 					</div>
@@ -755,7 +766,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				});
 			});
 		</script>
-	
+
 		<script src="../Public/admin/js/bars.js"></script>
 		<script src="../Public/admin/js/jquery.nicescroll.js"></script>
 		<script src="../Public/admin/js/scripts.js"></script>
@@ -781,7 +792,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				    bgColor: '#17a2b8',
 				});
 				})
-				
+
 				$('#myTable').DataTable({
 					responsive: true,
 					"language": {
