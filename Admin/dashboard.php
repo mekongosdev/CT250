@@ -36,7 +36,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	include_once("../Src/News/NewsController.php");
 	include_once("../Src/Wine/WineController.php");
 	include_once("../Src/Time/TimeController.php");
-	include_once("../Src/Analytics/AnalyticsController.php");
+	include_once("../Src/Statistic/StatisticController.php");
 
 	?>
 	<!-- banner -->
@@ -658,16 +658,16 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								include_once('../Src/Wine/AddWinePromotion.php');
 							}
 
-							// Analytics
-							if(isset($_GET['page'])&& $_GET['page']=="analytics")
+							// Statistic
+							if(isset($_GET['page'])&& $_GET['page']=="statistic")
 							{
-								include_once("../Src/Analytics/Analytics.php");
+								include_once("../Src/Statistic/Statistic.php");
 							}
-							if(isset($_GET['page'])&& $_GET['page']=="more_anlytics")
+							if(isset($_GET['page'])&& $_GET['page']=="more_statistic")
 							{
-								include_once("../Src/Analytics/MoreAnalytics.php");
+								include_once("../Src/Statistic/MoreStatistic.php");
 							}
-							
+
 							?>
 						</div>
 					</div>
