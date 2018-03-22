@@ -92,7 +92,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<li class="customer"><a href="#"><i class="fa fa-database" aria-hidden="true"></i>Quản lý Khách hàng<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"><a href="?page=user"><i class="fa fa-caret-right" aria-hidden="true"></i> Thông tin khách hàng</a></li>
-										<li class="mini_list_agile"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Hóa đơn</a></li>
+										<li class="mini_list_agile"><a href="?page=customer"><i class="fa fa-caret-right" aria-hidden="true"></i> Hóa đơn</a></li>
 									</ul>
 								</li>
 								<li>
@@ -621,6 +621,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							if(isset($_GET['page'])&&$_GET['page']=='DeleteTime'){
 								deleteTime($_GET['TimeId']);
 								echo "<script>window.location.href='?page=time'</script>";
+							}
+							//Customer
+							if(isset($_GET['page'])&& $_GET['page']=="customer")
+							{
+								include_once("../Src/Customer/CustomerOrder.php");
 							}
 							// About
 							if(isset($_GET['page'])&& $_GET['page']=="about")
