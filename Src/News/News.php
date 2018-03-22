@@ -41,7 +41,9 @@ $list_News= mysql_query($sqlSelect);
 				
 				?>
 				<td class="text-center col-md-6">
-					<a class="btn btn-warning btn" href="?page=UpadateNews&NewsId=<?php echo $NewsId; ?>"><i class="fa fa-edit"></i></a>
+				<a class='btn btn-success' href="?page=UploadImageNews&NewsId=<?=$NewsId?>">
+						<i class="fa fa-file-image-o"></i></a>
+					<a class="btn btn-warning btn" href="?page=UpdateNews&NewsId=<?php echo $NewsId; ?>"><i class="fa fa-edit"></i></a>
 					<a class='btn btn-danger' href="?page=DeleteNews&NewsId=<?php echo $NewsId; ?>" onclick="return confirm('Bạn có chắc chắn xóa News này không này không?')"><i class="fa fa-remove"></i></a>
 				</td>     
 			</tr>

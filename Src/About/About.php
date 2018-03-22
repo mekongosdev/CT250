@@ -70,7 +70,7 @@ while($row = mysql_fetch_array($result))
             <a class="btn btn-primary" href="#"><i class="fa fa-file-image-o"></i></a>
             <a class="btn btn-danger" href="?page=about&ma=<?php echo $row['AboutId']; ?>" onclick="return deleteConfirm()">
 								<i class="fa fa-remove"></i></a>
-            <a class="btn btn-success" href="#"><i class="fa fa-edit"></i></a>
+            <a class="btn btn-success" href="?page=UpdateAbout&AboutId= <?php echo $row['AboutId']; ?>"><i class="fa fa-edit"></i></a>
             </td>
 </tr>
  <?php

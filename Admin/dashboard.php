@@ -557,6 +557,14 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								deleteNews($_GET['NewsId']);
 								echo "<script>window.location.href='?page=news'</script>";
 							}
+							if (isset($_GET['page'])&&$_GET['page']=='UploadImageNews') {
+								include_once('../Src/News/UploadImgNews.php');
+							}
+							if (isset($_GET['page'])&&$_GET['page']=='DeleteNewsImage') {
+								deleteImageWine($_GET['ImgNewsId']);
+								echo "<script>window.location.href='?page=UploadImageNews&&NewsId=".$_GET['NewsId']."'</script>";
+							}
+							//Khuyen Mai
 							if(isset($_GET['page'])&&$_GET['page']=="ChangeActive"){
 								changeActive($_GET['PromotionId'],$_GET['Do']);
 								echo "<script>window.location.href='?page=promotion'</script>";
@@ -638,7 +646,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/About/AddAbout.php");
 							}
-							if(isset($_GET['page'])&& $_GET['page']=="Updateabout")
+							if(isset($_GET['page'])&& $_GET['page']=="UpdateAbout")
 							{
 								include_once("../Src/About/UpdateAbout.php");
 							}

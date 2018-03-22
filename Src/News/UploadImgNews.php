@@ -3,8 +3,8 @@ if (isset($_GET['NewsId']))
 {
 	$NewsId = $_GET['NewsId'];
 	
-	$sql="SELECT `NewsId` FROM `news` WHERE `NewsId` = 'NewsId";
-	$rs = mysql_query($sql) or trigger_error(mysql_error().$sql);
+	$sql="SELECT `NewsId` FROM `news` WHERE `NewsId` = '$NewsId";
+	$rs = mysql_query($sql);
 	$row = mysql_fetch_array($rs);
 	$Newsname = $row[0];
 }   
@@ -84,7 +84,7 @@ if(isset($_POST['btnUpload']))
 		<div class="form-group">    
 			<label for="Newsname" class="col-sm-2 control-label">Tên bản tin  (*):  </label>
 			<div class="col-sm-10">
-				<input type="text" name="Newsname" id="Newsname" class="form-control" placeholder="Tên loại sản phẩm" value='<?php echo $Newsname; ?>' readonly="readonly"/> 
+				<input type="text" name="Newsname" id="Newsname" class="form-control" placeholder="Nội dung bản tin" value='<?php echo $Newsname; ?>' readonly="readonly"/> 
 			</div>
 		</div>     
 		<div class="form-group">    
