@@ -1,4 +1,5 @@
-<table id="myTable" class="table-striped table-hover">
+<h4 class="text-center">QUẢN LÝ ĐƠN HÀNG</h4>
+<table id="myTable" class="table-striped table-hover table-responsive">
 	<thead >
 		<tr>
 			<th><strong>STT đơn hàng</strong></th>

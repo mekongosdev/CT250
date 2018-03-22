@@ -28,14 +28,14 @@ if(isset($_POST['btnAdd']))
 		</div>
 
 	</form>
-	<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" name="myForm" ng-app="myApp"  ng-controller="myController" novalidate="">
+	<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" name="myForm" >
 
 
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtName">Tên nhà sản xuất:</label>
 			<div class="col-sm-10">
 				<input type="text" class="form-control" id="txtName" placeholder="Nhập vào tên nhà sản xuất" name="txtName"
-				required autofocus ng-model="txtName" >
+				required autofocus >
 				
 			</div>
 		</div>
@@ -44,7 +44,7 @@ if(isset($_POST['btnAdd']))
 			<div class="col-md-10">          
 
 				<textarea name="txtDetails" id="txtDetails"
-				placeholder="Nhập vào mô tả chi tiết của nhà sản xuất rượu" class="form-control" required ng-model="txtDetails"></textarea>
+				placeholder="Nhập vào mô tả chi tiết của nhà sản xuất rượu" class="form-control" required ></textarea>
 				
 			</div>
 		</div>

@@ -51,10 +51,10 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							<ul class="gn-menu agile_menu_drop">
 								<li><a href="#"> <i class="fa fa-tachometer"></i>Bảng điều khiển</a></li>
 								<li>
-									<a href="?page=category"><i class="fa fa-opencart" aria-hidden="true"></i>Đơn hàng</a>
+									<a href="?page=customer"><i class="fa fa-opencart" aria-hidden="true"></i>Đơn hàng</a>
 								</li>
 								<li>
-									<a href="?page=customer"> <i class="fa fa-money" aria-hidden="true"></i>Hóa đơn</a>
+									<a href="#"> <i class="fa fa-money" aria-hidden="true"></i>Hóa đơn</a>
 								</li>
 								<li>
 									<a href="?page=paymentmethod"> <i class="fa fa-info-circle" aria-hidden="true"></i>Hình Thức Thanh Toán</a>
@@ -746,7 +746,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				});
 			});
 		</script>
-		<script type="text/javascript" src="../Library/JS/angular.min.js"></script>
+	
 		<script src="../Public/admin/js/bars.js"></script>
 		<script src="../Public/admin/js/jquery.nicescroll.js"></script>
 		<script src="../Public/admin/js/scripts.js"></script>

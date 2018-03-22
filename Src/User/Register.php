@@ -96,52 +96,38 @@ aria-hidden="true">
 							<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1" >
 								<div class="facts">
 									<div class="register" >
-										<form  method="post" name="myForm" ng-app="myApp" ng-controller="myController" novalidate>	
+										<form  method="post" name="myForm" >	
 											<div class="form-group">		
-												<input placeholder="Tên đăng nhập" name="txtUsername" type="text" required="" ng-model="txtUsername">
-												<span style="color:red" ng-show="myForm.txtUsername.$dirty && myForm.txtUsername.$invalid">
-													<span ng-show="myForm.txtUsername.$error.required">Username is require.</span>
-													
-												</span>
+												<input placeholder="Tên đăng nhập" name="txtUsername" type="text" required="" >
+											
 											</div>
 											<div class="form-group">	
-												<input placeholder="Họ tên đầy đủ" name="txtFullname" type="text" required="" ng-model="txtFullname">
-												<span style="color:red" ng-show="myForm.txtFullname.$dirty && myForm.txtFullname.$invalid">
-													<span ng-show="myForm.txtFullname.$error.required">FullName is require.</span>
-													
-												</span>
-											</div>
-											<div class="form-group">	
-												<input placeholder="Địa chỉ email" name="txtEmail" type="email" required="" ng-model="txtEmail">
-
-												<span style="color:red" ng-show="myForm.txtEmail.$dirty && myForm.txtEmail.$invalid">
-													<span ng-show="myForm.txtEmail.$error.required">Email is required.</span>
-													<span ng-show="myForm.txtEmail.$error.email">Invalid email address.</span>
-												</span>
-											</div>
-											<div class="form-group">	
-												<input placeholder="Số điện thoại" name="NumPhone" type="text" required="" ng-model="NumPhone" data-toggle="tooltip" data-placement="top">
+												<input placeholder="Họ tên đầy đủ" name="txtFullname" type="text" required="" >
 												
-												<span style="color:red" ng-show="myForm.NumPhone.$dirty && myForm.NumPhone.$invalid">
-													<span ng-show="myForm.NumPhone.$error.required">Phone Number is required.</span>
-													
-												</span>
+											</div>
+											<div class="form-group">	
+												<input placeholder="Địa chỉ email" name="txtEmail" type="email" required="">
+
+												
+											</div>
+											<div class="form-group">	
+												<input placeholder="Số điện thoại" name="NumPhone" type="text" required="" data-toggle="tooltip" data-placement="top">
+												
+												
 											</div>
 											<div class="form-group">	
 												<input placeholder="Sinh nhật" name="dateOfBirth" type="date"  class="form-control" required="" value="2018-01-01">	</div>
 												<div class="form-group">	
 													Mật khẩu
-													<input placeholder="Mật khẩu" name="txtPassword" type="password" required="" ng-model="txtPassword">
-														<span style="color:red" ng-show="myForm.txtPassword.$dirty && myForm.txtPassword.$invalid">
-													<span ng-show="myForm.txtPassword.$error.required">PassWord is require.</span>
+													<input placeholder="Mật khẩu" name="txtPassword" type="password" required="" >
+							
 													
 												</span>
 												</div>	
 													<div class="form-group">	
 														Lặp lại mật khẩu
-														<input placeholder="Mật khẩu lặp lại" name="txtRepeatPassword" type="password" required="" ng-model="txtRepeatPassword">
-														<span style="color:red" ng-show="myForm.txtRepeatPassword.$dirty && myForm.txtPassword.$invalid">
-													<span ng-show="myForm.txtRepeatPassword.$error.required">PassWord is require.</span>
+														<input placeholder="Mật khẩu lặp lại" name="txtRepeatPassword" type="password" required="" >
+														
 													</div>	
 														<div class="form-group">  
 															<label for="lblGender" class="col-sm-2 control-label">Gender(*):  </label>
@@ -157,19 +143,7 @@ aria-hidden="true">
 															</div>
 														</div>
 														<div class="sign-up">
-															<input type="submit" value="Đăng ký" name="btnRegister" id="btnRegister" ng-disabled="
-															myForm.txtUsername.$dirty && myForm.txtUsername.$invalid
-															||
-															myForm.txtFullname.$dirty && myForm.txtFullname.$invalid
-															||
-															myForm.txtEmail.$dirty && myForm.txtEmail.$invalid
-															||
-															myForm.NumPhone.$dirty && myForm.NumPhone.$invalid
-															||
-															myForm.txtRepeatPassword.$dirty && myForm.txtPassword.$invalid
-															||
-															myForm.txtRepeatPassword.$dirty && myForm.txtPassword.$invalid
-															"/>
+															<input type="submit" value="Đăng ký" name="btnRegister" id="btnRegister"/>
 														</div>
 													</form>
 												</div>

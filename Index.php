@@ -65,7 +65,7 @@ function checkout($WineId)
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <!-- js -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
 <script src="public/client/js/jquery.min.js"></script>
 <script src="public/client/js/jquery.toast.min.js"></script>
 <!-- //js -->
