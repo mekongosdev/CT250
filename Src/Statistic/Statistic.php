@@ -4,6 +4,7 @@
 </br>
 <center>
 	<div class="statistic">
+		<div id="chart_div_0" style="width: 800px; height: 500px;"></div>
 		<div id="chart_div" style="width: 800px; height: 500px;"></div>
 		<div style="width: 1000px; height: 360px">
 				<div id="piechart" style="width: 499px; height: 350px; float: left"></div>
@@ -37,11 +38,6 @@ function drawChart() {
 				$kq = $row['WineSoldPrice'] - $row['WineOriginalPrice'];
 				echo $kq;
 				echo "],";
-				//.' '.$row['WineOrderQuantity'].' '.$row['WineSoldPrice'].' '.$row['WineOriginalPrice'];
-				// ['2014', 1000, 400],
-	      // ['2015', 1170, 460],
-	      // ['2016', 660, 1120],
-	      // ['2017', 1030, 540]
 		  }
 			?>
     ]);
@@ -84,4 +80,47 @@ function drawChart() {
 	chart.draw(data, options);
 	chart2.draw(data, options);
 }
+</script>
+<script type="text/javascript">
+google.charts.load('current', {'packages':['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawStuff);
+
+function drawStuff() {
+
+var chartDiv = document.getElementById('chart_div_0');
+
+var data = google.visualization.arrayToDataTable([
+	['Galaxy', 'Distance', 'Brightness'],
+	['Canis Major Dwarf', 8000, 23.3],
+	['Sagittarius Dwarf', 24000, 4.5],
+	['Ursa Major II Dwarf', 30000, 14.3],
+	['Lg. Magellanic Cloud', 50000, 0.9],
+	['Bootes I', 60000, 13.1]
+]);
+
+var materialOptions = {
+	width: 900,
+	chart: {
+		title: 'Nearby galaxies',
+		subtitle: 'distance on the left, brightness on the right'
+	},
+	series: {
+		0: { axis: 'distance' }, // Bind series 0 to an axis named 'distance'.
+		1: { axis: 'brightness' } // Bind series 1 to an axis named 'brightness'.
+	},
+	axes: {
+		y: {
+			distance: {label: 'parsecs'}, // Left y-axis.
+			brightness: {side: 'right', label: 'apparent magnitude'} // Right y-axis.
+		}
+	}
+};
+
+function drawMaterialChart() {
+	var materialChart = new google.charts.Bar(chartDiv);
+	materialChart.draw(data, google.charts.Bar.convertOptions(materialOptions));
+}
+
+drawMaterialChart();
+};
 </script>
