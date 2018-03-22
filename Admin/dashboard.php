@@ -637,6 +637,18 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/Customer/CustomerOrder.php");
 							}
+							if(isset($_GET['page'])&& $_GET['page']=="ActiveOrder"){
+
+								if($_GET['OrderStatus'] == 0){
+									$status = 1;
+								}
+								else{
+									$status = 0;
+								}
+								$updateStatus = "UPDATE `order` SET `OrderStatus`=".$status." where `OrderId` = '".$_GET['OrderId']."'";
+								mysql_query($updateStatus);
+								echo "<script>window.location.href='?page=customer'</script>";
+							}
 							// About
 							if(isset($_GET['page'])&& $_GET['page']=="about")
 							{

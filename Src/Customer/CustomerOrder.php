@@ -31,12 +31,12 @@ JOIN orderwinedetails or1 ON o.OrderId = or1.OrderId
 JOIN wine w ON or1.WineOrderId = w.WineId
 LIMIT 0,25");
 ; 
-
+$num = 1;
 while($row = mysql_fetch_array($result))
 {
 ?>
 <tr>
-            <td><?php echo $row["OrderId"] ?></td>
+            <td><?php echo $num ?></td>
             <td><?php echo $row["WineName"] ?></td>
             <td><?php echo $row["WineOrderQuantity"] ?></td>
             <td><?php echo $row["OrderCreateDate"] ?></td>
@@ -45,13 +45,23 @@ while($row = mysql_fetch_array($result))
             <td><?php echo $row["FullName"] ?></td>
             <td><?php echo $row["PaymentMethodName"] ?></td>
             <td><?php echo $row["WineSoldPrice"] ?></td>
-            <td><?php echo $row["OrderStatus"] ?></td>
+            <td>
+            <form  method="post" action="">
+					<?php 
+						if($row["OrderStatus"]==0){
+							echo '<a class="btn btn-default" href="?page=ActiveOrder&OrderStatus='.$row["OrderStatus"].'&OrderId='.$row["OrderId"].'"><i class="fa fa-eye"></i></a>';
+						}else{
+							echo '<a class="btn btn-success" href="?page=ActiveOrder&OrderStatus='.$row["OrderStatus"].'&OrderId='.$row["OrderId"].'"><i class=" fa fa-eye-slash"></i></a>';
+						}
+					?>
+			</form>
+            </td>
             <td>
             <a class="btn btn-info btn" href="#"><i class="fa fa-print"></i></a>
             </td>
 </tr>
  <?php
-
+$num++;
 				}
 				?>
 	</tbody>
