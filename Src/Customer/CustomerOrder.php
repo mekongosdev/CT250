@@ -1,3 +1,4 @@
+<div class="container">
 <h4 class="text-center">QUẢN LÝ ĐƠN HÀNG</h4>
 <table id="myTable" class="table-striped table-hover table-responsive">
 	<thead >
@@ -55,3 +56,4 @@ while($row = mysql_fetch_array($result))
 				?>
 	</tbody>
 </table>
+</div>

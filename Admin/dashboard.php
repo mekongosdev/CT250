@@ -36,6 +36,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	include_once("../Src/News/NewsController.php");
 	include_once("../Src/Wine/WineController.php");
 	include_once("../Src/Time/TimeController.php");
+	
 	?>
 	<!-- banner -->
 	<div class="wthree_agile_admin_info">
@@ -631,6 +632,14 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							if(isset($_GET['page'])&& $_GET['page']=="about")
 							{
 								include_once("../Src/About/About.php");
+							}
+							if(isset($_GET['page'])&& $_GET['page']=="AddAbout")
+							{
+								include_once("../Src/About/AddAbout.php");
+							}
+							if(isset($_GET['page'])&& $_GET['page']=="Updateabout")
+							{
+								include_once("../Src/About/UpdateAbout.php");
 							}
 
 							if (isset($_GET['page'])&&$_GET['page']=='UploadImageWine') {
