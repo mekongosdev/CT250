@@ -54,7 +54,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									<a href="?page=category"><i class="fa fa-opencart" aria-hidden="true"></i>Đơn hàng</a>
 								</li>
 								<li>
-									<a href="#"> <i class="fa fa-money" aria-hidden="true"></i>Hóa đơn</a>
+									<a href="?page=customer"> <i class="fa fa-money" aria-hidden="true"></i>Hóa đơn</a>
 								</li>
 								<li>
 									<a href="?page=paymentmethod"> <i class="fa fa-info-circle" aria-hidden="true"></i>Hình Thức Thanh Toán</a>
@@ -92,7 +92,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<li class="customer"><a href="#"><i class="fa fa-database" aria-hidden="true"></i>Quản lý Khách hàng<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"><a href="?page=user"><i class="fa fa-caret-right" aria-hidden="true"></i> Thông tin khách hàng</a></li>
-										<li class="mini_list_agile"><a href="?page=customer"><i class="fa fa-caret-right" aria-hidden="true"></i> Hóa đơn</a></li>
+										<li class="mini_list_agile"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Hóa đơn</a></li>
 									</ul>
 								</li>
 								<li>

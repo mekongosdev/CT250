@@ -1,16 +1,16 @@
 <table id="myTable" class="table-striped table-hover">
 	<thead >
 		<tr>
-			<th><strong>STT</strong></th>
+			<th><strong>STT đơn hàng</strong></th>
 			<th><strong>Tên Rượu</strong></th>
             <th><strong>Số lượng mua</strong></th>
-			<th><strong>Ngày Đặt Hàng</strong></th>
-			<th><strong>Ngày Nhận Hàng</strong></th>
+			<th><strong>Ngày Đặt</strong></th>	
+			<th><strong>Ngày Nhận</strong></th>
 			<th><strong>Nơi Nhận</strong></th>
-			<th><strong>Trạng Thái</strong></th>
-			<th><strong>Tên Người Nhận</strong></th>
+			<th><strong>Người Nhận</strong></th>
 			<th><strong>HTTT</strong></th>
 			<th><strong>Giá Bán</strong></th>
+            <th><strong>Trại Thái</strong></th>
             <th><strong>Hóa đơn</strong></th>
 		</tr>
 	</thead>
