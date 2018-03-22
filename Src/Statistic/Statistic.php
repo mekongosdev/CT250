@@ -4,7 +4,6 @@
 </br>
 <center>
 	<div class="statistic">
-		<div id="chart_div_0" style="width: 800px; height: 500px;"></div>
 		<div id="chart_div" style="width: 800px; height: 500px;"></div>
 		<div style="width: 1000px; height: 360px">
 				<div id="piechart" style="width: 499px; height: 350px; float: left"></div>
@@ -54,73 +53,56 @@ function drawChart() {
     chart_div.draw(data, google.charts.Bar.convertOptions(options));
   }
 </script>
-<script>
+<script type="text/javascript">
 // Biểu đồ tròn
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
 
-	var data = google.visualization.arrayToDataTable([
-		['Task', 'Hours per Day'],
-		['Work',     11],
-		['Eat',      2],
-		['Commute',  2],
-		['Watch TV', 2],
-		['Sleep',    7]
+	var data1 = google.visualization.arrayToDataTable([
+		['Loại rượu', 'Thị phần trên tổng bán ra'],
+		<?php
+		$sql_statistic_category_vietnam = "SELECT * FROM `wine` INNER JOIN `category` ON wine.CategoryId = category.CategoryId WHERE category.CategoryName = 'Vietnam'";
+		$result_statistic_category_vietnam = mysql_query($sql_statistic_category_vietnam);
+		while ($row = mysql_fetch_array($result_statistic_category_vietnam)) {
+			echo "['";
+			echo $row['WineName'];
+			echo "',";
+			$kq = (($row['WineQuantity'] + $row['WineSold']) - $row['WineSold']);
+			echo $kq;
+			echo "],";
+		}
+		?>
+	]);
+	var data2 = google.visualization.arrayToDataTable([
+		['Loại rượu', 'Thị phần trên tổng bán ra'],
+		<?php
+		$sql_statistic_category_fruit = "SELECT * FROM `wine` INNER JOIN `category` ON wine.CategoryId = category.CategoryId WHERE category.CategoryName = 'Fruit'";
+		$result_statistic_category_fruit = mysql_query($sql_statistic_category_fruit);
+		while ($row = mysql_fetch_array($result_statistic_category_fruit)) {
+			echo "['";
+			echo $row['WineName'];
+			echo "',";
+			$kq = (($row['WineQuantity'] + $row['WineSold']) - $row['WineSold']);
+			echo $kq;
+			echo "],";
+		}
+		?>
 	]);
 
-	var options = {
-		title: 'My Daily Activities'
+	var options1 = {
+		title: 'Tổng sản phẩm bán ra và thị phần của loại Vietnam'
+	};
+
+	var options2 = {
+		title: 'Tổng sản phẩm bán ra và thị phần của loại Fruit'
 	};
 
 	var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 	var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
 
-	chart.draw(data, options);
-	chart2.draw(data, options);
+	chart.draw(data1, options1);
+	chart2.draw(data2, options2);
 }
-</script>
-<script type="text/javascript">
-google.charts.load('current', {'packages':['corechart', 'bar']});
-google.charts.setOnLoadCallback(drawStuff);
-
-function drawStuff() {
-
-var chartDiv = document.getElementById('chart_div_0');
-
-var data = google.visualization.arrayToDataTable([
-	['Galaxy', 'Distance', 'Brightness'],
-	['Canis Major Dwarf', 8000, 23.3],
-	['Sagittarius Dwarf', 24000, 4.5],
-	['Ursa Major II Dwarf', 30000, 14.3],
-	['Lg. Magellanic Cloud', 50000, 0.9],
-	['Bootes I', 60000, 13.1]
-]);
-
-var materialOptions = {
-	width: 900,
-	chart: {
-		title: 'Nearby galaxies',
-		subtitle: 'distance on the left, brightness on the right'
-	},
-	series: {
-		0: { axis: 'distance' }, // Bind series 0 to an axis named 'distance'.
-		1: { axis: 'brightness' } // Bind series 1 to an axis named 'brightness'.
-	},
-	axes: {
-		y: {
-			distance: {label: 'parsecs'}, // Left y-axis.
-			brightness: {side: 'right', label: 'apparent magnitude'} // Right y-axis.
-		}
-	}
-};
-
-function drawMaterialChart() {
-	var materialChart = new google.charts.Bar(chartDiv);
-	materialChart.draw(data, google.charts.Bar.convertOptions(materialOptions));
-}
-
-drawMaterialChart();
-};
 </script>

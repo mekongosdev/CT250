@@ -23,6 +23,7 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <!-- Biểu đồ cột và tròn -->
+<!-- Biểu đồ cột và tròn -->
 <script type="text/javascript">
 // Biểu đồ cột
 google.charts.load('current', {'packages':['bar']});
@@ -45,11 +46,6 @@ function drawChart() {
 				$kq = $row['WineSoldPrice'] - $row['WineOriginalPrice'];
 				echo $kq;
 				echo "],";
-				//.' '.$row['WineOrderQuantity'].' '.$row['WineSoldPrice'].' '.$row['WineOriginalPrice'];
-				// ['2014', 1000, 400],
-	      // ['2015', 1170, 460],
-	      // ['2016', 660, 1120],
-	      // ['2017', 1030, 540]
 		  }
 			?>
     ]);
@@ -66,24 +62,110 @@ function drawChart() {
     chart_div.draw(data, google.charts.Bar.convertOptions(options));
   }
 </script>
-<script>
+<script type="text/javascript">
 // Biểu đồ tròn
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
 
-	var data = google.visualization.arrayToDataTable([
-		['Task', 'Hours per Day'],
-		['Work',     11],
-		['Eat',      2],
-		['Commute',  2],
-		['Watch TV', 2],
-		['Sleep',    7]
+	var data1 = google.visualization.arrayToDataTable([
+		['Loại rượu', 'Thị phần trên tổng bán ra'],
+		<?php
+		$sql_statistic_category_vietnam = "SELECT * FROM `wine` INNER JOIN `category` ON wine.CategoryId = category.CategoryId WHERE category.CategoryName = 'Vietnam'";
+		$result_statistic_category_vietnam = mysql_query($sql_statistic_category_vietnam);
+		while ($row = mysql_fetch_array($result_statistic_category_vietnam)) {
+			echo "['";
+			echo $row['WineName'];
+			echo "',";
+			$kq = (($row['WineQuantity'] + $row['WineSold']) - $row['WineSold']);
+			echo $kq;
+			echo "],";
+		}
+		?>
+	]);
+	var data2 = google.visualization.arrayToDataTable([
+		['Loại rượu', 'Thị phần trên tổng bán ra'],
+		<?php
+		$sql_statistic_category_fruit = "SELECT * FROM `wine` INNER JOIN `category` ON wine.CategoryId = category.CategoryId WHERE category.CategoryName = 'Fruit'";
+		$result_statistic_category_fruit = mysql_query($sql_statistic_category_fruit);
+		while ($row = mysql_fetch_array($result_statistic_category_fruit)) {
+			echo "['";
+			echo $row['WineName'];
+			echo "',";
+			$kq = (($row['WineQuantity'] + $row['WineSold']) - $row['WineSold']);
+			echo $kq;
+			echo "],";
+		}
+		?>
 	]);
 
-	var options = {
-		title: 'My Daily Activities'
+	var data3 = google.visualization.arrayToDataTable([
+		['Loại rượu', 'Thị phần trên tổng bán ra'],
+		<?php
+		$sql_statistic_category_fruit = "SELECT * FROM `wine` INNER JOIN `category` ON wine.CategoryId = category.CategoryId WHERE category.CategoryName = 'Chivas'";
+		$result_statistic_category_fruit = mysql_query($sql_statistic_category_fruit);
+		while ($row = mysql_fetch_array($result_statistic_category_fruit)) {
+			echo "['";
+			echo $row['WineName'];
+			echo "',";
+			$kq = (($row['WineQuantity'] + $row['WineSold']) - $row['WineSold']);
+			echo $kq;
+			echo "],";
+		}
+		?>
+	]);
+
+	var data4 = google.visualization.arrayToDataTable([
+		['Loại rượu', 'Thị phần trên tổng bán ra'],
+		<?php
+		$sql_statistic_category_fruit = "SELECT * FROM `wine` INNER JOIN `category` ON wine.CategoryId = category.CategoryId WHERE category.CategoryName = 'Vodka'";
+		$result_statistic_category_fruit = mysql_query($sql_statistic_category_fruit);
+		while ($row = mysql_fetch_array($result_statistic_category_fruit)) {
+			echo "['";
+			echo $row['WineName'];
+			echo "',";
+			$kq = (($row['WineQuantity'] + $row['WineSold']) - $row['WineSold']);
+			echo $kq;
+			echo "],";
+		}
+		?>
+	]);
+
+	var data5 = google.visualization.arrayToDataTable([
+		['Loại rượu', 'Thị phần trên tổng bán ra'],
+		<?php
+		$sql_statistic_category_fruit = "SELECT * FROM `wine` INNER JOIN `category` ON wine.CategoryId = category.CategoryId WHERE category.CategoryName = 'Whisky'";
+		$result_statistic_category_fruit = mysql_query($sql_statistic_category_fruit);
+		while ($row = mysql_fetch_array($result_statistic_category_fruit)) {
+			echo "['";
+			echo $row['WineName'];
+			echo "',";
+			$kq = (($row['WineQuantity'] + $row['WineSold']) - $row['WineSold']);
+			echo $kq;
+			echo "],";
+		}
+		?>
+	]);
+
+	var options1 = {
+		title: 'Tổng sản phẩm bán ra và thị phần của loại Vietnam'
+	};
+
+	var options2 = {
+		title: 'Tổng sản phẩm bán ra và thị phần của loại Fruit'
+	};
+
+	var options3 = {
+		title: 'Tổng sản phẩm bán ra và thị phần của loại Chivas'
+	};
+
+	var options4 = {
+		title: 'Tổng sản phẩm bán ra và thị phần của loại Vodka'
+	};
+
+	var options5 = {
+		title: 'Tổng sản phẩm bán ra và thị phần của loại Whisky'
 	};
 
 	var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -92,10 +174,10 @@ function drawChart() {
 	var chart4 = new google.visualization.PieChart(document.getElementById('piechart4'));
 	var chart5 = new google.visualization.PieChart(document.getElementById('piechart5'));
 
-	chart.draw(data, options);
-	chart2.draw(data, options);
-	chart3.draw(data, options);
-	chart4.draw(data, options);
-	chart5.draw(data, options);
+	chart.draw(data1, options1);
+	chart2.draw(data2, options2);
+	chart3.draw(data3, options3);
+	chart4.draw(data4, options4);
+	chart5.draw(data5, options5);
 }
 </script>
