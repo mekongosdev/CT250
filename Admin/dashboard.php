@@ -56,7 +56,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									<a href="?page=customer"><i class="fa fa-opencart" aria-hidden="true"></i>Đơn hàng</a>
 								</li>
 								<li>
-									<a href="#"> <i class="fa fa-money" aria-hidden="true"></i>Hóa đơn</a>
+									<a href="?page=about"> <i class="fa fa-money" aria-hidden="true"></i>Về Chúng Tôi</a>
 								</li>
 								<li>
 									<a href="?page=paymentmethod"> <i class="fa fa-info-circle" aria-hidden="true"></i>Hình Thức Thanh Toán</a>
