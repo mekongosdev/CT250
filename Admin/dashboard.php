@@ -340,7 +340,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							</a>
 						</li>
 						<li>
-							<a href="#">
+							<a href="?page=statistic">
 								<i class="fa fa-bar-chart-o" aria-hidden="true"></i>
 								<div class="ca-content">
 									<h4 class="ca-main three">49,436</h4>
