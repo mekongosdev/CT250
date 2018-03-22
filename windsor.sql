@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 03, 2018 at 04:42 AM
+-- Generation Time: Mar 22, 2018 at 03:12 PM
 -- Server version: 5.6.37
 -- PHP Version: 5.6.31
 
@@ -29,11 +29,17 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `about` (
   `AboutId` smallint(6) NOT NULL,
   `AboutName` varchar(145) COLLATE utf8_unicode_ci NOT NULL,
-  `AboutHistory` varchar(245) COLLATE utf8_unicode_ci NOT NULL,
-  `AboutOthers` varchar(155) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ImgAbout` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `AboutWinsor` varchar(245) COLLATE utf8_unicode_ci NOT NULL,
   `EmployeeCode` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `about`
+--
+
+INSERT INTO `about` (`AboutId`, `AboutName`, `AboutWinsor`, `EmployeeCode`) VALUES
+(1, 'Công ty rượu Winsor', 'Bulgarian wineries. Welcome to one of most friendly Bulgarian Wine shop where Valentina and Asen welcomed us for a very special degustation.', 'CP890'),
+(2, 'Campuchia', 'Từ 1996', 'CP890');
 
 -- --------------------------------------------------------
 
@@ -167,7 +173,8 @@ CREATE TABLE IF NOT EXISTS `employee` (
 --
 
 INSERT INTO `employee` (`EmployeeCode`, `EmployeePass`, `EmployeeName`, `EmployeeBirth`, `EmployeeAddress`, `EmployeeEmail`, `EmployeeIC`, `Role`) VALUES
-('CP808', 'e10adc3949ba59abbe56e057f20f883e', 'Đặng Tuấn Huy', '1997-02-01', 'Tiên Thủy, Châu Thành, Bến Tre', 'huygama@gmail.com', '321573034', 1);
+('CP808', 'e10adc3949ba59abbe56e057f20f883e', 'Đặng Tuấn Huy', '1997-02-01', 'Tiên Thủy, Châu Thành, Bến Tre', 'huygama@gmail.com', '321573034', 1),
+('CP890', '90957dd92b9eb08aa00ba8a113a07f02', 'Nguyễn Thị Cẩm Tuyên', '1995-03-20', 'Thốt Nốt', 'ntctuyen@gmail.com', '212423561347', 1);
 
 -- --------------------------------------------------------
 
@@ -206,6 +213,18 @@ INSERT INTO `imageemployee` (`ImgEmployeeId`, `ImgEmployee`, `EmployeeCode`) VAL
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `imgabout`
+--
+
+CREATE TABLE IF NOT EXISTS `imgabout` (
+  `ImgAboutId` smallint(6) NOT NULL,
+  `ImgAbout` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `AboutId` smallint(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `imgnews`
 --
 
@@ -213,7 +232,16 @@ CREATE TABLE IF NOT EXISTS `imgnews` (
   `ImgNewsId` int(11) NOT NULL,
   `ImgNews` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `NewsId` smallint(6) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `imgnews`
+--
+
+INSERT INTO `imgnews` (`ImgNewsId`, `ImgNews`, `NewsId`) VALUES
+(1, '1_n9o93w2z1p.jpg', 1),
+(2, '1_ycu6wde3cn.jpg', 1),
+(3, '1_tsz81yb9ad.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -358,7 +386,15 @@ CREATE TABLE IF NOT EXISTS `order` (
   `OrderStatus` int(11) NOT NULL,
   `Username` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
   `PaymentMethodId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`OrderId`, `OrderCreateDate`, `OrderDeliverDate`, `OrderDeliverPlace`, `OrderStatus`, `Username`, `PaymentMethodId`) VALUES
+(6, '2018-03-22', '2018-12-21', 'Tiên Thủy Châu Thành Bến tre', 1, 'dangtuanhuy', 1),
+(7, '2018-03-22', '2018-01-01', 'Bến Tre', 0, 'dangtuanhuyhachi', 2);
 
 -- --------------------------------------------------------
 
@@ -374,6 +410,16 @@ CREATE TABLE IF NOT EXISTS `orderwinedetails` (
   `WineOriginalPrice` decimal(12,2) unsigned NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `orderwinedetails`
+--
+
+INSERT INTO `orderwinedetails` (`WineOrderId`, `OrderId`, `WineOrderQuantity`, `WineSoldPrice`, `WineOriginalPrice`) VALUES
+(4, 6, 1, '90000.00', '90000.00'),
+(5, 6, 1, '90000.00', '90000.00'),
+(5, 7, 10, '90000.00', '90000.00'),
+(7, 6, 1, '123000.00', '123000.00');
+
 -- --------------------------------------------------------
 
 --
@@ -384,7 +430,7 @@ CREATE TABLE IF NOT EXISTS `paymentmethod` (
   `PaymentMethodId` int(11) NOT NULL,
   `PaymentMethodName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `PaymentMethodDetails` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `paymentmethod`
@@ -392,7 +438,8 @@ CREATE TABLE IF NOT EXISTS `paymentmethod` (
 
 INSERT INTO `paymentmethod` (`PaymentMethodId`, `PaymentMethodName`, `PaymentMethodDetails`) VALUES
 (1, 'Master Card', 'Thanh toán bằng thẻ quốc tế network'),
-(2, 'Bitcoin', 'Phải có thẻ Quốc tế để thanh toán');
+(2, 'Bitcoin', 'Phải có thẻ Quốc tế để thanh toán'),
+(3, 'Trực Tiếp ', 'Trực tiếp khi nhận hàng');
 
 -- --------------------------------------------------------
 
@@ -450,7 +497,7 @@ CREATE TABLE IF NOT EXISTS `publisher` (
   `PublisherId` int(11) NOT NULL,
   `PublisherName` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `PublisherDescription` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `publisher`
@@ -458,7 +505,9 @@ CREATE TABLE IF NOT EXISTS `publisher` (
 
 INSERT INTO `publisher` (`PublisherId`, `PublisherName`, `PublisherDescription`) VALUES
 (1, 'Việt Name', 'Cù Lý'),
-(2, 'Trung Quốc', 'Cỏ bỏ thêm rất nhiều Cồn');
+(2, 'Trung Quốc', 'Cỏ bỏ thêm rất nhiều Cồn'),
+(3, 'Campuchia', 'Nhà sản xuất nổi tiếng vối nhiều sản phẩm'),
+(6, 'Thái Lan', 'Thái Lan');
 
 -- --------------------------------------------------------
 
@@ -588,10 +637,11 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`Username`, `Password`, `FullName`, `Sex`, `Address`, `Phone`, `Email`, `DateOfBirth`, `IC`, `Status`, `Role`) VALUES
 ('abc', '900150983cd24fb0d6963f7d28e17f72', 'abc', 1, '', 963505927, 'ntctuyen.ctu@gmail.com', '2018-01-01', NULL, 1, 1),
 ('abcd', 'e2fc714c4727ee9395f324cd2e7f331f', 'abcd', 1, '', 963505927, 'ntctuyen.ctu@gmail.com', '2018-01-01', NULL, 1, 1),
-('dangtuanhuy', '61fcd36c8292bdf65aab93287009f0f0', 'Đặng Tuấn Huy 12', 1, '223, ấp Chánh, xã Tiên Thủy, huyện Châu Thành, tỉnh Bến Tre', 963505927, 'huyb1505883@student.ctu.edu.vn', '2018-02-03', '321573034', 1, 1),
+('dangtuanhuy', '61fcd36c8292bdf65aab93287009f0f0', 'Đặng Tuấn Huy', 1, '223, ấp Chánh, xã Tiên Thủy, huyện Châu Thành, tỉnh Bến Tre', 963505927, 'huyb1505883@student.ctu.edu.vn', '2018-02-03', '321573034', 1, 1),
 ('dangtuanhuy1', '202cb962ac59075b964b07152d234b70', 'dangtuanhuy1', 0, '', 963505927, 'testct25005@gmail.com', '2018-01-01', NULL, 1, 1),
 ('dangtuanhuy2', '202cb962ac59075b964b07152d234b70', 'Đặng Tuấn Huy', 0, '', 963505927, 'ntctuyen.ctu@gmail.com', '2018-01-27', NULL, 1, 1),
 ('dangtuanhuy3', '202cb962ac59075b964b07152d234b70', 'Đặng Tuấn Huy', 0, '', 963505927, 'ntctuyen.ctu@gmail.com', '2018-01-27', NULL, 1, 1),
+('dangtuanhuyhachi', '41fb20b10e6c06837e8eb62cb2128a5d', 'Đặng Tuấn Huy', 0, '', 962505927, 'huyb1505883@student.ctu.edu.vn', '1997-01-02', NULL, 1, 1),
 ('nguyennhuy', 'fcea920f7412b5da7be0cf42b8c93759', 'Nguyễn Như Ý', 0, 'CTU', 963505927, 'nny@ctu.edu.vn', '2018-01-20', '321464578569', 1, 1);
 
 -- --------------------------------------------------------
@@ -619,20 +669,20 @@ CREATE TABLE IF NOT EXISTS `wine` (
 --
 
 INSERT INTO `wine` (`WineId`, `WineName`, `WineStrength`, `WineShortDetails`, `WineDetails`, `WineUpdateDate`, `WineQuantity`, `WineSold`, `CategoryId`, `PublisherId`, `CountryId`) VALUES
-(1, 'Rượu Phú Lể', 14, 'Rất nhiều loại rượu khác nhau', 'Rất nhiều loại rượu khác nhau', '2018-01-26', 50, 0, 4, 1, 2),
-(2, 'Nếp Hương', 15, 'Nồng độ cồn khá cao', 'Nồng độ cồ khá cao', '2018-02-22', 45, 0, 4, 1, 17),
+(1, 'Rượu Phú Lể', 14, 'Rất nhiều loại rượu khác nhau', 'Rất nhiều loại rượu khác nhau', '2018-01-26', 43, 7, 4, 1, 2),
+(2, 'Nếp Hương', 15, 'Nồng độ cồn khá cao', 'Nồng độ cồ khá cao', '2018-02-22', 27, 18, 4, 1, 17),
 (3, 'Ông già ba tri', 12, '34', 'Rất Ngon', '2018-03-09', 45, 0, 4, 1, 9),
-(4, 'Grapes', 45, 'Là một loại rượu Nho', 'Là một loại rượu Nho', '2018-03-10', 45, 0, 5, 1, 3),
-(5, 'Apple', 12, 'Rượu Táo', 'Rượu Táo', '2018-03-07', 45, 0, 5, 1, 14),
+(4, 'Grapes', 45, 'Là một loại rượu Nho', 'Là một loại rượu Nho', '2018-03-10', 44, 1, 5, 1, 3),
+(5, 'Apple', 12, 'Rượu Táo', 'Rượu Táo', '2018-03-07', 34, 11, 5, 1, 14),
 (6, 'Cherry First', 45, 'Chiết xuất từ cherry nguyên chất', 'Chiết xuất từ cherry nguyên chất', '2018-03-30', 100, 0, 5, 1, 16),
-(7, 'Vorka 1', 50, 'Rượu Ngâm', 'Rượu Ngâm', '2018-03-04', 13, 0, 1, 1, 2),
-(8, 'Vorka 2', 50, 'Rượu Ngâm', 'Rượu Ngâm', '2018-03-07', 666, 0, 1, 1, 17),
-(9, 'Vorka 3', 45, 'Rượu Ngâm', 'Vodka is the most-consumed spirit in the world. In 2012, according to The Economist, global vodka consumption reached 4.4 billion liters. The definitive neutral spirit, vodka is an essential ingredient to be enjoyed in any number of mixed drinks, and sippable straight in upscale, premium versions.', '2018-03-02', 666, 0, 1, 1, 13),
+(7, 'Vorka 1', 50, 'Rượu Ngâm', 'Rượu Ngâm', '2018-03-04', 7, 6, 1, 1, 2),
+(8, 'Vorka 2', 50, 'Rượu Ngâm', 'Rượu Ngâm', '2018-03-07', 661, 5, 1, 1, 17),
+(9, 'Vorka 3', 45, 'Rượu Ngâm', 'Vodka is the most-consumed spirit in the world. In 2012, according to The Economist, global vodka consumption reached 4.4 billion liters. The definitive neutral spirit, vodka is an essential ingredient to be enjoyed in any number of mixed drinks, and sippable straight in upscale, premium versions.', '2018-03-02', 662, 4, 1, 1, 13),
 (10, 'Chivas regal', 45, 'Là một loại rượu Chivas khá ngon', 'Là một loại rượu Chivas khá ngon', '2018-03-11', 45, 0, 3, 1, 11),
-(11, 'Chivas 38', 55, 'Rượu Ngâm', 'Rượu Ngâm', '2018-04-20', 9, 0, 3, 1, 11),
+(11, 'Chivas 38', 55, 'Rượu Ngâm', 'Rượu Ngâm', '2018-04-20', 8, 1, 3, 1, 11),
 (12, 'Chivas 18 blue', 45, 'Rượu Ngâm', 'Rượu Pha Chế', '2018-07-15', 666, 0, 3, 1, 7),
 (13, 'Whisky hibiki', 12, 'Một trong các loại Whisky nổi tiếng', 'Một trong các loại Whisky nổi tiếng', '2018-04-15', 70, 0, 2, 2, 8),
-(14, 'Whisky Ballantines', 50, 'Rượu Ngâm', 'Ballantines Finest là dòng rượu Whisky pha trộn ( Blended Scotch Whisky ) của Scotland , với hương vị phong phú , tinh tế và tao nhã , đáp ứng nhu cầu của những ai có phong cách sống hiện đại và trẻ trung ', '2018-05-04', 100, 0, 2, 2, 17),
+(14, 'Whisky Ballantines', 50, 'Rượu Ngâm', 'Ballantines Finest là dòng rượu Whisky pha trộn ( Blended Scotch Whisky ) của Scotland , với hương vị phong phú , tinh tế và tao nhã , đáp ứng nhu cầu của những ai có phong cách sống hiện đại và trẻ trung ', '2018-05-04', 99, 1, 2, 2, 17),
 (15, 'Whisky Nikka', 45, 'Rượu Ngâm', 'Rượu Nikka Samurai không chỉ đơn thuần là dòng rượu whisky có hương vị thơm ngon mà nó còn tượng trưng cho con người, văn hóa Nhật Bản.', '2018-07-07', 66, 0, 2, 2, 13);
 
 --
@@ -698,6 +748,13 @@ ALTER TABLE `feedback`
 ALTER TABLE `imageemployee`
   ADD PRIMARY KEY (`ImgEmployeeId`),
   ADD KEY `EmployeeCode` (`EmployeeCode`);
+
+--
+-- Indexes for table `imgabout`
+--
+ALTER TABLE `imgabout`
+  ADD PRIMARY KEY (`ImgAboutId`),
+  ADD KEY `AboutId` (`AboutId`);
 
 --
 -- Indexes for table `imgnews`
@@ -809,7 +866,7 @@ ALTER TABLE `wine`
 -- AUTO_INCREMENT for table `about`
 --
 ALTER TABLE `about`
-  MODIFY `AboutId` smallint(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `AboutId` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `bill`
 --
@@ -844,7 +901,7 @@ ALTER TABLE `imageemployee`
 -- AUTO_INCREMENT for table `imgnews`
 --
 ALTER TABLE `imgnews`
-  MODIFY `ImgNewsId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ImgNewsId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `imgwine`
 --
@@ -859,12 +916,12 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `paymentmethod`
 --
 ALTER TABLE `paymentmethod`
-  MODIFY `PaymentMethodId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `PaymentMethodId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `promotion`
 --
@@ -874,7 +931,7 @@ ALTER TABLE `promotion`
 -- AUTO_INCREMENT for table `publisher`
 --
 ALTER TABLE `publisher`
-  MODIFY `PublisherId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `PublisherId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `role`
 --
@@ -935,6 +992,12 @@ ALTER TABLE `feedback`
 --
 ALTER TABLE `imageemployee`
   ADD CONSTRAINT `imageemployee_ibfk_3` FOREIGN KEY (`EmployeeCode`) REFERENCES `employee` (`EmployeeCode`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `imgabout`
+--
+ALTER TABLE `imgabout`
+  ADD CONSTRAINT `imgabout_ibfk_1` FOREIGN KEY (`AboutId`) REFERENCES `about` (`AboutId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `imgnews`
