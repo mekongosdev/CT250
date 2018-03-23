@@ -687,8 +687,8 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/Statistic/MoreStatistic.php");
 							}
-							else 
-							include('../Src/Statistic/Statistic.php');
+							// else 
+							// include('../Src/Statistic/Statistic.php');
 							?>
 						</div>
 					</div>
