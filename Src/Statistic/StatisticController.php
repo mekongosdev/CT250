@@ -1,4 +1,45 @@
 <?php
+// Doanh thu và lợi nhuân
+function statisticOrderWineDetails() {
+  // Biểu đồ cột
+  echo "
+  google.charts.load('current', {'packages':['bar']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Rượu', 'Số lượng', 'Doanh thu', 'Lợi nhuận'],";
+
+  			$sql_statistic_orderwinedetail = "SELECT * FROM `orderwinedetails` INNER JOIN `wine` ON orderwinedetails.WineOrderId = wine.WineId";
+  		  $result_statistic_orderwinedetail = mysql_query($sql_statistic_orderwinedetail);
+  		  while ($row = mysql_fetch_array($result_statistic_orderwinedetail)) {
+  		  	echo "['";
+  				echo $row['WineName'];
+  				echo "',";
+  				echo $row['WineOrderQuantity'];
+  				echo ",";
+  				echo $row['WineSoldPrice'];
+  				echo ",";
+  				$kq = $row['WineSoldPrice'] - $row['WineOriginalPrice'];
+  				echo $kq;
+  				echo "],";
+  		  }
+      echo "
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Doanh số bán ra',
+          subtitle: 'Số lượng, doanh thu và lợi nhuận',
+        }
+      };
+
+      var chart_div = new google.charts.Bar(document.getElementById('chart_div'));
+
+      chart_div.draw(data, google.charts.Bar.convertOptions(options));
+    }";
+}
+
 // Tổng số lượng và thị phần
 function statisticByCategory($categoryName) {
 // Biểu đồ tròn
