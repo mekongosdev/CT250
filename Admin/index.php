@@ -83,7 +83,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		</div>
 		<!-- banner -->
 		<div class="copyrights">
-			<p>© 2018 CT250 - Nhóm 02. All Rights Reserved</p>
+			<p>© 2018 CT250 - Nhóm 01. All Rights Reserved</p>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="../public/admin/js/modernizr.custom.js"></script>
