@@ -187,6 +187,7 @@ function checkout($WineId)
 </ul>
 </li>
 <li><a href="?page=Cart">Cart</a></li>
+<li><a href="#">News</a></li>
 <li><a href="?page=Contact">Contact</a></li>
 <li><a href="?page=About">About</a></li>
 <div class="cart-box" id="Normal">
@@ -263,7 +264,7 @@ if(isset($_GET['page']) && $_GET['page'] == 'Search'){
 }
 
 if(isset($_GET['page']) && $_GET['page'] == 'Contact'){
- include_once("Src/Includes/Contact.php");
+ include_once("Src/Contact/AddContact.php");
 }
 
 if(isset($_GET['page']) && $_GET['page'] == 'About'){
