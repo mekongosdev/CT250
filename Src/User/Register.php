@@ -34,7 +34,7 @@ if(isset($_POST["btnRegister"]))
 		include "functions.php"; 
 		$title = '[Windsor Shop] - Register';
 		$content = "<p>Welcome ".$fullname."</p>". "Please click <a href='http://localhost/CT250/index.php?page=ActiveAccount&&username=".$username.">here</a> to active account</p>";
-		$To = 'ntctuyen.ctu@gmail.com';
+		$To = $email;
 		$mail = sendMail($title, $content, $email);
 		echo '<script> alert("Đăng ký tài khoản thành công!");</script>';
 		echo '<meta http-equiv="refresh" content="0: URL=Register.php"/>';
