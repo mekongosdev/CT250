@@ -66,6 +66,17 @@ function searchWine($WineId)
 	WHERE WineId='$WineId'";
 	return mysql_query($sqlSelect);
 }
+
+function searchWineWithQuantityEqualsZero($WineId)
+{
+	$sqlSelect = "
+	SELECT 
+	`WineId`, `WineName` 
+	FROM `wine` 
+	WHERE WineId='$WineId'";
+	return mysql_query($sqlSelect);
+}
+
 function searchWineTime($WineId, $TimeId)
 {
 	$sqlSelect = "
@@ -96,6 +107,14 @@ function updateWine($WineId,$name,$strength,$shortdetails,$details,$wineupdate,$
 	CategoryId = '$idCat',
 	PublisherId = '$idPub',
 	CountryId = '$idCountry'
+	WHERE WineId = '$WineId'";
+	mysql_query($sqlUpdate);
+}
+
+function updateQuantityWine($WineId,$quantity)
+{
+	$sqlUpdate = "UPDATE wine SET 
+	WineQuantity = '$quantity'
 	WHERE WineId = '$WineId'";
 	mysql_query($sqlUpdate);
 }

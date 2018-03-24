@@ -56,8 +56,7 @@ if(isset($_POST['btnUpdate']))
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtName">Tên Rượu:</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="txtName" name="txtName"
-				required autofocus="" value="<?php echo $name; ?>" >
+				<input type="text" class="form-control" id="wineName" name="wineName" value="<?php echo $name; ?>" >
 			</div>
 		</div>
 		<div class="form-group">

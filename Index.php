@@ -107,97 +107,101 @@ function checkout($WineId)
        ?>
        <script>$(document).ready(function(){
         <?php
-        if(!isset($_SESSION['username'])){ ?>
-         $('#myModal88').modal('show');
-         <?php }else{ ?>
-          $('#user_modal').remove();
-          <?php } ?>
-        });
-      </script>
-      <div class="header">
-        <div class="container">
-         <div class="w3l_login" id="user_modal">
-          <a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-        </div>
-        <div class="w3l_logo">
-          <h1><a href="index.php">Windsor's Wine<span>The Land & The Folk</span></a></h1>
-        </div>
-        <div class="search">
-          <input class="search_box" type="checkbox" id="search_box">
-          <label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
-          <div class="search_form">
-           <form action="?page=Search" method="post">
-            <input type="text" name="WineName" placeholder="Wine's Name...">
-            <input type="submit" value="Search">
-          </form>
-        </div>
-      </div>
-      <div class="cart box_1">
-     <p data-toggle="modal" data-target="#myLoginModal" style="margin-left: 58px;" ><h4 class="text-primary"><?php if(isset($_SESSION["username"])){echo $_SESSION["username"]." <a href='Src/User/Signout.php'><span class=' glyphicon glyphicon-log-out'></span></a>";}?></h4> </p>
-   </div>
-   <div class="clearfix"> </div>
 
- </div>
-</div>
-<div class="navigation">
-  <div class="container">
-   <nav class="navbar navbar-default">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header nav_2">
-     <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-  </div>
-  <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-   <ul class="nav navbar-nav">
-    <li class="active"><a href="Index.php" class="act">Homepage</a></li>
-    <!-- Mega Menu -->
-    <li class="dropdown">
-     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Product <b class="caret"></b></a>
-     <ul class="dropdown-menu multi-column columns-3">
-      <div class="row">
-       <div class="col-sm-3">
-        <ul class="multi-column-dropdown">
-         <h6>Category</h6>
-         <li><a href="?page=Vodka">Vodka<span>New</span></a></li>
-         <li><a href="?page=Whisky">Whisky</a></li>
-         <li><a href="?page=Chivas">Chivas</a></li>
-         <li><a href="?page=Domestic">Domestic</a></li>
-         <li><a href="?page=Fruit">Fruit<span>New</span></a></li>
-       </ul>
+        if(!isset($_SESSION['username'])){ 
+
+          ?>
+          $('#myModal88').modal('show');
+          <?php }else{ ?>
+            $('#myModal88').remove();
+            $('#user_modal').remove();
+            <?php } ?>
+          });
+        </script>
+        <div class="header">
+          <div class="container">
+           <div class="w3l_login" id="user_modal">
+            <a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+          </div>
+          <div class="w3l_logo">
+            <h1><a href="index.php">Windsor's Wine<span>The Land & The Folk</span></a></h1>
+          </div>
+          <div class="search">
+            <input class="search_box" type="checkbox" id="search_box">
+            <label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
+            <div class="search_form">
+             <form action="?page=Search" method="post">
+              <input type="text" name="WineName" placeholder="Wine's Name...">
+              <input type="submit" value="Search">
+            </form>
+          </div>
+        </div>
+        <div class="cart box_1">
+         <h4 data-toggle="modal" data-target="#myLoginModal" class="text-primary"><?php if(isset($_SESSION["username"])){echo $_SESSION["username"]." <a href='Src/User/Signout.php'><span class=' glyphicon glyphicon-log-out'></span></a>";}?></h4>
+       </div>
+       <div class="clearfix"> </div>
+
      </div>
-     <div class="col-sm-3">
-       <ul class="multi-column-dropdown">
-        <h6>Country</h6>
-        <li><a href="?page=Vietnam">Vietnam</a></li>
-        <li><a href="?page=France">France<span>New</span></a></li>
-      </ul>
+   </div>
+   <div class="navigation">
+    <div class="container">
+     <nav class="navbar navbar-default">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header nav_2">
+       <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
-    <div class="col-sm-6">
-     <div class="w3ls_products_pos">
-      <h4>50%<i>Deal of the day</i></h4>
-      <img src="public/client/images/1.jpg" alt=" " class="img-responsive" />
+    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+     <ul class="nav navbar-nav">
+      <li class="active"><a href="Index.php" class="act">Homepage</a></li>
+      <!-- Mega Menu -->
+      <li class="dropdown">
+       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Product <b class="caret"></b></a>
+       <ul class="dropdown-menu multi-column columns-3">
+        <div class="row">
+         <div class="col-sm-3">
+          <ul class="multi-column-dropdown">
+           <h6>Category</h6>
+           <li><a href="?page=Vodka">Vodka<span>New</span></a></li>
+           <li><a href="?page=Whisky">Whisky</a></li>
+           <li><a href="?page=Chivas">Chivas</a></li>
+           <li><a href="?page=Domestic">Domestic</a></li>
+           <li><a href="?page=Fruit">Fruit<span>New</span></a></li>
+         </ul>
+       </div>
+       <div class="col-sm-3">
+         <ul class="multi-column-dropdown">
+          <h6>Country</h6>
+          <li><a href="?page=Vietnam">Vietnam</a></li>
+          <li><a href="?page=France">France<span>New</span></a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6">
+       <div class="w3ls_products_pos">
+        <h4>50%<i>Deal of the day</i></h4>
+        <img src="public/client/images/1.jpg" alt=" " class="img-responsive" />
+      </div>
     </div>
+    <div class="clearfix"></div>
   </div>
-  <div class="clearfix"></div>
-</div>
 </ul>
 </li>
 <li><a href="?page=Cart">Cart</a></li>
-<li><a href="#">News</a></li>
+<li><a href="?page=News">News</a></li>
 <li><a href="?page=Contact">Contact</a></li>
 <li><a href="?page=About">About</a></li>
 <div class="cart-box" id="Normal">
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-           <button class="btn btn-info btn-circle btn-xl"><a href="?page=Cart"> <span class="glyphicon glyphicon-shopping-cart" style="color:white"></span></a></button>
-           <span  class="cart-items-count"><span class=" notification-counter"><?php if((isset($_SESSION['cart'])) && count($_SESSION['cart'])>0) echo count($_SESSION['cart']); else echo '0';?></span></span>
-         </li>
-       </ul>
-     </div>
+  <ul class="nav navbar-nav">
+    <li class="dropdown">
+     <button class="btn btn-info btn-circle btn-xl"><a href="?page=Cart"> <span class="glyphicon glyphicon-shopping-cart" style="color:white"></span></a></button>
+     <span  class="cart-items-count"><span class=" notification-counter"><?php if((isset($_SESSION['cart'])) && count($_SESSION['cart'])>0) echo count($_SESSION['cart']); else echo '0';?></span></span>
+   </li>
+ </ul>
+</div>
 </ul>
 </div>
 </nav>
@@ -269,6 +273,11 @@ if(isset($_GET['page']) && $_GET['page'] == 'Contact'){
 
 if(isset($_GET['page']) && $_GET['page'] == 'About'){
  include_once("Src/Includes/About.php");
+}
+
+
+if(isset($_GET['page']) && $_GET['page'] == 'News'){
+ include_once("Src/Includes/News.php");
 
 }
 ?>
