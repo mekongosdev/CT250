@@ -23,7 +23,7 @@
 															<div class="w3_hs_bottom w3_hs_bottom_sub">
 																<ul>
 																	<li>
-																		<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+																		<a href="index.php?page=Details&&WineId=<?=$row['WineId']?>" ><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
 																	</li>
 																</ul>
 															</div>
