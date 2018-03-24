@@ -90,7 +90,7 @@ if(isset($_POST['btnUpload']))
 			</div>
 		</div>  
 
-		<button type="submit" class="btn btn-primary pull-right" name="btnUpload" disabled id="btnUploadImage">Tải ảnh</button>
+		<button type="submit" class="btn btn-primary pull-right" name="btnUpload" disabled id="btnUploadImage">Upload Image</button>
 		<script type="text/javascript">
 			function hasExistfile(){
 				document.getElementById('btnUploadImage').disabled = false;
@@ -112,7 +112,7 @@ if(isset($_POST['btnUpload']))
 					<div class='col-sm-2'>
 						<img src="<?php echo "../public/admin/images/".$row['ImgEmployee']; ?>" width="100px"/>
 					</div>
-					<a class='btn btn-danger' href="?page=DeleteEmployeeImage&ImgEmployeeId=<?php echo $ImgEmployeeId; ?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?')"><i class="fa fa-remove"></i></a>
+					<a class='btn btn-danger' href="?page=DeleteEmployeeImage&&empCode=<?=$_GET['empCode'];?>&&ImgEmployeeId=<?php echo $ImgEmployeeId; ?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?')"><i class="fa fa-remove"></i></a>
 				</div>
 				<div class='col-sm-offset-2 col-sm-4'>
 					<div><hr /></div>

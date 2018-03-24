@@ -510,12 +510,13 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								deleteEmployee($_GET['empCode']);
 								echo "<script>window.location.href='?page=employee'</script>";
 							}
+
 							if (isset($_GET['page'])&&$_GET['page']=='UploadImageEmployee') {
 								include_once('../Src/Employee/UploadImageEmployee.php');
 							}
 							if (isset($_GET['page'])&&$_GET['page']=='DeleteEmployeeImage') {
 								deleteImageEmployee($_GET['ImgEmployeeId']);
-								echo "<script>window.location.href='?page=employee'</script>";
+								echo "<script>window.location.href='?page=UploadImageEmployee&&empCode=".$_GET['empCode']."'</script>";
 							}
 
 							//Promotion
@@ -561,9 +562,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								include_once('../Src/News/UploadImgNews.php');
 							}
 							if (isset($_GET['page'])&&$_GET['page']=='DeleteNewsImage') {
-								deleteImageWine($_GET['ImgNewsId']);
+								deleteImageNews($_GET['ImgNewsId']);
 								echo "<script>window.location.href='?page=UploadImageNews&&NewsId=".$_GET['NewsId']."'</script>";
 							}
+
+
 							//Khuyen Mai
 							if(isset($_GET['page'])&&$_GET['page']=="ChangeActive"){
 								changeActive($_GET['PromotionId'],$_GET['Do']);
