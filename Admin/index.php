@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -24,20 +25,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <body>
 	<?php
 	include_once("../Library/connect.php");
-	include_once("../Src/Category/CategoryController.php");
-	include_once("../Src/Publisher/PublisherController.php");
-	include_once("../Src/Country/CountryController.php");
-	include_once("../Src/Role//RoleController.php");
-	include_once("../Src/Subject/SubjectController.php");
-	include_once("../Src/PaymentMethod/PaymentMethodController.php");
-	include_once("../Src/Employee/EmployeeController.php");
-	include_once("../Src/Promotion/PromotionController.php");
-	include_once("../Src/News/NewsController.php");
-	include_once("../Src/Wine/WineController.php");
-	include_once("../Src/Time/TimeController.php");
-	include_once("../Src/Statistic/StatisticController.php");
-	include_once("../Src/About/AboutController.php");
-
 	?>
 	<!-- banner -->
 	<div class="wthree_agile_admin_info">
@@ -57,20 +44,34 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<div class="inner_content">
 			<!-- /inner_content_w3_agile_info-->
 			<div class="inner_content_w3_agile_info">
-
+				<?php 
+				if (isset($_POST['btnLogin'])) {
+					$loginusername = trim($_POST["txtUsername"]);
+					$loginpassword = trim($_POST["txtPassword"]);
+					$loginpassword = md5($loginpassword);
+					$result = mysql_query("select employee.EmployeeCode, employee.EmployeePass from employee, role WHERE employee.RoleId = role.RoleId and role.RoleActive =1 and role.RoleId = 3 and employee.EmployeeCode = '$loginusername' and employee.EmployeePass = '$loginpassword'");
+					if (mysql_num_rows($result) == 1)
+					{
+						$_SESSION["EmployeeCode"] = $loginusername;
+						echo "<script>window.location.href='dashboard.php'</script>";
+					}else{
+						echo '<script> alert("Tên tài khoản hoặc mật khẩu không chính xác!");</script>';
+					}
+				}
+				
+				?>
 
 				<div class="registration admin_agile">
 
 					<div class="signin-form profile admin">
 						<h2>Admin Login</h2>
 						<div class="login-form">
-							<form action="main-page.html" method="post">
-								<input type="text" name="name" value="Username" required="">
-								<input type="password" name="password" value="Password" required="">
+							<form action="#" method="post">
+								<input type="text" name="txtUsername" placeholder="Username" required="">
+								<input type="password" name="txtPassword" placeholder="Password" required="">
 								<div class="tp">
-									<input type="submit" value="LOGIN">
+									<input type="submit" value="LOGIN" name="btnLogin">
 								</div>
-
 							</form>
 						</div>
 

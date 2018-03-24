@@ -1,6 +1,10 @@
 <?php 
 session_start();
+if(!isset($_SESSION['EmployeeCode'])){
+	echo '<meta http-equiv="refresh" content="0; URL=Index.php"/>';
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -111,10 +115,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				</li>
 				<!-- //nav_agile_w3l -->
 				<li class="second logo"><h1><a href="dashboard.php"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Windsor </a></h1></li>
-				<li class="second">
-					<h1 class="text-center text-justify"><?=$_SESSION["admin"]?></h1>
-				</li>
-
+				<li class="second logo"><h1><a href="SignOut.php"><?php if(isset($_SESSION["EmployeeCode"])){echo $_SESSION["EmployeeCode"]."  <i class='fa fa-power-off text-danger'></i>"; }?> </a></h1></li>
 			</ul>
 			<!-- //nav -->
 
