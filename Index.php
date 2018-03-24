@@ -280,6 +280,21 @@ if(isset($_GET['page']) && $_GET['page'] == 'News'){
  include_once("Src/Includes/News.php");
 
 }
+
+
+if(isset($_GET['page']) && $_GET['page'] == 'ActiveAccount'){
+ $username = $_GET['username'];
+ $sqlUpdate=
+ "UPDATE `user` 
+ SET 
+ `Status`='1'
+ WHERE 
+ `username`='$username'";
+ mysql_query($sqlUpdate);
+echo '<script> alert("Actived!");</script>';
+    echo "<script>window.location.href='http://localhost/CT250/index.php'</script>";
+}
+
 ?>
 <!-- INCLUDE -->
 

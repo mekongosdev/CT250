@@ -32,9 +32,8 @@ if(isset($_POST["btnRegister"]))
 		include('class.smtp.php');
 		include "class.phpmailer.php"; 
 		include "functions.php"; 
-		$title = '[Windsor Shop] - Đăng ký tài khoản';
-		$content = '<p>Chuc mung ban $fullname da dang ky thanh cong tai Website Windsor</p>". "<p>Vui long nhan vao lien ket sau de kich hoat:
-		<a href="http://localhost:1000/salomon/index.php?khoatrang&taikhoan=$tendangnhap$ma=$randomcode"></a></p>';
+		$title = '[Windsor Shop] - Register';
+		$content = "<p>Welcome ".$fullname."</p>". "Please click <a href='http://localhost/CT250/index.php?page=ActiveAccount&&username=".$username.">here</a> to active account</p>";
 		$To = 'ntctuyen.ctu@gmail.com';
 		$mail = sendMail($title, $content, $email);
 		echo '<script> alert("Đăng ký tài khoản thành công!");</script>';
@@ -99,7 +98,7 @@ aria-hidden="true">
 										<form  method="post" name="myForm" >	
 											<div class="form-group">		
 												<input placeholder="Tên đăng nhập" name="txtUsername" type="text" required="" >
-											
+
 											</div>
 											<div class="form-group">	
 												<input placeholder="Họ tên đầy đủ" name="txtFullname" type="text" required="" >
@@ -120,77 +119,77 @@ aria-hidden="true">
 												<div class="form-group">	
 													Mật khẩu
 													<input placeholder="Mật khẩu" name="txtPassword" type="password" required="" >
-							
+
 													
 												</span>
-												</div>	
-													<div class="form-group">	
-														Lặp lại mật khẩu
-														<input placeholder="Mật khẩu lặp lại" name="txtRepeatPassword" type="password" required="" >
-														
-													</div>	
-														<div class="form-group">  
-															<label for="lblGender" class="col-sm-2 control-label">Gender(*):  </label>
-															<div class="col-sm-10">                              
-																<label class="radio-inline"><input type="radio" name="grpGender" value="0"  
-																	<?php if(isset($Gender)&&$Gender=="0") { echo "checked";} ?> />
-																Male</label>
+											</div>	
+											<div class="form-group">	
+												Lặp lại mật khẩu
+												<input placeholder="Mật khẩu lặp lại" name="txtRepeatPassword" type="password" required="" >
 
-																<label class="radio-inline"><input type="radio" name="grpGender" value="1" 
-																	<?php if(isset($Gender)&&$Gender=="1") { echo "checked";} ?> />
-																Female</label>
+											</div>	
+											<div class="form-group">  
+												<label for="lblGender" class="col-sm-2 control-label">Gender(*):  </label>
+												<div class="col-sm-10">                              
+													<label class="radio-inline"><input type="radio" name="grpGender" value="0"  
+														<?php if(isset($Gender)&&$Gender=="0") { echo "checked";} ?> />
+													Male</label>
 
-															</div>
-														</div>
-														<div class="sign-up">
-															<input type="submit" value="Đăng ký" name="btnRegister" id="btnRegister"/>
-														</div>
-													</form>
+													<label class="radio-inline"><input type="radio" name="grpGender" value="1" 
+														<?php if(isset($Gender)&&$Gender=="1") { echo "checked";} ?> />
+													Female</label>
+
 												</div>
 											</div>
-										</div> 			        					            	      
-									</div>	
+											<div class="sign-up">
+												<input type="submit" value="Đăng ký" name="btnRegister" id="btnRegister"/>
+											</div>
+										</form>
+									</div>
 								</div>
-								<script>
-									var app = angular.module('myApp', []);
-									app.controller('myController', function($scope) {
-										$scope.txtUsername = "";
-										$scope.txtEmail = "";
-										$scope.NumPhone = "";
-										$scope.txtFullname="";
-										$scope.txtPassword="";
-									});
-								</script>
-								<script src="public/client/js/easyResponsiveTabs.js" type="text/javascript"></script>
-								<script type="text/javascript">
-									$(document).ready(function () {
-										$('#horizontalTab').easyResponsiveTabs({
+							</div> 			        					            	      
+						</div>	
+					</div>
+					<script>
+						var app = angular.module('myApp', []);
+						app.controller('myController', function($scope) {
+							$scope.txtUsername = "";
+							$scope.txtEmail = "";
+							$scope.NumPhone = "";
+							$scope.txtFullname="";
+							$scope.txtPassword="";
+						});
+					</script>
+					<script src="public/client/js/easyResponsiveTabs.js" type="text/javascript"></script>
+					<script type="text/javascript">
+						$(document).ready(function () {
+							$('#horizontalTab').easyResponsiveTabs({
 										type: 'default', //Types: default, vertical, accordion           
 										width: 'auto', //auto or any width like 600px
 										fit: true   // 100% fit in a container
 									});
-									});
-								</script>
-								<div id="OR" class="hidden-xs">
-								hoặc</div>
-							</div>
-							<div class="col-md-4 modal_body_right modal_body_right1">
-								<div class="row text-center sign-with">
-									<div class="col-md-12">
-										<h3 class="other-nw pull-left">
-										Đăng ký với mạng xã hội</h3>
-									</div>
-									<div class="col-md-12">
-										<ul class="social">
-											<li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
-											<li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
-											<li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
+						});
+					</script>
+					<div id="OR" class="hidden-xs">
+					hoặc</div>
+				</div>
+				<div class="col-md-4 modal_body_right modal_body_right1">
+					<div class="row text-center sign-with">
+						<div class="col-md-12">
+							<h3 class="other-nw pull-left">
+							Đăng ký với mạng xã hội</h3>
+						</div>
+						<div class="col-md-12">
+							<ul class="social">
+								<li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
+								<li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
+								<li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
+</div>

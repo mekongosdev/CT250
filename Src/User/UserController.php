@@ -3,7 +3,7 @@ function addUser($username, $password,$fullname,$sex,$phone,$email,$dayofbirth)
 {
   $insert = "INSERT INTO 
   `User`(`Username`, `Password`, `FullName`, `Sex`, `Phone`, `Email`, `DateOfBirth`, `Status`, `Role`) 
-  VALUES ('$username', '".md5($password)."', '$fullname', '$sex', '$phone', '$email', '$dayofbirth', 1,1)";
+  VALUES ('$username', '".md5($password)."', '$fullname', '$sex', '$phone', '$email', '$dayofbirth', 0,1)";
   mysql_query($insert);
 }
 //Update User Layout

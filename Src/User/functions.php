@@ -2,7 +2,7 @@
 function sendMail($title, $content, $To){
 	$nFrom = 'Windsor Shop';
 	$mFrom = 'ntctuyen.ctu@gmail.com';	
-	$mPass = 'Ntct0!!!!7';		
+	$mPass = 'Trymybest0!!!!7';		
 	$mail             = new PHPMailer();
 	$body             = $content;
 	$mail->IsSMTP(); 
@@ -21,7 +21,6 @@ function sendMail($title, $content, $To){
 	$mail->AddAddress($address, $To);
 	$mail->AddReplyTo('ntctuyen.ctu@gmail.com', 'Windsor.com');
 	$mail->Send();
-	echo "send";
 }
 
 ?>
