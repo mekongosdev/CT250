@@ -45,8 +45,8 @@ $list_about= mysql_query($sqlSelect);
 		<h3>Meet Our Team</h3>
 		<div class="wthree_team_grids">
 			<div class="col-md-4 wthree_team_grid">
-				<img src="public/client/images/8.png" alt=" " class="img-responsive" />
-				<h4>Smith Allen <span>Fashion Designer</span></h4>
+				<img src="public/client/images/noimage.png" alt=" " class="img-responsive" />
+				<h4>ntctuyen <span>Developer</span></h4>
 				<div class="agileits_social_button">
 					<ul>
 						<li><a href="#" class="facebook"> </a></li>
@@ -57,8 +57,8 @@ $list_about= mysql_query($sqlSelect);
 				</div>
 			</div>
 			<div class="col-md-4 wthree_team_grid">
-				<img src="public/client/images/9.png" alt=" " class="img-responsive" />
-				<h4>Laura James <span>Fashion Designer</span></h4>
+				<img src="public/client/images/noimage.png" alt=" " class="img-responsive" />
+				<h4>Dthuy <span>Leader</span></h4>
 				<div class="agileits_social_button">
 					<ul>
 						<li><a href="#" class="facebook"> </a></li>
@@ -69,8 +69,8 @@ $list_about= mysql_query($sqlSelect);
 				</div>
 			</div>
 			<div class="col-md-4 wthree_team_grid">
-				<img src="public/client/images/10.png" alt=" " class="img-responsive" />
-				<h4>Crisp Doe <span>Fashion Designer</span></h4>
+				<img src="public/client/images/noimage.png" alt=" " class="img-responsive" />
+				<h4>lnthuc <span>Developer</span></h4>
 				<div class="agileits_social_button">
 					<ul>
 						<li><a href="#" class="facebook"> </a></li>
