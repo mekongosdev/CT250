@@ -81,7 +81,7 @@ if(isset($_SESSION['username'])) {
 							<div class="form-group"> 
 								<label for="txtDienThoai" class="col-sm-2 control-label">Phone (*):  </label>
 								<div class="col-sm-10">
-									<input type="text" name="txtDienThoai" minlength="10" maxlength="11" required="true" value="<?php if(isset($phone)) echo $phone; ?>" class="form-control" />
+									<input type="tel" name="txtDienThoai" minlength="10" maxlength="11" required="true" value="<?php if(isset($phone)) echo $phone; ?>" class="form-control" />
 								</div>
 							</div>
 							<div class="form-group"> 
