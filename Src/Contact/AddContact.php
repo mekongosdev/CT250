@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ADD Contact</title>
-	<link rel="stylesheet" href="">
+<?php 
+function blindSubjectList()
+{
+	$sqlString="SELECT `SubjectId`, `SubjectName` FROM `subject`";
+	$sqlresult = mysql_query($sqlString);
+	echo "<select name='slSubject' class='form-control'><option value='0'>Please select the topics you want to contact</option>";
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	while ($row = mysql_fetch_array($sqlresult,MYSQL_ASSOC)) {
+		echo "<option value='".$row['SubjectId']."'>".$row['SubjectName']."</option>";
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</head>
-<body>
-	<?php
-	include_once("../../Library/connect.php");
-	include_once("../../Src/Contact/ContactController.php");
+	}
+	echo "</select>";
+
+}
 	$name="";
 	$subject="";
 	$datewrite=date_default_timezone_set('Asia/Ho_Chi_Minh');
@@ -34,17 +28,28 @@
 		$email = $_POST["txtEmail"];
 		$phone=$_POST["txtPhone"];
 		$address1 = $_POST["txtAddress"];
-		addContact($name,$subject,$datewrite,$information,$email,$phone,$address1);
-		echo '<script> alert("Contact thành công");</script>';
-		 echo "<script>window.location.href='../../index.php'</script>";
+
+		$insert = 
+	"INSERT INTO 
+	`contact`(
+	`Subject`, `Names`, 
+	`ContactDate`, `Information`, `Email`, 
+	`Phone`, `Address`)
+	VALUES
+	('$subject','$name','$datewrite',
+	'$information','$email','$phone',
+	'$address1')";
+	mysql_query($insert);
+		echo '<script> alert("Send Information Success");</script>';
+		echo "<script>window.location.href='Index.php'</script>";
 	}
-	?>
-	<div class="jumbotron jumbotron-sm">
+?>
+<div class="jumbotron jumbotron-sm">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-lg-12">
 					<h1 class="h1">
-						Contact <small>Hãy Contact với Windsor khi cần</small></h1>
+					<small class="text-center">Please contact us anytime you want</small></h1>
 					</div>
 				</div>
 			</div>
@@ -58,23 +63,23 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="txtName">
-										Họ và tên:</label>
+										Full Name:</label>
 										<div class="input-group">
 											<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
 										</span>
-										<input type="text" class="form-control" id="txtName" placeholder="Nhập vào họ và tên" required name="txtName" /></div>
+										<input type="text" class="form-control" id="txtName" placeholder="Enter Your Full Name" required name="txtName" /></div>
 									</div>
 									<div class="form-group">
 										<label for="email">
-										Địa chỉ mail</label>
+										Email Address:</label>
 										<div class="input-group">
 											<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
 										</span>
-										<input type="email" class="form-control" id="txtEmail" placeholder="Enter email" required name="txtEmail" /></div>
+										<input type="email" class="form-control" id="txtEmail" placeholder="Enter your Email" required name="txtEmail" /></div>
 									</div>
 									<div class="form-group">
 										<label for="txtName">
-										Ngày Contact:</label>
+										Date:</label>
 										<div class="input-group">
 											<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 										</span>
@@ -82,42 +87,42 @@
 									</div>
 									<div class="form-group">
 										<label for="subject">
-										Chủ Đề</label>
-										
+										Subject:</label>
 										<?php
 										blindSubjectList()
 										?>
+										
 									</div>
 								</div>
 
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="txtName">
-										Số điện thoại:</label>
+										Phone:</label>
 										<div class="input-group">
 											<span class="input-group-addon"><span class="glyphicon glyphicon-ok-sign"></span>
 										</span>
-										<input type="tel" class="form-control" id="txtPhone" placeholder="Nhập vào số điện thoại" required name="txtPhone" /></div>
+										<input type="tel" class="form-control" id="txtPhone" placeholder="Enter your number phone" required name="txtPhone" /></div>
 									</div>
 									<div class="form-group">
 										<label for="txtName">
-										Địa chỉ của bạn:</label>
+										Address:</label>
 										<div class="input-group">
 											<span class="input-group-addon"><span class="glyphicon glyphicon-tree-conifer"></span>
 										</span>
-										<input type="text" class="form-control" id="txtAddress" placeholder="Nhập vào địa chỉ" required name="txtAddress" /></div>
+										<input type="text" class="form-control" id="txtAddress" placeholder="Enter your Address" required name="txtAddress" /></div>
 									</div>
 									<div class="form-group">
 										<label for="name">
-										Thông Tin Contact</label>
+										Information Details:</label>
 										<textarea name="message" id="message" class="form-control" rows="9" cols="25" required
-										placeholder="Nhập vào thông tin bạn muốn gửi"></textarea>
+										placeholder="Enter the information you want to send"></textarea>
 									</div>
 
 								</div>
 								<div class="col-md-12">
 									<button type="submit" class="btn btn-primary pull-right" id="btnContactUs" name="btnContactUs">
-									Gửi</button>
+									Send</button>
 								</div>
 							</div>
 						</form>
@@ -127,21 +132,21 @@
 					<!-- //<form> -->
 						<legend><span class="glyphicon glyphicon-globe"></span> Windsor</legend>
 						<address>
-							<strong>Đại Học Cần thơ</strong><br>
-							Khu II<br>
-							Bô Môn CNPM<br>
+							<strong>Can Tho University</strong><br>
+							Campus II<br>
+							Department of software technology<br>
 							<abbr title="Phone">
-							P: Đặng Tuấn Huy</abbr>
+							Management: Dang Tuan Huy</abbr>
 							Phone(0963505927)
 						</address>
 						<address>
-							<strong>email</strong><br>
+							<strong>Email:</strong><br>
 							<a href="mailto:#">huyb1505883@student.ctu.edu.vn</a>
 						</address>
 						<!--    </form> -->
 					</div>
 				</div>
+                <div class="contact-bottom">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22224.923711150917!2d105.76483220768182!3d10.029352498079145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7ad8f3cd9bdf0a5d!2zQ8O0bmcgVHkgUsaw4bujdSBOYW0gQuG7mQ!5e0!3m2!1svi!2s!4v1520652135630" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 			</div>
-
-		</body>
-		</html>
+			</div>

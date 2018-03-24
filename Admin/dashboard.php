@@ -29,7 +29,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	include_once("../Src/Country/CountryController.php");
 	include_once("../Src/Role//RoleController.php");
 	include_once("../Src/Subject/SubjectController.php");
-	include_once("../Src/Contact/ContactController.php");
 	include_once("../Src/PaymentMethod/PaymentMethodController.php");
 	include_once("../Src/Employee/EmployeeController.php");
 	include_once("../Src/Promotion/PromotionController.php");
@@ -455,8 +454,16 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/Contact/Contact.php");
 							}
-							if(isset($_GET['page'])&& $_GET['page'] =='DeleteContact'){
-								deleteContact($_GET['ContactId']);
+							if(isset($_GET['page'])&& $_GET['page']=="ActiveContact"){
+
+								if($_GET['RelyContact'] == 0){
+									$status = 1;
+								}
+								else{
+									$status = 0;
+								}
+								$updateStatus = "UPDATE `contact` SET `RelyContact`=".$status." where `ContactId` = '".$_GET['ContactId']."'";
+								mysql_query($updateStatus);
 								echo "<script>window.location.href='?page=contact'</script>";
 							}
 							//Payment Method
@@ -687,8 +694,8 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							{
 								include_once("../Src/Statistic/MoreStatistic.php");
 							}
-							else 
-							include('../Src/Statistic/Statistic.php');
+							//else 
+							//include('../Src/Statistic/Statistic.php');
 							?>
 						</div>
 					</div>

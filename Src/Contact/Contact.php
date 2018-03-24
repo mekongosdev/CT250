@@ -1,56 +1,102 @@
+<script type="text/javascript">
+	function deleteConfirm()
+	{
+		if(confirm("Are you sure you want to delete?")){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+</script>
 <?php 
-include_once("ContactController.php");
-include_once("Src/Subject/SubjectController.php");
-$sqlSelect="SELECT `ContactId`, `Subject`, `Names`, `ContactDate`, `Information`,`Email`, `Phone`, `Address` FROM `contact`";
-$list_contact= mysql_query($sqlSelect);
+if(isset($_GET["ma"]))
+{
+	$malienhe = $_GET["ma"];
+	mysql_query("DELETE FROM `contact` WHERE ContactId=$$malienhe");
+}
 ?>
-<h3 class="w3_inner_tittle two text-center">Quản lý Contact</h3>
-<table id="myTable" class="table-striped table-hover">
+<?php
+if (isset($_POST['btnXoa'])&&isset($_POST['checkbox'])) 
+{
+	for ($i = 0; $i < count($_POST['checkbox']); $i++) 
+	{
+		$malienhe1  = $_POST['checkbox'][$i];
+		mysql_query("DELETE FROM `contact` WHERE ContactId=$malienhe1");
+	}
+}
+?>
+<div class="container">
+<h4 class="text-center">MANAGE CONTACT</h4>
+<form name="frmXoa" method="post">
+<table id="myTable" class="table-striped table-hover table-responsive">
 	<thead >
 		<tr>
-			<th><strong>STT</strong></th>
-			<th><strong>Chủ Đề</strong></th>
-			<th><strong>Tên người Contact</strong></th>
-			<th><strong>Ngày</strong></th>
-			<th><strong>Thông tin</strong></th>
-			<th><strong>Email</strong></th>
-			<th><strong>Số điện thoại</strong></th>
-			<th><strong>Địa chỉ</strong></th>
-			<th><strong>Phương Thức</strong></th>
+            <th><strong>Choice</strong></th>
+			<th><strong>Num</strong></th>
+			<th><strong>Full Name</strong></th>
+            <th><strong>Date</strong></th>
+			<th><strong>Information contact</strong></th>	
+            <th><strong>Email</strong></th>
+            <th><strong>Address</strong></th>	
+            <th><strong>Phone</strong></th>
+            <th><strong>Subject</strong></th>	
+            <th><strong>Rely</strong></th>
+			<th><strong>Method</strong></th>
 		</tr>
 	</thead>
-	<tbody>
-		<?php 
-		$num = 1;
-		while(list($ContactId,$Subject, $Names, $ContactDate, $Information, $Email, $Phone, $Address) = mysql_fetch_array($list_contact))
-		{
-			?>
-			<tr>
-				<td class="col-md-1"><?= $num;?> </td>
-				<?php 
-				$result = searchSubject($Subject);
-				if(isset($result))
-				{
-					list($SubjectId,$SubjectName)=mysql_fetch_array($result);
-					$Subject = $SubjectName;
-				} ?>
-				<td class="col-md-3"><?=$Subject;?> </td>
-				
+    <tbody>
+<?php
 
-				<td class="col-md-3"><?= $Names;?> </td>
-				<td class="col-md-1"><?= $ContactDate;?> </td>
-				<td class="col-md-6"><?= $Information;?> </td>
-				<td class="col-md-6"><?= $Email;?> </td>
-				<td class="col-md-3"><?= $Phone;?> </td>
-				<td class="col-md-6"><?= $Address;?> </td>
-				<td class="text-center col-md-2">
-
-					<a class='btn btn-danger' href="?page=DeleteContac&ContactId=<?php echo $ContactId; ?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?')"><i class="fa fa-remove"></i></a>
-				</td>     
-			</tr>
-			<?php
-			$num++;
-		}
-		?>
+$result = mysql_query(
+"SELECT `ContactId`, `SubjectName`, `Names`, `ContactDate`, `Information`, `Email`, `Phone`, `Address`, `RelyContact` FROM `contact` c
+JOIN
+subject s ON c.Subject = s.SubjectId
+LIMIT 0,25");
+; 
+$num = 1;
+while($row = mysql_fetch_array($result))
+{
+?>
+<tr>
+            <td class="col-md-1"><input name="checkbox[]" type="checkbox" id="checkbox[]" value="<?php echo $row["ContactId"] ?>"></td>
+            <td class="col-md-1"><?php echo $num ?></td>
+            <td class="col-md-3"><?php echo $row["Names"] ?></td>
+            <td class="col-md-3"><?php echo $row["ContactDate"] ?></td>
+            <td class="col-md-1"><?php echo $row["Information"] ?></td>
+            <td class="col-md-3"><?php echo $row["Phone"] ?></td>
+            <td class="col-md-1"><?php echo $row["Email"] ?></td>
+            <td class="col-md-3"><?php echo $row["Address"] ?></td>
+            <td class="col-md-1"><?php echo $row["SubjectName"] ?></td>
+            <td>
+            <form  method="post" action="">
+					<?php 
+						if($row["RelyContact"]==0){
+							echo '<a class="btn btn-default" href="?page=ActiveContact&RelyContact='.$row["RelyContact"].'&ContactId='.$row["ContactId"].'"><i class="fa fa-eye"></i></a>';
+						}else{
+							echo '<a class="btn btn-success" href="?page=ActiveContact&RelyContact='.$row["RelyContact"].'&ContactId='.$row["ContactId"].'"><i class=" fa fa-eye-slash"></i></a>';
+						}
+					?>
+			</form>
+            </td>
+            <td class="col-md-3">
+         
+            <a class="btn btn-danger" href="?page=contact&ma=<?php echo $row['ContactId']; ?>" onclick="return deleteConfirm()">
+								<i class="fa fa-remove"></i></a>
+    
+            </td>
+</tr>
+ <?php
+$num++;
+				}
+				?>
 	</tbody>
 </table>
+<div class="row" style="background-color:#FFF"><!--Nút chức nang-->
+				<div class="col-md-12">
+					<input type="submit" value="Delete All" name="btnXoa" id="btnXoa" onclick='return deleteConfirm()' class="btn btn-info"/>
+
+				</div>
+			</div>
+</form>
+</div>
