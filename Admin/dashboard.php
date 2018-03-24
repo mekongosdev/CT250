@@ -360,17 +360,23 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										"SELECT * from User");
 									$num_rows = mysql_num_rows($result);
 									?>
-										<h4 class="ca-main one"><?=$num_rows?></h4>
+									<h4 class="ca-main one"><?=$num_rows?></h4>
 									<h3 class="ca-sub two">Customers</h3>
 								</div>
 							</a>
 						</li>
 						<li>
 							<a href="?page=statistic">
-								<i class="fa fa-bar-chart-o" aria-hidden="true"></i>
+								<i class="fa fa-money" aria-hidden="true"></i>
 								<div class="ca-content">
-									<h4 class="ca-main three">49,436</h4>
-									<h3 class="ca-sub three">Thống kê hàng tháng</h3>
+									<?php
+									$result = mysql_query(
+										"SELECT sum(`WineSoldPrice`) as total_money FROM `orderwinedetails`,`order` WHERE  `order`.`OrderId` = `orderwinedetails`.`OrderId` AND `order`.`OrderStatus`=1");
+									while ($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
+									?>
+									<h4 class="ca-main four"><?=$row['total_money']?></h4>
+									<?php } ?>
+									<h3 class="ca-sub three">Statistic</h3>
 								</div>
 							</a>
 						</li>
