@@ -312,30 +312,56 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				<div class="agile_top_w3_grids">
 					<ul class="ca-menu">
 						<li>
-							<a href="#">
+							<a href="?page=promotion">
 
-								<i class="fa fa-hourglass-half" aria-hidden="true"></i>
+								<i class="fa fa-magic" aria-hidden="true"></i>
 								<div class="ca-content">
-									<h4 class="ca-main">500</h4>
-									<h3 class="ca-sub">Đơn hàng đang chờ xử lý</h3>
+									<?php
+
+									$result = mysql_query(
+										"SELECT `PromotionId`, `PromotionName`, `PromotionDiscount`, `PromotionContent`, `PromotionActive`, `PromotionClose`, `PromotionOpen` FROM `Promotion` where PromotionOpen = 0");
+									$num_rows = mysql_num_rows($result);
+									?>
+									<h4 class="ca-main"><?=$num_rows?></h4>
+									<h3 class="ca-sub">Promotion</h3>
 								</div>
 							</a>
 						</li>
 						<li>
-							<a href="#">
-								<i class="fa fa-gift" aria-hidden="true"></i>
+							<a href="?page=customer">
+								<i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
 								<div class="ca-content">
-									<h4 class="ca-main one">26,808</h4>
-									<h3 class="ca-sub one">Khuyến mãi chờ kích hoạt</h3>
+									<?php
+
+									$result = mysql_query(
+										"SELECT 
+										o.OrderId,w.WineName ,o.OrderCreateDate, o.OrderDeliverDate,
+										o.OrderDeliverPlace, o.OrderStatus, u.FullName, 
+										p.PaymentMethodName,or1.WineSoldPrice, or1.WineOrderQuantity 
+										FROM `order` o
+										JOIN paymentmethod p ON o.PaymentMethodId = p.PaymentMethodId
+										JOIN user u ON o.Username = u.Username
+										JOIN orderwinedetails or1 ON o.OrderId = or1.OrderId 
+										JOIN wine w ON or1.WineOrderId = w.WineId and o.OrderStatus=0");
+									$num_rows = mysql_num_rows($result);
+									?>
+									<h4 class="ca-main one"><?=$num_rows?></h4>
+									<h3 class="ca-sub one">Pending Orders</h3>
 								</div>
 							</a>
 						</li>
 						<li>
-							<a href="#">
-								<i class="fa fa-money" aria-hidden="true"></i>
+							<a href="?page=user">
+								<i class="fa fa-users" aria-hidden="true"></i>
 								<div class="ca-content">
-									<h4 class="ca-main two">29,008</h4>
-									<h3 class="ca-sub two">Doanh thu trong tháng</h3>
+									<?php
+
+									$result = mysql_query(
+										"SELECT * from User");
+									$num_rows = mysql_num_rows($result);
+									?>
+										<h4 class="ca-main one"><?=$num_rows?></h4>
+									<h3 class="ca-sub two">Customers</h3>
 								</div>
 							</a>
 						</li>
@@ -349,11 +375,17 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							</a>
 						</li>
 						<li>
-							<a href="#">
-								<i class="fa fa-line-chart" aria-hidden="true"></i>
+							<a href="?page=contact">
+								<i class="fa fa-envelope" aria-hidden="true"></i>
 								<div class="ca-content">
-									<h4 class="ca-main four">30,808</h4>
-									<h3 class="ca-sub four">Báo cáo</h3>
+									<?php
+
+									$result = mysql_query(
+										"SELECT * FROM contact c JOIN subject s ON c.Subject = s.SubjectId and c.RelyContact = 0");
+									$num_rows = mysql_num_rows($result);
+									?>
+									<h4 class="ca-main four"><?=$num_rows?></h4>
+									<h3 class="ca-sub four">Unread feedback</h3>
 								</div>
 							</a>
 						</li>
