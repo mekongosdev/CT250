@@ -64,9 +64,9 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									<a href="#"> <i class="fa fa-mail-reply-all" aria-hidden="true"></i>Phản hồi</a>
 								</li>
 								<li>
-									<a href="?page=subject"> <i class="fa fa-send" aria-hidden="true"></i>Chủ đề Contact</a>
+									<a href="?page=subject"> <i class="fa fa-send" aria-hidden="true"></i>Chủ đề liên hệ</a>
 								</li>
-								<li><a href="?page=contact"> <i class="fa fa-tty" aria-hidden="true"></i>Contact</a></li>
+								<li><a href="?page=contact"> <i class="fa fa-tty" aria-hidden="true"></i>Liên hệ</a></li>
 								<li class="product"><a href="#"><i class="fa fa-product-hunt" aria-hidden="true"></i>Quản lý sản phẩm<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"><a href="?page=publisher"><i class="fa fa-caret-right" aria-hidden="true"></i> Nhà sản xuất</a></li>
@@ -84,7 +84,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<li class="employee"><a href="#"><i class="fa fa-cubes" aria-hidden="true"></i> Quản lý nhân viên <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"> <a href="?page=employee"> <i class="fa fa-caret-right" aria-hidden="true"></i> Thông tin nhân viên</a></li>
-										<li class="mini_list_w3"><a href="?page=news"> <i class="fa fa-caret-right" aria-hidden="true"></i> News</a></li>
+										<li class="mini_list_w3"><a href="?page=news"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý tin tức</a></li>
 										<li class="mini_list_agile error"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Chi nhánh </a></li>
 
 										<li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quyền hạn</a></li>
@@ -116,9 +116,9 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								</div>
 							</a>
 							<ul class="dropdown-menu drp-mnu">
-								<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>
-								<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li>
-								<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
+								<li> <a href="#"><i class="fa fa-cog"></i> Cài đặt</a> </li>
+								<li> <a href="#"><i class="fa fa-user"></i> Cá nhân</a> </li>
+								<li> <a href="#"><i class="fa fa-sign-out"></i> Đăng xuất</a> </li>
 							</ul>
 						</li>
 
@@ -131,13 +131,13 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							<ul class="dropdown-menu">
 								<li>
 									<div class="notification_header">
-										<h3>Your Notifications</h3>
+										<h3>THông báo</h3>
 									</div>
 								</li>
 								<li><a href="#">
 									<div class="user_img"><img src="#" alt=""></div>
 									<div class="notification_desc">
-										<h6>John Smith</h6>
+										<h6>ntctuyen</h6>
 										<p>Lorem ipsum dolor</p>
 										<p><span>1 hour ago</span></p>
 									</div>
@@ -517,12 +517,13 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								deleteEmployee($_GET['empCode']);
 								echo "<script>window.location.href='?page=employee'</script>";
 							}
+
 							if (isset($_GET['page'])&&$_GET['page']=='UploadImageEmployee') {
 								include_once('../Src/Employee/UploadImageEmployee.php');
 							}
 							if (isset($_GET['page'])&&$_GET['page']=='DeleteEmployeeImage') {
 								deleteImageEmployee($_GET['ImgEmployeeId']);
-								echo "<script>window.location.href='?page=employee'</script>";
+								echo "<script>window.location.href='?page=UploadImageEmployee&&empCode=".$_GET['empCode']."'</script>";
 							}
 
 							//Promotion
@@ -568,9 +569,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								include_once('../Src/News/UploadImgNews.php');
 							}
 							if (isset($_GET['page'])&&$_GET['page']=='DeleteNewsImage') {
-								deleteImageWine($_GET['ImgNewsId']);
+								deleteImageNews($_GET['ImgNewsId']);
 								echo "<script>window.location.href='?page=UploadImageNews&&NewsId=".$_GET['NewsId']."'</script>";
 							}
+
+
 							//Khuyen Mai
 							if(isset($_GET['page'])&&$_GET['page']=="ChangeActive"){
 								changeActive($_GET['PromotionId'],$_GET['Do']);

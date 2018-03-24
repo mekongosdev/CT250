@@ -3,7 +3,7 @@ if (isset($_GET['NewsId']))
 {
 	$NewsId = $_GET['NewsId'];
 	
-	$sql="SELECT `NewsId` FROM `news` WHERE `NewsId` = '$NewsId";
+	$sql="SELECT `NewsId` FROM `news` WHERE `NewsId` = '$NewsId'";
 	$rs = mysql_query($sql);
 	$row = mysql_fetch_array($rs);
 	$Newsname = $row[0];
@@ -89,17 +89,22 @@ if(isset($_POST['btnUpload']))
 		</div>     
 		<div class="form-group">    
 			<div class="col-sm-10 pull-right">
-				<input type="file" accept=".jpg, .png, .jpeg, .gif" name="fileToUpload" id="fileToUpload" class="form-control-file"/>
+				<input type="file" accept=".jpg, .png, .jpeg, .gif" name="fileToUpload" id="fileToUpload" class="form-control-file" onChange='hasExistfile()'/>
 			</div>
 		</div>  
-		<input type="submit" class="btn btn-primary pull-right" name="btnUpload" value="Upload Image"/>   
+		<button type="submit" class="btn btn-primary pull-right" name="btnUpload" disabled id="btnUploadImage">Tải ảnh</button>
+		<script type="text/javascript">
+			function hasExistfile(){
+				document.getElementById('btnUploadImage').disabled = false;
+			}
+		</script> 
 		<?php
 		$query = "SELECT `ImgNewsId`, `ImgNews` FROM `imgnews` WHERE `NewsId`='".$_GET['NewsId']."'";
 		//SELECT `ImgNewsId`, `ImgNews`, `NewsId` FROM `imgnews`
 		$result = mysql_query($query) or trigger_error(mysql_error().$query);
 		$num = 1;
 		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){  
-			$ImgNews = $row['ImgNewsId'];
+			$ImgNewsId = $row['ImgNewsId'];
 			?>
 			<div class='col-sm-offset-2 col-sm-12'>
 				<div class="row">
@@ -108,9 +113,9 @@ if(isset($_POST['btnUpload']))
 						<?php echo $num; ?>
 					</div>
 					<div class='col-sm-2'>
-						<img src="<?php echo "../Public/admin/images_news/".$row['ImgNewsId']; ?>" width="100px"/>
+						<img src="<?php echo "../Public/admin/images_news/".$row['ImgNews']; ?>" width="100px"/>
 					</div>
-					<a class='btn btn-danger' href="?page=DeleteNewsImage&ImgNewsId=<?php echo $ImgNewsId; ?>" onclick="return confirm('Bạn có chắc chắn xóa hình này không?')"><i class="fa fa-remove"></i></a>
+					<a class='btn btn-danger' href="?page=DeleteNewsImage&&NewsId=<?=$_GET['NewsId'];?>&&ImgNewsId=<?php echo $ImgNewsId; ?>" onclick="return confirm('Bạn có chắc chắn xóa hình này không?')"><i class="fa fa-remove"></i></a>
 				</div>
 				<div class='col-sm-offset-2 col-sm-4'>
 					<div><hr /></div>

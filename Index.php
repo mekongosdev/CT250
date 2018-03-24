@@ -164,9 +164,9 @@ function checkout($WineId)
          <h6>Category</h6>
          <li><a href="?page=Vodka">Vodka<span>New</span></a></li>
          <li><a href="?page=Whisky">Whisky</a></li>
-         <li><a href="?page=Chivas">Chivas & Skirts</a></li>
+         <li><a href="?page=Chivas">Chivas</a></li>
          <li><a href="?page=Domestic">Domestic</a></li>
-         <li><a href="?page=Fruit">Fruit & Tops<span>New</span></a></li>
+         <li><a href="?page=Fruit">Fruit<span>New</span></a></li>
        </ul>
      </div>
      <div class="col-sm-3">
