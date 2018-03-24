@@ -11,8 +11,8 @@
 						$num_rows = mysql_num_rows($result);
 						if($num_rows == 0){
 							echo '<div class="alert alert-warning row container text-center" role="alert">
- <h1 class="col col-lg-5 col-offset-3">No records found</h1>
-</div>';
+							<h1 class="col col-lg-5 col-offset-3">No records found</h1>
+							</div>';
 						}else{
 							while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 								?>
@@ -29,7 +29,7 @@
 											<div class="w3_hs_bottom w3_hs_bottom_sub">
 												<ul>
 													<li>
-														<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+														<a href="index.php?page=Details&&WineId=<?=$row['WineId']?>" ><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
 													</li>
 												</ul>
 											</div>
@@ -53,7 +53,7 @@
 											if ($row['WineQuantity'] > 0) 
 											{
 												?>
-												<p><a class="item_add" href="#">Add to card</a></p>
+												<p><a class="item_add" href="?action=checkout&&WineId=<?php echo  $row['WineId']?>">Add to card</a></p>
 												<?php
 											} else {
 												?>
