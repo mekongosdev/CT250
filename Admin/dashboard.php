@@ -37,6 +37,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	include_once("../Src/Wine/WineController.php");
 	include_once("../Src/Time/TimeController.php");
 	include_once("../Src/Statistic/StatisticController.php");
+	include_once("../Src/About/AboutController.php");
 
 	?>
 	<!-- banner -->
@@ -666,9 +667,20 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								include_once("../Src/About/UpdateAbout.php");
 							}
 
+							if (isset($_GET['page'])&&$_GET['page']=='UploadImageAbout') {
+								include_once('../Src/About/UploadImgAbout.php');
+							}
+
 							if (isset($_GET['page'])&&$_GET['page']=='UploadImageWine') {
 								include_once('../Src/Wine/UploadImageWine.php');
 							}
+
+							if (isset($_GET['page'])&&$_GET['page']=='DeleteAboutImage') {
+								deleteImageAbout($_GET['ImgAboutId']);
+								echo "<script>window.location.href='?page=UploadImageAbout&&AboutId=".$_GET['AboutId']."'</script>";
+							}
+
+
 							if (isset($_GET['page'])&&$_GET['page']=='DeleteWineImage') {
 								deleteImageWine($_GET['ImgWineId']);
 								echo "<script>window.location.href='?page=UploadImageWine&&WineId=".$_GET['WineId']."'</script>";

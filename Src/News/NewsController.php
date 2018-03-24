@@ -51,7 +51,6 @@ function DeleteNews($NewsId)
 function deleteImageNews($id){
 	$Imageid = $_GET["ImgNewsId"];
 	$result= mysql_query("SELECT * FROM imgnews WHERE ImgNewsId=$Imageid");
-	//SELECT `ImgNewsId`, `ImgNews`, `NewsId` FROM `imgnews`
 	$row = mysql_fetch_array($result, MYSQL_ASSOC);
 	$fileDelete = $row['ImgNewsId'];
 	$WineId = $row['NewsId'];
