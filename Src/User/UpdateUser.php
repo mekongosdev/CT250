@@ -52,42 +52,42 @@ if(isset($_SESSION['username'])) {
 					<div class="modal-body">
 						
 							<div class="form-group">
-								<label for="lblusername" class="col-sm-2 control-label">Username(*):  </label>
+								<label for="lblusername" class="col-sm-2 control-label">Username (*):  </label>
 								<div class="col-sm-10">
 									<input type="text" name="txtUsername" id="txtUsername" value="<?php if(isset($username)) echo $username; ?>" class="form-control" readonly />
 								</div>
 							</div>
 
 							<div class="form-group">   
-								<label for="txtEmail" class="col-sm-2 control-label">Email(*):  </label>
+								<label for="txtEmail" class="col-sm-2 control-label">Email (*):  </label>
 								<div class="col-sm-10">
 
 									<input type="text" name="txtEmail" id="txtEmail" value="<?php if(isset($email)) echo $email; ?>" class="form-control" readonly />
 								</div>
 							</div>  
 							<div class="form-group">                         
-								<label for="txtHoTen" class="col-sm-2 control-label">Full Name(*):  </label>
+								<label for="txtHoTen" class="col-sm-2 control-label">Full Name (*):  </label>
 								<div class="col-sm-10">
-									<input type="text" name="txtHoTen" id="txtHoTen" value="<?php echo $hoten; ?>" class="form-control" />
+									<input type="text" name="txtHoTen" id="txtHoTen"  required="true"  value="<?php echo $hoten; ?>" class="form-control" />
 								</div>
 							</div>
 
 							<div class="form-group"> 
-								<label for="txtDiaChi" class="col-sm-2 control-label">Address(*):  </label>
+								<label for="txtDiaChi" class="col-sm-2 control-label">Address (*):  </label>
 								<div class="col-sm-10">
-									<input type="text" name="txtDiaChi" id="txtDiaChi" value="<?php if(isset($address)) echo $address; ?>" class="form-control" />
+									<input type="text" name="txtDiaChi" id="txtDiaChi"  required="true"  value="<?php if(isset($address)) echo $address; ?>" class="form-control" />
 								</div>
 							</div>
 							<div class="form-group"> 
-								<label for="txtDienThoai" class="col-sm-2 control-label">Phone(*):  </label>
+								<label for="txtDienThoai" class="col-sm-2 control-label">Phone (*):  </label>
 								<div class="col-sm-10">
-									<input type="text" name="txtDienThoai"  value="<?php if(isset($phone)) echo $phone; ?>" class="form-control"  />
+									<input type="text" name="txtDienThoai"  required="true" value="<?php if(isset($phone)) echo $phone; ?>" class="form-control"  />
 								</div>
 							</div>
 							<div class="form-group"> 
-								<label for="txtIC" class="col-sm-2 control-label">Chứng minh nhân dân(*):  </label>
+								<label for="txtIC" class="col-sm-2 control-label">Chứng minh nhân dân (*):  </label>
 								<div class="col-sm-10">
-									<input type="text" name="txtIC" id="txtIC" value="<?php if(isset($ic )) echo $ic; ?>" class="form-control"  />
+									<input type="text" name="txtIC" id="txtIC"  required="true"  value="<?php if(isset($ic )) echo $ic; ?>" class="form-control"  />
 								</div>
 							</div>
 						
