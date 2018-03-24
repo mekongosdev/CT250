@@ -81,13 +81,13 @@ if(isset($_SESSION['username'])) {
 							<div class="form-group"> 
 								<label for="txtDienThoai" class="col-sm-2 control-label">Phone (*):  </label>
 								<div class="col-sm-10">
-									<input type="text" name="txtDienThoai"  required="true" value="<?php if(isset($phone)) echo $phone; ?>" class="form-control"  />
+									<input type="text" name="txtDienThoai" minlength="10" maxlength="11" required="true" value="<?php if(isset($phone)) echo $phone; ?>" class="form-control" />
 								</div>
 							</div>
 							<div class="form-group"> 
 								<label for="txtIC" class="col-sm-2 control-label">Chứng minh nhân dân (*):  </label>
 								<div class="col-sm-10">
-									<input type="text" name="txtIC" id="txtIC"  required="true"  value="<?php if(isset($ic )) echo $ic; ?>" class="form-control"  />
+									<input type="text" name="txtIC" id="txtIC"  required="true" minlength="9" maxlength="9" value="<?php if(isset($ic )) echo $ic; ?>" class="form-control"  />
 								</div>
 							</div>
 						
