@@ -33,8 +33,8 @@ if(isset($_POST["btnRegister"]))
 		include "class.phpmailer.php"; 
 		include "functions.php"; 
 		$title = '[Windsor Shop] - Register';
-		$content = "<p>Welcome ".$fullname."</p>". "Please click <a href='http://localhost/CT250/index.php?page=ActiveAccount&&username=".$username.">here</a> to active account</p>";
-		$To = 'ntctuyen.ctu@gmail.com';
+	$content = "Welcome ".$fullname.",<br/> <br/> Please click <a href='http://localhost/CT250/index.php?page=ActiveAccount&&username=".$username."'>here</a> to active account.";
+		$To = $email;
 		$mail = sendMail($title, $content, $email);
 		echo '<script> alert("Đăng ký tài khoản thành công!");</script>';
 		echo '<meta http-equiv="refresh" content="0: URL=Register.php"/>';
