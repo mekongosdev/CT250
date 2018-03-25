@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if(!isset($_SESSION['EmployeeCode'])){
 	echo '<meta http-equiv="refresh" content="0; URL=Index.php"/>';
@@ -62,19 +62,20 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<li>
 									<a href="?page=customer"><i class="fa fa-opencart" aria-hidden="true"></i>Đơn hàng</a>
 								</li>
-								<li>
-									<a href="?page=about"> <i class="fa fa-money" aria-hidden="true"></i>Về Chúng Tôi</a>
+								<li class="employee"><a href="#"><i class="fa fa-bookmark" aria-hidden="true"></i>Quản lý chung <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+									<ul class="gn-submenu">
+										<li class="mini_list_agile"> <a href="?page=about"> <i class="fa fa-info-circle" aria-hidden="true"></i> Về Chúng Tôi</a></li>
+										<li class="mini_list_w3"><a href="?page=paymentmethod"> <i class="fa fa-money" aria-hidden="true"></i> Hình Thức Thanh Toán</a></li>
+										<li class="mini_list_agile error"><a href="#"> <i class="fa fa-mail-reply-all" aria-hidden="true"></i> Phản hồi</a></li>
+										<li class="mini_list_w3_line"><a href="?page=subject"> <i class="fa fa-send" aria-hidden="true"></i> Chủ đề liên hệ</a></li>
+										<li class="mini_list_w3_line"><a href="?page=contact"> <i class="fa fa-tty" aria-hidden="true"></i> Liên hệ</a></li>
+									</ul>
 								</li>
-								<li>
-									<a href="?page=paymentmethod"> <i class="fa fa-info-circle" aria-hidden="true"></i>Hình Thức Thanh Toán</a>
-								</li>
-								<li>
-									<a href="#"> <i class="fa fa-mail-reply-all" aria-hidden="true"></i>Phản hồi</a>
-								</li>
-								<li>
-									<a href="?page=subject"> <i class="fa fa-send" aria-hidden="true"></i>Chủ đề liên hệ</a>
-								</li>
-								<li><a href="?page=contact"> <i class="fa fa-tty" aria-hidden="true"></i>Liên hệ</a></li>
+								<!-- <li><a href="?page=about"> <i class="fa fa-money" aria-hidden="true"></i>Về Chúng Tôi</a></li>
+								<li><a href="?page=paymentmethod"> <i class="fa fa-info-circle" aria-hidden="true"></i>Hình Thức Thanh Toán</a></li>
+								<li><a href="#"> <i class="fa fa-mail-reply-all" aria-hidden="true"></i>Phản hồi</a></li>
+								<li><a href="?page=subject"> <i class="fa fa-send" aria-hidden="true"></i>Chủ đề liên hệ</a></li>
+								<li><a href="?page=contact"> <i class="fa fa-tty" aria-hidden="true"></i>Liên hệ</a></li> -->
 								<li class="product"><a href="#"><i class="fa fa-product-hunt" aria-hidden="true"></i>Quản lý sản phẩm<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"><a href="?page=publisher"><i class="fa fa-caret-right" aria-hidden="true"></i> Nhà sản xuất</a></li>
@@ -89,7 +90,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									</ul>
 								</li>
 
-								<li class="employee"><a href="#"><i class="fa fa-cubes" aria-hidden="true"></i> Quản lý nhân viên <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+								<li class="employee"><a href="#"><i class="fa fa-cubes" aria-hidden="true"></i>Quản lý nhân viên <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"> <a href="?page=employee"> <i class="fa fa-caret-right" aria-hidden="true"></i> Thông tin nhân viên</a></li>
 										<li class="mini_list_w3"><a href="?page=news"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý tin tức</a></li>
@@ -104,11 +105,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<li class="mini_list_agile"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Hóa đơn</a></li>
 									</ul>
 								</li>
-								<li>
-									<a href="?page=about">
-										<i class="fa fa-bookmark" aria-hidden="true"></i> Giới thiệu
-									</a>
-								</li>
+								<!-- <li><a href="?page=about"><i class="fa fa-bookmark" aria-hidden="true"></i> Giới thiệu</a></li> -->
 							</ul>
 						</div><!-- /gn-scroller -->
 					</nav>
@@ -152,14 +149,14 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									<?php
 
 									$result = mysql_query(
-										"SELECT 
+										"SELECT
 										o.OrderId,w.WineName ,o.OrderCreateDate, o.OrderDeliverDate,
-										o.OrderDeliverPlace, o.OrderStatus, u.FullName, 
-										p.PaymentMethodName,or1.WineSoldPrice, or1.WineOrderQuantity 
+										o.OrderDeliverPlace, o.OrderStatus, u.FullName,
+										p.PaymentMethodName,or1.WineSoldPrice, or1.WineOrderQuantity
 										FROM `order` o
 										JOIN paymentmethod p ON o.PaymentMethodId = p.PaymentMethodId
 										JOIN user u ON o.Username = u.Username
-										JOIN orderwinedetails or1 ON o.OrderId = or1.OrderId 
+										JOIN orderwinedetails or1 ON o.OrderId = or1.OrderId
 										JOIN wine w ON or1.WineOrderId = w.WineId and o.OrderStatus=0");
 									$num_rows = mysql_num_rows($result);
 									?>
@@ -567,7 +564,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					?>
 					<!-- WINE -->
 
-					<?php 
+					<?php
 					$sql="SELECT WineId, WineName, WineStrength, WineUpdateDate,WineQuantity, wine.CategoryId, wine.PublisherId, wine.CountryId FROM wine, category, country, publisher WHERE wine.CategoryId = category.CategoryId AND wine.PublisherId = publisher.PublisherId AND wine.CountryId = country.CountryId and wine.WineQuantity = 0";
 					$listwine = mysql_query($sql) or trigger_error(mysql_error().$sql);
 					?>
@@ -589,7 +586,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							</tr>
 						</thead>
 						<tbody>
-							<?php 
+							<?php
 							$num = 1;
 							while(list($WineId,$name,$strength,$wineupdate,$quantity,$idCat, $idPub,$idCountry) = mysql_fetch_array($listwine))
 							{
@@ -600,21 +597,21 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									<td class="col-md-1"><?= $strength;?> </td>
 									<td class="col-md-2"><?= $wineupdate;?> </td>
 									<td class="col-md-1"><?= $quantity;?> </td>
-									<?php 
+									<?php
 									$result = searchCategory($idCat);
 									if(isset($result))
 									{
 										list($CategoryId,$CategoryName)=mysql_fetch_array($result);
 									} ?>
 									<td class="col-md-2"><?= $CategoryName?> </td>
-									<?php 
+									<?php
 									$result = searchPublisher($idPub);
 									if(isset($result))
 									{
 										list($PublisherId,$PublisherName)=mysql_fetch_array($result);
 									} ?>
 									<td class="col-md-2"><?= $PublisherName?> </td>
-									<?php 
+									<?php
 									$result = searchCountry($idCountry);
 									if(isset($result))
 									{
@@ -624,7 +621,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									<td class="text-center col-md-2">
 										<a class="btn btn-warning" href="?page=UpdateQuantityWine&WineId=<?php echo $WineId; ?>"><i class="fa fa-edit"></i></a>
 
-									</td>     
+									</td>
 								</tr>
 								<?php
 								$num++;
