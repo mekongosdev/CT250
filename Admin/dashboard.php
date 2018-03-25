@@ -58,7 +58,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller scrollbar1">
 							<ul class="gn-menu agile_menu_drop">
-								<li><a href="#"> <i class="fa fa-tachometer"></i>Bảng điều khiển</a></li>
+								<li><a href="/CT250/admin/dashboard.php"> <i class="fa fa-tachometer"></i>Bảng điều khiển</a></li>
 								<li>
 									<a href="?page=customer"><i class="fa fa-opencart" aria-hidden="true"></i>Đơn hàng</a>
 								</li>
