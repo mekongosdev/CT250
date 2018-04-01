@@ -44,6 +44,10 @@ if (isset($_POST['btnYes'])) {
 <!-- about -->
 <div class="about">
     <div class="container"> 
+       <?php
+       if ($_SESSION["cart"] != null) 
+       {
+        ?>
         <form id="form-1" name="form1" method="post" action="">
             <div class="row">
                 <div class="col-sm-1"><label>No.</label></div>
@@ -57,12 +61,10 @@ if (isset($_POST['btnYes'])) {
             <hr/>
             <br/>
             <?php
-            if ($_SESSION["cart"] != null) 
+            $total = 0;
+            $i = 1;
+            foreach ($_SESSION["cart"] as $key => $row) 
             {
-              $total = 0;
-              $i = 1;
-              foreach ($_SESSION["cart"] as $key => $row) 
-              {
                 ?>
                 <div class="row">
                     <div class="col-sm-1"><?php echo $i++; ?></div>
@@ -87,7 +89,7 @@ if (isset($_POST['btnYes'])) {
             <input type="submit" value="Check out" name="btnYes" id="btnXoa" class="btn btn-primary pull-right btn-lg"/>
             </div>';
         } else {
-            echo "<div class='row'><div class='col-sm-12'>There are not any wine in cart</div></div>";
+            echo "<div class='row'><div class='col-sm-12'><h1 class='text-danger text-center'>There are not any wine in cart</h1></div></div>";
         }
         ?>
 
