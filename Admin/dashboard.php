@@ -58,7 +58,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller scrollbar1">
 							<ul class="gn-menu agile_menu_drop">
-								<li><a href="/CT250/admin/dashboard.php"> <i class="fa fa-tachometer"></i>The control panel</a></li>
 								<li>
 									<a href="?page=customer"><i class="fa fa-opencart" aria-hidden="true"></i>Orders</a>
 								</li>
@@ -71,11 +70,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<li class="mini_list_w3_line"><a href="?page=contact"> <i class="fa fa-tty" aria-hidden="true"></i> Contact</a></li>
 									</ul>
 								</li>
-								<!-- <li><a href="?page=about"> <i class="fa fa-money" aria-hidden="true"></i>Về Chúng Tôi</a></li>
-								<li><a href="?page=paymentmethod"> <i class="fa fa-info-circle" aria-hidden="true"></i>Hình Thức Thanh Toán</a></li>
-								<li><a href="#"> <i class="fa fa-mail-reply-all" aria-hidden="true"></i>Phản hồi</a></li>
-								<li><a href="?page=subject"> <i class="fa fa-send" aria-hidden="true"></i>Chủ đề liên hệ</a></li>
-								<li><a href="?page=contact"> <i class="fa fa-tty" aria-hidden="true"></i>Liên hệ</a></li> -->
+								
 								<li class="product"><a href="#"><i class="fa fa-product-hunt" aria-hidden="true"></i>Product management<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"><a href="?page=publisher"><i class="fa fa-caret-right" aria-hidden="true"></i> Producer</a></li>
@@ -94,19 +89,15 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"> <a href="?page=employee"> <i class="fa fa-caret-right" aria-hidden="true"></i> Information</a></li>
 										<li class="mini_list_w3"><a href="?page=news"> <i class="fa fa-caret-right" aria-hidden="true"></i> News</a></li>
-										<!-- <li class="mini_list_agile error"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Chi nhánh </a></li> -->
-
 										<li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Role</a></li>
 									</ul>
 								</li>
-								<li class="customer"><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Customer</i></a>
-								<!-- <li class="customer"><a href="#"><i class="fa fa-database" aria-hidden="true"></i>Customer management<i class="fa fa-angle-down" aria-hidden="true"> </i></a> -->
+								<li class="customer"><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Customer management<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"><a href="?page=user"><i class="fa fa-caret-right" aria-hidden="true"></i> Customer Info</a></li>
 										<li class="mini_list_agile"><a href="?page=customer"><i class="fa fa-caret-right" aria-hidden="true"></i>Bill</a></li>
 									</ul>
 								</li>
-								<!-- <li><a href="?page=about"><i class="fa fa-bookmark" aria-hidden="true"></i> Giới thiệu</a></li> -->
 							</ul>
 						</div><!-- /gn-scroller -->
 					</nav>
@@ -563,177 +554,177 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 						include_once("../Src/Statistic/MoreStatistic.php");
 					}
 					if(!isset($_GET['page'])){
-					$sql="SELECT WineId, WineName, WineStrength, WineUpdateDate,WineQuantity, wine.CategoryId, wine.PublisherId, wine.CountryId FROM wine, category, country, publisher WHERE wine.CategoryId = category.CategoryId AND wine.PublisherId = publisher.PublisherId AND wine.CountryId = country.CountryId and wine.WineQuantity = 0";
-					$listwine = mysql_query($sql) or trigger_error(mysql_error().$sql);
-					?>
-					<h3 class="text-center text-danger">Sold Out Wines</h3>
-					<br>
-					<br>
-					<table id="myTable" class="table-striped table-hover">
-						<thead >
-							<tr>
-								<th><strong>No</strong></th>
-								<th><strong>Wine</strong></th>
-								<th><strong>Alcohol level</strong></th>
-								<th><strong>Update Date</strong></th>
-								<th><strong>Quantity</strong></th>
-								<th><strong>Category</strong></th>
-								<th><strong>Producer</strong></th>
-								<th><strong>Origin</strong></th>
-								<th><strong>Action</strong></th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php
-							$num = 1;
-							while(list($WineId,$name,$strength,$wineupdate,$quantity,$idCat, $idPub,$idCountry) = mysql_fetch_array($listwine))
-							{
-								?>
+						$sql="SELECT WineId, WineName, WineStrength, WineUpdateDate,WineQuantity, wine.CategoryId, wine.PublisherId, wine.CountryId FROM wine, category, country, publisher WHERE wine.CategoryId = category.CategoryId AND wine.PublisherId = publisher.PublisherId AND wine.CountryId = country.CountryId and wine.WineQuantity = 0";
+						$listwine = mysql_query($sql) or trigger_error(mysql_error().$sql);
+						?>
+						<h3 class="text-center text-danger">Sold Out Wines</h3>
+						<br>
+						<br>
+						<table id="myTable" class="table-striped table-hover">
+							<thead >
 								<tr>
-									<td class="col-md-1"><?= $num;?> </td>
-									<td class="col-md-2"><?= $name;?> </td>
-									<td class="col-md-1"><?= $strength;?> </td>
-									<td class="col-md-2"><?= $wineupdate;?> </td>
-									<td class="col-md-1"><?= $quantity;?> </td>
-									<?php
-									$result = searchCategory($idCat);
-									if(isset($result))
-									{
-										list($CategoryId,$CategoryName)=mysql_fetch_array($result);
-									} ?>
-									<td class="col-md-2"><?= $CategoryName?> </td>
-									<?php
-									$result = searchPublisher($idPub);
-									if(isset($result))
-									{
-										list($PublisherId,$PublisherName)=mysql_fetch_array($result);
-									} ?>
-									<td class="col-md-2"><?= $PublisherName?> </td>
-									<?php
-									$result = searchCountry($idCountry);
-									if(isset($result))
-									{
-										list($CountryId,$CountryName)=mysql_fetch_array($result);
-									} ?>
-									<td class="col-md-2"><?= $CountryName?> </td>
-									<td class="text-center col-md-2">
-										<a class="btn btn-warning" href="?page=UpdateQuantityWine&WineId=<?php echo $WineId; ?>"><i class="fa fa-edit"></i></a>
-
-									</td>
+									<th><strong>No</strong></th>
+									<th><strong>Wine</strong></th>
+									<th><strong>Alcohol level</strong></th>
+									<th><strong>Update Date</strong></th>
+									<th><strong>Quantity</strong></th>
+									<th><strong>Category</strong></th>
+									<th><strong>Producer</strong></th>
+									<th><strong>Origin</strong></th>
+									<th><strong>Action</strong></th>
 								</tr>
+							</thead>
+							<tbody>
 								<?php
-								$num++;
-							}}
-							?>
-						</tbody>
-					</table>
-					<!-- END WINE -->
+								$num = 1;
+								while(list($WineId,$name,$strength,$wineupdate,$quantity,$idCat, $idPub,$idCountry) = mysql_fetch_array($listwine))
+								{
+									?>
+									<tr>
+										<td class="col-md-1"><?= $num;?> </td>
+										<td class="col-md-2"><?= $name;?> </td>
+										<td class="col-md-1"><?= $strength;?> </td>
+										<td class="col-md-2"><?= $wineupdate;?> </td>
+										<td class="col-md-1"><?= $quantity;?> </td>
+										<?php
+										$result = searchCategory($idCat);
+										if(isset($result))
+										{
+											list($CategoryId,$CategoryName)=mysql_fetch_array($result);
+										} ?>
+										<td class="col-md-2"><?= $CategoryName?> </td>
+										<?php
+										$result = searchPublisher($idPub);
+										if(isset($result))
+										{
+											list($PublisherId,$PublisherName)=mysql_fetch_array($result);
+										} ?>
+										<td class="col-md-2"><?= $PublisherName?> </td>
+										<?php
+										$result = searchCountry($idCountry);
+										if(isset($result))
+										{
+											list($CountryId,$CountryName)=mysql_fetch_array($result);
+										} ?>
+										<td class="col-md-2"><?= $CountryName?> </td>
+										<td class="text-center col-md-2">
+											<a class="btn btn-warning" href="?page=UpdateQuantityWine&WineId=<?php echo $WineId; ?>"><i class="fa fa-edit"></i></a>
+
+										</td>
+									</tr>
+									<?php
+									$num++;
+								}}
+								?>
+							</tbody>
+						</table>
+						<!-- END WINE -->
+					</div>
+					<!-- //inner_content-->
 				</div>
-				<!-- //inner_content-->
-			</div>
 
-			<div class="copyrights">
-				<p>© 2018 CT250 - Teams 01. All Rights Reserved</p>
-			</div>
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-			<script src="../public/admin/js/modernizr.custom.js"></script>
+				<div class="copyrights">
+					<p>© 2018 CT250 - Teams 01. All Rights Reserved</p>
+				</div>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+				<script src="../public/admin/js/modernizr.custom.js"></script>
 
-			<script src="../public/admin/js/classie.js"></script>
-			<script src="../public/admin/js/gnmenu.js"></script>
-			<script>
-				new gnMenu( document.getElementById( 'gn-menu' ) );
-			</script>
-			<script type="text/javascript" src="../public/admin/js/jquery.basictable.min.js"></script>
-			<script type="text/javascript">
-				$(document).ready(function() {
-					$('#table').basictable();
+				<script src="../public/admin/js/classie.js"></script>
+				<script src="../public/admin/js/gnmenu.js"></script>
+				<script>
+					new gnMenu( document.getElementById( 'gn-menu' ) );
+				</script>
+				<script type="text/javascript" src="../public/admin/js/jquery.basictable.min.js"></script>
+				<script type="text/javascript">
+					$(document).ready(function() {
+						$('#table').basictable();
 
-					$('#table-breakpoint').basictable({
-						breakpoint: 768
+						$('#table-breakpoint').basictable({
+							breakpoint: 768
+						});
+
+						$('#table-swap-axis').basictable({
+							swapAxis: true
+						});
+
+						$('#table-force-off').basictable({
+							forceResponsive: false
+						});
+
+						$('#table-no-resize').basictable({
+							noResize: true
+						});
+
+						$('#table-two-axis').basictable();
+
+						$('#table-max-height').basictable({
+							tableWrapper: true
+						});
+
+						$("ul.gn-submenu").slideUp('fast');
+
+						$("ul.gn-menu li.employee").click(function () {
+							$(this).children("ul.gn-submenu").slideDown('slow');
+						});
+
+						$("ul.gn-menu li.employee").mouseleave(function(){
+							$(this).children("ul.gn-submenu").slideUp('slow');
+						});
+
+						$("ul.gn-menu li.about").click(function () {
+							$(this).children("ul.gn-submenu").slideDown('slow');
+						});
+
+						$("ul.gn-menu li.about").mouseleave(function(){
+							$(this).children("ul.gn-submenu").slideUp('slow');
+						});
+
+						$("ul.gn-menu li.product").mouseleave(function(){
+							$(this).children("ul.gn-submenu").slideUp('slow');
+						});
+
+						$("ul.gn-menu li.product").click(function () {
+							$(this).children("ul.gn-submenu").slideDown('slow');
+						});
+
+						$("ul.gn-menu li.customer").mouseleave(function(){
+							$(this).children("ul.gn-submenu").slideUp('slow');
+						});
+
+						$("ul.gn-menu li.customer").click(function () {
+							$(this).children("ul.gn-submenu").slideDown('slow');
+						});
 					});
+				</script>
+				<!-- //js -->
+				<script src="../public/admin/js/screenfull.js"></script>
+				<script>
+					$(function () {
+						$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
 
-					$('#table-swap-axis').basictable({
-						swapAxis: true
+						if (!screenfull.enabled) {
+							return false;
+						}
+
+
+
+						$('#toggle').click(function () {
+							screenfull.toggle($('#container')[0]);
+						});
 					});
+				</script>
 
-					$('#table-force-off').basictable({
-						forceResponsive: false
-					});
-
-					$('#table-no-resize').basictable({
-						noResize: true
-					});
-
-					$('#table-two-axis').basictable();
-
-					$('#table-max-height').basictable({
-						tableWrapper: true
-					});
-
-					$("ul.gn-submenu").slideUp('fast');
-
-					$("ul.gn-menu li.employee").click(function () {
-						$(this).children("ul.gn-submenu").slideDown('slow');
-					});
-
-					$("ul.gn-menu li.employee").mouseleave(function(){
-						$(this).children("ul.gn-submenu").slideUp('slow');
-					});
-
-					$("ul.gn-menu li.about").click(function () {
-						$(this).children("ul.gn-submenu").slideDown('slow');
-					});
-
-					$("ul.gn-menu li.about").mouseleave(function(){
-						$(this).children("ul.gn-submenu").slideUp('slow');
-					});
-
-					$("ul.gn-menu li.product").mouseleave(function(){
-						$(this).children("ul.gn-submenu").slideUp('slow');
-					});
-
-					$("ul.gn-menu li.product").click(function () {
-						$(this).children("ul.gn-submenu").slideDown('slow');
-					});
-
-					$("ul.gn-menu li.customer").mouseleave(function(){
-						$(this).children("ul.gn-submenu").slideUp('slow');
-					});
-
-					$("ul.gn-menu li.customer").click(function () {
-						$(this).children("ul.gn-submenu").slideDown('slow');
-					});
-				});
-			</script>
-			<!-- //js -->
-			<script src="../public/admin/js/screenfull.js"></script>
-			<script>
-				$(function () {
-					$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
-
-					if (!screenfull.enabled) {
-						return false;
-					}
-
-
-
-					$('#toggle').click(function () {
-						screenfull.toggle($('#container')[0]);
-					});
-				});
-			</script>
-
-			<script src="../Public/admin/js/bars.js"></script>
-			<script src="../Public/admin/js/jquery.nicescroll.js"></script>
-			<script src="../Public/admin/js/scripts.js"></script>
-			<script src="../Public/admin/js/jquery.toast.min.js"></script>
-			<script src="../Public/admin/js/bootstrap-3.1.1.min.js"></script>
-			<link rel="stylesheet" type="text/css" href="../Public/admin/css/jquery.dataTables.min.css">
-			<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-			<script type="text/javascript">
-				$(document).ready(function(){
-					$("#btnAdd").click(function(){
-						$.toast({
+				<script src="../Public/admin/js/bars.js"></script>
+				<script src="../Public/admin/js/jquery.nicescroll.js"></script>
+				<script src="../Public/admin/js/scripts.js"></script>
+				<script src="../Public/admin/js/jquery.toast.min.js"></script>
+				<script src="../Public/admin/js/bootstrap-3.1.1.min.js"></script>
+				<link rel="stylesheet" type="text/css" href="../Public/admin/css/jquery.dataTables.min.css">
+				<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$("#btnAdd").click(function(){
+							$.toast({
 				    text: "Add  successful data!", // Text that is to be shown in the toast
 				    heading: 'Notification', // Optional heading to be shown on the toast
 				    icon: 'success', // Type of toast icon
@@ -747,11 +738,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				    loaderBg: 'white',  // Background color of the toast loader
 				    bgColor: '#17a2b8',
 				});
-					})
+						})
 
-					$('#myTable').DataTable({
-						responsive: true,
-						"language": {
+						$('#myTable').DataTable({
+							responsive: true,
+							"language": {
 							// "lengthMenu": "Hiển thị _MENU_ số dòng trên trang",
 							// "info": "Hiển thị _START_ trong tổng số _TOTAL_ dòng dữ liệu",
 							"infoEmpty": "Empty data",
@@ -772,7 +763,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					});
 
 
-				})
-			</script>
-		</body>
-		</html>
+					})
+				</script>
+			</body>
+			</html>

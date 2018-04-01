@@ -55,7 +55,7 @@ if(isset($_POST["btnAdd"]))
 		<div class="form-group">
 			<label class="control-label col-md-2" for="PromotionActive">Ngày bắt đầu:</label>
 			<div class="col-md-10">
-				<input type="date" name="PromotionActive" id="PromotionActive" class="form-control" />
+				<input type="date" name="PromotionActive" id="PromotionActive" value="01-01-2008" class="form-control" />
 			</div>
 		</div>
 		<div class="form-group">
@@ -90,9 +90,9 @@ if(isset($_POST["btnAdd"]))
 <script>tinymce.init({ selector:'textarea' });</script>
 <script type="text/javascript">
 	function validatePromotionDate(){
+		var PromotionActive = document.getElementById("PromotionActive").value;
 		var PromotionClose = document.getElementById("PromotionClose").value;
-		var PromotionOpen = document.getElementById("PromotionOpen").value;
-		if(PromotionOpen < PromotionClose){
+		if(PromotionActive > PromotionClose){
 			alert("Ngày kết thúc phải sau ngày bắt đầu!");
 			return false;
 		}
