@@ -58,6 +58,7 @@ function checkout($WineId)
 	function hideURLbar(){ window.scrollTo(0,1); } 
 </script>
 <!-- //for-mobile-apps -->
+<link rel="shortcut icon" type="image/png" href="icon.ico"/>
 <link href="public/client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="public/client/css/jquery.toast.min.css" rel="stylesheet" type="text/css" media="all" />
 <link href="public/client/css/style.css" rel="stylesheet" type="text/css" media="all" />

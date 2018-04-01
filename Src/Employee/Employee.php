@@ -1,5 +1,5 @@
 <?php 
-	$sqlSelect="SELECT `EmployeeCode`, `EmployeeName`, `EmployeeBirth`, `EmployeeAddress`, `EmployeeEmail`, `EmployeeIC`, `Role` FROM employee";
+	$sqlSelect="SELECT `EmployeeCode`, `EmployeeName`, `EmployeeBirth`, `EmployeeAddress`, `EmployeeEmail`, `EmployeeIC`, `RoleId` FROM employee";
 	$list_employee= mysql_query($sqlSelect);
 ?>
 <h3 class="w3_inner_tittle two text-center">Quản lý Nhân Viên</h3>
@@ -11,7 +11,6 @@
 		<tr>
 			<th><strong>STT</strong></th>
 			<th><strong>Mã Nhân Viên</strong></th>
-		
 			<th><strong>Tên Nhân Viên</strong></th>
 			<th><strong>Ngày sinh</strong></th>
 			<th><strong>Địa chỉ</strong></th>

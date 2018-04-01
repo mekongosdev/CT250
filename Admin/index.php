@@ -9,7 +9,7 @@
 	<meta name="keywords" content="CT250" />
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 function hideURLbar(){ window.scrollTo(0,1); } </script>
-
+<link rel="shortcut icon" type="image/png" href="../icon.ico"/>
 <link href="../public/admin/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" type="text/css" href="../public/admin/css/table-style.css" />
 <link rel="stylesheet" type="text/css" href="../public/admin/css/basictable.css" />
@@ -17,6 +17,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="../public/admin/css/style_grid.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../public/admin/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../public/admin/css/jquery.toast.min.css" rel="stylesheet" type="text/css" media="all" />
+
 <!-- font-awesome-icons -->
 <link href="../public/admin/css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome-icons -->
