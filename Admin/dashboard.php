@@ -58,7 +58,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller scrollbar1">
 							<ul class="gn-menu agile_menu_drop">
-								<li><a href="/CT250/admin/dashboard.php"> <i class="fa fa-tachometer"></i>The control panel</a></li>
 								<li>
 									<a href="?page=customer"><i class="fa fa-opencart" aria-hidden="true"></i>Orders</a>
 								</li>
@@ -93,7 +92,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Role</a></li>
 									</ul>
 								</li>
-								<li class="customer"><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Customer</i></a>
+								<li class="customer"><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Customer management<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"><a href="?page=user"><i class="fa fa-caret-right" aria-hidden="true"></i> Customer Info</a></li>
 										<li class="mini_list_agile"><a href="?page=customer"><i class="fa fa-caret-right" aria-hidden="true"></i>Bill</a></li>
