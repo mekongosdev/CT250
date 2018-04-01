@@ -41,26 +41,26 @@ if(isset($_POST['btnUpdate']))
 	<div class="col-md-12"/>
 	<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data" form-horizontal>
 		<div class="form_group">
-			<label class="control-label col-sm-12" for="email"><h2 align="center">Cập Nhật Rượu</h2></label>
+			<label class="control-label col-sm-12" for="email"><h2 align="center">Update Wine</h2></label>
 		</div>
 
 	</form>
 	<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" >
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtName">Mã rượu:</label>
+			<label class="control-label col-md-2" for="txtName">No:</label>
 			<div class="col-sm-10">
 				<input type="text" class="form-control" id="WineId"  name="WineId"
 				readonly="readonly" value="<?php echo $WineId;?>" >
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtName">Tên Rượu:</label>
+			<label class="control-label col-md-2" for="txtName">Wine names:</label>
 			<div class="col-sm-10">
 				<input type="text" class="form-control" id="wineName" name="wineName" value="<?php echo $name; ?>" >
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtstrength">Độ rượu:</label>
+			<label class="control-label col-md-2" for="txtstrength">Strong:</label>
 			<div class="col-md-10">          
 
 				<input type="text" class="form-control" id="txtstrength" name="txtstrength" value="<?=$strength; ?>" 
@@ -68,20 +68,20 @@ if(isset($_POST['btnUpdate']))
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtShort">Mô tả ngắn:</label>
+			<label class="control-label col-md-2" for="txtShort">Short Details:</label>
 			<div class="col-md-10">          
 				<input type="text" class="form-control" id="txtShort" name="txtShort" value="<?=$shortdetails; ?>"
 				required  >
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtDetails">Mô tả chi tiết:</label>
+			<label class="control-label col-md-2" for="txtDetails">Details:</label>
 			<div class="col-md-10">          
 				<textarea name="txtDetails" class="form-control"  required><?=$details; ?></textarea>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtNum">Số lượng rượu:</label>
+			<label class="control-label col-md-2" for="txtNum">Quantity:</label>
 			<div class="col-md-10">          
 				<input type="text" class="form-control" id="txtNum"  name="txtNum" value="<?php echo $quantity ; ?>"
 				required  >
@@ -89,7 +89,7 @@ if(isset($_POST['btnUpdate']))
 		</div>
 
 		<div class="form-group">
-			<label class="control-label col-md-2" for="slPublisher">Nhà sản xuất:</label>
+			<label class="control-label col-md-2" for="slPublisher">Producer:</label>
 			<div class="col-md-10">          
 				<?php
 				$sqlSelect = "SELECT `PublisherId`, `PublisherName`, `PublisherDescription` FROM `publisher`";
@@ -113,7 +113,7 @@ if(isset($_POST['btnUpdate']))
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="slCategory">Loại sản phẩm:</label>
+			<label class="control-label col-md-2" for="slCategory">Category:</label>
 			<div class="col-md-10">          
 				<?php
 				$sqlSelect = "SELECT `CategoryId`, `CategoryName`, `CategoryDescription` FROM `category`";
@@ -137,7 +137,7 @@ if(isset($_POST['btnUpdate']))
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="slCountry">Xuất xứ:</label>
+			<label class="control-label col-md-2" for="slCountry">Origin:</label>
 			<div class="col-md-10">          
 				<?php
 				$sqlSelect = "SELECT `CountryId`, `CountryName`, `CountryDetails` FROM `country`";
@@ -162,7 +162,7 @@ if(isset($_POST['btnUpdate']))
 			
 		</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtDate">Ngày cập nhật:</label>
+			<label class="control-label col-md-2" for="txtDate">Update date:</label>
 			<div class="col-md-10">          
 				<input type="date" class="form-control" id="txtDate" name="txtDate"
 				required  value="<?php echo $wineupdate; ?>">
@@ -170,8 +170,8 @@ if(isset($_POST['btnUpdate']))
 		</div>
 		<div class="form-group">        
 			<div class="col-md-offset-2 col-md-10">
-				<button type="submit" class="btn btn-info" name="btnUpdate" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Cập nhật</button>
-				<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Bỏ Qua</button>
+				<button type="submit" class="btn btn-info" name="btnUpdate" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Update</button>
+				<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
 			</div>
 		</div>
 	</form>

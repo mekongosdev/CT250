@@ -1,5 +1,5 @@
-<h3 class="w3_inner_tittle two text-center">Thống kê</h3>
-<a class="btn btn-primary" href="?page=more_statistic">Xem thêm <i class="fa fa-plus"></i></a>
+<h3 class="w3_inner_tittle two text-center">Statistic</h3>
+<a class="btn btn-primary" href="?page=more_statistic">Views more<i class="fa fa-plus"></i></a>
 </br>
 </br>
 <center>

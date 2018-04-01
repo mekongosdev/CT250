@@ -1,19 +1,19 @@
 <div class="container">
-	<h4 class="text-center">QUẢN LÝ ĐƠN HÀNG</h4>
+	<h4 class="text-center">Bill</h4>
 	<table id="myTable" class="table-striped table-hover table-responsive">
 		<thead >
 			<tr>
-				<th><strong>STT đơn hàng</strong></th>
-				<th><strong>Tên Rượu</strong></th>
-				<th><strong>Số lượng mua</strong></th>
-				<th><strong>Ngày Đặt</strong></th>	
-				<th><strong>Ngày Nhận</strong></th>
-				<th><strong>Nơi Nhận</strong></th>
-				<th><strong>Người Nhận</strong></th>
-				<th><strong>HTTT</strong></th>
-				<th><strong>Giá Bán</strong></th>
-				<th><strong>Trại Thái</strong></th>
-				<th><strong>Hóa đơn</strong></th>
+				<th><strong>Num</strong></th>
+				<th><strong>Wine</strong></th>
+				<th><strong>Quantity</strong></th>
+				<th><strong>Order date</strong></th>	
+				<th><strong>Order Receive</strong></th>
+				<th><strong>Recipients</strong></th>
+				<th><strong>Receiver</strong></th>
+				<th><strong>Payment</strong></th>
+				<th><strong>Price</strong></th>
+				<th><strong>Status</strong></th>
+				<th><strong>Print</strong></th>
 			</tr>
 		</thead>
 		<tbody>

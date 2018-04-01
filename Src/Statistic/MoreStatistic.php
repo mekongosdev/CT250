@@ -3,8 +3,8 @@
 // $list_PaymentMethod= mysql_query($sqlSelect);
 
 ?>
-<h3 class="w3_inner_tittle two text-center">Thống kê (tiếp tục)</h3>
-<a class="btn btn-primary" href="?page=statistic">Quay lại <i class="fa fa-backward"></i></a>
+<h3 class="w3_inner_tittle two text-center">Statistic</h3>
+<a class="btn btn-primary" href="?page=statistic">Return <i class="fa fa-backward"></i></a>
 </br>
 </br>
 <center>
