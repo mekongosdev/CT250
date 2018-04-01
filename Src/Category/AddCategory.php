@@ -10,7 +10,7 @@ if(isset($_POST["btnAdd"]))
 	$description = $_POST["txtDetails"];
 
 	addCategory($name,$description);
-	echo '<script> alert("Thêm rượu thành công!");</script>';
+	echo '<script> alert("Insert Success!");</script>';
 	echo "<script>window.location.href='?page=category'</script>";
 
 }
