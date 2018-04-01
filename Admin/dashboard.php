@@ -54,21 +54,21 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<ul id="gn-menu" class="gn-menu-main">
 				<!-- /nav_agile_w3l -->
 				<li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><i class="fa fa-bars" aria-hidden="true"></i><span>Danh mục</span></a>
+					<a class="gn-icon gn-icon-menu"><i class="fa fa-bars" aria-hidden="true"></i><span>Category</span></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller scrollbar1">
 							<ul class="gn-menu agile_menu_drop">
-								<li><a href="/CT250/admin/dashboard.php"> <i class="fa fa-tachometer"></i>Bảng điều khiển</a></li>
+								<li><a href="/CT250/admin/dashboard.php"> <i class="fa fa-tachometer"></i>The control panel</a></li>
 								<li>
-									<a href="?page=customer"><i class="fa fa-opencart" aria-hidden="true"></i>Đơn hàng</a>
+									<a href="?page=customer"><i class="fa fa-opencart" aria-hidden="true"></i>Orders</a>
 								</li>
-								<li class="employee"><a href="#"><i class="fa fa-bookmark" aria-hidden="true"></i>Quản lý chung <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+								<li class="employee"><a href="#"><i class="fa fa-bookmark" aria-hidden="true"></i>General management <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="gn-submenu">
-										<li class="mini_list_agile"> <a href="?page=about"> <i class="fa fa-info-circle" aria-hidden="true"></i> Về Chúng Tôi</a></li>
-										<li class="mini_list_w3"><a href="?page=paymentmethod"> <i class="fa fa-money" aria-hidden="true"></i> Hình Thức Thanh Toán</a></li>
-										<li class="mini_list_agile error"><a href="#"> <i class="fa fa-mail-reply-all" aria-hidden="true"></i> Phản hồi</a></li>
-										<li class="mini_list_w3_line"><a href="?page=subject"> <i class="fa fa-send" aria-hidden="true"></i> Chủ đề liên hệ</a></li>
-										<li class="mini_list_w3_line"><a href="?page=contact"> <i class="fa fa-tty" aria-hidden="true"></i> Liên hệ</a></li>
+										<li class="mini_list_agile"> <a href="?page=about"> <i class="fa fa-info-circle" aria-hidden="true"></i> About Us</a></li>
+										<li class="mini_list_w3"><a href="?page=paymentmethod"> <i class="fa fa-money" aria-hidden="true"></i> Payments</a></li>
+										<li class="mini_list_agile error"><a href="#"> <i class="fa fa-mail-reply-all" aria-hidden="true"></i> Feedback</a></li>
+										<li class="mini_list_w3_line"><a href="?page=subject"> <i class="fa fa-send" aria-hidden="true"></i> Contact subject</a></li>
+										<li class="mini_list_w3_line"><a href="?page=contact"> <i class="fa fa-tty" aria-hidden="true"></i> Contact</a></li>
 									</ul>
 								</li>
 								<!-- <li><a href="?page=about"> <i class="fa fa-money" aria-hidden="true"></i>Về Chúng Tôi</a></li>
@@ -76,33 +76,34 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<li><a href="#"> <i class="fa fa-mail-reply-all" aria-hidden="true"></i>Phản hồi</a></li>
 								<li><a href="?page=subject"> <i class="fa fa-send" aria-hidden="true"></i>Chủ đề liên hệ</a></li>
 								<li><a href="?page=contact"> <i class="fa fa-tty" aria-hidden="true"></i>Liên hệ</a></li> -->
-								<li class="product"><a href="#"><i class="fa fa-product-hunt" aria-hidden="true"></i>Quản lý sản phẩm<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
+								<li class="product"><a href="#"><i class="fa fa-product-hunt" aria-hidden="true"></i>Product management<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
 									<ul class="gn-submenu">
-										<li class="mini_list_agile"><a href="?page=publisher"><i class="fa fa-caret-right" aria-hidden="true"></i> Nhà sản xuất</a></li>
-										<li class="mini_list_w3"><a href="?page=category"> <i class="fa fa-caret-right" aria-hidden="true"></i> Loại sản phẩm</a></li>
-										<li class="mini_list_agile"><a href="?page=country"><i class="fa fa-caret-right" aria-hidden="true"></i> Xuất xứ</a></li>
-										<li class="mini_list_w3"><a href="?page=promotion"> <i class="fa fa-caret-right" aria-hidden="true"></i> Khuyến mãi</a></li>
-										<li class="mini_list_agile"><a href="?page=wine"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý rượu</a></li>
-										<li class="mini_list_agile"><a href="?page=time"><i class="fa fa-caret-right" aria-hidden="true"></i> Thời gian cập nhật</a></li>
+										<li class="mini_list_agile"><a href="?page=publisher"><i class="fa fa-caret-right" aria-hidden="true"></i> Producer</a></li>
+										<li class="mini_list_w3"><a href="?page=category"> <i class="fa fa-caret-right" aria-hidden="true"></i> Category</a></li>
+										<li class="mini_list_agile"><a href="?page=country"><i class="fa fa-caret-right" aria-hidden="true"></i> Origin</a></li>
+										<li class="mini_list_w3"><a href="?page=promotion"> <i class="fa fa-caret-right" aria-hidden="true"></i> Promotion</a></li>
+										<li class="mini_list_agile"><a href="?page=wine"><i class="fa fa-caret-right" aria-hidden="true"></i> Wine</a></li>
+										<li class="mini_list_agile"><a href="?page=time"><i class="fa fa-caret-right" aria-hidden="true"></i> Updated Times</a></li>
 
-										<li class="mini_list_w3"><a href="?page=PriceHistory"> <i class="fa fa-caret-right" aria-hidden="true"></i> Giá Rượu</a></li>
+										<li class="mini_list_w3"><a href="?page=PriceHistory"> <i class="fa fa-caret-right" aria-hidden="true"></i> Price</a></li>
 
 									</ul>
 								</li>
 
-								<li class="employee"><a href="#"><i class="fa fa-cubes" aria-hidden="true"></i>Quản lý nhân viên <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+								<li class="employee"><a href="#"><i class="fa fa-cubes" aria-hidden="true"></i>Employee management<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="gn-submenu">
-										<li class="mini_list_agile"> <a href="?page=employee"> <i class="fa fa-caret-right" aria-hidden="true"></i> Thông tin nhân viên</a></li>
-										<li class="mini_list_w3"><a href="?page=news"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý tin tức</a></li>
-										<li class="mini_list_agile error"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Chi nhánh </a></li>
+										<li class="mini_list_agile"> <a href="?page=employee"> <i class="fa fa-caret-right" aria-hidden="true"></i> Information</a></li>
+										<li class="mini_list_w3"><a href="?page=news"> <i class="fa fa-caret-right" aria-hidden="true"></i> News</a></li>
+										<!-- <li class="mini_list_agile error"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Chi nhánh </a></li> -->
 
-										<li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quyền hạn</a></li>
+										<li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Role</a></li>
 									</ul>
 								</li>
-								<li class="customer"><a href="#"><i class="fa fa-database" aria-hidden="true"></i>Quản lý Khách hàng<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
+								<li class="customer"><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Customer</i></a>
+								<!-- <li class="customer"><a href="#"><i class="fa fa-database" aria-hidden="true"></i>Customer management<i class="fa fa-angle-down" aria-hidden="true"> </i></a> -->
 									<ul class="gn-submenu">
-										<li class="mini_list_agile"><a href="?page=user"><i class="fa fa-caret-right" aria-hidden="true"></i> Thông tin khách hàng</a></li>
-										<li class="mini_list_agile"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Hóa đơn</a></li>
+										<li class="mini_list_agile"><a href="?page=user"><i class="fa fa-caret-right" aria-hidden="true"></i> Customer Info</a></li>
+										<li class="mini_list_agile"><a href="?page=customer"><i class="fa fa-caret-right" aria-hidden="true"></i>Bill</a></li>
 									</ul>
 								</li>
 								<!-- <li><a href="?page=about"><i class="fa fa-bookmark" aria-hidden="true"></i> Giới thiệu</a></li> -->
@@ -571,15 +572,15 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					<table id="myTable" class="table-striped table-hover">
 						<thead >
 							<tr>
-								<th><strong>STT</strong></th>
-								<th><strong>Tên Rượu</strong></th>
-								<th><strong>Nồng Độ</strong></th>
-								<th><strong>Ngày cập nhật</strong></th>
-								<th><strong>Số lượng</strong></th>
-								<th><strong>Loại</strong></th>
-								<th><strong>Nhà sản xuất</strong></th>
-								<th><strong>Quốc gia</strong></th>
-								<th><strong>Phương Thức</strong></th>
+								<th><strong>No</strong></th>
+								<th><strong>Wine</strong></th>
+								<th><strong>Alcohol level</strong></th>
+								<th><strong>Update Date</strong></th>
+								<th><strong>Quantity</strong></th>
+								<th><strong>Category</strong></th>
+								<th><strong>Producer</strong></th>
+								<th><strong>Origin</strong></th>
+								<th><strong>Action</strong></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -632,7 +633,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			</div>
 
 			<div class="copyrights">
-				<p>© 2018 CT250 - Nhóm 02. All Rights Reserved</p>
+				<p>© 2018 CT250 - Teams 01. All Rights Reserved</p>
 			</div>
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 			<script src="../public/admin/js/modernizr.custom.js"></script>
@@ -733,8 +734,8 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				$(document).ready(function(){
 					$("#btnAdd").click(function(){
 						$.toast({
-				    text: "Thêm dữ liệu thành công!", // Text that is to be shown in the toast
-				    heading: 'Thông báo', // Optional heading to be shown on the toast
+				    text: "Add  successful data!", // Text that is to be shown in the toast
+				    heading: 'Notification', // Optional heading to be shown on the toast
 				    icon: 'success', // Type of toast icon
 				    showHideTransition: 'slide', // fade, slide or plain
 				    allowToastClose: true, // Boolean value true or false
@@ -751,15 +752,15 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					$('#myTable').DataTable({
 						responsive: true,
 						"language": {
-							"lengthMenu": "Hiển thị _MENU_ số dòng trên trang",
-							"info": "Hiển thị _START_ trong tổng số _TOTAL_ dòng dữ liệu",
-							"infoEmpty": "Dữ liệu rỗng",
-							"emptyTable": "Chưa có dữ liệu nào",
-							"processing": "Đang xử lý...",
-							"search": "Tìm kiếm:",
-							"loadingRecords": "Đang load dữ liệu...",
-							"zeroRecords": "không tìm thấy dữ liệu",
-							"infoFiltered": "(Được từ tổng số _MAX_ dòng dữ liệu)",
+							// "lengthMenu": "Hiển thị _MENU_ số dòng trên trang",
+							// "info": "Hiển thị _START_ trong tổng số _TOTAL_ dòng dữ liệu",
+							"infoEmpty": "Empty data",
+							"emptyTable": "Data not available",
+							"processing": "Processing...",
+							"search": "Search:",
+							"loadingRecords": "Loading Data...",
+							"zeroRecords": "Data not found",
+							// "infoFiltered": "(Được từ tổng số _MAX_ dòng dữ liệu)",
 							"paginate": {
 								"first": "|<",
 								"last": ">|",

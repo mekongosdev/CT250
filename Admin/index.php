@@ -55,7 +55,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 						$_SESSION["EmployeeCode"] = $loginusername;
 						echo "<script>window.location.href='dashboard.php'</script>";
 					}else{
-						echo '<script> alert("Tên tài khoản hoặc mật khẩu không chính xác!");</script>';
+						echo '<script> alert("Account name or password is incorrect!");</script>';
 					}
 				}
 				
@@ -83,7 +83,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		</div>
 		<!-- banner -->
 		<div class="copyrights">
-			<p>© 2018 CT250 - Nhóm 01. All Rights Reserved</p>
+			<p>© 2018 CT250 - Teams 01. All Rights Reserved</p>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="../public/admin/js/modernizr.custom.js"></script>

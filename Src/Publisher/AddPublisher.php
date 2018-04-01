@@ -24,7 +24,7 @@ if(isset($_POST['btnAdd']))
 	<div class="col-md-12"/>
 	<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data" form-horizontal>
 		<div class="form_group">
-			<label class="control-label col-sm-12" for="email"><h2 align="center">Thêm Nhà Sản Xuất</h2></label>
+			<label class="control-label col-sm-12" for="email"><h2 align="center">Add Producer</h2></label>
 		</div>
 
 	</form>
@@ -32,19 +32,19 @@ if(isset($_POST['btnAdd']))
 
 
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtName">Tên nhà sản xuất:</label>
+			<label class="control-label col-md-2" for="txtName">Producer Names:</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="txtName" placeholder="Nhập vào tên nhà sản xuất" name="txtName"
+				<input type="text" class="form-control" id="txtName" placeholder="Producer name" name="txtName"
 				required autofocus >
 				
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtDetails">Mô tả chi tiết:</label>
+			<label class="control-label col-md-2" for="txtDetails">Details:</label>
 			<div class="col-md-10">          
 
 				<textarea name="txtDetails" id="txtDetails"
-				placeholder="Nhập vào mô tả chi tiết của nhà sản xuất rượu" class="form-control" required ></textarea>
+				placeholder="Details" class="form-control" required ></textarea>
 				
 			</div>
 		</div>
@@ -52,8 +52,8 @@ if(isset($_POST['btnAdd']))
 		<div class="form-group">        
 			<div class="col-md-offset-2 col-md-10">
 				<!-- <button type="submit" class="btn btn-info" name="btnAdd" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Thêm</button> -->
-				<input type="submit" value="Thêm Mới" name="btnAdd" class="btn btn-info" />
-				<input type="reset" name="btnReset" class="btn btn-primary">
+				<input type="submit" value="Add" name="btnAdd" class="btn btn-info" />
+				<input type="reset" name="btnReset" class="btn btn-primary" value="Cancel">
 			</div>
 		</div>
 	</form>
