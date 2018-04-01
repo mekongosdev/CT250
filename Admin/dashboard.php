@@ -561,10 +561,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					{
 						include_once("../Src/Statistic/MoreStatistic.php");
 					}
-					?>
-					<!-- WINE -->
-
-					<?php
+					if(!isset($_GET['page'])){
 					$sql="SELECT WineId, WineName, WineStrength, WineUpdateDate,WineQuantity, wine.CategoryId, wine.PublisherId, wine.CountryId FROM wine, category, country, publisher WHERE wine.CategoryId = category.CategoryId AND wine.PublisherId = publisher.PublisherId AND wine.CountryId = country.CountryId and wine.WineQuantity = 0";
 					$listwine = mysql_query($sql) or trigger_error(mysql_error().$sql);
 					?>
@@ -625,7 +622,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								</tr>
 								<?php
 								$num++;
-							}
+							}}
 							?>
 						</tbody>
 					</table>
