@@ -75,17 +75,17 @@ aria-hidden="true">
 					<div class="sap_tabs">	
 						<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 							<ul>
-								<li class="resp-tab-item" aria-controls="tab_item-0"><span>Đăng nhập</span></li>
-								<li class="resp-tab-item" aria-controls="tab_item-1"><span>Đăng ký</span></li>
+								<li class="resp-tab-item" aria-controls="tab_item-0"><span>Log In</span></li>
+								<li class="resp-tab-item" aria-controls="tab_item-1"><span>Register</span></li>
 							</ul>		
 							<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 								<div class="facts">
 									<div class="register">
 										<form action="" method="post">			
-											<input name="txtSignIn" placeholder="Tài khoản" type="text" required="">						
-											<input name="txtPassword" placeholder="Mật khẩu" type="password" required="">										
+											<input name="txtSignIn" placeholder="Account" type="text" required="">						
+											<input name="txtPassword" placeholder="Password" type="password" required="">										
 											<div class="sign-up">
-												<input type="submit" name="btnLogin" value="Đăng nhập" />
+												<input type="submit" name="btnLogin" value="Log In" />
 											</div>
 										</form>
 									</div>
@@ -97,35 +97,35 @@ aria-hidden="true">
 									<div class="register" >
 										<form  method="post" name="myForm" >	
 											<div class="form-group">		
-												<input placeholder="Tên đăng nhập" name="txtUsername" type="text" required="" >
+												<input placeholder="Account" name="txtUsername" type="text" required="" >
 
 											</div>
 											<div class="form-group">	
-												<input placeholder="Họ tên đầy đủ" name="txtFullname" type="text" required="" >
+												<input placeholder="Full Names" name="txtFullname" type="text" required="" >
 												
 											</div>
 											<div class="form-group">	
-												<input placeholder="Địa chỉ email" name="txtEmail" type="email" required="">
+												<input placeholder="Email Address" name="txtEmail" type="email" required="">
 
 												
 											</div>
 											<div class="form-group">	
-												<input placeholder="Số điện thoại" name="NumPhone" type="text" required="" data-toggle="tooltip" data-placement="top">
+												<input placeholder="Phone Number" name="NumPhone" type="text" required="" data-toggle="tooltip" data-placement="top">
 												
 												
 											</div>
 											<div class="form-group">	
-												<input placeholder="Sinh nhật" name="dateOfBirth" type="date"  class="form-control" required="" value="2018-01-01">	</div>
+												<input placeholder="Birthday" name="dateOfBirth" type="date"  class="form-control" required="" value="2018-01-01">	</div>
 												<div class="form-group">	
-													Mật khẩu
-													<input placeholder="Mật khẩu" name="txtPassword" type="password" required="" >
+					
+													<input placeholder="Password" name="txtPassword" type="password" required="" >
 
 													
 												</span>
 											</div>	
 											<div class="form-group">	
-												Lặp lại mật khẩu
-												<input placeholder="Mật khẩu lặp lại" name="txtRepeatPassword" type="password" required="" >
+											
+												<input placeholder="Repeat password" name="txtRepeatPassword" type="password" required="" >
 
 											</div>	
 											<div class="form-group">  
@@ -142,7 +142,7 @@ aria-hidden="true">
 												</div>
 											</div>
 											<div class="sign-up">
-												<input type="submit" value="Đăng ký" name="btnRegister" id="btnRegister"/>
+												<input type="submit" value="Register" name="btnRegister" id="btnRegister"/>
 											</div>
 										</form>
 									</div>
@@ -171,13 +171,13 @@ aria-hidden="true">
 						});
 					</script>
 					<div id="OR" class="hidden-xs">
-					hoặc</div>
+					OR</div>
 				</div>
 				<div class="col-md-4 modal_body_right modal_body_right1">
 					<div class="row text-center sign-with">
 						<div class="col-md-12">
 							<h3 class="other-nw pull-left">
-							Đăng ký với mạng xã hội</h3>
+							Register with social networking</h3>
 						</div>
 						<div class="col-md-12">
 							<ul class="social">

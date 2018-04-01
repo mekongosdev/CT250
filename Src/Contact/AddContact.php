@@ -137,12 +137,12 @@ if(isset($_POST["btnContactUs"]))
 							Campus II <br/>
 						Department of software technology </strong> <br/>
 						<strong title="Management">
-						Management: </strong> Trương Thị Thanh Tuyền<br/>
-						<strong title="Phone"> Phone </strong> 0963.505.927
+						Management: </strong> Truong Thi Thanh Tuyen<br/>
+						<strong title="Phone"> Phone </strong> (+84) 096346999
 					</address>
 					<address>
 						<strong>Email:</strong><br>
-						<a href="mailto:#">huyb1505883@student.ctu.edu.vn</a>
+						<a href="mailto:#">ttttuyen@cit.ctu.edu.vn</a>
 					</address>
 					<!--    </form> -->
 				</div>
