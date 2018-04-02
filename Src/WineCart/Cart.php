@@ -43,9 +43,9 @@ if (isset($_POST['btnYes'])) {
 
 <!-- about -->
 <div class="about">
-    <div class="container"> 
+    <div class="container">
        <?php
-       if ($_SESSION["cart"] != null) 
+       if ($_SESSION["cart"] != null)
        {
         ?>
         <form id="form-1" name="form1" method="post" action="">
@@ -63,7 +63,7 @@ if (isset($_POST['btnYes'])) {
             <?php
             $total = 0;
             $i = 1;
-            foreach ($_SESSION["cart"] as $key => $row) 
+            foreach ($_SESSION["cart"] as $key => $row)
             {
                 ?>
                 <div class="row">
@@ -73,12 +73,12 @@ if (isset($_POST['btnYes'])) {
                     <div class="col-sm-2"><?php echo $row['gia'] ?></div>
                     <div class="col-sm-2">
                         <div class="input-group bootstrap-touchspin">
-                            <input type='text' id="wine-quantity" name='Wine<?php echo $key ?>' value='<?php echo $row["quantity"] ?>' class='form-control text-center'/>      
+                            <input type='text' id="wine-quantity" name='Wine<?php echo $key ?>' value='<?php echo $row["quantity"] ?>' class='form-control text-center'/>
                         </div>
                     </div>
                     <div class="col-sm-2"><?php echo number_format($row["gia"] * $row["quantity"], 0, ",", ".") ?></div>
                     <div class="col-sm-1"><a onclick='return confirmDelete()' href="./cart/del/<?php echo $key ?>"><span class="fa fa-remove fa-lg"></span></a></div>
-                </div><hr>          
+                </div><hr>
                 <?php
                 $total += $row["gia"] * $row["quantity"];
             }

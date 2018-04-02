@@ -58,7 +58,7 @@ function statisticByCategory($categoryName) {
   			echo "['";
   			echo $row['WineName'];
   			echo "',";
-  			$kq = (($row['WineQuantity'] + $row['WineSold']) - $row['WineSold']);
+  			$kq = (($row['WineQuantity'] + $row['WineSold']) - $row['WineQuantity']);
   			echo $kq;
   			echo "],";
   		}

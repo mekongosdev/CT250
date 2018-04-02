@@ -50,6 +50,7 @@ if (isset($_POST['btnUpdate']))
       bgColor: '#160fdb',
   });
 </script>";
+    // echo "<script>window.location='index.php';</script>"; // TO_DO: Nên redirect về trang chủ
     echo "<script>window.location='?page=homepage.php';</script>";
   }
   else
