@@ -1,8 +1,3 @@
-<?php
-// $sqlSelect = "SELECT `PaymentMethodId`, `PaymentMethodName`, `PaymentMethodDetails` FROM PaymentMethod";
-// $list_PaymentMethod= mysql_query($sqlSelect);
-
-?>
 <h3 class="w3_inner_tittle two text-center">Statistic</h3>
 <a class="btn btn-primary" href="?page=statistic">Return <i class="fa fa-backward"></i></a>
 </br>
@@ -23,36 +18,14 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <!-- Biểu đồ cột và tròn -->
-<script type="text/javascript">
-	<?php statisticOrderWineDetails(); ?>
-</script>
+<?php statisticOrderWineDetails(); ?>
 
-<script type="text/javascript">
-	<?php
-	statisticByCategory("Vietnam");
-	?>
-</script>
+<?php	statisticByCategory("Vietnam");	?>
 
-<script type="text/javascript">
-	<?php
-	statisticByCategory("Fruit");
-	?>
-</script>
+<?php	statisticByCategory("Fruit");	?>
 
-<script type="text/javascript">
-	<?php
-	statisticByCategory("Chivas");
-	?>
-</script>
+<?php	statisticByCategory("Chivas");	?>
 
-<script type="text/javascript">
-	<?php
-	statisticByCategory("Vodka");
-	?>
-</script>
+<?php	statisticByCategory("Vodka");	?>
 
-<script type="text/javascript">
-	<?php
-	statisticByCategory("Whisky");
-	?>
-</script>
+<?php	statisticByCategory("Whisky");	?>

@@ -1,6 +1,7 @@
 <?php
 // Doanh thu và lợi nhuân
 function statisticOrderWineDetails() {
+  echo '<script type="text/javascript">';
   // Biểu đồ cột
   echo "
   google.charts.load('current', {'packages':['bar']});
@@ -8,19 +9,19 @@ function statisticOrderWineDetails() {
 
   function drawChart() {
       var data = google.visualization.arrayToDataTable([
-        ['Rượu', 'Số lượng', 'Doanh thu', 'Lợi nhuận'],";
+        ['Rượu', 'Số lượng (đvt: chai)', 'Doanh thu (đvt: $)', 'Lợi nhuận (đvt: $)'],";
 
-  			$sql_statistic_orderwinedetail = "SELECT * FROM `orderwinedetails` INNER JOIN `wine` ON orderwinedetails.WineOrderId = wine.WineId";
+  			$sql_statistic_orderwinedetail = "SELECT wine.WineName, sum(orderwinedetails.`WineOrderQuantity`) as OrderQuantity, sum(orderwinedetails.`WineSoldPrice`) as SoldPrice, sum(orderwinedetails.`WineOriginalPrice`) as OriginalPrice FROM `orderwinedetails` INNER JOIN `wine` ON orderwinedetails.WineOrderId = wine.WineId GROUP BY orderwinedetails.`WineOrderId`";
   		  $result_statistic_orderwinedetail = mysql_query($sql_statistic_orderwinedetail);
   		  while ($row = mysql_fetch_array($result_statistic_orderwinedetail)) {
   		  	echo "['";
   				echo $row['WineName'];
   				echo "',";
-  				echo $row['WineOrderQuantity'];
+  				echo $row['OrderQuantity'];
   				echo ",";
-  				echo $row['WineSoldPrice'];
+  				echo $row['SoldPrice'];
   				echo ",";
-  				$kq = $row['WineSoldPrice'] - $row['WineOriginalPrice'];
+  				$kq = $row['SoldPrice'] - $row['OriginalPrice'];
   				echo $kq;
   				echo "],";
   		  }
@@ -29,7 +30,7 @@ function statisticOrderWineDetails() {
 
       var options = {
         chart: {
-          title: 'Doanh số bán ra',
+          title: 'Tổng doanh số bán ra',
           subtitle: 'Số lượng, doanh thu và lợi nhuận',
         }
       };
@@ -38,10 +39,12 @@ function statisticOrderWineDetails() {
 
       chart_div.draw(data, google.charts.Bar.convertOptions(options));
     }";
+    echo '</script>';
 }
 
 // Tổng số lượng và thị phần
 function statisticByCategory($categoryName) {
+  echo '<script type="text/javascript">';
 // Biểu đồ tròn
   echo "google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(drawChart);";
@@ -73,5 +76,6 @@ function statisticByCategory($categoryName) {
 
   	chart_".$categoryName.".draw(data_".$categoryName.", options_".$categoryName.");
   }";
+  echo '</script>';
 }
 ?>
