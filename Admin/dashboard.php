@@ -30,6 +30,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 </head>
 <body>
 	<?php
+	require("../Library/Classes/PHPExcel.php");
 	include_once("../Library/connect.php");
 	include_once("../Src/Category/CategoryController.php");
 	include_once("../Src/Publisher/PublisherController.php");
@@ -70,7 +71,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<li class="mini_list_w3_line"><a href="?page=contact"> <i class="fa fa-tty" aria-hidden="true"></i> Contact</a></li>
 									</ul>
 								</li>
-								
+
 								<li class="product"><a href="#"><i class="fa fa-product-hunt" aria-hidden="true"></i>Product management<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
 									<ul class="gn-submenu">
 										<li class="mini_list_agile"><a href="?page=publisher"><i class="fa fa-caret-right" aria-hidden="true"></i> Producer</a></li>

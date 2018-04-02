@@ -5,46 +5,48 @@ if(!isset($_SESSION["cart"])){
  $_SESSION["cart"] = array();
 }
 
-if(isset($_GET['action']) && isset($_GET['WineId'])) 
-{ 
-  $WineId = $_GET['WineId']; 
-  checkout($WineId); 
-} 
+if(isset($_GET['action']) && isset($_GET['WineId']))
+{
+  $WineId = $_GET['WineId'];
+  checkout($WineId);
+}
 
-function checkout($WineId) 
-{ 
-  $WineId = $_GET["WineId"]; 
-  $query = "Select wine.WineId, wine.WineName, wine.WineQuantity, publisher.PublisherName, time_wine.SellingPrice from wine, publisher, time_wine WHERE wine.WineId = time_wine.WineId and publisher.PublisherId = wine.PublisherId and  wine.WineId = ".$WineId;
+function checkout($WineId)
+{
+  $WineId = $_GET["WineId"];
+  $query = "Select wine.WineId, wine.WineName, wine.WineQuantity, publisher.PublisherName, time_wine.PurchasePrice, time_wine.SellingPrice from wine, publisher, time_wine WHERE wine.WineId = time_wine.WineId and publisher.PublisherId = wine.PublisherId and  wine.WineId = ".$WineId;
   $result = mysql_query($query) or trigger_error(mysql_error().$query);
   while ($rowsql = mysql_fetch_array($result, MYSQL_ASSOC)){
-    $coroi = false; 
-    foreach ($_SESSION["cart"] as $key => $row)  
-    { 
-      if($key==$WineId) 
-      { 
-        $_SESSION['cart'][$key]["quantity"] +=  1; 
-        $coroi = true; 
-      } 
-    } 
+    $coroi = false;
+    foreach ($_SESSION["cart"] as $key => $row)
+    {
+      if($key==$WineId)
+      {
+        $_SESSION['cart'][$key]["quantity"] +=  1;
+        $coroi = true;
+      }
+    }
 
-    if(!$coroi) 
-    { 
-      $ten = $rowsql['WineName']; 
-      $nsx = $rowsql['PublisherName']; 
+    if(!$coroi)
+    {
+      $ten = $rowsql['WineName'];
+      $nsx = $rowsql['PublisherName'];
       $price = $rowsql['SellingPrice'];
-      $cart = array( 
-        "ten" => $ten, 
+      $oriprice = $rowsql['PurchasePrice'];//TO_DO: Đã fix
+      $cart = array(
+        "ten" => $ten,
         "quantity" =>1,
         "gia" => $price,
-        "hang" => $nsx); 
-      $_SESSION['cart'][$WineId]=$cart; 
-    } 
-    echo "<script language='javascript'> 
-    alert('Sản phẩm đã được thêm vào giỏ hàng, truy cập giỏ hàng để xem!');  
-    </script>"; 
-    
+        "giagoc" => $oriprice,
+        "hang" => $nsx);
+      $_SESSION['cart'][$WineId]=$cart;
+    }
+    echo "<script language='javascript'>
+    alert('Sản phẩm đã được thêm vào giỏ hàng, truy cập giỏ hàng để xem!');
+    </script>";
+
   }
-} 
+}
 ?>
 <!DOCTYPE html>
 <html lang='vi'>
@@ -55,7 +57,7 @@ function checkout($WineId)
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="CT250" />
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-	function hideURLbar(){ window.scrollTo(0,1); } 
+	function hideURLbar(){ window.scrollTo(0,1); }
 </script>
 <!-- //for-mobile-apps -->
 <link rel="shortcut icon" type="image/png" href="icon.ico"/>
@@ -109,7 +111,7 @@ function checkout($WineId)
        <script>$(document).ready(function(){
         <?php
 
-        if(!isset($_SESSION['username'])){ 
+        if(!isset($_SESSION['username'])){
 
           ?>
           $('#myModal88').modal('show');
@@ -286,10 +288,10 @@ if(isset($_GET['page']) && $_GET['page'] == 'News'){
 if(isset($_GET['page']) && $_GET['page'] == 'ActiveAccount'){
  $username = $_GET['username'];
  $sqlUpdate=
- "UPDATE `user` 
- SET 
+ "UPDATE `user`
+ SET
  `Status`='1'
- WHERE 
+ WHERE
  `username`='$username'";
  mysql_query($sqlUpdate);
 echo '<script> alert("Actived!");</script>';
@@ -386,13 +388,13 @@ echo '<script> alert("Actived!");</script>';
   </div>
   <div class="col-md-3 w3_footer_grid">
    <h3>Producer</h3>
-   <?php 
+   <?php
    $sqlSelect = "SELECT `PublisherName` FROM Publisher";
    $list_publisher= mysql_query($sqlSelect);
 
    ?>
    <ul class="info">
-    <?php 
+    <?php
     while(list($name) = mysql_fetch_array($list_publisher))
     {
      ?>
@@ -404,13 +406,13 @@ echo '<script> alert("Actived!");</script>';
 </div>
 <div class="col-md-3 w3_footer_grid">
  <h3>Category</h3>
- <?php 
+ <?php
  $sqlSelect = "SELECT `CategoryId`, `CategoryName`, `CategoryDescription` FROM Category";
  $list_category= mysql_query($sqlSelect);
 
  ?>
  <ul class="info">
-  <?php 
+  <?php
   while(list($CategoryId, $name, $details) = mysql_fetch_array($list_category))
   {
    ?>

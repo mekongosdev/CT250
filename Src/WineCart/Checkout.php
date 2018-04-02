@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('Asia/Ho_Chi_Minh');
-if (isset($_POST['btnUpdate'])) 
+if (isset($_POST['btnUpdate']))
 {
     //Check if value is null
   if($_POST['txtDeliverAddress'] != "" && $_POST['txtDeliverDate'] != "" && $_POST['slPaymentMethod'] != "0")
@@ -18,52 +18,52 @@ if (isset($_POST['btnUpdate']))
         //Lấy mã tự tăng của đơn đặt hàng
     $order_id = mysql_insert_id();
         //Lấy từng sản phẩm trong giỏ hàng lưu vào CSDL
-    foreach ($_SESSION["cart"] as $key => $row) 
+    foreach ($_SESSION["cart"] as $key => $row)
     {
       $quantity = $_SESSION['cart'][$key]['quantity'];
-      $price = $_SESSION['cart'][$key]['gia'];
-      $ori_price = $_SESSION['cart'][$key]['gia'];
+      $price = ($_SESSION['cart'][$key]['quantity'] * $_SESSION['cart'][$key]['gia']);//TO_DO: Đã fix
+      $ori_price = ($_SESSION['cart'][$key]['quantity'] * $_SESSION['cart'][$key]['giagoc']);//TO_DO: Đã fix
       $query = "INSERT INTO `orderwinedetails`(`WineOrderId`, `OrderId`, `WineOrderQuantity`, `WineSoldPrice`, `WineOriginalPrice`)
       VALUES (".$key.",".$order_id.",".$quantity.",'".$price."','". $ori_price."')";
       echo $query;
       mysql_query($query) or die(mysql_error());
-      $query_update_stock = "UPDATE wine 
+      $query_update_stock = "UPDATE wine
       SET WineQuantity = WineQuantity - ".$row['quantity'].
       ", WineSold = WineSold + ".$row['quantity']." WHERE WineId=".$key;
       mysql_query($query_update_stock);
-    }  
+    }
         //Xóa giỏ hàng sau khi thêm
     unset($_SESSION["cart"]);
         //Thông báo thêm giỏ hàng thành công
     echo "<script>
     $.toast({
-      text: 'Your order is added successfully!', 
-      heading: 'success', 
-      icon: 'success', 
-      showHideTransition: 'fade', 
+      text: 'Your order is added successfully!',
+      heading: 'success',
+      icon: 'success',
+      showHideTransition: 'fade',
       allowToastClose: true,
-      hideAfter: 2000, 
-      stack: 5, 
-      position: 'top-center', 
+      hideAfter: 2000,
+      stack: 5,
+      position: 'top-center',
       textAlign: 'left',
       loader: true,
       bgColor: '#160fdb',
   });
 </script>";
     echo "<script>window.location='?page=homepage.php';</script>";
-  } 
+  }
   else
   {
     echo "<script>
     $.toast({
-      text: 'Please fill up required fields!', 
-      heading: 'Error', 
-      icon: 'error', 
-      showHideTransition: 'fade', 
+      text: 'Please fill up required fields!',
+      heading: 'Error',
+      icon: 'error',
+      showHideTransition: 'fade',
       allowToastClose: true,
-      hideAfter: 2000, 
-      stack: 5, 
-      position: 'top-center', 
+      hideAfter: 2000,
+      stack: 5,
+      position: 'top-center',
       textAlign: 'left',
       loader: true,
       bgColor: '#ff0000',
@@ -72,14 +72,14 @@ if (isset($_POST['btnUpdate']))
 }
 }
 
-function bindHTTTList() 
+function bindHTTTList()
 {
      // include 'database.php';
   $query = "SELECT PaymentMethodId, PaymentMethodName from PaymentMethod";
   $result = mysql_query($query);
   echo "<select name='slPaymentMethod' class='form-control'>
   <option value='0'>Chọn hình thức thanh toán</option>";
-  while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) 
+  while ($row = mysql_fetch_array($result, MYSQL_ASSOC))
   {
     echo "<option value='".$row['PaymentMethodId']."'>".$row['PaymentMethodName']."</option>";
   }
@@ -99,39 +99,38 @@ function bindHTTTList()
 
 <!-- about -->
 <div class="about">
-<div class="container"> 
+<div class="container">
 <div class="col col-md-9 col-md-offset-3">
 <form id="form1" class="form-horizontal" name="form1" method="POST" action="">
-<div class="form-group">                            
+<div class="form-group">
 <label for="lblNoiGiaoHang" class="col-sm-3 control-label">Deliver Address:(*):  </label>
 <div class="col-sm-9">
 <input type="text" name="txtDeliverAddress" id="txtDeliverAddress" class="form-control" placeholder="Nơi giao hàng" value=""/>
 </div>
-</div>     
+</div>
 
-<div class="form-group">     
+<div class="form-group">
 <label for="lblDeliverDate" class="col-sm-3 control-label">Deliver Date(*):  </label>
-<div class="col-sm-9">       
+<div class="col-sm-9">
 <input class="form-control" id="txtDeliverDate"  name="txtDeliverDate" type="date" value="2018-01-01" id="example-date-input">
 </div>
 </div>
 
-<div class="form-group">           
+<div class="form-group">
 <label for="lblPaymentMethod" class="col-sm-3 control-label">Payment method(*):  </label>
 <div class="col-sm-9">
 <?php bindHTTTList() ?>
 </div>
-</div>     
+</div>
 
-<div class="form-group">      
+<div class="form-group">
 <div class="col-sm-3"></div>
 <div class="col-sm-9">
 <input type="submit" name="btnUpdate"  class="btn btn-primary" id="btnUpdate" value="Check out"/>
 <input name="btnCancel" type="button" class="btn btn-primary" id="btnCancel" value="Cancel" onclick="window.location='../../Index.php'" />
 </div>
-</div>   
+</div>
 </form>
 </div>
 </div>
 </div>
-
