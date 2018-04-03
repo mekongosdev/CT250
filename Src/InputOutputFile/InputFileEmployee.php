@@ -53,7 +53,7 @@ if(isset($_POST['btnGui'])){
   echo '<meta http-equiv="refresh" content="3;url=javascript:history.go(-1)">';
 }
 ?>
-<a class="btn btn-primary" href="Example/Employee_import_file_example.xlsx"><strong>File Import Example</strong> <i class="fa fa-cloud-download"></i></a>
+<a class="btn btn-primary" href="ExampleFileImport/Employee_import_file_example.xlsx"><strong>File Import Example</strong> <i class="fa fa-cloud-download"></i></a>
 <div style="width:100%">
   <br>
   <h4>Import Employee</h4>

@@ -55,7 +55,7 @@ if(isset($_POST['btnGui'])){
 }
 ?>
 
-<a class="btn btn-primary" href="Example/Wine_import_file_example.xlsx"><strong>File Import Example</strong> <i class="fa fa-cloud-download"></i></a>
+<a class="btn btn-primary" href="ExampleFileImport/Wine_import_file_example.xlsx"><strong>File Import Example</strong> <i class="fa fa-cloud-download"></i></a>
 <div style="width:100%">
   <br>
   <h4>Import Wine</h4>
