@@ -1,16 +1,15 @@
 <?php
-require_once 'connect.php';
+require_once 'connect/db_connect.php';
 // Bước 1:
 // Lấy dữ liệu từ database
 $sql = "SELECT product_name, quantity, price FROM diem";
-$result = mysql_query($sql);
-$num_rows = mysql_num_rows($result);
+$result = $conn->query($sql);
 
-if ($num_rows > 0) {
+if ($result->num_rows > 0) {
     // output data of each row
     $data = array();
     $stt = 1;
-    while($row = mysql_fetch_assoc($result)) {
+    while($row = $result->fetch_assoc()) {
         array_push(
           $data,
           array (
@@ -25,7 +24,7 @@ if ($num_rows > 0) {
 } else {
     echo "0 results";
 }
-mysql_close($conn);
+$conn->close();
 // print_r($data);
 // Bước 2: Import thư viện phpexcel
 require 'Classes/PHPExcel.php';
