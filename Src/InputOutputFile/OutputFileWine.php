@@ -1,35 +1,18 @@
 <?php
-require_once 'connect.php';
+require_once 'connect/db_connect_windsor.php';
 // Bước 1:
 // Lấy dữ liệu từ database
 $sql = "SELECT * FROM wine";
-$result = mysql_query($sql);
-$num_rows = mysql_num_rows($result);
+$result = $conn->query($sql);
 
-if ($num_rows > 0) {
+if ($result->num_rows > 0) {
     // output data of each row
     $data = array();
-    // echo '<table border="1">
-    // <tbody>';
     $number = 1;
-    while($row = mysql_fetch_assoc($result)) {
+    while($row = $result->fetch_assoc()) {
         array_push(
           $data,
           array (
-          // echo "
-          // <tr>
-          //   <td>".$number."</td>
-          //   <td>".$row["WineName"]."</td>
-          //   <td>".$row["WineStrength"]."</td>
-          //   <td>".$row["WineShortDetails"]."</td>
-          //   <td>".$row["WineDetails"]."</td>
-          //   <td>".$row["WineUpdateDate"]."</td>
-          //   <td>".$row["WineQuantity"]."</td>
-          //   <td>".$row["WineSold"]."</td>
-          //   <td>".$row["CategoryId"]."</td>
-          //   <td>".$row["PublisherId"]."</td>
-          //   <td>".$row["CountryId"]."</td>
-          // </tr>";
             $number,
             $row["WineName"],
             $row["WineStrength"],
@@ -40,17 +23,15 @@ if ($num_rows > 0) {
             $row["WineSold"],
             $row["CategoryId"],
             $row["PublisherId"],
-            $row["CountryId"],
+            $row["CountryId"]
           )
         );
         $number++;
     }
-    // echo "</tbody>
-    // </table>";
 } else {
     echo "0 results";
 }
-mysql_close();
+$conn->close();
 // print_r($data);
 // Bước 2: Import thư viện phpexcel
 require 'Classes/PHPExcel.php';
@@ -126,7 +107,7 @@ $objWriter = PHPExcel_IOFactory::createWriter($PHPExcel, 'Excel2007');
 // Bước 9: Trả file về cho client download
 date_default_timezone_set("Asia/Ho_Chi_Minh");
 $filename = "Wine_export_file_".date("YmdHis").".xlsx";
-header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+header('Content-Type: charset=utf-8; application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 header('Content-Disposition: attachment;filename="'.$filename.'"');
 header('Cache-Control: max-age=0');
 if (isset($objWriter)) {
