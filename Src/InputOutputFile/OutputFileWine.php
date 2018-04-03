@@ -1,5 +1,5 @@
 <?php
-require_once 'connect/db_connect_windsor.php';
+require_once 'db_connect_windsor.php';
 // Bước 1:
 // Lấy dữ liệu từ database
 $sql = "SELECT * FROM wine";
@@ -107,7 +107,7 @@ $objWriter = PHPExcel_IOFactory::createWriter($PHPExcel, 'Excel2007');
 // Bước 9: Trả file về cho client download
 date_default_timezone_set("Asia/Ho_Chi_Minh");
 $filename = "Wine_export_file_".date("YmdHis").".xlsx";
-header('Content-Type: charset=utf-8; application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 header('Content-Disposition: attachment;filename="'.$filename.'"');
 header('Cache-Control: max-age=0');
 if (isset($objWriter)) {

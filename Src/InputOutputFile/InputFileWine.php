@@ -1,10 +1,11 @@
 <?php
 //  Include thư viện PHPExcel_IOFactory vào
 include 'Classes/PHPExcel/IOFactory.php';
-require_once 'connect.php';
+require_once 'db_connect_windsor.php';
 
 if(isset($_POST['btnGui'])){
 	$inputFileName = $_FILES['file']['tmp_name'];
+	// $inputFileName = 'product.xlsx';
 
 	//  Tiến hành đọc file excel
 	try {
@@ -35,10 +36,17 @@ if(isset($_POST['btnGui'])){
 	}
 
 	for ($i = 0; $i < $highestRow - 1; $i++) {
-			$product_name = $rowData[$i][0][1];
-			$quantity = $rowData[$i][0][2];
-			$price = $rowData[$i][0][3];
-			$sql = "INSERT INTO diem(product_name,quantity,price) VALUES ('$product_name',$quantity,$price)";
+			$winename = $rowData[$i][0][1];
+			$winestrength = $rowData[$i][0][2];
+			$wineshortdetails = $rowData[$i][0][3];
+      $winedetails = $rowData[$i][0][4];
+			$wineupdatedate = $rowData[$i][0][5];
+			$winequantity = $rowData[$i][0][6];
+      $winesold = $rowData[$i][0][7];
+			$categoryid = $rowData[$i][0][8];
+      $publisherid = $rowData[$i][0][9];
+			$countryid = $rowData[$i][0][10];
+			$sql = "INSERT INTO wine(winename,winestrength,wineshortdetails,winedetails,wineupdatedate,winequantity,winesold,categoryid,publisherid,countryid) VALUES ('$winename',$winestrength,'$wineshortdetails','$winedetails','$wineupdatedate',$winequantity,$winesold,$categoryid,$publisherid,$countryid)";
 
 			mysqli_query($conn, $sql);
 		}
@@ -47,18 +55,13 @@ if(isset($_POST['btnGui'])){
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Import data to database</title>
-	<link rel="stylesheet" href="">
-</head>
-<body>
-	<form method="POST" enctype="multipart/form-data">
-		<input type="file" name="file">
-		<button type="submit" name="btnGui">Import</button>
-	</form>
-</body>
-</html>
+<a class="btn btn-primary" href="Example/Wine_import_file_example.xlsx"><strong>File Import Example</strong> <i class="fa fa-cloud-download"></i></a>
+<div style="width:100%">
+  <br>
+  <h4>Import Wine</h4>
+  <br>
+  <form method="POST" enctype="multipart/form-data" class="form form-inline">
+    <input class="form-control" type="file" name="file">
+    <button type="submit" name="btnGui" class="btn btn-default">Import</button>
+  </form>
+</div>
