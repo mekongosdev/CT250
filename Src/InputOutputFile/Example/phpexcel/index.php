@@ -1,34 +1,53 @@
 <?php
-
-require('connect/db_connect.php');
-require('Classes/PHPExcel.php');
-
+//  Include thư viện PHPExcel_IOFactory vào
+include 'Classes/PHPExcel/IOFactory.php';
+require_once 'connect/db_connect.php';
 
 if(isset($_POST['btnGui'])){
-	$file = $_FILES['file']['tmp_name'];
+	$inputFileName = $_FILES['file']['tmp_name'];
+	// $inputFileName = 'product.xlsx';
 
-	$objReader = PHPExcel_IOFactory::createReaderForFile($file);
-	$objReader->setLoadSheetsOnly('10A1');
-
-	$objExcel = $objReader->load($file);
-	$sheetData = $objExcel->getActiveSheet()->toArray('null',true,true,true);
-
-	$highestRow = $objExcel->setActiveSheetIndex()->getHighestRow();
-	//echo $highestRow; 
-	for($row = 2; $row<=$highestRow; $row++){
-		$id_lop = 1;
-		$name = $sheetData[$row]['A'];
-		$toan = $sheetData[$row]['B'];
-		$ly = $sheetData[$row]['C'];
-		$hoa = $sheetData[$row]['D'];
-
-		$sql = "INSERT INTO diem(id_lop,name,toan,ly,hoa) VALUES ($id_lop,'$name',$toan,$ly,$hoa)";
-		$mysqli->query($sql);
+	//  Tiến hành đọc file excel
+	try {
+	    $inputFileType = PHPExcel_IOFactory::identify($inputFileName);
+	    $objReader = PHPExcel_IOFactory::createReader($inputFileType);
+	    $objPHPExcel = $objReader->load($inputFileName);
+	} catch(Exception $e) {
+	    die('Lỗi không thể đọc file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
 	}
-	echo 'Inserted!';
-}
 
+	//  Lấy thông tin cơ bản của file excel
+
+	// Lấy sheet hiện tại
+	$sheet = $objPHPExcel->getSheet(0);
+
+	// Lấy tổng số dòng của file, trong trường hợp này là 6 dòng
+	$highestRow = $sheet->getHighestRow();
+
+	// Lấy tổng số cột của file, trong trường hợp này là 4 dòng
+	$highestColumn = $sheet->getHighestColumn();
+
+	// Khai báo mảng $rowData chứa dữ liệu
+
+	//  Thực hiện việc lặp qua từng dòng của file, để lấy thông tin
+	for ($row = 2; $row <= $highestRow; $row++){
+	    // Lấy dữ liệu từng dòng và đưa vào mảng $rowData
+	    $rowData[] = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE,FALSE);
+	}
+
+	for ($i = 0; $i < $highestRow - 1; $i++) {
+			$product_name = $rowData[$i][0][1];
+			$quantity = $rowData[$i][0][2];
+			$price = $rowData[$i][0][3];
+			$sql = "INSERT INTO diem(product_name,quantity,price) VALUES ('$product_name',$quantity,$price)";
+
+			mysqli_query($conn, $sql);
+		}
+	echo "New record created successfully";
+	mysqli_close($conn);
+}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +57,7 @@ if(isset($_POST['btnGui'])){
 	<link rel="stylesheet" href="">
 </head>
 <body>
+	<a href="exportfile.php">Export</a>
 	<form method="POST" enctype="multipart/form-data">
 		<input type="file" name="file">
 		<button type="submit" name="btnGui">Import</button>

@@ -1,11 +1,13 @@
 <?php
+$servername = "localhost";
+$username = "root";
+$password = "mysql";
+$dbname = "excel_demo";
 
-$mysqli = mysqli_connect('localhost','root','','excel_demo');
-$mysqli->set_charset('utf8');
-if(mysqli_connect_errno()){
-	echo 'Connect Failed: '.mysqli_connect_error();
-	exit;
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
-
-
 ?>

@@ -73,10 +73,10 @@ $objWriter = PHPExcel_IOFactory::createWriter($PHPExcel, 'Excel2007');
 date_default_timezone_set("Asia/Ho_Chi_Minh");
 $filename = "Export_file_".date("YmdHis").".xlsx";
 echo $filename;
-// header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-// header('Content-Disposition: attachment;filename="'.$filename.'"');
-// header('Cache-Control: max-age=0');
-// if (isset($objWriter)) {
-//     $objWriter->save('php://output');
-// }
+header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+header('Content-Disposition: attachment;filename="'.$filename.'"');
+header('Cache-Control: max-age=0');
+if (isset($objWriter)) {
+    $objWriter->save('php://output');
+}
 ?>
