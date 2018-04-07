@@ -1,6 +1,43 @@
-	
+
 <?php 
 $WineId = $_GET['WineId'];
+if(isset($_POST['btnOrder']))
+{
+	$query = "Select wine.WineId, wine.WineName, wine.WineQuantity, publisher.PublisherName, time_wine.PurchasePrice, time_wine.SellingPrice from wine, publisher, time_wine WHERE wine.WineId = time_wine.WineId and publisher.PublisherId = wine.PublisherId and  wine.WineId = ".$WineId;
+	$result = mysql_query($query) or trigger_error(mysql_error().$query);
+	while ($rowsql = mysql_fetch_array($result, MYSQL_ASSOC)){
+		$coroi = false;
+		foreach ($_SESSION["cart"] as $key => $row)
+		{
+			if($key==$WineId)
+			{
+				$_SESSION['cart'][$key]["quantity"] +=  $_POST['txtOrder'];
+				$coroi = true;
+			}
+		}
+
+		if(!$coroi)
+		{
+			$ten = $rowsql['WineName'];
+			$nsx = $rowsql['PublisherName'];
+			$price = $rowsql['SellingPrice'];
+			$oriprice = $rowsql['PurchasePrice'];
+			$cart = array(
+				"ten" => $ten,
+				"quantity" =>$_POST['txtOrder'],
+				"gia" => $price,
+				"giagoc" => $oriprice,
+				"hang" => $nsx);
+			$_SESSION['cart'][$WineId]=$cart;
+		}
+		echo "<script language='javascript'>
+		alert('Added successfully!'); 
+		window.location.href='?page=Cart'
+		</script>";
+
+	}
+}
+
 $result=mysql_query("SELECT WineId, WineName, WineStrength, WineShortDetails, WineDetails, WineUpdateDate,WineQuantity, wine.CategoryId, wine.PublisherId, wine.CountryId FROM wine, category, country, publisher WHERE wine.CategoryId = category.CategoryId AND wine.PublisherId = publisher.PublisherId AND wine.CountryId = country.CountryId and wine.WineId =".$WineId);
 while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 	?>
@@ -10,14 +47,14 @@ while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 			<div class="modal-body">
 				<div class="col-md-5 modal_body_left">
 					<div class="hs-wrapper hs-wrapper1">
-					<?php
-					$imgResult = mysql_query("
-						SELECT ImgWine FROM imgwine, wine WHERE wine.WineId = imgwine.WineId and wine.WineId = ".$row['WineId']);
-					while ($imgRow = mysql_fetch_array($imgResult, MYSQL_ASSOC)){
-						echo'<img src="public/admin/images/products/'.$imgRow["ImgWine"].'" class="img-responsive" />';
+						<?php
+						$imgResult = mysql_query("
+							SELECT ImgWine FROM imgwine, wine WHERE wine.WineId = imgwine.WineId and wine.WineId = ".$row['WineId']);
+						while ($imgRow = mysql_fetch_array($imgResult, MYSQL_ASSOC)){
+							echo'<img src="public/admin/images/products/'.$imgRow["ImgWine"].'" class="img-responsive" />';
 
-					} ?>
-				</div>
+						} ?>
+					</div>
 				</div>
 				<div class="col-md-7 modal_body_right">
 					<h4><?=$row['WineName']?></h4>
@@ -65,30 +102,32 @@ while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 						</ul>
 					</div>
 					<br/>
-					<div class="form-group row">
-						<label for="wine-quantity" class="col-sm-2 control-label">Quantity</label>
-						<div class="col-sm-3">
-							<div class="input-group bootstrap-touchspin">
-								<input id="wine-quantity" class="form-control text-center" name="txtOrder" value="1"/>         
+					<form name="frmOrder" id="frmOrder" method="post" action="#">
+						<div class="form-group row">
+							<label for="wine-quantity" class="col-sm-2 control-label">Quantity</label>
+							<div class="col-sm-3">
+								<div class="input-group bootstrap-touchspin">
+									<input id="wine-quantity" class="form-control text-center" name="txtOrder" value="1"/>         
+								</div>
 							</div>
-						</div>
-						<div class="col-sm-7">
-							<div class="modal_body_right_cart simpleCart_shelfItem">
-								<?php
-								if ($row['WineQuantity'] > 0) 
-								{
-									?>
-									<p><a class="item_add" href="?action=checkout&&WineId=<?php echo  $row['WineId']?>">Add to card</a></p>
+							<div class="col-sm-7">
+								<div class="modal_body_right_cart simpleCart_shelfItem">
 									<?php
-								} else {
+									if ($row['WineQuantity'] > 0) 
+									{
+										?>
+										<input class="btn btn-success item_add" type="submit" name="btnOrder" id="btnOrder" value="Add to Cart">
+										<?php
+									} else {
+										?>
+										<p><a class="item_add" href="#">Out of stock</a></p>
+										<?php
+									}
 									?>
-									<p><a class="item_add" href="#">Out of stock</a></p>
-									<?php
-								}
-								?>
+								</div>
 							</div>
-						</div>
-					</div>         
+						</div>  
+					</form>       
 				</div>
 				<div class="clearfix"> </div>
 			</div>
