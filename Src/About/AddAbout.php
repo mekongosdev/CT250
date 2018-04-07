@@ -1,16 +1,24 @@
 <?php
 
+// function listEmployees() {
+//   $sql_query_list_employees = "SELECT * FROM employee";
+//   $sql_result_list_employees = mysql_query($sql_query_list_employees);
+//
+//
+//   echo "<select name='slEmpl' class='form-control'><option value='0'>Choice Employee</option>";
+//   while ($row_employee = mysql_fetch_array($sql_result_list_employees)) {
+//     echo "<option value='".$row_employee['EmployeeCode']."'>".$row_employee['EmployeeName']."</option>";
+//   }
+//   echo "</select>";
+// }
 
-function listEmployees() {
-  $sql_query_list_employees = "SELECT * FROM employee";
-  $sql_result_list_employees = mysql_query($sql_query_list_employees);
+function byEmployee($EmployeeCode) {
+  $sql_query_employee = "SELECT * FROM employee WHERE EmployeeCode = '{$EmployeeCode}'";
+  $sql_result_employee = mysql_query($sql_query_employee);
 
-
-  echo "<select name='slEmpl' class='form-control'><option value='0'>Choice Employee</option>";
-  while ($row_employee = mysql_fetch_array($sql_result_list_employees)) {
-    echo "<option value='".$row_employee['EmployeeCode']."'>".$row_employee['EmployeeName']."</option>";
+  while ($row_employee = mysql_fetch_array($sql_result_employee)) {
+    echo '<input type="text" class="form-control" name="slEmpl" value="'.$row_employee['EmployeeName'].'" disabled />';
   }
-  echo "</select>";
 }
 
 $name = "";
@@ -59,7 +67,7 @@ if(isset($_POST['btnAdd']))
 			<label class="control-label col-md-2" for="slEmpl">Employee:</label>
 			<div class="col-md-10">
 				<?php
-				listEmployees();
+				byEmployee($_SESSION['EmployeeCode']);
 				?>
 			</div>
 		</div>
