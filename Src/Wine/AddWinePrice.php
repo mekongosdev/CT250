@@ -13,10 +13,10 @@
 		$Note = $_POST["txtNote"];
 		$result = addWinePrice($WineId,$TimeId,$PurchasePrice,$SellingPrice,$Note);
 		if($result){
-			echo '<script> alert("Thêm giá tượu thành công");</script>';
+			echo '<script> alert("Insert Success");</script>';
 			echo "<script>window.location.href='?page=PriceHistory&WineId=".$_POST["slWine"]."'</script>";
 		}else{
-			echo '<script> alert("Thông tin đã tồn tại!");</script>';
+			echo '<script> alert("Data already exists!");</script>';
 			
 		}
 	}
@@ -25,19 +25,19 @@
 		<div class="col-md-12"/>
 		<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data" form-horizontal>
 			<div class="form_group">
-				<label class="control-label col-sm-12" for="email"><h2 align="center">Thêm giá rượu</h2></label>
+				<label class="control-label col-sm-12" for="email"><h2 align="center">Add Price</h2></label>
 			</div>
 
 		</form>
 		<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" >
 			<div class="form-group">
-				<label class="control-label col-md-2" for="slWine">Tên Rượu:</label>
+				<label class="control-label col-md-2" for="slWine">Wine Names:</label>
 				<div class="col-sm-10">
 					<?php
 					$sqlSelect = "SELECT `WineId`, `WineName` FROM `Wine`";
 					$result = mysql_query($sqlSelect);
 					$selectedValue = "";
-					echo "<select name='slWine' class='form-control'><option value='0'>Vui lòng chọn loại rượu</option>";
+					echo "<select name='slWine' class='form-control'><option value='0'>Choice Wine</option>";
 					while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) 
 					{
 						if($row['WineId'] == $selectedValue)
@@ -55,13 +55,13 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-md-2" for="slTime">Thời điểm</label>
+				<label class="control-label col-md-2" for="slTime">The time of</label>
 				<div class="col-md-10">          
 					<?php
 					$sqlSelect = "SELECT `TimeId`, `ApplicationTime` FROM `Time`";
 					$result = mysql_query($sqlSelect);
 					$selectedValue = "";
-					echo "<select name='slTime' class='form-control'><option value='0'>Vui lòng chọn thời điểm áp dụng</option>";
+					echo "<select name='slTime' class='form-control'><option value='0'>Choice The time of</option>";
 					while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) 
 					{
 						if($row['TimeId'] == $selectedValue)
@@ -79,31 +79,31 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-md-2" for="txtPurchasePrice">Giá mua:</label>
+				<label class="control-label col-md-2" for="txtPurchasePrice">The purchase price:</label>
 				<div class="col-md-10">          
 
-					<input type="text" class="form-control" id="txtPurchasePrice" placeholder="Nhập vào giá mua vào" name="txtPurchasePrice"
+					<input type="text" class="form-control" id="txtPurchasePrice" placeholder="Enter the price purchase" name="txtPurchasePrice"
 					required  >
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-md-2" for="txtSellingPrice">Giá bán:</label>
+				<label class="control-label col-md-2" for="txtSellingPrice">Sale price:</label>
 				<div class="col-md-10">          
-					<input name="txtSellingPrice" class="form-control" placeholder="Nhập vào giá bán ra" required id="txtSellingPrice"></input>
+					<input name="txtSellingPrice" class="form-control" placeholder="Enter the sale Price" required id="txtSellingPrice"></input>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-md-2" for="txtNote">Ghi chú:</label>
+				<label class="control-label col-md-2" for="txtNote">Notes:</label>
 				<div class="col-md-10">          
-					<input type="text" class="form-control" id="txtNote" placeholder="Nhập vào ghi chú" name="txtNote"
+					<input type="text" class="form-control" id="txtNote" placeholder="Enter the notes" name="txtNote"
 					required  >
 				</div>
 			</div>
 
 			<div class="form-group">        
 				<div class="col-md-offset-2 col-md-10">
-					<button type="submit" class="btn btn-info" name="btnAdd" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Thêm</button>
-					<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Bỏ Qua</button>
+					<button type="submit" class="btn btn-info" name="btnAdd" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Add</button>
+					<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
 				</div>
 			</div>
 		</form>

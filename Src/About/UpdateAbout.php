@@ -66,22 +66,22 @@ if(isset($_POST['btnUpdate']))
 				</div>
 			</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtName">Tên:</label>
+			<label class="control-label col-md-2" for="txtName">About Us:</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="txtName" placeholder="Nhập và tên công ty rượu hiện tại" name="txtName"
+				<input type="text" class="form-control" id="txtName" placeholder="Enter About Us" name="txtName"
 				required autofocus value="<?=$AboutName;?>">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtHistory">Lịch sử hình thành:</label>
+			<label class="control-label col-md-2" for="txtHistory">About Content:</label>
 			<div class="col-md-10">          
 
 				<textarea name="txtHistory" id="txtHistory"
-				placeholder="Nhập vào quá trình hình thành" class="form-control" required ><?=$AboutContent;?></textarea>
+				placeholder="Enter Content" class="form-control" required ><?=$AboutContent;?></textarea>
 			</div>
 		</div>
         <div class="form-group">
-			<label class="control-label col-md-2" for="slEmpl">Nhân viên tạo:</label>
+			<label class="control-label col-md-2" for="slEmpl">Employee:</label>
 			<div class="col-md-10">          
 			<?php
 					$sqlSelect = "SELECT `EmployeeCode`, `EmployeePass`, `EmployeeName`, `EmployeeBirth`, `EmployeeAddress`, `EmployeeEmail`, `EmployeeIC`, `Role` FROM `employee`";

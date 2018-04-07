@@ -27,19 +27,19 @@ if (isset($_POST['btnXoa'])&&isset($_POST['checkbox']))
 }
 ?>
 <h3 class="w3_inner_tittle two text-center">About</h3>
-<a class="btn btn-primary" href="?page=AddWine">Add <i class="fa fa-plus"></i></a> 
+<a class="btn btn-primary" href="?page=AddAbout">Add <i class="fa fa-plus"></i></a> 
 <br>
 <br>
 	<form name="frmXoa" method="post">
 		<table id="myTable" class="table-striped table-hover table-responsive">
 			<thead >
 				<tr>
-					<th><strong>Chọn</strong></th>
-					<th><strong>STT</strong></th>
-					<th><strong>Về Chúng Tôi</strong></th>
-					<th><strong>Nội Dung</strong></th>
-					<th><strong>Người lập</strong></th>	
-					<th><strong>Phương Thức</strong></th>
+					<th><strong>Choice</strong></th>
+					<th><strong>No</strong></th>
+					<th><strong>About us</strong></th>
+					<th><strong>Content</strong></th>
+					<th><strong>Employee</strong></th>	
+					<th><strong>Action</strong></th>
 				</tr>
 			</thead>
 			<tbody>

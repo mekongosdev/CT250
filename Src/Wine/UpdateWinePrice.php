@@ -22,7 +22,7 @@ if(isset($_POST['btnUpdate']))
 	$SellingPrice = $_POST["txtSellingPrice"];
 	$Note = $_POST["txtNote"];
 	updateWinePrice($WineId,$TimeId,$PurchasePrice,$SellingPrice,$Note);
-	echo '<script> alert("Cập nhật thành công!");</script>';
+	echo '<script> alert("Update success!");</script>';
 	echo "<script>window.location.href='?page=PriceHistory&WineId=".$_POST["slWine"]."'</script>";
 }
 
@@ -32,13 +32,13 @@ if(isset($_POST['btnUpdate']))
 	<div class="col-md-12"/>
 	<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data" form-horizontal>
 		<div class="form_group">
-			<label class="control-label col-sm-12" for="email"><h2 align="center">Cập Nhật Rượu</h2></label>
+			<label class="control-label col-sm-12" for="email"><h2 align="center">Wine Update</h2></label>
 		</div>
 
 	</form>
 	<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" >
 		<div class="form-group">
-			<label class="control-label col-md-2" for="slWine">Tên Rượu:</label>
+			<label class="control-label col-md-2" for="slWine">Wine:</label>
 			<div class="col-sm-10">
 				<?php
 				$sqlSelect = "SELECT `WineId`, `WineName` FROM `Wine`";
@@ -62,7 +62,7 @@ if(isset($_POST['btnUpdate']))
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="slTime">Thời điểm</label>
+			<label class="control-label col-md-2" for="slTime">Time</label>
 			<div class="col-md-10">          
 				<?php
 				$sqlSelect = "SELECT `TimeId`, `ApplicationTime` FROM `Time`";
@@ -86,7 +86,7 @@ if(isset($_POST['btnUpdate']))
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtPurchasePrice">Giá mua:</label>
+			<label class="control-label col-md-2" for="txtPurchasePrice">Wine of purchase:</label>
 			<div class="col-md-10">          
 
 				<input type="text" class="form-control" id="txtPurchasePrice" name="txtPurchasePrice" value="<?=$PurchasePrice?>"
@@ -94,13 +94,13 @@ if(isset($_POST['btnUpdate']))
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtSellingPrice">Giá bán:</label>
+			<label class="control-label col-md-2" for="txtSellingPrice">Wine sale:</label>
 			<div class="col-md-10">          
 				<input name="txtSellingPrice" class="form-control"  value="<?=$SellingPrice?>" required id="SellingPrice"></input>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtNote">Ghi chú:</label>
+			<label class="control-label col-md-2" for="txtNote">Note:</label>
 			<div class="col-md-10">           
 				<input type="text" class="form-control" id="txtNote"  name="txtNote" value="<?=$Note?>"
 				required  >
@@ -109,8 +109,8 @@ if(isset($_POST['btnUpdate']))
 
 		<div class="form-group">        
 			<div class="col-md-offset-2 col-md-10">
-				<button type="submit" class="btn btn-info" name="btnUpdate" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Cập nhật</button>
-				<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Bỏ Qua</button>
+				<button type="submit" class="btn btn-info" name="btnUpdate" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Update</button>
+				<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel</button>
 			</div>
 		</div>
 	</form>

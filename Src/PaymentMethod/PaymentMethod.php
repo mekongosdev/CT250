@@ -3,17 +3,17 @@ $sqlSelect = "SELECT `PaymentMethodId`, `PaymentMethodName`, `PaymentMethodDetai
 $list_PaymentMethod= mysql_query($sqlSelect);
 
 ?>
-<h3 class="w3_inner_tittle two text-center">Quản lý hình thức thanh toán</h3>
-<a class="btn btn-primary" href="?page=AddPaymentMethod">THÊM <i class="fa fa-plus"></i></a> 
+<h3 class="w3_inner_tittle two text-center">Payment Method</h3>
+<a class="btn btn-primary" href="?page=AddPaymentMethod">Add <i class="fa fa-plus"></i></a> 
 </br>
 </br>
 <table id="myTable" class="table-striped table-hover">
 	<thead >
 		<tr>
-			<th><strong>STT</strong></th>
-			<th><strong>Tên HTTT</strong></th>
-			<th><strong>Mô Tả</strong></th>
-			<th><strong>Phương Thức</strong></th>
+			<th><strong>Num</strong></th>
+			<th><strong>Payment Names</strong></th>
+			<th><strong>Details</strong></th>
+			<th><strong>Action</strong></th>
 		</tr>
 	</thead>
 	<tbody>
