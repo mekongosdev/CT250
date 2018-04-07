@@ -31,7 +31,8 @@ if(isset($_POST['btnOrder']))
 			$_SESSION['cart'][$WineId]=$cart;
 		}
 		echo "<script language='javascript'>
-		alert('Sản phẩm đã được thêm vào giỏ hàng, truy cập giỏ hàng để xem!');
+		alert('Added successfully!'); 
+		window.location.href='?page=Cart'
 		</script>";
 
 	}
