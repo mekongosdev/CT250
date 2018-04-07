@@ -1,5 +1,5 @@
 <?php
-include_once("EmployeeController.php"); 
+include_once("EmployeeController.php");
 $empCode="";
 $empPass="";
 $empName="";
@@ -35,13 +35,13 @@ if(isset($_POST["btnAdd"]))
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtName">Mã Nhân viên:</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="txtName" placeholder="Nhập vào tên loại rượu" name="txtName"
+				<input type="text" class="form-control" id="txtName" placeholder="Nhập vào mã nhân viên" name="txtName"
 				required autofocus="" >
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtPassword">Mật khẩu:</label>
-			<div class="col-md-10">          
+			<div class="col-md-10">
 
 				<input type="password" class="form-control" id="txtPassword" placeholder="Nhập vào mật khẩu của nhân viên" name="txtPassword"
 				required  >
@@ -49,7 +49,7 @@ if(isset($_POST["btnAdd"]))
 		</div>
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtHoten">Họ và tên:</label>
-			<div class="col-md-10">          
+			<div class="col-md-10">
 
 				<input type="text" class="form-control" id="txtHoten" placeholder="Nhập vào họ tên của nhân viên" name="txtHoten"
 				required />
@@ -57,7 +57,7 @@ if(isset($_POST["btnAdd"]))
 		</div>
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtDate">Ngày tháng năm sinh:</label>
-			<div class="col-md-10">          
+			<div class="col-md-10">
 
 				<input type="date" class="form-control" id="txtDate" placeholder="Nhập vào ngày tháng năm sinh" name="txtDate"
 				required  >
@@ -65,7 +65,7 @@ if(isset($_POST["btnAdd"]))
 		</div>
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtAddress">Địa chỉ:</label>
-			<div class="col-md-10">          
+			<div class="col-md-10">
 
 				<input type="text" class="form-control" id="txtAddress" placeholder="Nhập vào địa ch3i của nhân viên" name="txtAddress"
 				required >
@@ -73,7 +73,7 @@ if(isset($_POST["btnAdd"]))
 		</div>
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtEmail">Email:</label>
-			<div class="col-md-10">          
+			<div class="col-md-10">
 
 				<input type="email" class="form-control" id="txtEmail" placeholder="Nhập vào địa chỉ của nhân viên" name="txtEmail"
 				required  >
@@ -81,20 +81,20 @@ if(isset($_POST["btnAdd"]))
 		</div>
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtCMND">CMND:</label>
-			<div class="col-md-10">          
+			<div class="col-md-10">
 				<input type="text" class="form-control" id="txtCMND" placeholder="Nhập vào chứng minh nhânda6n" name="txtCMND"
 				required  >
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-md-2" for="slRole">Quyền:</label>
-			<div class="col-md-10">          
+			<div class="col-md-10">
 				<?php
 				blindListRole();
 				?>
 			</div>
 		</div>
-		<div class="form-group">        
+		<div class="form-group">
 			<div class="col-md-offset-2 col-md-10">
 				<button type="submit" class="btn btn-info" name="btnAdd" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Thêm</button>
 				<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Bỏ Qua</button>

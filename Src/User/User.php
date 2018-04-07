@@ -4,23 +4,23 @@ $sqlSelect = "SELECT `UserName`, `FullName`, `Sex`, `Address`, `Phone`, `Email`,
 $list_User= mysql_query($sqlSelect);
 
 ?>
-<h3 class="w3_inner_tittle two text-center">Quản lý người dùng</h3>
+<h3 class="w3_inner_tittle two text-center">Management User</h3>
 
 <table id="myTable" class="table-striped table-hover">
 	<thead >
 		<tr>
-			<th><strong>STT</strong></th>
-			<th><strong>Tài Khoản</strong></th>
-			<th><strong>Học Tên</strong></th>
-			<th><strong>Giới tính</strong></th>
-			<th><strong>Địa chỉ</strong></th>
-			<th><strong>Số điện thoại</strong></th>
+			<th><strong>NO</strong></th>
+			<th><strong>Username</strong></th>
+			<th><strong>Full Names</strong></th>
+			<th><strong>Gender</strong></th>
+			<th><strong>Address</strong></th>
+			<th><strong>Phone Number</strong></th>
 			<th><strong>Email</strong></th>
-			<th><strong>Ngày sinh</strong></th>
-			<th><strong>Quyền</strong></th>
-			<th><strong>Trạng thái</strong></th>
-			<th><strong>Khóa/Mở</strong></th>
-			<th><strong>Phương Thức</strong></th>
+			<th><strong>Date of Birth</strong></th>
+			<th><strong>Role</strong></th>
+			<th><strong>Status</strong></th>
+			<th><strong>Close/Open</strong></th>
+			<th><strong>Action</strong></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -33,7 +33,7 @@ $list_User= mysql_query($sqlSelect);
 				<td class="col-md-1"><?= $num;?> </td>
 				<td class="col-md-3"><?= $UserId;?> </td>
 				<td class="col-md-3"><?= $FullName;?> </td>
-				<td class="col-md-2"><?= ($Sex == 1) ? "Nam" : "Nữ"; ?> </td>
+				<td class="col-md-2"><?= ($Sex == 1) ? "Boy" : "Girl"; ?> </td>
 				<td class="col-md-6"><?= $address;?> </td>
 				<td class="col-md-6"><?= $phone;?> </td>
 				<td class="col-md-6"><?= $email;?> </td>
@@ -49,9 +49,9 @@ $list_User= mysql_query($sqlSelect);
 				<td class="col-md-6">
 					<?php 
 						if($status==1){
-							echo 'Đã kích hoạt';
+							echo 'Active';
 						}else{
-							echo 'Chưa kích hoạt';
+							echo 'No Active';
 						}
 					?>
 					
@@ -60,15 +60,15 @@ $list_User= mysql_query($sqlSelect);
 					<form  method="post" action="">
 					<?php 
 						if($status==1){
-							echo '<a class="btn btn-danger" href="?page=ActiveUser&Status='.$status.'&UserId='.$UserId.'">Đóng</a>';
+							echo '<a class="btn btn-danger" href="?page=ActiveUser&Status='.$status.'&UserId='.$UserId.'">Open</a>';
 						}else{
-							echo '<a class="btn btn-primary" href="?page=ActiveUser&Status='.$status.'&UserId='.$UserId.'">Mở</a>';
+							echo '<a class="btn btn-primary" href="?page=ActiveUser&Status='.$status.'&UserId='.$UserId.'">Close</a>';
 						}
 					?>
 				</form>
 				</td>
 				<td class="text-center col-md-2">
-					<a class='btn btn-danger' href="?page=DeleteUser&UserId=<?php echo $UserId; ?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?')"><i class="fa fa-remove"></i></a>
+					<a class='btn btn-danger' href="?page=DeleteUser&UserId=<?php echo $UserId; ?>" onclick="return confirm('Are you sure delete?')"><i class="fa fa-remove"></i></a>
 				</td>     
 			</tr>
 			<?php

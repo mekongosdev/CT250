@@ -67,13 +67,13 @@
 <div class="container">
 	<form  id="frmHinhAnh" class="form-horizontal" name="frmHinhAnh" method="post" action="" enctype="multipart/form-data" role="form">
 		<div class="form-group">
-			<label for="WineId" class="col-sm-2 control-label">Mã hình (*):  </label>
+			<label for="WineId" class="col-sm-2 control-label">Code Wine (*):  </label>
 			<div class="col-sm-10">
 				<input type="text" name="WineId" id="WineId" class="form-control" placeholder="Mã nhân hình" value='<?php echo $WineId; ?>' readonly="readonly"/>
 			</div>
 		</div>  
 		<div class="form-group">    
-			<label for="WineName" class="col-sm-2 control-label">Tên rượu (*):  </label>
+			<label for="WineName" class="col-sm-2 control-label">Wine Name (*):  </label>
 			<div class="col-sm-10">
 				<input type="text" name="WineName" id="WineName" class="form-control" placeholder="Tên loại sản phẩm" value='<?php echo $WineName; ?>' readonly="readonly"/> 
 			</div>
@@ -83,7 +83,7 @@
 				<input type="file" accept=".jpg, .png, .jpeg, .gif" onChange='hasExistfile()' name="fileToUpload" id="fileToUpload" class="form-control-file" required="true" />
 			</div>
 		</div>  
-		<button type="submit" class="btn btn-primary pull-right" name="btnUpload" disabled id="btnUploadImage">Tải ảnh</button>
+		<button type="submit" class="btn btn-primary pull-right" name="btnUpload" disabled id="btnUploadImage">Load Img</button>
 		<script type="text/javascript">
 			function hasExistfile(){
 				document.getElementById('btnUploadImage').disabled = false;
@@ -105,7 +105,7 @@
 					<div class='col-sm-2'>
 						<img src="<?php echo "../Public/admin/images/products/".$row['ImgWine']; ?>" width="100px"/>
 					</div>
-			<a class='btn btn-danger' href="?page=DeleteWineImage&&WineId=<?=$_GET['WineId'];?>&&ImgWineId=<?=$ImgWineId;?>" onclick="return confirm('Bạn có chắc chắn xóa hình này không?')"><i class="fa fa-remove"></i></a>
+			<a class='btn btn-danger' href="?page=DeleteWineImage&&WineId=<?=$_GET['WineId'];?>&&ImgWineId=<?=$ImgWineId;?>" onclick="return confirm('Are you sure delete Img?')"><i class="fa fa-remove"></i></a>
 				</div>
 				<div class='col-sm-offset-2 col-sm-4'>
 					<div><hr /></div>

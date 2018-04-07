@@ -58,7 +58,7 @@ $list_about= mysql_query($sqlSelect);
 			</div>
 			<div class="col-md-4 wthree_team_grid">
 				<img src="public/client/images/noimage.png" alt=" " class="img-responsive" />
-				<h4>Dthuy <span>Leader</span></h4>
+				<h4>dthuy <span>Leader</span></h4>
 				<div class="agileits_social_button">
 					<ul>
 						<li><a href="#" class="facebook"> </a></li>

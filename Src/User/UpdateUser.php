@@ -46,7 +46,7 @@ if(isset($_SESSION['username'])) {
 					<form id="form1" name="form1" method="post" action="#" class="form-horizontal" role="form">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title text-center" >Cập nhật thông tin khách hàng</h4>
+						<h4 class="modal-title text-center" >Update Customer Information</h4>
 						<hr/>
 					</div>
 					<div class="modal-body">
@@ -85,7 +85,7 @@ if(isset($_SESSION['username'])) {
 								</div>
 							</div>
 							<div class="form-group"> 
-								<label for="txtIC" class="col-sm-2 control-label">Chứng minh nhân dân (*):  </label>
+								<label for="txtIC" class="col-sm-2 control-label">Indentity Card (*):  </label>
 								<div class="col-sm-10">
 									<input type="text" name="txtIC" id="txtIC"  required="true" minlength="9" maxlength="9" value="<?php if(isset($ic )) echo $ic; ?>" class="form-control"  />
 								</div>

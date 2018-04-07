@@ -29,7 +29,7 @@ function blindListCountry()
 {
 	$sqlString="SELECT `CountryId`, `CountryName`, `CountryDetails` FROM `country`";
 	$sqlresult = mysql_query($sqlString);
-	echo "<select name='slCountry' class='form-control'><option value='0'>Vui lòng chọn quốc gia </option>";
+	echo "<select name='slCountry' class='form-control'><option value='0'>Please select origin </option>";
 	while ($row = mysql_fetch_array($sqlresult,MYSQL_ASSOC)) {
 		echo "<option value='".$row['CountryId']."'>".$row['CountryName']."</option>";
 	}
@@ -39,7 +39,7 @@ function blindListCategory()
 {
 	$sqlString="SELECT `CategoryId`, `CategoryName`, `CategoryDescription` FROM `category`";
 	$sqlresult = mysql_query($sqlString);
-	echo "<select name='slCategory' class='form-control'><option value='0'>Vui lòng chọn loại rượu </option>";
+	echo "<select name='slCategory' class='form-control'><option value='0'>Please select the category of wine </option>";
 	while ($row = mysql_fetch_array($sqlresult,MYSQL_ASSOC)) {
 		echo "<option value='".$row['CategoryId']."'>".$row['CategoryName']."</option>";
 	}
@@ -49,7 +49,7 @@ function blindListPublisher()
 {
 	$sqlString="SELECT `PublisherId`, `PublisherName`, `PublisherDescription` FROM `publisher`";
 	$sqlresult = mysql_query($sqlString);
-	echo "<select name='slPublisher' class='form-control'><option value='0'>Vui lòng chọn nhà sản xuất rượu </option>";
+	echo "<select name='slPublisher' class='form-control'><option value='0'>Please select winemakers</option>";
 	while ($row = mysql_fetch_array($sqlresult,MYSQL_ASSOC)) {
 		echo "<option value='".$row['PublisherId']."'>".$row['PublisherName']."</option>";
 	}

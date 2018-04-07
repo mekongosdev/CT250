@@ -1,50 +1,61 @@
 <?php
 session_start();
 include_once("Library/connect.php");
+function userLogin($username) {
+  $sql_query_user = "SELECT * FROM user WHERE Username = '{$username}'";
+  $sql_result_user = mysql_query($sql_query_user);
+
+  while ($row_user = mysql_fetch_array($sql_result_user)) {
+    echo $row_user['FullName'];
+  }
+}
+
 if(!isset($_SESSION["cart"])){
  $_SESSION["cart"] = array();
 }
 
-if(isset($_GET['action']) && isset($_GET['WineId'])) 
-{ 
-  $WineId = $_GET['WineId']; 
-  checkout($WineId); 
-} 
+if(isset($_GET['action']) && isset($_GET['WineId']))
+{
+  $WineId = $_GET['WineId'];
+  checkout($WineId);
+}
 
-function checkout($WineId) 
-{ 
-  $WineId = $_GET["WineId"]; 
-  $query = "Select wine.WineId, wine.WineName, wine.WineQuantity, publisher.PublisherName, time_wine.SellingPrice from wine, publisher, time_wine WHERE wine.WineId = time_wine.WineId and publisher.PublisherId = wine.PublisherId and  wine.WineId = ".$WineId;
+function checkout($WineId)
+{
+  $WineId = $_GET["WineId"];
+  $query = "Select wine.WineId, wine.WineName, wine.WineQuantity, publisher.PublisherName, time_wine.PurchasePrice, time_wine.SellingPrice from wine, publisher, time_wine WHERE wine.WineId = time_wine.WineId and publisher.PublisherId = wine.PublisherId and  wine.WineId = ".$WineId;
   $result = mysql_query($query) or trigger_error(mysql_error().$query);
   while ($rowsql = mysql_fetch_array($result, MYSQL_ASSOC)){
-    $coroi = false; 
-    foreach ($_SESSION["cart"] as $key => $row)  
-    { 
-      if($key==$WineId) 
-      { 
-        $_SESSION['cart'][$key]["quantity"] +=  1; 
-        $coroi = true; 
-      } 
-    } 
+    $coroi = false;
+    foreach ($_SESSION["cart"] as $key => $row)
+    {
+      if($key==$WineId)
+      {
+        $_SESSION['cart'][$key]["quantity"] +=  1;
+        $coroi = true;
+      }
+    }
 
-    if(!$coroi) 
-    { 
-      $ten = $rowsql['WineName']; 
-      $nsx = $rowsql['PublisherName']; 
+    if(!$coroi)
+    {
+      $ten = $rowsql['WineName'];
+      $nsx = $rowsql['PublisherName'];
       $price = $rowsql['SellingPrice'];
-      $cart = array( 
-        "ten" => $ten, 
+      $oriprice = $rowsql['PurchasePrice'];//TO_DO: Đã fix
+      $cart = array(
+        "ten" => $ten,
         "quantity" =>1,
         "gia" => $price,
-        "hang" => $nsx); 
-      $_SESSION['cart'][$WineId]=$cart; 
-    } 
-    echo "<script language='javascript'> 
-    alert('Sản phẩm đã được thêm vào giỏ hàng, truy cập giỏ hàng để xem!');  
-    </script>"; 
-    
+        "giagoc" => $oriprice,
+        "hang" => $nsx);
+      $_SESSION['cart'][$WineId]=$cart;
+    }
+    echo "<script language='javascript'>
+    alert('Sản phẩm đã được thêm vào giỏ hàng, truy cập giỏ hàng để xem!');
+    </script>";
+
   }
-} 
+}
 ?>
 <!DOCTYPE html>
 <html lang='vi'>
@@ -55,9 +66,10 @@ function checkout($WineId)
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="CT250" />
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-	function hideURLbar(){ window.scrollTo(0,1); } 
+	function hideURLbar(){ window.scrollTo(0,1); }
 </script>
 <!-- //for-mobile-apps -->
+<link rel="shortcut icon" type="image/png" href="icon.ico"/>
 <link href="public/client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="public/client/css/jquery.toast.min.css" rel="stylesheet" type="text/css" media="all" />
 <link href="public/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -108,7 +120,7 @@ function checkout($WineId)
        <script>$(document).ready(function(){
         <?php
 
-        if(!isset($_SESSION['username'])){ 
+        if(!isset($_SESSION['username'])){
 
           ?>
           $('#myModal88').modal('show');
@@ -137,7 +149,7 @@ function checkout($WineId)
           </div>
         </div>
         <div class="cart box_1">
-         <h4 data-toggle="modal" data-target="#myLoginModal" class="text-primary"><?php if(isset($_SESSION["username"])){echo $_SESSION["username"]." <a href='Src/User/Signout.php'><span class=' glyphicon glyphicon-log-out'></span></a>";}?></h4>
+         <h4 data-toggle="modal" data-target="#myLoginModal" class="text-primary"><?php if(isset($_SESSION["username"])){userLogin($_SESSION["username"]); echo " <a href='Src/User/Signout.php'><span class=' glyphicon glyphicon-log-out'></span></a>";}?></h4>
        </div>
        <div class="clearfix"> </div>
 
@@ -280,6 +292,21 @@ if(isset($_GET['page']) && $_GET['page'] == 'News'){
  include_once("Src/Includes/News.php");
 
 }
+
+
+if(isset($_GET['page']) && $_GET['page'] == 'ActiveAccount'){
+ $username = $_GET['username'];
+ $sqlUpdate=
+ "UPDATE `user`
+ SET
+ `Status`='1'
+ WHERE
+ `username`='$username'";
+ mysql_query($sqlUpdate);
+ echo '<script> alert("Actived!");</script>';
+ echo "<script>window.location.href='http://localhost/CT250/index.php'</script>";
+}
+
 ?>
 <!-- INCLUDE -->
 
@@ -289,9 +316,6 @@ if(isset($_GET['page']) && $_GET['page'] == 'News'){
    <h3>Top Brands</h3>
    <div class="sliderfig">
     <ul id="flexiselDemo1">
-     <li>
-      <img src="public/client/images/4.png" alt=" " class="img-responsive" />
-    </li>
     <li>
       <img src="public/client/images/5.png" alt=" " class="img-responsive" />
     </li>
@@ -343,7 +367,6 @@ if(isset($_GET['page']) && $_GET['page'] == 'News'){
   <div class="container">
    <div class="col-md-6 w3agile_newsletter_left">
     <h3>Newsletter</h3>
-    <p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
   </div>
   <div class="col-md-6 w3agile_newsletter_right">
     <form action="#" method="post">
@@ -361,22 +384,21 @@ if(isset($_GET['page']) && $_GET['page'] == 'News'){
    <div class="w3_footer_grids">
     <div class="col-md-3 w3_footer_grid">
      <h3>Contact</h3>
-     <p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
      <ul class="address">
-      <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
-      <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
+      <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>3/2, Ninh Kieu, Can Tho</li>
+      <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">windsor.shop@gmail.com</a></li>
       <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
     </ul>
   </div>
   <div class="col-md-3 w3_footer_grid">
    <h3>Producer</h3>
-   <?php 
+   <?php
    $sqlSelect = "SELECT `PublisherName` FROM Publisher";
    $list_publisher= mysql_query($sqlSelect);
 
    ?>
    <ul class="info">
-    <?php 
+    <?php
     while(list($name) = mysql_fetch_array($list_publisher))
     {
      ?>
@@ -388,13 +410,13 @@ if(isset($_GET['page']) && $_GET['page'] == 'News'){
 </div>
 <div class="col-md-3 w3_footer_grid">
  <h3>Category</h3>
- <?php 
+ <?php
  $sqlSelect = "SELECT `CategoryId`, `CategoryName`, `CategoryDescription` FROM Category";
  $list_category= mysql_query($sqlSelect);
 
  ?>
  <ul class="info">
-  <?php 
+  <?php
   while(list($CategoryId, $name, $details) = mysql_fetch_array($list_category))
   {
    ?>
@@ -411,7 +433,6 @@ if(isset($_GET['page']) && $_GET['page'] == 'News'){
    <li><a href="#" class="facebook"> </a></li>
    <li><a href="#" class="twitter"> </a></li>
    <li><a href="#" class="google"> </a></li>
-   <li><a href="#" class="pinterest"> </a></li>
  </ul>
 </div>
 </div>

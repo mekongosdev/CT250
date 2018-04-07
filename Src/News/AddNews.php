@@ -11,7 +11,7 @@ if(isset($_POST["btnAdd"]))
 	$content=$_POST['txtContent'];
 	$employeecode=$_POST['slEmpl'];
 	addNew($Newsname,$title,$content,$employeecode);
-	echo '<script> alert("Thêm 1 News thành công");</script>';
+	echo '<script> alert("Insert Success");</script>';
 	echo "<script>window.location.href='?page=news'</script>";
 }
 ?>
@@ -19,37 +19,37 @@ if(isset($_POST["btnAdd"]))
 	<div class="col-md-12"/>
 	<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data" form-horizontal>
 		<div class="form_group">
-			<label class="control-label col-sm-12" for="email"><h2 align="center">Thêm News</h2></label>
+			<label class="control-label col-sm-12" for="email"><h2 align="center">Add News</h2></label>
 		</div>
 
 	</form>
 	<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" >
 
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtName">Tên News:</label>
+			<label class="control-label col-md-2" for="txtName">News Names:</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="txtName" placeholder="Nhập vào tên News" name="txtName"
+				<input type="text" class="form-control" id="txtName" placeholder="Enter the News" name="txtName"
 				required autofocus="" >
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtTitle">Tự đề:</label>
+			<label class="control-label col-md-2" for="txtTitle">Title:</label>
 			<div class="col-md-10">          
 
-				<input type="text" class="form-control" id="txtTitle" placeholder="Tựa đề" name="txtTitle"
+				<input type="text" class="form-control" id="txtTitle" placeholder="Title" name="txtTitle"
 				required  >
 			</div>
 		</div>
 		
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtContent">Nội dung:</label>
+			<label class="control-label col-md-2" for="txtContent">Content:</label>
 			<div class="col-md-10">          
 				
-				<textarea name="txtContent" id="txtContent" class="form-control" placeholder="Nội dung chính"></textarea>
+				<textarea name="txtContent" id="txtContent" class="form-control" placeholder="Content"></textarea>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="slEmpl">Nhân viên tạo:</label>
+			<label class="control-label col-md-2" for="slEmpl">Employee:</label>
 			<div class="col-md-10">          
 				<?php
 				blindListEmployye();
@@ -58,8 +58,8 @@ if(isset($_POST["btnAdd"]))
 		</div>
 		<div class="form-group">        
 			<div class="col-md-offset-2 col-md-10">
-				<button type="submit" class="btn btn-info" name="btnAdd" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Thêm</button>
-				<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Bỏ Qua</button>
+				<button type="submit" class="btn btn-info" name="btnAdd" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Add</button>
+				<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel</button>
 			</div>
 		</div>
 	</form>

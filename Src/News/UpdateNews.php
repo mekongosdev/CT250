@@ -33,12 +33,12 @@ if(isset($_POST['btnUpdate']))
 	<div class="col-md-12">
 		<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data" form-horizontal>
 			<div class="form_group">
-				<label class="control-label col-sm-12" for="email"><h2 align="center">Thêm News</h2></label>
+				<label class="control-label col-sm-12" for="email"><h2 align="center">Udate News</h2></label>
 			</div>
 			</form>
 		<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" >
 			<div class="form-group">
-				<label class="control-label col-md-2" for="txtId">Mã News:</label>
+				<label class="control-label col-md-2" for="txtId">Code News:</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" id="NewsId"  name="NewsId"
 					readonly="readonly" value="<?=$NewsId;?>" >
@@ -48,14 +48,14 @@ if(isset($_POST['btnUpdate']))
 
 
 			<div class="form-group">
-				<label class="control-label col-md-2" for="txtName">Tên News:</label>
+				<label class="control-label col-md-2" for="txtName"> News:</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" id="txtName"  name="txtName"
 					required  value="<?=$NewsName;?>" >
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-md-2" for="txtTitle">Tự đề:</label>
+				<label class="control-label col-md-2" for="txtTitle">Title:</label>
 				<div class="col-md-10">          
 
 					<input type="text" class="form-control" id="txtTitle" placeholder="Tựa đề" name="txtTitle"
@@ -64,13 +64,13 @@ if(isset($_POST['btnUpdate']))
 			</div>
 
 			<div class="form-group">
-				<label class="control-label col-md-2" for="txtContent">Nội dung:</label>
+				<label class="control-label col-md-2" for="txtContent">Content:</label>
 				<div class="col-md-10">          
 					<textarea name="txtContent" id="txtContent" class="form-control" placeholder="Nội dung"><?=$content;?></textarea>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-md-2" for="slEmpl">Nhân viên tạo:</label>
+				<label class="control-label col-md-2" for="slEmpl">Employee:</label>
 				<div class="col-md-10">  
 					<?php
 					$sqlSelect = "SELECT `EmployeeCode`, `EmployeePass`, `EmployeeName`, `EmployeeBirth`, `EmployeeAddress`, `EmployeeEmail`, `EmployeeIC`, `Role` FROM `employee`";
@@ -95,8 +95,8 @@ if(isset($_POST['btnUpdate']))
 			</div>
 			<div class="form-group">        
 				<div class="col-md-offset-2 col-md-10">
-					<button type="submit" class="btn btn-info" name="btnUpdate" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Cập Nhật</button>
-					<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Bỏ Qua</button>
+					<button type="submit" class="btn btn-info" name="btnUpdate" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Update</button>
+					<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
 				</div>
 			</div>
 		</form>

@@ -6,19 +6,19 @@ $list_News= mysql_query($sqlSelect);
 
 ?>
 
-<h3 class="w3_inner_tittle two text-center">Quản lý News</h3>
-<a class="btn btn-primary" href="?page=AddNews">THÊM <i class="fa fa-plus"></i></a> 
+<h3 class="w3_inner_tittle two text-center">Management News</h3>
+<a class="btn btn-primary" href="?page=AddNews">Add<i class="fa fa-plus"></i></a> 
 <br>
 <br>
 <table id="myTable" class="table-striped table-hover">
 	<thead >
 		<tr>
-			<th><strong>STT</strong></th>
-			<th><strong>Tên News</strong></th>
-			<th><strong>Loại</strong></th>
-			<th><strong>Nội dung</strong></th>
-			<th><strong>Người lập</strong></th>
-			<th><strong>Phương Thức</strong></th>
+			<th><strong>Num</strong></th>
+			<th><strong>News</strong></th>
+			<th><strong>Title</strong></th>
+			<th><strong>Content</strong></th>
+			<th><strong>Employee</strong></th>
+			<th><strong>Action</strong></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -44,7 +44,7 @@ $list_News= mysql_query($sqlSelect);
 				<a class='btn btn-success' href="?page=UploadImageNews&NewsId=<?=$NewsId?>">
 						<i class="fa fa-file-image-o"></i></a>
 					<a class="btn btn-warning btn" href="?page=UpdateNews&NewsId=<?php echo $NewsId; ?>"><i class="fa fa-edit"></i></a>
-					<a class='btn btn-danger' href="?page=DeleteNews&NewsId=<?php echo $NewsId; ?>" onclick="return confirm('Bạn có chắc chắn xóa News này không này không?')"><i class="fa fa-remove"></i></a>
+					<a class='btn btn-danger' href="?page=DeleteNews&NewsId=<?php echo $NewsId; ?>" onclick="return confirm('Are you sure delete?')"><i class="fa fa-remove"></i></a>
 				</td>     
 			</tr>
 			<?php

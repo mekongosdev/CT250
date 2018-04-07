@@ -1,4 +1,4 @@
-<?php 
+<?php
 function blindSubjectList()
 {
 	$sqlString="SELECT `SubjectId`, `SubjectName` FROM `subject`";
@@ -29,11 +29,11 @@ if(isset($_POST["btnContactUs"]))
 	$phone=$_POST["txtPhone"];
 	$address1 = $_POST["txtAddress"];
 
-	$insert = 
-	"INSERT INTO 
+	$insert =
+	"INSERT INTO
 	`contact`(
-	`Subject`, `Names`, 
-	`ContactDate`, `Information`, `Email`, 
+	`Subject`, `Names`,
+	`ContactDate`, `Information`, `Email`,
 	`Phone`, `Address`)
 	VALUES
 	('$subject','$name','$datewrite',
@@ -133,16 +133,16 @@ if(isset($_POST["btnContactUs"]))
 				<!-- //<form> -->
 					<legend><span class="glyphicon glyphicon-globe"></span> Windsor</legend>
 					<address>
-						<strong>Can Tho University
-							Campus II <br/>
-						Department of software technology </strong> <br/>
-						<strong title="Management">
-						Management: </strong> Trương Thị Thanh Tuyền<br/>
-						<strong title="Phone"> Phone </strong> 0963.505.927
-					</address>
-					<address>
-						<strong>Email:</strong><br>
-						<a href="mailto:#">huyb1505883@student.ctu.edu.vn</a>
+						<strong>Can Tho University Campus II <br/>
+						College of ICT <br/>
+						Department of Software Engineering </strong> <br/>
+						<strong title="Head of Department">
+						Head of Department: </strong> M.Sc. Vo Huynh Tram<br/>
+						<strong title="Mentor">
+						Mentor: </strong> M.Sc. Truong Thi Thanh Tuyen<br/>
+						<strong title="Phone"> Phone: </strong> (+84) 96346999<br/>
+						<strong title="Email"> Email: </strong>
+						<a href="mailto:#">ttttuyen@cit.ctu.edu.vn</a>
 					</address>
 					<!--    </form> -->
 				</div>

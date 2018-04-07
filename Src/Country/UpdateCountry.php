@@ -19,7 +19,7 @@ $CountryId = 0;
 		$name=$_POST['txtName'];
 		$details=$_POST['txtDetails'];
 		updateCountry($CountryId,$name,$details);
-		echo '<script> alert("Cập nhật thành công!");</script>';
+		echo '<script> alert("Update Success!");</script>';
 		echo "<script>window.location.href='?page=country'</script>";
 	}
 
@@ -28,28 +28,28 @@ $CountryId = 0;
 		<div class="col-md-12"/>
 		<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data" form-horizontal>
 			<div class="form_group">
-				<label class="control-label col-sm-12" for="email"><h2 align="center">Xuất Xứ</h2></label>
+				<label class="control-label col-sm-12" for="email"><h2 align="center">Original Update</h2></label>
 			</div>
 
 		</form>
 		<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" >
 
 			<div class="form-group">
-				<label class="control-label col-md-2" for="txtName">Mã Số:</label>
+				<label class="control-label col-md-2" for="txtName">Num:</label>
 				<div class="col-sm-10">
 					<input type="number" class="form-control" id="txtNum"  name="txtNum"
 					required  readonly="true" value="<?php echo $CountryId;?>" >
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-md-2" for="txtName">Nơi xuất xứ:</label>
+				<label class="control-label col-md-2" for="txtName">Original:</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" id="txtName"  name="txtName"
 					required autofocus value="<?php echo $name;?>" >
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-md-2" for="txtDetails">Mô tả chi tiết:</label>
+				<label class="control-label col-md-2" for="txtDetails">Details:</label>
 				<div class="col-md-10">          
 					<textarea name="txtDetails" id="txtDetails" class="form-control"><?php echo 
 					$details;?></textarea>
@@ -58,8 +58,8 @@ $CountryId = 0;
 
 			<div class="form-group">        
 				<div class="col-md-offset-2 col-md-10">
-					<button type="submit" class="btn btn-info" name="btnUpdate" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Cập Nhật</button>
-					<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Bỏ Qua</button>
+					<button type="submit" class="btn btn-info" name="btnUpdate" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Update</button>
+					<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel</button>
 				</div>
 			</div>
 		</form>

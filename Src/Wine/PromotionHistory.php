@@ -7,19 +7,19 @@ if(isset($_GET['WineId'])){
 	$promotionhistory = mysql_query($sql) or trigger_error(mysql_error().$sql);
 }
 ?>
-<h3 class="w3_inner_tittle two text-center">Lịch sử khuyến mãi</h3>
-<a class="btn btn-primary" href="?page=AddWinePromotion">THÊM <i class="fa fa-plus"></i></a> 
+<h3 class="w3_inner_tittle two text-center">History Promotion</h3>
+<a class="btn btn-primary" href="?page=AddWinePromotion">Add <i class="fa fa-plus"></i></a> 
 <br>
 <br>
 <table id="myTable" class="table-striped table-hover">
 	<thead >
 		<tr>
-			<th><strong>STT</strong></th>
-			<th><strong>Tên rượu</strong></th>
-			<th><strong>Khuyến mãi</strong></th>
-			<th><strong>Tỷ lệ giảm giá</strong></th>
-			<th><strong>Ngày bắt đầu</strong></th>
-			<th><strong>Ngày kết thúc</strong></th>
+			<th><strong>Num</strong></th>
+			<th><strong>Wine Name</strong></th>
+			<th><strong>Promotion</strong></th>
+			<th><strong>Discount rate</strong></th>
+			<th><strong>Date Open</strong></th>
+			<th><strong>Date Close</strong></th>
 		</tr>
 	</thead>
 	<tbody>

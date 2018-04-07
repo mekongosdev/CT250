@@ -1,7 +1,16 @@
-<?php 
+<?php
 session_start();
 if(!isset($_SESSION['EmployeeCode'])){
 	echo '<meta http-equiv="refresh" content="0; URL=Index.php"/>';
+}
+
+function employeeLogin($EmployeeCode) {
+  $sql_query_employee = "SELECT * FROM employee WHERE EmployeeCode = '{$EmployeeCode}'";
+  $sql_result_employee = mysql_query($sql_query_employee);
+
+  while ($row_employee = mysql_fetch_array($sql_result_employee)) {
+    echo $row_employee['EmployeeName'];
+  }
 }
 ?>
 
@@ -54,60 +63,49 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<ul id="gn-menu" class="gn-menu-main">
 				<!-- /nav_agile_w3l -->
 				<li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><i class="fa fa-bars" aria-hidden="true"></i><span>Danh mục</span></a>
+					<a class="gn-icon gn-icon-menu"><i class="fa fa-bars" aria-hidden="true"></i><span>Category</span></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller scrollbar1">
 							<ul class="gn-menu agile_menu_drop">
-								<li><a href="#"> <i class="fa fa-tachometer"></i>Bảng điều khiển</a></li>
 								<li>
-									<a href="?page=customer"><i class="fa fa-opencart" aria-hidden="true"></i>Đơn hàng</a>
+									<a href="?page=customer"><i class="fa fa-opencart" aria-hidden="true"></i>Orders</a>
 								</li>
-								<li>
-									<a href="?page=about"> <i class="fa fa-money" aria-hidden="true"></i>Về Chúng Tôi</a>
-								</li>
-								<li>
-									<a href="?page=paymentmethod"> <i class="fa fa-info-circle" aria-hidden="true"></i>Hình Thức Thanh Toán</a>
-								</li>
-								<li>
-									<a href="#"> <i class="fa fa-mail-reply-all" aria-hidden="true"></i>Phản hồi</a>
-								</li>
-								<li>
-									<a href="?page=subject"> <i class="fa fa-send" aria-hidden="true"></i>Chủ đề liên hệ</a>
-								</li>
-								<li><a href="?page=contact"> <i class="fa fa-tty" aria-hidden="true"></i>Liên hệ</a></li>
-								<li class="product"><a href="#"><i class="fa fa-product-hunt" aria-hidden="true"></i>Quản lý sản phẩm<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
+								<li class="employee"><a href="#"><i class="fa fa-bookmark" aria-hidden="true"></i>General management <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="gn-submenu">
-										<li class="mini_list_agile"><a href="?page=publisher"><i class="fa fa-caret-right" aria-hidden="true"></i> Nhà sản xuất</a></li>
-										<li class="mini_list_w3"><a href="?page=category"> <i class="fa fa-caret-right" aria-hidden="true"></i> Loại sản phẩm</a></li>
-										<li class="mini_list_agile"><a href="?page=country"><i class="fa fa-caret-right" aria-hidden="true"></i> Xuất xứ</a></li>
-										<li class="mini_list_w3"><a href="?page=promotion"> <i class="fa fa-caret-right" aria-hidden="true"></i> Khuyến mãi</a></li>
-										<li class="mini_list_agile"><a href="?page=wine"><i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý rượu</a></li>
-										<li class="mini_list_agile"><a href="?page=time"><i class="fa fa-caret-right" aria-hidden="true"></i> Thời gian cập nhật</a></li>
+										<li class="mini_list_agile"> <a href="?page=about"> <i class="fa fa-info-circle" aria-hidden="true"></i> About Us</a></li>
+										<li class="mini_list_w3"><a href="?page=paymentmethod"> <i class="fa fa-money" aria-hidden="true"></i> Payments</a></li>
+										<li class="mini_list_agile error"><a href="#"> <i class="fa fa-mail-reply-all" aria-hidden="true"></i> Feedback</a></li>
+										<li class="mini_list_w3_line"><a href="?page=subject"> <i class="fa fa-send" aria-hidden="true"></i> Contact subject</a></li>
+										<li class="mini_list_w3_line"><a href="?page=contact"> <i class="fa fa-tty" aria-hidden="true"></i> Contact</a></li>
+									</ul>
+								</li>
 
-										<li class="mini_list_w3"><a href="?page=PriceHistory"> <i class="fa fa-caret-right" aria-hidden="true"></i> Giá Rượu</a></li>
+								<li class="product"><a href="#"><i class="fa fa-product-hunt" aria-hidden="true"></i>Product management<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
+									<ul class="gn-submenu">
+										<li class="mini_list_agile"><a href="?page=publisher"><i class="fa fa-caret-right" aria-hidden="true"></i> Producer</a></li>
+										<li class="mini_list_w3"><a href="?page=category"> <i class="fa fa-caret-right" aria-hidden="true"></i> Category</a></li>
+										<li class="mini_list_agile"><a href="?page=country"><i class="fa fa-caret-right" aria-hidden="true"></i> Origin</a></li>
+										<li class="mini_list_w3"><a href="?page=promotion"> <i class="fa fa-caret-right" aria-hidden="true"></i> Promotion</a></li>
+										<li class="mini_list_agile"><a href="?page=wine"><i class="fa fa-caret-right" aria-hidden="true"></i> Wine</a></li>
+										<li class="mini_list_agile"><a href="?page=time"><i class="fa fa-caret-right" aria-hidden="true"></i> Updated Times</a></li>
+
+										<li class="mini_list_w3"><a href="?page=PriceHistory"> <i class="fa fa-caret-right" aria-hidden="true"></i> Price</a></li>
 
 									</ul>
 								</li>
 
-								<li class="employee"><a href="#"><i class="fa fa-cubes" aria-hidden="true"></i> Quản lý nhân viên <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+								<li class="employee"><a href="#"><i class="fa fa-cubes" aria-hidden="true"></i>Employee management<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="gn-submenu">
-										<li class="mini_list_agile"> <a href="?page=employee"> <i class="fa fa-caret-right" aria-hidden="true"></i> Thông tin nhân viên</a></li>
-										<li class="mini_list_w3"><a href="?page=news"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quản lý tin tức</a></li>
-										<li class="mini_list_agile error"><a href="#"> <i class="fa fa-caret-right" aria-hidden="true"></i> Chi nhánh </a></li>
-
-										<li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Quyền hạn</a></li>
+										<li class="mini_list_agile"> <a href="?page=employee"> <i class="fa fa-caret-right" aria-hidden="true"></i> Information</a></li>
+										<li class="mini_list_w3"><a href="?page=news"> <i class="fa fa-caret-right" aria-hidden="true"></i> News</a></li>
+										<li class="mini_list_w3_line"><a href="?page=role"> <i class="fa fa-caret-right" aria-hidden="true"></i> Role</a></li>
 									</ul>
 								</li>
-								<li class="customer"><a href="#"><i class="fa fa-database" aria-hidden="true"></i>Quản lý Khách hàng<i class="fa fa-angle-down" aria-hidden="true"> </i></a>
+								<li class="customer"><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Customer management<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="gn-submenu">
-										<li class="mini_list_agile"><a href="?page=user"><i class="fa fa-caret-right" aria-hidden="true"></i> Thông tin khách hàng</a></li>
-										<li class="mini_list_agile"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Hóa đơn</a></li>
+										<li class="mini_list_agile"><a href="?page=user"><i class="fa fa-caret-right" aria-hidden="true"></i> Customer Info</a></li>
+										<li class="mini_list_agile"><a href="?page=customer"><i class="fa fa-caret-right" aria-hidden="true"></i>Bill</a></li>
 									</ul>
-								</li>
-								<li>
-									<a href="?page=about">
-										<i class="fa fa-bookmark" aria-hidden="true"></i> Giới thiệu
-									</a>
 								</li>
 							</ul>
 						</div><!-- /gn-scroller -->
@@ -115,7 +113,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				</li>
 				<!-- //nav_agile_w3l -->
 				<li class="second logo"><h1><a href="dashboard.php"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Windsor </a></h1></li>
-				<li class="second logo"><h1><a href="SignOut.php"><?php if(isset($_SESSION["EmployeeCode"])){echo $_SESSION["EmployeeCode"]."  <i class='fa fa-power-off text-danger'></i>"; }?> </a></h1></li>
+				<li class="second logo"><h1><a href="SignOut.php"><?php if(isset($_SESSION["EmployeeCode"])){employeeLogin($_SESSION["EmployeeCode"]); echo "  <i class='fa fa-power-off text-danger'></i>"; }?> </a></h1></li>
 			</ul>
 			<!-- //nav -->
 
@@ -152,14 +150,14 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									<?php
 
 									$result = mysql_query(
-										"SELECT 
+										"SELECT
 										o.OrderId,w.WineName ,o.OrderCreateDate, o.OrderDeliverDate,
-										o.OrderDeliverPlace, o.OrderStatus, u.FullName, 
-										p.PaymentMethodName,or1.WineSoldPrice, or1.WineOrderQuantity 
+										o.OrderDeliverPlace, o.OrderStatus, u.FullName,
+										p.PaymentMethodName,or1.WineSoldPrice, or1.WineOrderQuantity
 										FROM `order` o
 										JOIN paymentmethod p ON o.PaymentMethodId = p.PaymentMethodId
 										JOIN user u ON o.Username = u.Username
-										JOIN orderwinedetails or1 ON o.OrderId = or1.OrderId 
+										JOIN orderwinedetails or1 ON o.OrderId = or1.OrderId
 										JOIN wine w ON or1.WineOrderId = w.WineId and o.OrderStatus=0");
 									$num_rows = mysql_num_rows($result);
 									?>
@@ -334,6 +332,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 						echo "<script>window.location.href='?page=paymentmethod'</script>";
 					}
 
+							// Import - Export Data
+					if(isset($_GET['page'])&& $_GET['page']=="iof")
+					{
+						include_once("../Src/InputOutputFile/IOFController.php");
+					}
 							//Wine
 					if(isset($_GET['page'])&& $_GET['page']=="wine")
 					{
@@ -564,183 +567,180 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					{
 						include_once("../Src/Statistic/MoreStatistic.php");
 					}
-					?>
-					<!-- WINE -->
-
-					<?php 
-					$sql="SELECT WineId, WineName, WineStrength, WineUpdateDate,WineQuantity, wine.CategoryId, wine.PublisherId, wine.CountryId FROM wine, category, country, publisher WHERE wine.CategoryId = category.CategoryId AND wine.PublisherId = publisher.PublisherId AND wine.CountryId = country.CountryId and wine.WineQuantity = 0";
-					$listwine = mysql_query($sql) or trigger_error(mysql_error().$sql);
-					?>
-					<h3 class="text-center text-danger">Sold Out Wines</h3>
-					<br>
-					<br>
-					<table id="myTable" class="table-striped table-hover">
-						<thead >
-							<tr>
-								<th><strong>STT</strong></th>
-								<th><strong>Tên Rượu</strong></th>
-								<th><strong>Nồng Độ</strong></th>
-								<th><strong>Ngày cập nhật</strong></th>
-								<th><strong>Số lượng</strong></th>
-								<th><strong>Loại</strong></th>
-								<th><strong>Nhà sản xuất</strong></th>
-								<th><strong>Quốc gia</strong></th>
-								<th><strong>Phương Thức</strong></th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php 
-							$num = 1;
-							while(list($WineId,$name,$strength,$wineupdate,$quantity,$idCat, $idPub,$idCountry) = mysql_fetch_array($listwine))
-							{
-								?>
+					if(!isset($_GET['page'])){
+						$sql="SELECT WineId, WineName, WineStrength, WineUpdateDate,WineQuantity, wine.CategoryId, wine.PublisherId, wine.CountryId FROM wine, category, country, publisher WHERE wine.CategoryId = category.CategoryId AND wine.PublisherId = publisher.PublisherId AND wine.CountryId = country.CountryId and wine.WineQuantity = 0";
+						$listwine = mysql_query($sql) or trigger_error(mysql_error().$sql);
+						?>
+						<h3 class="text-center text-danger">Sold Out Wines</h3>
+						<br>
+						<br>
+						<table id="myTable" class="table-striped table-hover">
+							<thead >
 								<tr>
-									<td class="col-md-1"><?= $num;?> </td>
-									<td class="col-md-2"><?= $name;?> </td>
-									<td class="col-md-1"><?= $strength;?> </td>
-									<td class="col-md-2"><?= $wineupdate;?> </td>
-									<td class="col-md-1"><?= $quantity;?> </td>
-									<?php 
-									$result = searchCategory($idCat);
-									if(isset($result))
-									{
-										list($CategoryId,$CategoryName)=mysql_fetch_array($result);
-									} ?>
-									<td class="col-md-2"><?= $CategoryName?> </td>
-									<?php 
-									$result = searchPublisher($idPub);
-									if(isset($result))
-									{
-										list($PublisherId,$PublisherName)=mysql_fetch_array($result);
-									} ?>
-									<td class="col-md-2"><?= $PublisherName?> </td>
-									<?php 
-									$result = searchCountry($idCountry);
-									if(isset($result))
-									{
-										list($CountryId,$CountryName)=mysql_fetch_array($result);
-									} ?>
-									<td class="col-md-2"><?= $CountryName?> </td>
-									<td class="text-center col-md-2">
-										<a class="btn btn-warning" href="?page=UpdateQuantityWine&WineId=<?php echo $WineId; ?>"><i class="fa fa-edit"></i></a>
-
-									</td>     
+									<th><strong>No</strong></th>
+									<th><strong>Wine</strong></th>
+									<th><strong>Alcohol level</strong></th>
+									<th><strong>Update Date</strong></th>
+									<th><strong>Quantity</strong></th>
+									<th><strong>Category</strong></th>
+									<th><strong>Producer</strong></th>
+									<th><strong>Origin</strong></th>
+									<th><strong>Action</strong></th>
 								</tr>
+							</thead>
+							<tbody>
 								<?php
-								$num++;
-							}
-							?>
-						</tbody>
-					</table>
-					<!-- END WINE -->
+								$num = 1;
+								while(list($WineId,$name,$strength,$wineupdate,$quantity,$idCat, $idPub,$idCountry) = mysql_fetch_array($listwine))
+								{
+									?>
+									<tr>
+										<td class="col-md-1"><?= $num;?> </td>
+										<td class="col-md-2"><?= $name;?> </td>
+										<td class="col-md-1"><?= $strength;?> </td>
+										<td class="col-md-2"><?= $wineupdate;?> </td>
+										<td class="col-md-1"><?= $quantity;?> </td>
+										<?php
+										$result = searchCategory($idCat);
+										if(isset($result))
+										{
+											list($CategoryId,$CategoryName)=mysql_fetch_array($result);
+										} ?>
+										<td class="col-md-2"><?= $CategoryName?> </td>
+										<?php
+										$result = searchPublisher($idPub);
+										if(isset($result))
+										{
+											list($PublisherId,$PublisherName)=mysql_fetch_array($result);
+										} ?>
+										<td class="col-md-2"><?= $PublisherName?> </td>
+										<?php
+										$result = searchCountry($idCountry);
+										if(isset($result))
+										{
+											list($CountryId,$CountryName)=mysql_fetch_array($result);
+										} ?>
+										<td class="col-md-2"><?= $CountryName?> </td>
+										<td class="text-center col-md-2">
+											<a class="btn btn-warning" href="?page=UpdateQuantityWine&WineId=<?php echo $WineId; ?>"><i class="fa fa-edit"></i></a>
+
+										</td>
+									</tr>
+									<?php
+									$num++;
+								}}
+								?>
+							</tbody>
+						</table>
+						<!-- END WINE -->
+					</div>
+					<!-- //inner_content-->
 				</div>
-				<!-- //inner_content-->
-			</div>
 
-			<div class="copyrights">
-				<p>© 2018 CT250 - Nhóm 02. All Rights Reserved</p>
-			</div>
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-			<script src="../public/admin/js/modernizr.custom.js"></script>
+				<div class="copyrights">
+					<p>© 2018 CT250 - Teams 01. All Rights Reserved</p>
+				</div>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+				<script src="../public/admin/js/modernizr.custom.js"></script>
 
-			<script src="../public/admin/js/classie.js"></script>
-			<script src="../public/admin/js/gnmenu.js"></script>
-			<script>
-				new gnMenu( document.getElementById( 'gn-menu' ) );
-			</script>
-			<script type="text/javascript" src="../public/admin/js/jquery.basictable.min.js"></script>
-			<script type="text/javascript">
-				$(document).ready(function() {
-					$('#table').basictable();
+				<script src="../public/admin/js/classie.js"></script>
+				<script src="../public/admin/js/gnmenu.js"></script>
+				<script>
+					new gnMenu( document.getElementById( 'gn-menu' ) );
+				</script>
+				<script type="text/javascript" src="../public/admin/js/jquery.basictable.min.js"></script>
+				<script type="text/javascript">
+					$(document).ready(function() {
+						$('#table').basictable();
 
-					$('#table-breakpoint').basictable({
-						breakpoint: 768
+						$('#table-breakpoint').basictable({
+							breakpoint: 768
+						});
+
+						$('#table-swap-axis').basictable({
+							swapAxis: true
+						});
+
+						$('#table-force-off').basictable({
+							forceResponsive: false
+						});
+
+						$('#table-no-resize').basictable({
+							noResize: true
+						});
+
+						$('#table-two-axis').basictable();
+
+						$('#table-max-height').basictable({
+							tableWrapper: true
+						});
+
+						$("ul.gn-submenu").slideUp('fast');
+
+						$("ul.gn-menu li.employee").click(function () {
+							$(this).children("ul.gn-submenu").slideDown('slow');
+						});
+
+						$("ul.gn-menu li.employee").mouseleave(function(){
+							$(this).children("ul.gn-submenu").slideUp('slow');
+						});
+
+						$("ul.gn-menu li.about").click(function () {
+							$(this).children("ul.gn-submenu").slideDown('slow');
+						});
+
+						$("ul.gn-menu li.about").mouseleave(function(){
+							$(this).children("ul.gn-submenu").slideUp('slow');
+						});
+
+						$("ul.gn-menu li.product").mouseleave(function(){
+							$(this).children("ul.gn-submenu").slideUp('slow');
+						});
+
+						$("ul.gn-menu li.product").click(function () {
+							$(this).children("ul.gn-submenu").slideDown('slow');
+						});
+
+						$("ul.gn-menu li.customer").mouseleave(function(){
+							$(this).children("ul.gn-submenu").slideUp('slow');
+						});
+
+						$("ul.gn-menu li.customer").click(function () {
+							$(this).children("ul.gn-submenu").slideDown('slow');
+						});
 					});
+				</script>
+				<!-- //js -->
+				<script src="../public/admin/js/screenfull.js"></script>
+				<script>
+					$(function () {
+						$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
 
-					$('#table-swap-axis').basictable({
-						swapAxis: true
+						if (!screenfull.enabled) {
+							return false;
+						}
+
+
+
+						$('#toggle').click(function () {
+							screenfull.toggle($('#container')[0]);
+						});
 					});
+				</script>
 
-					$('#table-force-off').basictable({
-						forceResponsive: false
-					});
-
-					$('#table-no-resize').basictable({
-						noResize: true
-					});
-
-					$('#table-two-axis').basictable();
-
-					$('#table-max-height').basictable({
-						tableWrapper: true
-					});
-
-					$("ul.gn-submenu").slideUp('fast');
-
-					$("ul.gn-menu li.employee").click(function () {
-						$(this).children("ul.gn-submenu").slideDown('slow');
-					});
-
-					$("ul.gn-menu li.employee").mouseleave(function(){
-						$(this).children("ul.gn-submenu").slideUp('slow');
-					});
-
-					$("ul.gn-menu li.about").click(function () {
-						$(this).children("ul.gn-submenu").slideDown('slow');
-					});
-
-					$("ul.gn-menu li.about").mouseleave(function(){
-						$(this).children("ul.gn-submenu").slideUp('slow');
-					});
-
-					$("ul.gn-menu li.product").mouseleave(function(){
-						$(this).children("ul.gn-submenu").slideUp('slow');
-					});
-
-					$("ul.gn-menu li.product").click(function () {
-						$(this).children("ul.gn-submenu").slideDown('slow');
-					});
-
-					$("ul.gn-menu li.customer").mouseleave(function(){
-						$(this).children("ul.gn-submenu").slideUp('slow');
-					});
-
-					$("ul.gn-menu li.customer").click(function () {
-						$(this).children("ul.gn-submenu").slideDown('slow');
-					});
-				});
-			</script>
-			<!-- //js -->
-			<script src="../public/admin/js/screenfull.js"></script>
-			<script>
-				$(function () {
-					$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
-
-					if (!screenfull.enabled) {
-						return false;
-					}
-
-
-
-					$('#toggle').click(function () {
-						screenfull.toggle($('#container')[0]);
-					});
-				});
-			</script>
-
-			<script src="../Public/admin/js/bars.js"></script>
-			<script src="../Public/admin/js/jquery.nicescroll.js"></script>
-			<script src="../Public/admin/js/scripts.js"></script>
-			<script src="../Public/admin/js/jquery.toast.min.js"></script>
-			<script src="../Public/admin/js/bootstrap-3.1.1.min.js"></script>
-			<link rel="stylesheet" type="text/css" href="../Public/admin/css/jquery.dataTables.min.css">
-			<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-			<script type="text/javascript">
-				$(document).ready(function(){
-					$("#btnAdd").click(function(){
-						$.toast({
-				    text: "Thêm dữ liệu thành công!", // Text that is to be shown in the toast
-				    heading: 'Thông báo', // Optional heading to be shown on the toast
+				<script src="../Public/admin/js/bars.js"></script>
+				<script src="../Public/admin/js/jquery.nicescroll.js"></script>
+				<script src="../Public/admin/js/scripts.js"></script>
+				<script src="../Public/admin/js/jquery.toast.min.js"></script>
+				<script src="../Public/admin/js/bootstrap-3.1.1.min.js"></script>
+				<link rel="stylesheet" type="text/css" href="../Public/admin/css/jquery.dataTables.min.css">
+				<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$("#btnAdd").click(function(){
+							$.toast({
+				    text: "Add  successful data!", // Text that is to be shown in the toast
+				    heading: 'Notification', // Optional heading to be shown on the toast
 				    icon: 'success', // Type of toast icon
 				    showHideTransition: 'slide', // fade, slide or plain
 				    allowToastClose: true, // Boolean value true or false
@@ -752,20 +752,20 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				    loaderBg: 'white',  // Background color of the toast loader
 				    bgColor: '#17a2b8',
 				});
-					})
+						})
 
-					$('#myTable').DataTable({
-						responsive: true,
-						"language": {
-							"lengthMenu": "Hiển thị _MENU_ số dòng trên trang",
-							"info": "Hiển thị _START_ trong tổng số _TOTAL_ dòng dữ liệu",
-							"infoEmpty": "Dữ liệu rỗng",
-							"emptyTable": "Chưa có dữ liệu nào",
-							"processing": "Đang xử lý...",
-							"search": "Tìm kiếm:",
-							"loadingRecords": "Đang load dữ liệu...",
-							"zeroRecords": "không tìm thấy dữ liệu",
-							"infoFiltered": "(Được từ tổng số _MAX_ dòng dữ liệu)",
+						$('#myTable').DataTable({
+							responsive: true,
+							"language": {
+							// "lengthMenu": "Hiển thị _MENU_ số dòng trên trang",
+							// "info": "Hiển thị _START_ trong tổng số _TOTAL_ dòng dữ liệu",
+							"infoEmpty": "Empty data",
+							"emptyTable": "Data not available",
+							"processing": "Processing...",
+							"search": "Search:",
+							"loadingRecords": "Loading Data...",
+							"zeroRecords": "Data not found",
+							// "infoFiltered": "(Được từ tổng số _MAX_ dòng dữ liệu)",
 							"paginate": {
 								"first": "|<",
 								"last": ">|",
@@ -777,7 +777,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					});
 
 
-				})
-			</script>
-		</body>
-		</html>
+					})
+				</script>
+			</body>
+			</html>

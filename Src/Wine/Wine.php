@@ -1,27 +1,29 @@
-<?php 
+<?php
 $sql="SELECT WineId, WineName, WineStrength, WineUpdateDate,WineQuantity, wine.CategoryId, wine.PublisherId, wine.CountryId FROM wine, category, country, publisher WHERE wine.CategoryId = category.CategoryId AND wine.PublisherId = publisher.PublisherId AND wine.CountryId = country.CountryId";
 $listwine = mysql_query($sql) or trigger_error(mysql_error().$sql);
 ?>
-<h3 class="w3_inner_tittle two text-center">Quản lý Rượu</h3>
-<a class="btn btn-primary" href="?page=AddWine">THÊM <i class="fa fa-plus"></i></a> 
+<h3 class="w3_inner_tittle two text-center">Wine Management</h3>
+<a class="btn btn-primary" href="?page=AddWine">Add Wine <i class="fa fa-plus"></i></a>
+<a class="btn btn-primary" href="?page=iof&iof=importwine">Import Wine <i class="fa fa-cloud-upload"></i></a>
+<a class="btn btn-primary" href="../Src/InputOutputFile/OutputFileWine.php">Export Wine <i class="fa fa-cloud-download"></i></a>
 <br>
 <br>
 <table id="myTable" class="table-striped table-hover">
 	<thead >
 		<tr>
-			<th><strong>STT</strong></th>
-			<th><strong>Tên Rượu</strong></th>
-			<th><strong>Nồng Độ</strong></th>
-			<th><strong>Ngày cập nhật</strong></th>
-			<th><strong>Số lượng</strong></th>
-			<th><strong>Loại</strong></th>
-			<th><strong>Nhà sản xuất</strong></th>
-			<th><strong>Quốc gia</strong></th>
-			<th><strong>Phương Thức</strong></th>
+			<th><strong>Num</strong></th>
+			<th><strong>Wine</strong></th>
+			<th><strong>Concentration</strong></th>
+			<th><strong>Update day</strong></th>
+			<th><strong>Quantity</strong></th>
+			<th><strong>Category</strong></th>
+			<th><strong>Producer</strong></th>
+			<th><strong>Origin</strong></th>
+			<th><strong>Action</strong></th>
 		</tr>
 	</thead>
 	<tbody>
-		<?php 
+		<?php
 		$num = 1;
 		while(list($WineId,$name,$strength,$wineupdate,$quantity,$idCat, $idPub,$idCountry) = mysql_fetch_array($listwine))
 		{
@@ -32,21 +34,21 @@ $listwine = mysql_query($sql) or trigger_error(mysql_error().$sql);
 				<td class="col-md-1"><?= $strength;?> </td>
 				<td class="col-md-1"><?= $wineupdate;?> </td>
 				<td class="col-md-1"><?= $quantity;?> </td>
-				<?php 
+				<?php
 				$result = searchCategory($idCat);
 				if(isset($result))
 				{
 					list($CategoryId,$CategoryName)=mysql_fetch_array($result);
 				} ?>
 				<td class="col-md-1"><?= $CategoryName?> </td>
-				<?php 
+				<?php
 				$result = searchPublisher($idPub);
 				if(isset($result))
 				{
 					list($PublisherId,$PublisherName)=mysql_fetch_array($result);
 				} ?>
 				<td class="col-md-1"><?= $PublisherName?> </td>
-				<?php 
+				<?php
 				$result = searchCountry($idCountry);
 				if(isset($result))
 				{
@@ -57,10 +59,10 @@ $listwine = mysql_query($sql) or trigger_error(mysql_error().$sql);
 					<a class='btn btn-success' href="?page=UploadImageWine&&WineId=<?=$WineId?>">
 						<i class="fa fa-file-image-o"></i></a>
 					<a class="btn btn-warning" href="?page=UpdateWine&WineId=<?php echo $WineId; ?>"><i class="fa fa-edit"></i></a>
-					<a class='btn btn-danger' href="?page=DeleteWine&WineId=<?php echo $WineId; ?>" onclick="return confirm('Bạn có chắc chắn xóa loại rượu này không?')"><i class="fa fa-remove"></i></a>
+					<a class='btn btn-danger' href="?page=DeleteWine&WineId=<?php echo $WineId; ?>" onclick="return confirm('Are you sure delete?')"><i class="fa fa-remove"></i></a>
 					<a class="btn btn-info" href="?page=PriceHistory&WineId=<?php echo $WineId; ?>"><i class="fa fa-money"></i></a>
 					<a class="btn btn-primary" href="?page=PromotionHistory&WineId=<?php echo $WineId; ?>"><i class="fa fa-gift"></i></a>
-				</td>     
+				</td>
 			</tr>
 			<?php
 			$num++;
