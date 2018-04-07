@@ -3,6 +3,15 @@ session_start();
 if(!isset($_SESSION['EmployeeCode'])){
 	echo '<meta http-equiv="refresh" content="0; URL=Index.php"/>';
 }
+
+function employeeLogin($EmployeeCode) {
+  $sql_query_employee = "SELECT * FROM employee WHERE EmployeeCode = '{$EmployeeCode}'";
+  $sql_result_employee = mysql_query($sql_query_employee);
+
+  while ($row_employee = mysql_fetch_array($sql_result_employee)) {
+    echo $row_employee['EmployeeName'];
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -104,7 +113,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				</li>
 				<!-- //nav_agile_w3l -->
 				<li class="second logo"><h1><a href="dashboard.php"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Windsor </a></h1></li>
-				<li class="second logo"><h1><a href="SignOut.php"><?php if(isset($_SESSION["EmployeeCode"])){echo $_SESSION["EmployeeCode"]."  <i class='fa fa-power-off text-danger'></i>"; }?> </a></h1></li>
+				<li class="second logo"><h1><a href="SignOut.php"><?php if(isset($_SESSION["EmployeeCode"])){employeeLogin($_SESSION["EmployeeCode"]); echo "  <i class='fa fa-power-off text-danger'></i>"; }?> </a></h1></li>
 			</ul>
 			<!-- //nav -->
 

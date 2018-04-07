@@ -1,6 +1,15 @@
 <?php
 session_start();
 include_once("Library/connect.php");
+function userLogin($username) {
+  $sql_query_user = "SELECT * FROM user WHERE Username = '{$username}'";
+  $sql_result_user = mysql_query($sql_query_user);
+
+  while ($row_user = mysql_fetch_array($sql_result_user)) {
+    echo $row_user['FullName'];
+  }
+}
+
 if(!isset($_SESSION["cart"])){
  $_SESSION["cart"] = array();
 }
@@ -140,7 +149,7 @@ function checkout($WineId)
           </div>
         </div>
         <div class="cart box_1">
-         <h4 data-toggle="modal" data-target="#myLoginModal" class="text-primary"><?php if(isset($_SESSION["username"])){echo $_SESSION["username"]." <a href='Src/User/Signout.php'><span class=' glyphicon glyphicon-log-out'></span></a>";}?></h4>
+         <h4 data-toggle="modal" data-target="#myLoginModal" class="text-primary"><?php if(isset($_SESSION["username"])){userLogin($_SESSION["username"]); echo " <a href='Src/User/Signout.php'><span class=' glyphicon glyphicon-log-out'></span></a>";}?></h4>
        </div>
        <div class="clearfix"> </div>
 

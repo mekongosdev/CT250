@@ -76,13 +76,13 @@ if(isset($_POST['btnUpload']))
 <div class="container">
 	<form  id="frmHinhAnh" class="form-horizontal" name="frmHinhAnh" method="post" action="" enctype="multipart/form-data" role="form">
 		<div class="form-group">
-			<label for="NewsId" class="col-sm-2 control-label">Mã Bản Tin (*):  </label>
+			<label for="NewsId" class="col-sm-2 control-label">News Code (*):  </label>
 			<div class="col-sm-10">
 				<input type="text" name="NewsId" id="NewsId" class="form-control" placeholder="Mã nhân viên" value='<?php echo $NewsId; ?>' readonly="readonly"/>
 			</div>
 		</div>  
 		<div class="form-group">    
-			<label for="Newsname" class="col-sm-2 control-label">Tên bản tin  (*):  </label>
+			<label for="Newsname" class="col-sm-2 control-label">News  (*):  </label>
 			<div class="col-sm-10">
 				<input type="text" name="Newsname" id="Newsname" class="form-control" placeholder="Nội dung bản tin" value='<?php echo $Newsname; ?>' readonly="readonly"/> 
 			</div>
@@ -92,7 +92,7 @@ if(isset($_POST['btnUpload']))
 				<input type="file" accept=".jpg, .png, .jpeg, .gif" name="fileToUpload" id="fileToUpload" class="form-control-file" onChange='hasExistfile()'/>
 			</div>
 		</div>  
-		<button type="submit" class="btn btn-primary pull-right" name="btnUpload" disabled id="btnUploadImage">Tải ảnh</button>
+		<button type="submit" class="btn btn-primary pull-right" name="btnUpload" disabled id="btnUploadImage">Updaload</button>
 		<script type="text/javascript">
 			function hasExistfile(){
 				document.getElementById('btnUploadImage').disabled = false;
@@ -115,7 +115,7 @@ if(isset($_POST['btnUpload']))
 					<div class='col-sm-2'>
 						<img src="<?php echo "../Public/admin/images_news/".$row['ImgNews']; ?>" width="100px"/>
 					</div>
-					<a class='btn btn-danger' href="?page=DeleteNewsImage&&NewsId=<?=$_GET['NewsId'];?>&&ImgNewsId=<?php echo $ImgNewsId; ?>" onclick="return confirm('Bạn có chắc chắn xóa hình này không?')"><i class="fa fa-remove"></i></a>
+					<a class='btn btn-danger' href="?page=DeleteNewsImage&&NewsId=<?=$_GET['NewsId'];?>&&ImgNewsId=<?php echo $ImgNewsId; ?>" onclick="return confirm('Are you sure delete?')"><i class="fa fa-remove"></i></a>
 				</div>
 				<div class='col-sm-offset-2 col-sm-4'>
 					<div><hr /></div>
