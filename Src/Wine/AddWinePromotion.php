@@ -22,7 +22,7 @@
 					<?php 
 					$sqlString="SELECT `WineId`, `WineName` FROM `wine`";
 					$sqlresult = mysql_query($sqlString);
-					echo "<select name='slWine' class='form-control'><option value='0'>Pleqse choice wine name</option>";
+					echo "<select name='slWine' class='form-control'><option value='0'>Please choice wine name</option>";
 
 					while ($row = mysql_fetch_array($sqlresult,MYSQL_ASSOC)) {
 						echo "<option value='".$row['WineId']."'>".$row['WineName']."</option>";
@@ -50,7 +50,7 @@
 			</div>
 			<div class="form-group">        
 				<div class="col-md-offset-2 col-md-10">
-					<button type="submit" class="btn btn-info" name="btnAdd" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Add/button>
+					<button type="submit" class="btn btn-info" name="btnAdd" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Add</button>
 					<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
 				</div>
 			</div>
