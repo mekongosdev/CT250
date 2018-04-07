@@ -294,8 +294,8 @@ if(isset($_GET['page']) && $_GET['page'] == 'ActiveAccount'){
  WHERE
  `username`='$username'";
  mysql_query($sqlUpdate);
-echo '<script> alert("Actived!");</script>';
-    echo "<script>window.location.href='http://localhost/CT250/index.php'</script>";
+ echo '<script> alert("Actived!");</script>';
+ echo "<script>window.location.href='http://localhost/CT250/index.php'</script>";
 }
 
 ?>
@@ -307,9 +307,6 @@ echo '<script> alert("Actived!");</script>';
    <h3>Top Brands</h3>
    <div class="sliderfig">
     <ul id="flexiselDemo1">
-     <li>
-      <img src="public/client/images/4.png" alt=" " class="img-responsive" />
-    </li>
     <li>
       <img src="public/client/images/5.png" alt=" " class="img-responsive" />
     </li>
@@ -361,7 +358,6 @@ echo '<script> alert("Actived!");</script>';
   <div class="container">
    <div class="col-md-6 w3agile_newsletter_left">
     <h3>Newsletter</h3>
-    <p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
   </div>
   <div class="col-md-6 w3agile_newsletter_right">
     <form action="#" method="post">
@@ -379,10 +375,9 @@ echo '<script> alert("Actived!");</script>';
    <div class="w3_footer_grids">
     <div class="col-md-3 w3_footer_grid">
      <h3>Contact</h3>
-     <p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
      <ul class="address">
-      <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
-      <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
+      <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>3/2, Ninh Kieu, Can Tho</li>
+      <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">windsor.shop@gmail.com</a></li>
       <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
     </ul>
   </div>
@@ -429,7 +424,6 @@ echo '<script> alert("Actived!");</script>';
    <li><a href="#" class="facebook"> </a></li>
    <li><a href="#" class="twitter"> </a></li>
    <li><a href="#" class="google"> </a></li>
-   <li><a href="#" class="pinterest"> </a></li>
  </ul>
 </div>
 </div>

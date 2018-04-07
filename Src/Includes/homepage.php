@@ -415,14 +415,15 @@ if ($row['WineQuantity'] > 0)
 <div class="clearfix"> </div>
 </div>
 <!-- //banner-bottom -->
+</div>
+</div>
+
 <!-- banner-bottom1 -->
 <div class="banner-bottom1">
   <div class="agileinfo_banner_bottom1_grids">
    <div class="col-md-7 agileinfo_banner_bottom1_grid_left">
-    <h3 class="text-info">Vietnamese spirit brands</h3>
-    <a href="?page=Vietnam">Shop Now</a>
-  </div>
-  <div class="col-md-5 agileinfo_banner_bottom1_grid_right">
+   </div>
+   <div class="col-md-5 agileinfo_banner_bottom1_grid_right">
     <h4>hot deal</h4>
     <div class="timer_wrap">
      <div id="counter"> </div>
@@ -442,20 +443,20 @@ if ($row['WineQuantity'] > 0)
     <div class="col-md-7 w3agile_special_deals_grid_left">
      <div class="w3agile_special_deals_grid_left_grid">
       <img src="public/client/images/26.jpg" alt=" " class="img-responsive" />
+    </div>
+    <div class="w3agile_special_deals_grid_left_grid">
+      <img src="public/client/images/78.jpg" alt=" " class="img-responsive" />
+    </div>
+  </div>
+  <div class="col-md-5 w3agile_special_deals_grid_right">
+    <img src="public/client/images/80.jpg" alt=" " class="img-responsive" />
+    <div class="w3agile_special_deals_grid_right_pos">
+     <h4>Women's <span class="text-white">Special</span></h4>
+     <h5 >5% off<span></h5>
+     </div>
    </div>
-   <div class="w3agile_special_deals_grid_left_grid">
-    <img src="public/client/images/78.jpg" alt=" " class="img-responsive" />
+   <div class="clearfix"> </div>
  </div>
-</div>
-<div class="col-md-5 w3agile_special_deals_grid_right">
-  <img src="public/client/images/80.jpg" alt=" " class="img-responsive" />
-  <div class="w3agile_special_deals_grid_right_pos">
-   <h4>Women's <span class="text-white">Special</span></h4>
-   <h5 >5% off<span></h5>
-   </div>
- </div>
- <div class="clearfix"> </div>
-</div>
 </div>
 </div>
 
