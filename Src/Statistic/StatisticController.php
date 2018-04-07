@@ -9,7 +9,7 @@ function statisticOrderWineDetails() {
 
   function drawChart() {
       var data = google.visualization.arrayToDataTable([
-        ['Rượu', 'Số lượng (đvt: chai)', 'Doanh thu (đvt: $)', 'Lợi nhuận (đvt: $)'],";
+        ['Wine', 'Quantity (unit: bottle)', 'Revenue (unit: $)', 'Profit (unit: $)'],";
 
   			$sql_statistic_orderwinedetail = "SELECT wine.WineName, sum(orderwinedetails.`WineOrderQuantity`) as OrderQuantity, sum(orderwinedetails.`WineSoldPrice`) as SoldPrice, sum(orderwinedetails.`WineOriginalPrice`) as OriginalPrice FROM `orderwinedetails` INNER JOIN `wine` ON orderwinedetails.WineOrderId = wine.WineId GROUP BY orderwinedetails.`WineOrderId`";
   		  $result_statistic_orderwinedetail = mysql_query($sql_statistic_orderwinedetail);
@@ -30,8 +30,8 @@ function statisticOrderWineDetails() {
 
       var options = {
         chart: {
-          title: 'Tổng doanh số bán ra',
-          subtitle: 'Số lượng, doanh thu và lợi nhuận',
+          title: 'Total sales',
+          subtitle: 'Quantity, Revenue and Profit',
         }
       };
 
@@ -53,7 +53,7 @@ function statisticByCategory($categoryName) {
   function drawChart() {
 
   	var data_".$categoryName." = google.visualization.arrayToDataTable([
-  		['Loại rượu', 'Thị phần trên tổng bán ra'],";
+  		['Categories', 'Total market share'],";
 
   		$sql_statistic_category_vietnam = "SELECT * FROM `wine` INNER JOIN `category` ON wine.CategoryId = category.CategoryId WHERE category.CategoryName = '".$categoryName."'";
   		$result_statistic_category_vietnam = mysql_query($sql_statistic_category_vietnam);
@@ -69,7 +69,7 @@ function statisticByCategory($categoryName) {
   	]);
 
   	var options_".$categoryName." = {
-  		title: 'Tổng sản phẩm bán ra và thị phần của loại ".$categoryName."'
+  		title: 'Total sales categories of ra and of the categories ".$categoryName."'
   	};
 
   	var chart_".$categoryName." = new google.visualization.PieChart(document.getElementById('piechart_".$categoryName."'));
