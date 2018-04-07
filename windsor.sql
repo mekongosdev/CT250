@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 25, 2018 at 07:36 AM
+-- Generation Time: Apr 07, 2018 at 03:28 AM
 -- Server version: 5.6.37
 -- PHP Version: 5.6.31
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `about` (
   `AboutName` varchar(145) COLLATE utf8_unicode_ci NOT NULL,
   `AboutWinsor` varchar(245) COLLATE utf8_unicode_ci NOT NULL,
   `EmployeeCode` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `about`
@@ -393,7 +393,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `OrderStatus` int(11) NOT NULL,
   `Username` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
   `PaymentMethodId` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `order`
@@ -401,7 +401,17 @@ CREATE TABLE IF NOT EXISTS `order` (
 
 INSERT INTO `order` (`OrderId`, `OrderCreateDate`, `OrderDeliverDate`, `OrderDeliverPlace`, `OrderStatus`, `Username`, `PaymentMethodId`) VALUES
 (6, '2018-03-22', '2018-12-21', 'Tiên Thủy Châu Thành Bến tre', 1, 'dangtuanhuy', 1),
-(7, '2018-03-22', '2018-01-01', 'Bến Tre', 0, 'dangtuanhuyhachi', 2);
+(7, '2018-03-22', '2018-01-01', 'Bến Tre', 0, 'dangtuanhuyhachi', 2),
+(8, '2018-04-02', '2018-03-31', 'Cần Thơ', 0, 'ngthuc', 3),
+(9, '2018-04-02', '2018-03-31', 'Ninh Kiều', 0, 'ngthuc', 3),
+(10, '2018-04-02', '2018-04-01', 'Ninh Kiều, Cần Thơ', 0, 'ngthuc', 3),
+(11, '2018-04-02', '2018-04-01', 'Ninh Kiều, Cần Thơ', 0, 'ngthuc', 3),
+(12, '2018-04-02', '2018-04-01', 'Ninh Kiều, Cần Thơ', 0, 'ngthuc', 3),
+(13, '2018-04-02', '2018-04-01', 'Ninh Kiều, Cần Thơ', 0, 'ngthuc', 3),
+(14, '2018-04-02', '2018-04-01', 'Ninh Kiều, Cần Thơ', 0, 'ngthuc', 3),
+(15, '2018-04-02', '2018-03-01', 'Ninh Kiều, Cần Thơ', 0, 'ngthuc', 3),
+(16, '2018-04-02', '2018-02-01', 'Ninh Kiều, Cần Thơ', 0, 'ngthuc', 3),
+(17, '2018-04-02', '2018-03-01', 'Ninh Kiều, Cần Thơ', 0, 'ngthuc', 3);
 
 -- --------------------------------------------------------
 
@@ -422,10 +432,20 @@ CREATE TABLE IF NOT EXISTS `orderwinedetails` (
 --
 
 INSERT INTO `orderwinedetails` (`WineOrderId`, `OrderId`, `WineOrderQuantity`, `WineSoldPrice`, `WineOriginalPrice`) VALUES
-(4, 6, 1, '90000.00', '90000.00'),
-(5, 6, 1, '90000.00', '90000.00'),
-(5, 7, 10, '90000.00', '90000.00'),
-(7, 6, 1, '123000.00', '123000.00');
+(1, 9, 8, '40.00', '24.00'),
+(1, 14, 6, '30.00', '18.00'),
+(1, 17, 3, '15.00', '9.00'),
+(2, 16, 16, '256.00', '192.00'),
+(3, 15, 8, '40.00', '16.00'),
+(4, 6, 1, '5.00', '2.00'),
+(4, 13, 5, '25.00', '10.00'),
+(5, 6, 1, '5.00', '2.00'),
+(5, 7, 10, '50.00', '20.00'),
+(7, 6, 1, '6.00', '2.00'),
+(7, 12, 3, '18.00', '6.00'),
+(9, 8, 4, '128.00', '12.00'),
+(9, 10, 2, '64.00', '6.00'),
+(9, 11, 3, '96.00', '9.00');
 
 -- --------------------------------------------------------
 
@@ -504,7 +524,7 @@ CREATE TABLE IF NOT EXISTS `publisher` (
   `PublisherId` int(11) NOT NULL,
   `PublisherName` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `PublisherDescription` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `publisher`
@@ -601,20 +621,20 @@ CREATE TABLE IF NOT EXISTS `time_wine` (
 --
 
 INSERT INTO `time_wine` (`WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note`) VALUES
-(1, 1, '50000', '90000', 'Mua bán '),
+(1, 1, '3', '5', 'Mua bán '),
 (2, 1, '12', '16', 'f'),
-(3, 3, '45000', '90000', 'Khách hàng có thể'),
-(4, 1, '45000', '90000', 'Đã có chiết khấu'),
-(5, 7, '45000', '90000', 'Đã có chiết khấu'),
-(6, 8, '67000', '123000', 'Giá bán đã bao gồm giá trị gia tăng'),
-(7, 1, '45000', '123000', 'Giá bán đã bao gồm giá trị gia tăng'),
-(8, 8, '8888888', '9999999', 'Đã bao gồm chiết khấu và lỗ vốn'),
-(9, 6, '70000', '710000', 'Vì đây là sản phẩm tồn kha giá rẻ'),
-(11, 9, '777777', '999999', 'Đã bao gồm chiết khấu và lỗ vốn'),
-(12, 5, '1500000', '2000000', 'Khách hàng có thể mua trả góp'),
-(13, 7, '1500000', '3000000', 'Giá bán đã bao gồm giá trị gia tăng'),
-(14, 3, '45000', '2000000', 'Giá bán đã bao gồm giá trị gia tăng'),
-(15, 6, '67000', '123000', 'Vì đây là sản phẩm tồn kha giá rẻ');
+(3, 3, '2', '5', 'Khách hàng có thể'),
+(4, 1, '2', '5', 'Đã có chiết khấu'),
+(5, 7, '2', '5', 'Đã có chiết khấu'),
+(6, 8, '3', '6', 'Giá bán đã bao gồm giá trị gia tăng'),
+(7, 1, '2', '6', 'Giá bán đã bao gồm giá trị gia tăng'),
+(8, 8, '404', '455', 'Đã bao gồm chiết khấu và lỗ vốn'),
+(9, 6, '3', '32', 'Vì đây là sản phẩm tồn kha giá rẻ'),
+(11, 9, '353', '455', 'Đã bao gồm chiết khấu và lỗ vốn'),
+(12, 5, '73', '99', 'Khách hàng có thể mua trả góp'),
+(13, 7, '73', '243', 'Giá bán đã bao gồm giá trị gia tăng'),
+(14, 3, '2', '99', 'Giá bán đã bao gồm giá trị gia tăng'),
+(15, 6, '3', '6', 'Vì đây là sản phẩm tồn kha giá rẻ');
 
 -- --------------------------------------------------------
 
@@ -676,15 +696,15 @@ CREATE TABLE IF NOT EXISTS `wine` (
 --
 
 INSERT INTO `wine` (`WineId`, `WineName`, `WineStrength`, `WineShortDetails`, `WineDetails`, `WineUpdateDate`, `WineQuantity`, `WineSold`, `CategoryId`, `PublisherId`, `CountryId`) VALUES
-(1, 'Rượu Phú Lể', 14, 'Rất nhiều loại rượu khác nhau', 'Rất nhiều loại rượu khác nhau', '2018-01-26', 43, 7, 4, 1, 2),
-(2, 'Nếp Hương', 15, 'Nồng độ cồn khá cao', 'Nồng độ cồ khá cao', '2018-02-22', 27, 18, 4, 1, 17),
-(3, 'Ông già ba tri', 12, '34', 'Rất Ngon', '2018-03-09', 45, 0, 4, 1, 9),
-(4, 'Grapes', 45, 'Là một loại rượu Nho', 'Là một loại rượu Nho', '2018-03-10', 44, 1, 5, 1, 3),
+(1, 'Rượu Phú Lể', 14, 'Rất nhiều loại rượu khác nhau', 'Rất nhiều loại rượu khác nhau', '2018-01-26', 26, 24, 4, 1, 2),
+(2, 'Nếp Hương', 15, 'Nồng độ cồn khá cao', 'Nồng độ cồ khá cao', '2018-02-22', 10, 108, 4, 1, 17),
+(3, 'Ông già ba tri', 12, '34', 'Rất Ngon', '2018-03-09', 37, 8, 4, 1, 9),
+(4, 'Grapes', 45, 'Là một loại rượu Nho', 'Là một loại rượu Nho', '2018-03-10', 39, 6, 5, 1, 3),
 (5, 'Apple', 12, 'Rượu Táo', 'Rượu Táo', '2018-03-07', 34, 11, 5, 1, 14),
 (6, 'Cherry First', 45, 'Chiết xuất từ cherry nguyên chất', 'Chiết xuất từ cherry nguyên chất', '2018-03-30', 100, 0, 5, 1, 16),
-(7, 'Vorka 1', 50, 'Rượu Ngâm', 'Rượu Ngâm', '2018-03-04', 7, 6, 1, 1, 2),
+(7, 'Vorka 1', 50, 'Rượu Ngâm', 'Rượu Ngâm', '2018-03-04', 4, 9, 1, 1, 2),
 (8, 'Vorka 2', 50, 'Rượu Ngâm', 'Rượu Ngâm', '2018-03-07', 9, 5, 1, 1, 17),
-(9, 'Vorka 3', 45, 'Rượu Ngâm', 'Vodka is the most-consumed spirit in the world. In 2012, according to The Economist, global vodka consumption reached 4.4 billion liters. The definitive neutral spirit, vodka is an essential ingredient to be enjoyed in any number of mixed drinks, and sippable straight in upscale, premium versions.', '2018-03-02', 662, 4, 1, 1, 13),
+(9, 'Vorka 3', 45, 'Rượu Ngâm', 'Vodka is the most-consumed spirit in the world. In 2012, according to The Economist, global vodka consumption reached 4.4 billion liters. The definitive neutral spirit, vodka is an essential ingredient to be enjoyed in any number of mixed drinks, and sippable straight in upscale, premium versions.', '2018-03-02', 653, 13, 1, 1, 13),
 (10, 'Chivas regal', 45, 'Là một loại rượu Chivas khá ngon', 'Là một loại rượu Chivas khá ngon', '2018-03-11', 45, 0, 3, 1, 11),
 (11, 'Chivas 38', 55, 'Rượu Ngâm', 'Rượu Ngâm', '2018-04-20', 8, 1, 3, 1, 11),
 (12, 'Chivas 18 blue', 45, 'Rượu Ngâm', 'Rượu Pha Chế', '2018-07-15', 666, 0, 3, 1, 7),
@@ -873,7 +893,7 @@ ALTER TABLE `wine`
 -- AUTO_INCREMENT for table `about`
 --
 ALTER TABLE `about`
-  MODIFY `AboutId` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `AboutId` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `bill`
 --
@@ -928,7 +948,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `paymentmethod`
 --
@@ -943,7 +963,7 @@ ALTER TABLE `promotion`
 -- AUTO_INCREMENT for table `publisher`
 --
 ALTER TABLE `publisher`
-  MODIFY `PublisherId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `PublisherId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `role`
 --
