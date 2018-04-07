@@ -5,16 +5,16 @@ $sqlSelect = "SELECT `SubjectId`, `SubjectName` FROM Subject";
 $list_Subject= mysql_query($sqlSelect);
 
 ?>
-<h3 class="w3_inner_tittle two text-center">Quản lý chủ đề Contact</h3>
-<a class="btn btn-primary" href="?page=AddSubject">THÊM <i class="fa fa-plus"></i></a> 
+<h3 class="w3_inner_tittle two text-center">Subject Contact</h3>
+<a class="btn btn-primary" href="?page=AddSubject">ADD <i class="fa fa-plus"></i></a> 
 <br>
 <br>
 <table id="myTable" class="table-striped table-hover">
 	<thead >
 		<tr>
-			<th><strong>STT</strong></th>
-			<th><strong>Tên</strong></th>
-			<th><strong>Phương thức</strong></th>
+			<th><strong>Num</strong></th>
+			<th><strong>Names</strong></th>
+			<th><strong>Action</strong></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -28,7 +28,7 @@ $list_Subject= mysql_query($sqlSelect);
 				<td class="col-md-3"><?= $SubjectName;?> </td>
 				<td class="text-center col-md-2">
 					<a class="btn btn-warning btn" href="?page=UpadateSubject&SubjectId=<?php echo $SubjectId; ?>"><i class="fa fa-edit"></i></a>
-					<a class='btn btn-danger' href="?page=DeleteSubject&SubjectId=<?php echo $SubjectId; ?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?')"><i class="fa fa-remove"></i></a>
+					<a class='btn btn-danger' href="?page=DeleteSubject&SubjectId=<?php echo $SubjectId; ?>" onclick="return confirm('Are you delete?')"><i class="fa fa-remove"></i></a>
 				</td>     
 			</tr>
 			<?php

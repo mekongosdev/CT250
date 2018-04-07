@@ -7,20 +7,20 @@ if(isset($_GET['WineId'])){
 	$pricehistory = mysql_query($sql) or trigger_error(mysql_error().$sql);
 }
 ?>
-<h3 class="w3_inner_tittle two text-center">Lịch sử giá rượu</h3>
-<a class="btn btn-primary" href="?page=AddWinePrice">THÊM <i class="fa fa-plus"></i></a> 
+<h3 class="w3_inner_tittle two text-center">History Price</h3>
+<a class="btn btn-primary" href="?page=AddWinePrice">Add <i class="fa fa-plus"></i></a> 
 <br>
 <br>
 <table id="myTable" class="table-striped table-hover">
 	<thead >
 		<tr>
-			<th><strong>STT</strong></th>
-			<th><strong>Tên rượu</strong></th>
-			<th><strong>Thời điểm</strong></th>
-			<th><strong>Giá mua</strong></th>
-			<th><strong>Giá bán</strong></th>
-			<th><strong>Ghi chú</strong></th>
-			<th><strong>Phương Thức</strong></th>
+			<th><strong>Num</strong></th>
+			<th><strong>Wine Name</strong></th>
+			<th><strong>Location</strong></th>
+			<th><strong>The purchase price</strong></th>
+			<th><strong>Sale price</strong></th>
+			<th><strong>Notes</strong></th>
+			<th><strong>Action</strong></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -50,7 +50,7 @@ if(isset($_GET['WineId'])){
 				<td class="col-md-1"><?= $Note;?> </td>
 				<td class="text-center col-md-1">
 					<a class='btn btn-warning' href="?page=UpdateWinePrice&WineId=<?=$WineId; ?>&&TimeId=<?=$TimeId?>"><i class="fa fa-edit"></i></a>
-					<a class="btn btn-danger" href="?page=DeleteWinePrice&WineId=<?=$WineId; ?>&&TimeId=<?=$TimeId?>" onclick="return confirm('Bạn có chắc chắn xóa loại rượu này không?')"><i class="fa fa-remove"></i></a>
+					<a class="btn btn-danger" href="?page=DeleteWinePrice&WineId=<?=$WineId; ?>&&TimeId=<?=$TimeId?>" onclick="return confirm('Are you sure delete?')"><i class="fa fa-remove"></i></a>
 				</td>     
 			</tr>
 			<?php

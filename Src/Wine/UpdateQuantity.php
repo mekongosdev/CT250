@@ -26,20 +26,20 @@ if(isset($_POST['btnUpdate']))
 	<div class="col-md-12"/>
 	<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data" form-horizontal>
 		<div class="form_group">
-			<label class="control-label col-sm-12" for="email"><h2 align="center">Cập Nhật số lượng rượu</h2></label>
+			<label class="control-label col-sm-12" for="email"><h2 align="center">Update Quntity</h2></label>
 		</div>
 
 	</form>
 	<form class="form-horizontal" accept-charset="utf-8" method="post" role="form" >
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtName">Mã rượu:</label>
+			<label class="control-label col-md-2" for="txtName">Wine Code:</label>
 			<div class="col-sm-10">
 				<input type="text" class="form-control" id="WineId"  name="WineId"
 				readonly="readonly" value="<?php echo $WineId;?>" >
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-md-2" for="wineName">Tên Rượu:</label>
+			<label class="control-label col-md-2" for="wineName">Wine Name:</label>
 			<div class="col-sm-10">
 				<input type="text" class="form-control" id="wineName" name="wineName"
 				disabled value="<?php echo $name; ?>" >
@@ -47,7 +47,7 @@ if(isset($_POST['btnUpdate']))
 		</div>
 		
 		<div class="form-group">
-			<label class="control-label col-md-2" for="txtNum">Số lượng rượu:</label>
+			<label class="control-label col-md-2" for="txtNum">Quantity:</label>
 			<div class="col-md-10">          
 				<input type="text" class="form-control" id="txtNum"  name="txtNum" value="0"
 				required  >
@@ -55,8 +55,8 @@ if(isset($_POST['btnUpdate']))
 		</div>
 		<div class="form-group">        
 			<div class="col-md-offset-2 col-md-10">
-				<button type="submit" class="btn btn-info" name="btnUpdate" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Cập nhật</button>
-				<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Bỏ Qua</button>
+				<button type="submit" class="btn btn-info" name="btnUpdate" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Update</button>
+				<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
 			</div>
 		</div>
 	</form>

@@ -5,18 +5,18 @@ $sqlSelect = "SELECT `RoleId`, `RoleName`, `RoleDetails`, `RoleActive` FROM `Rol
 $list_Role= mysql_query($sqlSelect);
 
 ?>
-<h3 class="w3_inner_tittle two text-center">Quản lý quyền</h3>
-<a class="btn btn-primary" href="?page=AddRole">THÊM <i class="fa fa-plus"></i></a> 
+<h3 class="w3_inner_tittle two text-center">Management Role</h3>
+<a class="btn btn-primary" href="?page=AddRole">Add <i class="fa fa-plus"></i></a> 
 </br>
 </br>
 <table id="myTable" class="table-striped table-hover">
 	<thead >
 		<tr>
-			<th><strong>STT</strong></th>
-			<th><strong>Tên Quyền</strong></th>
-			<th><strong>Mô Tả</strong></th>
-			<th><strong>Tình Trạng</strong></th>
-			<th><strong>Phương Thức</strong></th>
+			<th><strong>Num</strong></th>
+			<th><strong>Role Name</strong></th>
+			<th><strong>Details</strong></th>
+			<th><strong>Status</strong></th>
+			<th><strong>Action</strong></th>
 		</tr>
 	</thead>
 	<tbody>
