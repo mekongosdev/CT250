@@ -75,8 +75,8 @@ aria-hidden="true">
 					<div class="sap_tabs">	
 						<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 							<ul>
-								<li class="resp-tab-item" aria-controls="tab_item-0"><span>Log In</span></li>
-								<li class="resp-tab-item" aria-controls="tab_item-1"><span>Register</span></li>
+								<li class="resp-tab-item" aria-controls="tab_item-0"><span>Sign In</span></li>
+								<li class="resp-tab-item" aria-controls="tab_item-1"><span>Sign up</span></li>
 							</ul>		
 							<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 								<div class="facts">
@@ -177,7 +177,7 @@ aria-hidden="true">
 					<div class="row text-center sign-with">
 						<div class="col-md-12">
 							<h3 class="other-nw pull-left">
-							Register with social networking</h3>
+							You may connect with</h3>
 						</div>
 						<div class="col-md-12">
 							<ul class="social">

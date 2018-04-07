@@ -77,7 +77,7 @@ if (isset($_POST['btnYes'])) {
                         </div>
                     </div>
                     <div class="col-sm-2"><?php echo number_format($row["gia"] * $row["quantity"], 0, ",", ".") ?></div>
-                    <div class="col-sm-1"><a onclick='return confirmDelete()' href="./cart/del/<?php echo $key ?>"><span class="fa fa-remove fa-lg"></span></a></div>
+                    <div class="col-sm-1"><a onclick='return confirmDelete()' href="?page=Cart&action=del&id=<?php echo $key ?>"><span class="fa fa-remove fa-lg"></span></a></div>
                 </div><hr>
                 <?php
                 $total += $row["gia"] * $row["quantity"];
