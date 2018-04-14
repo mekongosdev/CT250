@@ -17,7 +17,7 @@ function byEmployee($EmployeeCode) {
   $sql_result_employee = mysql_query($sql_query_employee);
 
   while ($row_employee = mysql_fetch_array($sql_result_employee)) {
-    echo '<input type="text" class="form-control" name="slEmpl" value="'.$row_employee['EmployeeName'].'" disabled />';
+    echo '<input type="text" class="form-control" name="slEmpl" value="'.$row_employee['EmployeeName'].'" readonly />';
   }
 }
 
