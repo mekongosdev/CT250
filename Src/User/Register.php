@@ -106,13 +106,9 @@ aria-hidden="true">
 											</div>
 											<div class="form-group">	
 												<input placeholder="Email Address" name="txtEmail" type="email" required="">
-
-												
 											</div>
 											<div class="form-group">	
-												<input placeholder="Phone Number" name="NumPhone" type="text" required="" data-toggle="tooltip" data-placement="top">
-												
-												
+								<input placeholder="Phone Number" name="NumPhone" type="text" pattern="^(0|+84)]\d{9,10})$"  class="form-control" maxlength="11">
 											</div>
 											<div class="form-group">	
 												<input placeholder="Birthday" name="dateOfBirth" type="date"  class="form-control" required="" value="2018-01-01">	</div>
@@ -120,7 +116,6 @@ aria-hidden="true">
 					
 													<input placeholder="Password" name="txtPassword" type="password" required="" >
 
-													
 												</span>
 											</div>	
 											<div class="form-group">	
@@ -129,7 +124,7 @@ aria-hidden="true">
 
 											</div>	
 											<div class="form-group">  
-												<label for="lblGender" class="col-sm-2 control-label">Gender(*):  </label>
+												<label for="lblGender" class="col-sm-2 control-label">Gender:  </label>
 												<div class="col-sm-10">                              
 													<label class="radio-inline"><input type="radio" name="grpGender" value="0"  
 														<?php if(isset($Gender)&&$Gender=="0") { echo "checked";} ?> />
