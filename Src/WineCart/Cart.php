@@ -19,24 +19,24 @@
 
     if (isset($_POST['btnYes'])) {
         foreach ($_SESSION['cart'] as $key => $wine) {
-          $wineName = $wine['ten'];
-          $wineQuantity = $wine['quantity'];
+          $_SESSION['cart'][$key]['quantity'] = $_POST['Wine'.$key];
+          $wineName = $_SESSION['cart'][$key]['ten'];
+          $wineQuantity = $_SESSION['cart'][$key]['quantity'];
 
           $sql_check_quantity = "SELECT * FROM wine WHERE WineName = '{$wineName}'";
           $row_check_quantity = mysql_fetch_array(mysql_query($sql_check_quantity));
           $checkQuantity = $row_check_quantity['WineQuantity'];
-
-          if($checkQuantity < $wineQuantity) {
-            echo "<script>alert('Không đủ số lượng ".$wineName." cần mua. Vui lòng mua ít hơn!');</script>";
+        }
+        if($wineQuantity > $checkQuantity) {
+          echo "<script>alert('Không đủ số lượng ".$wineName." cần mua. Vui lòng mua ít hơn!');</script>";
+        } else {
+          if (isset($_SESSION['username'])) {
+              foreach ($_SESSION["cart"] as $key => $row) {
+                  $_SESSION['cart'][$key]['quantity'] = $_POST['Wine'.$key];
+              }
+              echo "<script>window.location.href='?page=Checkout'</script>";
           } else {
-            if (isset($_SESSION['username'])) {
-                foreach ($_SESSION["cart"] as $key => $row) {
-                    $_SESSION['cart'][$key]['quantity'] = $_POST['Wine'.$key];
-                }
-                echo "<script>window.location.href='?page=Checkout'</script>";
-            } else {
-                echo "<script>alert('Please Login to Checkout');</script>";
-            }
+              echo "<script>alert('Please Login to Checkout');</script>";
           }
         }
     }
@@ -85,7 +85,7 @@
                                 <td><?php echo $row['ten'] ?></td>
                                 <td><?php echo $row["hang"] ?></td>
                                 <td class="winePrice"><?php echo $row['gia'] ?></td>
-                                <td class="wineQuantity" style="width: 11%"> <span class="input-group bootstrap-touchspin text-center">
+                                <td class="wineQuantity" style="width: 12%"> <span class="input-group bootstrap-touchspin text-center">
                                     <input type='text' class="wine-quantity" id="wine-quantity" name='Wine<?php echo $key ?>' value='<?php echo $row["quantity"] ?>' class='form-control text-center'/>
                                 </span></td>
                                 <td class="wineTotal"><?php echo number_format($row["gia"] * $row["quantity"], 0, ",", ".") ?></td>
