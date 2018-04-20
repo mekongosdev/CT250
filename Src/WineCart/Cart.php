@@ -18,13 +18,26 @@
     }
 
     if (isset($_POST['btnYes'])) {
-        if (isset($_SESSION['username'])) {
-            foreach ($_SESSION["cart"] as $key => $row) {
-                $_SESSION['cart'][$key]['quantity'] = $_POST['Wine'.$key];
+        foreach ($_SESSION['cart'] as $key => $wine) {
+          $wineName = $wine['ten'];
+          $wineQuantity = $wine['quantity'];
+
+          $sql_check_quantity = "SELECT * FROM wine WHERE WineName = '{$wineName}'";
+          $row_check_quantity = mysql_fetch_array(mysql_query($sql_check_quantity));
+          $checkQuantity = $row_check_quantity['WineQuantity'];
+
+          if($checkQuantity < $wineQuantity) {
+            echo "<script>alert('Không đủ số lượng ".$wineName." cần mua. Vui lòng mua ít hơn!');</script>";
+          } else {
+            if (isset($_SESSION['username'])) {
+                foreach ($_SESSION["cart"] as $key => $row) {
+                    $_SESSION['cart'][$key]['quantity'] = $_POST['Wine'.$key];
+                }
+                echo "<script>window.location.href='?page=Checkout'</script>";
+            } else {
+                echo "<script>alert('Please Login to Checkout');</script>";
             }
-            echo "<script>window.location.href='?page=Checkout'</script>";
-        } else {
-            echo "<script>alert('Please Login to Checkout');</script>";
+          }
         }
     }
 
@@ -78,7 +91,7 @@
                                 <td class="wineTotal"><?php echo number_format($row["gia"] * $row["quantity"], 0, ",", ".") ?></td>
                                 <td><a onclick='return confirmDelete()' href="?page=Cart&action=del&id=<?php echo $key ?>">REMOVE</a></td>
                             </tr>
-                            <?php 
+                            <?php
                             $total += $row["gia"] * $row["quantity"];
                         } ?>
                     </tbody>
@@ -109,8 +122,8 @@
                  $this.find("td.wineTotal").html(total);
              });
                var totalCart = 0;
-               $('td.wineTotal').each(function() {     
-                totalCart = totalCart + parseInt($(this).text());                     
+               $('td.wineTotal').each(function() {
+                totalCart = totalCart + parseInt($(this).text());
             });
 
                $("#totalCart").html(totalCart);
