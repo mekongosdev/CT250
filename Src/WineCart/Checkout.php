@@ -20,6 +20,7 @@ if (isset($_POST['btnUpdate']))
         //Lấy từng sản phẩm trong giỏ hàng lưu vào CSDL
     foreach ($_SESSION["cart"] as $key => $row)
     {
+      
       $quantity = $_SESSION['cart'][$key]['quantity'];
       $price = ($_SESSION['cart'][$key]['quantity'] * $_SESSION['cart'][$key]['gia']);
       $ori_price = ($_SESSION['cart'][$key]['quantity'] * $_SESSION['cart'][$key]['giagoc']);

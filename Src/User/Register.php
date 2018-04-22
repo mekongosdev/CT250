@@ -12,7 +12,13 @@ $dayofbirth = date_default_timezone_set('Asia/Tokyo');
 $identitycard="";
 if(isset($_POST["btnRegister"]))
 {
+	$sqlquery = "SELECT `Username`, `Password`, `FullName`, `Sex`, `Address`, `Phone`, `Email`, `DateOfBirth`, `IC`, `Status`, `Role` FROM `user` WHERE Username = '".$_POST['txtUsername']."' ";
+	mysql_query($sqlquery);
 	
+	if($sqlquery != null)
+	{
+		echo '<script> aleart("Tài khoản đã tồn tại")</script>';
+	}
 	$password = $_POST["txtPassword"];
 	$repeatpassword = $_POST["txtRepeatPassword"];
 	if($password!=$repeatpassword){
