@@ -85,52 +85,56 @@ while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 						$resultPrice = mysql_query($sqlSelect);
 						while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
 						{
-							?>
-							<p><span><?php echo  "$".$rowPrice['PurchasePrice']?></span> <i class="item_price"><?php echo  "$".$rowPrice['SellingPrice']?></i></p>
-							<?php 
-						}
+							$sqlPromotion = "SELECT `PromotionDiscount` from promotion_wine, promotion WHERE promotion_wine.PromotionId = promotion.PromotionId and promotion_wine.WineId = ".$rowPrice['WineId'];
+							$resulPromotion = mysql_query($sqlPromotion);
+							while ($rowPromotion=mysql_fetch_array($resulPromotion,MYSQL_ASSOC)) 
+							{
+								?>
+						<p><span><?php echo "$"; echo  (($rowPromotion['PromotionDiscount']/100)*$rowPrice['SellingPrice'])+$rowPrice['SellingPrice'];?></span> <i class="item_price"><?php echo  "$".$rowPrice['SellingPrice']?></i></p>
+								<?php 
+							}}
 
-						?> 
-					</div>
-					<h5>Color</h5>
-					<div class="color-quality">
-						<ul>
-							<li><a href="#"><span></span>Red</a></li>
-							<li><a href="#" class="brown"><span></span>Yellow</a></li>
-							<li><a href="#" class="purple"><span></span>Purple</a></li>
-							<li><a href="#" class="gray"><span></span>Violet</a></li>
-						</ul>
-					</div>
-					<br/>
-					<form name="frmOrder" id="frmOrder" method="post" action="#">
-						<div class="form-group row">
-							<label for="wine-quantity" class="col-sm-2 control-label">Quantity</label>
-							<div class="col-sm-3">
-								<div class="input-group bootstrap-touchspin">
-									<input id="wine-quantity" class="form-control text-center" name="txtOrder" value="1"/>         
+							?> 
+						</div>
+						<h5>Color</h5>
+						<div class="color-quality">
+							<ul>
+								<li><a href="#"><span></span>Red</a></li>
+								<li><a href="#" class="brown"><span></span>Yellow</a></li>
+								<li><a href="#" class="purple"><span></span>Purple</a></li>
+								<li><a href="#" class="gray"><span></span>Violet</a></li>
+							</ul>
+						</div>
+						<br/>
+						<form name="frmOrder" id="frmOrder" method="post" action="#">
+							<div class="form-group row">
+								<label for="wine-quantity" class="col-sm-2 control-label">Quantity</label>
+								<div class="col-sm-3">
+									<div class="input-group bootstrap-touchspin">
+										<input id="wine-quantity" class="form-control text-center" name="txtOrder" value="1"/>         
+									</div>
 								</div>
-							</div>
-							<div class="col-sm-7">
-								<div class="modal_body_right_cart simpleCart_shelfItem">
-									<?php
-									if ($row['WineQuantity'] > 0) 
-									{
-										?>
-										<input class="btn btn-success item_add" type="submit" name="btnOrder" id="btnOrder" value="Add to Cart">
+								<div class="col-sm-7">
+									<div class="modal_body_right_cart simpleCart_shelfItem">
 										<?php
-									} else {
+										if ($row['WineQuantity'] > 0) 
+										{
+											?>
+											<input class="btn btn-success item_add" type="submit" name="btnOrder" id="btnOrder" value="Add to Cart">
+											<?php
+										} else {
+											?>
+											<p><a class="item_add" href="#">Out of stock</a></p>
+											<?php
+										}
 										?>
-										<p><a class="item_add" href="#">Out of stock</a></p>
-										<?php
-									}
-									?>
+									</div>
 								</div>
-							</div>
-						</div>  
-					</form>       
+							</div>  
+						</form>       
+					</div>
+					<div class="clearfix"> </div>
 				</div>
-				<div class="clearfix"> </div>
 			</div>
 		</div>
-	</div>
-	<?php } ?>
+		<?php } ?>

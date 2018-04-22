@@ -31,17 +31,29 @@
 									<!-- <h5><a href="single.html">Skirts</a></h5> -->
 									<?php echo  '<h5><a href="single.html">'.$row['WineName'].'</a></h5>';  ?>
 									<div class="simpleCart_shelfItem">
-										<?php 
-										$sqlSelect = "
-										SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+										<?php 							
+										// echo $row['WineId'] . ' ';			
+										$sqlSelect2 ="select time_wine.WineId, promotionDiscount, time_wine.PurchasePrice, 
+										time_wine.SellingPrice, time_wine.Note FROM wine 
+										JOIN promotion_wine ON promotion_wine.WineId = wine.WineId 
+										JOIN promotion ON promotion.PromotionId = promotion_wine.PromotionId 
+										JOIN time_wine ON time_wine.WineId = wine.WineId 
+										WHERE time_wine.WineId = {$row['WineId']} AND time_wine.WineId = wine.WineId order by `TimeId` desc LIMIT 1";
 
-										$resultPrice = mysql_query($sqlSelect);
+										// $sqlSelect = "
+										//  SELECT `WineId`, `TimeId`, `PurchasePrice`, `SellingPrice`, 
+										// `Note` FROM `time_wine` WHERE `WineId` ='".$row['WineId']."' order by `TimeId` desc limit 1";
+									
+										$resultPrice = mysql_query($sqlSelect2);
 										while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
 										{
 											?>
-											<p><span><?php echo  "$".$rowPrice['PurchasePrice']?>
+											<p><span><?php echo  "$".$rowPrice['SellingPrice']?> </br>
+											
 
-											</span> <i class="item_price"><?php echo  "$".$rowPrice['SellingPrice']?></i></p>
+											</span> <i class="item_price"><?php echo  "$".$rowPrice['PurchasePrice'];?></i></p>
+
+												</span> <i class="item_price"><?php echo "Discount".$rowPrice['promotionDiscount']."%";?></i></p>
 											<?php 
 										}
 										if ($row['WineQuantity'] > 0) 
@@ -59,6 +71,7 @@
 								</div>
 							</div> 
 							<?php } ?>
+						
 							<div class="clearfix"> </div>
 						</div>
 					</div>
