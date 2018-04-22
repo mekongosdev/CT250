@@ -90,7 +90,7 @@ while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
 							while ($rowPromotion=mysql_fetch_array($resulPromotion,MYSQL_ASSOC)) 
 							{
 								?>
-								<p><span><?php echo  "$".($rowPromotion['PromotionDiscount']/100)*$rowPrice['SellingPrice'];?></span> <i class="item_price"><?php echo  "$".$rowPrice['SellingPrice']?></i></p>
+						<p><span><?php echo "$"; echo  (($rowPromotion['PromotionDiscount']/100)*$rowPrice['SellingPrice'])+$rowPrice['SellingPrice'];?></span> <i class="item_price"><?php echo  "$".$rowPrice['SellingPrice']?></i></p>
 								<?php 
 							}}
 

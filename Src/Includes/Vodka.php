@@ -38,29 +38,33 @@
 										$resultPrice = mysql_query($sqlSelect);
 										while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
 										{
-											?>
-											<p><span><?php echo  "$".$rowPrice['PurchasePrice']?>
+											$sqlPromotion = "SELECT `PromotionDiscount` from promotion_wine, promotion WHERE promotion_wine.PromotionId = promotion.PromotionId and promotion_wine.WineId = ".$rowPrice['WineId'];
+											$resulPromotion = mysql_query($sqlPromotion);
+											while ($rowPromotion=mysql_fetch_array($resulPromotion,MYSQL_ASSOC)) 
+											{
+												?>
+												<p><span><?php echo  "$"; echo (($rowPromotion['PromotionDiscount']/100)*$rowPrice['SellingPrice'])+$rowPrice['SellingPrice']?>
 
-											</span> <i class="item_price"><?php echo  "$".$rowPrice['SellingPrice']?></i></p>
-											<?php 
-										}
-										if ($row['WineQuantity'] > 0) 
-										{
-											?>
-											<p><a class="item_add" href="?func=dathang&ma=<?php echo  $row['WineId']?>">Add to card</a></p>
-											<?php
-										} else {
-											?>
-											<p><a class="item_add" href="#">Out of stock</a></p>
-											<?php
-										}
-										?> 
+												</span> <i class="item_price"><?php echo  "$".$rowPrice['SellingPrice']?></i></p>
+												<?php 
+											}}
+											if ($row['WineQuantity'] > 0) 
+											{
+												?>
+												<p><a class="item_add" href="?func=dathang&ma=<?php echo  $row['WineId']?>">Add to card</a></p>
+												<?php
+											} else {
+												?>
+												<p><a class="item_add" href="#">Out of stock</a></p>
+												<?php
+											}
+											?> 
+										</div>
 									</div>
-								</div>
-							</div> 
-							<?php } ?>
-							<div class="clearfix"> </div>
+								</div> 
+								<?php } ?>
+								<div class="clearfix"> </div>
+							</div>
 						</div>
 					</div>
-				</div>
 				<!-- //new-products -->
