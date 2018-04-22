@@ -500,11 +500,16 @@ if ($row['WineQuantity'] > 0)
      $resultPrice = mysql_query($sqlSelect);
      while ($rowPrice=mysql_fetch_array($resultPrice,MYSQL_ASSOC)) 
      {
-      ?>
-      <p><span><?php echo  $rowPrice['PurchasePrice']?>
-      </span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i>
-    </p>
-    <?php 
+      $sqlPromotion = "SELECT `PromotionDiscount` from promotion_wine, promotion WHERE promotion_wine.PromotionId = promotion.PromotionId and promotion_wine.WineId = ".$rowPrice['WineId'];
+      $resulPromotion = mysql_query($sqlPromotion);
+      while ($rowPromotion=mysql_fetch_array($resulPromotion,MYSQL_ASSOC)) 
+      {
+        ?>
+        <p><span><?php echo  ($rowPromotion['PromotionDiscount']/100)*$rowPrice['SellingPrice'];?>
+        </span> <i class="item_price"><?php echo  $rowPrice['SellingPrice']?></i>
+      </p>
+      <?php 
+    }
   }
   if ($row['WineQuantity'] > 0) 
   {
