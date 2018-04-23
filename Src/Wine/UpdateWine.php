@@ -1,4 +1,4 @@
-<?php 
+<?php
 $WineId = 0;
 if(isset($_GET['WineId']))
 	$WineId=$_GET['WineId'];
@@ -56,33 +56,33 @@ if(isset($_POST['btnUpdate']))
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtName">Wine names:</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="wineName" name="wineName" value="<?php echo $name; ?>" >
+				<input type="text" class="form-control" id="wineName" name="txtName" value="<?php echo $name; ?>" >
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtstrength">Strong:</label>
-			<div class="col-md-10">          
+			<div class="col-md-10">
 
-				<input type="text" class="form-control" id="txtstrength" name="txtstrength" value="<?=$strength; ?>" 
+				<input type="text" class="form-control" id="txtstrength" name="txtstrength" value="<?=$strength; ?>"
 				required  >
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtShort">Short Details:</label>
-			<div class="col-md-10">          
+			<div class="col-md-10">
 				<input type="text" class="form-control" id="txtShort" name="txtShort" value="<?=$shortdetails; ?>"
 				required  >
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtDetails">Details:</label>
-			<div class="col-md-10">          
+			<div class="col-md-10">
 				<textarea name="txtDetails" class="form-control"  required><?=$details; ?></textarea>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtNum">Quantity:</label>
-			<div class="col-md-10">          
+			<div class="col-md-10">
 				<input type="text" class="form-control" id="txtNum"  name="txtNum" value="<?php echo $quantity ; ?>"
 				required  >
 			</div>
@@ -90,13 +90,13 @@ if(isset($_POST['btnUpdate']))
 
 		<div class="form-group">
 			<label class="control-label col-md-2" for="slPublisher">Producer:</label>
-			<div class="col-md-10">          
+			<div class="col-md-10">
 				<?php
 				$sqlSelect = "SELECT `PublisherId`, `PublisherName`, `PublisherDescription` FROM `publisher`";
 				$result = mysql_query($sqlSelect);
 				$selectedValue = $idPub;
 				echo "<select name='slPublisher' class='form-control'>";
-				while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) 
+				while ($row=mysql_fetch_array($result,MYSQL_ASSOC))
 				{
 					if($row['PublisherId'] == $selectedValue)
 					{
@@ -114,13 +114,13 @@ if(isset($_POST['btnUpdate']))
 		</div>
 		<div class="form-group">
 			<label class="control-label col-md-2" for="slCategory">Category:</label>
-			<div class="col-md-10">          
+			<div class="col-md-10">
 				<?php
 				$sqlSelect = "SELECT `CategoryId`, `CategoryName`, `CategoryDescription` FROM `category`";
 				$result = mysql_query($sqlSelect);
 				$selectedValue = $idCat;
 				echo "<select name='slCategory' class='form-control'>";
-				while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) 
+				while ($row=mysql_fetch_array($result,MYSQL_ASSOC))
 				{
 					if($row['CategoryId'] == $selectedValue)
 					{
@@ -138,13 +138,13 @@ if(isset($_POST['btnUpdate']))
 		</div>
 		<div class="form-group">
 			<label class="control-label col-md-2" for="slCountry">Origin:</label>
-			<div class="col-md-10">          
+			<div class="col-md-10">
 				<?php
 				$sqlSelect = "SELECT `CountryId`, `CountryName`, `CountryDetails` FROM `country`";
 				$result = mysql_query($sqlSelect);
 				$selectedValue = $idCountry;
 				echo "<select name='slCountry' class='form-control'>";
-				while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) 
+				while ($row=mysql_fetch_array($result,MYSQL_ASSOC))
 				{
 					if($row['CountryId'] == $selectedValue)
 					{
@@ -159,16 +159,16 @@ if(isset($_POST['btnUpdate']))
 				echo "</select>";
 				?>
 			</div>
-			
+
 		</div>
 		<div class="form-group">
 			<label class="control-label col-md-2" for="txtDate">Update date:</label>
-			<div class="col-md-10">          
+			<div class="col-md-10">
 				<input type="date" class="form-control" id="txtDate" name="txtDate"
 				required  value="<?php echo $wineupdate; ?>">
 			</div>
 		</div>
-		<div class="form-group">        
+		<div class="form-group">
 			<div class="col-md-offset-2 col-md-10">
 				<button type="submit" class="btn btn-info" name="btnUpdate" onclick=""><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Update</button>
 				<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
